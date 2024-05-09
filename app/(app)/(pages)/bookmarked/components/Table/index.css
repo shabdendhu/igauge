@@ -1,0 +1,45 @@
+table {
+    border-collapse: collapse;
+    border: 1px #EAEAEA;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+  
+  caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  tr{
+    border:none;
+  }
+  
+  thead,
+  tfoot {
+  text-align: left;
+  }
+  
+  th {
+    border: 1px solid  #EAEAEA;
+    padding: 21px 10px;
+  }
+  
+  td {
+    border-right: 1px solid #EAEAEA;
+    padding: 8px 10px;
+ 
+  }
+
+  .university-badge{
+   display: flex;
+    justify-content: center;
+  }
+  
+  td:last-of-type {
+    text-align: left;
+  }
+  
+
+  
