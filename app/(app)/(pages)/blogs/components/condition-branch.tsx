@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
 const ConditionBranch: NextPage = () => {
   return (
     <section className="self-stretch flex flex-col items-start justify-start py-0 px-0 box-border max-w-full text-left text-17xl text-black font-libre-baskerville">
       <header className="self-stretch bg-white box-border flex flex-row items-start justify-between py-0 pr-0.5 pl-[134px] top-[0] z-[99] sticky gap-[20px] max-w-full text-left text-mini text-black font-red-hat-display border-[1px] border-solid border-whitesmoke-100 mq900:pl-[33px] mq900:box-border mq1275:pl-[67px] mq1275:box-border">
-        <div className="self-stretch w-[1920px] relative bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke-100" />
+        <div className="self-stretch w-full relative bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke-100" />
         <div className="h-[91px] w-[225px] flex flex-col items-start justify-start pt-[19px] px-0 pb-0 box-border">
           <img
             className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full z-[1]"
@@ -145,7 +145,7 @@ const ConditionBranch: NextPage = () => {
         </div>
       </header>
       <div className="self-stretch bg-papayawhip box-border flex flex-row items-start justify-between py-10 pr-[137px] pl-[149px] max-w-full gap-[20px] border-[1px] border-solid border-orange-200 mq900:pl-[37px] mq900:pr-[34px] mq900:box-border mq1275:flex-wrap mq1275:pl-[74px] mq1275:pr-[68px] mq1275:box-border">
-        <div className="h-32 w-[1920px] relative bg-papayawhip box-border hidden max-w-full border-[1px] border-solid border-orange-200" />
+        <div className="h-32 w-full relative bg-papayawhip box-border hidden max-w-full border-[1px] border-solid border-orange-200" />
         <h3 className="m-0 w-[608px] relative text-inherit font-bold font-inherit inline-block shrink-0 max-w-full z-[1] mq450:text-3xl mq900:text-10xl">
           Blogs
         </h3>

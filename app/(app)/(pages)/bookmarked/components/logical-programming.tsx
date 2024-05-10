@@ -1,9 +1,9 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
 const LogicalProgramming: NextPage = () => {
   return (
     <footer className="self-stretch bg-white box-border flex flex-col items-start justify-start pt-[77px] px-[129px] pb-[30px] gap-[64px] max-w-full text-left text-5xl text-black font-red-hat-text border-[1px] border-solid border-whitesmoke-200 mq450:gap-[16px] mq900:gap-[32px] mq900:pt-[50px] mq900:px-8 mq900:pb-5 mq900:box-border mq1275:pl-16 mq1275:pr-16 mq1275:box-border">
-      <div className="w-[1920px] h-[582px] relative bg-white box-border hidden max-w-full border-t-[1px] border-solid border-whitesmoke-200" />
+      <div className="w-full h-[582px] relative bg-white box-border hidden max-w-full border-t-[1px] border-solid border-whitesmoke-200" />
       <div className="w-[1638px] flex flex-row items-start justify-start py-0 px-1 box-border max-w-full text-darkslategray-200">
         <div className="flex-1 flex flex-col items-start justify-start gap-[47px] max-w-full mq900:gap-[23px]">
           <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-0.5 box-border max-w-full">

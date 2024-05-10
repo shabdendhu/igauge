@@ -284,7 +284,7 @@ const Header: FunctionComponent = () => {
 export default Header;
 
 // <header className="self-stretch flex flex-row items-start justify-between py-0 pr-0 pl-[135px] box-border gap-[20px] max-w-full z-[5] text-left text-mini text-black font-red-hat-display mq900:pl-[33px] mq900:box-border mq1275:pl-[67px] mq1275:box-border gap-[300px]">
-//   <div className="self-stretch w-[1920px] relative bg-white hidden max-w-full" />
+//   <div className="self-stretch w-full relative bg-white hidden max-w-full" />
 //   <div className="h-[91px] w-[225px] flex flex-col items-start justify-start pt-[19px] px-0 pb-0 box-border">
 //     <img
 //       className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full z-[1]"

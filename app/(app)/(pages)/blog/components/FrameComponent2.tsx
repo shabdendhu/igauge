@@ -1,9 +1,9 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent } from "react";
 
 const FrameComponent2: FunctionComponent = () => {
   return (
     <header className="self-stretch bg-white box-border flex flex-row items-start justify-between py-0 pr-0.5 pl-[134px] top-[0] z-[99] sticky gap-[20px] max-w-full text-left text-mini text-black font-red-hat-display border-[1px] border-solid border-whitesmoke mq900:pl-[33px] mq900:box-border mq1300:pl-[67px] mq1300:box-border">
-      <div className="self-stretch w-[1920px] relative bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke" />
+      <div className="self-stretch w-full relative bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke" />
       <div className="h-[91px] w-[225px] flex flex-col items-start justify-start pt-[19px] px-0 pb-0 box-border">
         <img
           className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full z-[1]"

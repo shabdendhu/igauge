@@ -62,7 +62,7 @@ const FrameComponent5: FunctionComponent = () => {
         <div className="flex z-[2] w-[300px] self-center mt-[50px] mdm:w-[182px] block sm:hidden">
           <img className="h-full w-full" alt="" src="/frame-29.svg" />
         </div>
-        <div className="w-[1920px] !m-[0] absolute top-[0px] left-[0px] flex flex-row items-start justify-start max-w-full text-36xl text-black font-libre-baskerville">
+        <div className="w-full !m-[0] absolute top-[0px] left-[0px] flex flex-row items-start justify-start max-w-full text-36xl text-black font-libre-baskerville">
           <img
             className="h-[604px] w-[618px] absolute !m-[0] bottom-[-75px] left-[-140px] z-[1]"
             alt=""

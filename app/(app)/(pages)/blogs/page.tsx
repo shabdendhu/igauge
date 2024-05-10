@@ -21,7 +21,7 @@ const BlogsV2Approved: NextPage = () => {
           </p>
         </div>
       </div>
-      <div className="max-w-[1920px] m-auto px-6 md:px-[150px]">
+      <div className="w-full m-auto px-6 md:px-[150px]">
         <div className="w-full block md:hidden ">
           <div className="flex justify-center items-center px-5  w-full    h-10  ">
             <div className="flex w-full h-full justify-start items-center  rounded-sm ">
@@ -35,7 +35,7 @@ const BlogsV2Approved: NextPage = () => {
                 </div>
 
                 <input
-                  className="ml-3 h-full   text-sm    "
+                  className="ml-3 h-full   text-sm "
                   type="text"
                   id="search"
                   placeholder="Search something.."

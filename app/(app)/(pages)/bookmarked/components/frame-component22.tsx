@@ -1,10 +1,10 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
 const FrameComponent2: NextPage = () => {
   return (
     <header className="self-stretch flex flex-row items-start justify-start pt-0 px-0 pb-1.5 box-border max-w-full text-left text-mini text-black font-red-hat-display">
       <div className="flex-1 bg-white box-border flex flex-row items-start justify-between py-0 pr-0.5 pl-[134px] gap-[20px] max-w-full border-[1px] border-solid border-whitesmoke-200 mq900:pl-[33px] mq900:box-border mq1275:pl-[67px] mq1275:box-border">
-        <div className="self-stretch w-[1920px] relative bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke-200" />
+        <div className="self-stretch w-full relative bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke-200" />
         <div className="h-[91px] w-[225px] flex flex-col items-start justify-start pt-[19px] px-0 pb-0 box-border">
           <img
             className="self-stretch flex-1 relative max-w-full overflow-hidden max-h-full z-[1]"

@@ -1,9 +1,9 @@
-import type { NextPage } from 'next';
+import type { NextPage } from "next";
 
 const ShapeSplitter: NextPage = () => {
   return (
     <section className="mr-[-1px] self-stretch bg-white box-border flex flex-col items-start justify-start pt-[77px] px-[129px] pb-[30px] gap-[41px] max-w-full text-left text-5xl text-black font-red-hat-text border-[1px] border-solid border-whitesmoke-100 mq900:gap-[20px] mq900:pt-[50px] mq900:px-8 mq900:pb-5 mq900:box-border mq1275:pl-16 mq1275:pr-16 mq1275:box-border">
-      <div className="w-[1920px] h-[582px] relative bg-white box-border hidden max-w-full border-t-[1px] border-solid border-whitesmoke-100" />
+      <div className="w-full h-[582px] relative bg-white box-border hidden max-w-full border-t-[1px] border-solid border-whitesmoke-100" />
       <div className="w-[1631px] flex flex-row items-start justify-start py-0 px-1.5 box-border max-w-full">
         <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq900:flex-wrap">
           <img
