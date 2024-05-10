@@ -6,7 +6,7 @@ import ImageSwiper from "../../components/ImageSwiper.tsx";
 import RatingSection from "./sub-components/RatingSection";
 const VideoPlayer = () => {
   return (
-    <div className="w-full mx-auto">
+    <div className="w-full mx-auto aspect-[1230/650]">
       <video controls className="w-full" poster="/rectangle-271@2x.png">
         <source
           src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
@@ -69,19 +69,51 @@ const SingleListingV2Approved: NextPage = () => {
       <ImageSwiper images={images} />
       <section className="crm-university-section grid grid-cols-12 w-full px-[100px] mq1275:px-[30px] ">
         <div className="col-span-6 mt-[80px] flex flex-col gap-[14px] mq900:col-span-12">
-          <h1 className=" text-[45px] font-bold font-libre-baskerville mq450:text-19xl mq900:text-[51px]">
+          <h1 className=" text-[45px] font-bold font-libre-baskerville mq450:text-19xl mq900:text-[51px] xl:text-[64px]">
             CMR University
           </h1>
-          <div className=" text-[16px] font-inter text-darkslategray inline-block w-[663px] mq900:w-full mq450:text-lg w-[70%]">
+          <div className=" text-[16px] font-inter text-darkslategray inline-block w-[663px] mq900:w-full mq450:text-lg w-[70%] xl:text-[25px]">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium...
           </div>
-          <img
-            className="w-[169px] h-[120px] object-cover"
-            loading="lazy"
-            alt=""
-            src="/image-25@2x.png"
-          />
+          <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-10 md:w-[70%]">
+            <img
+              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+              loading="lazy"
+              alt=""
+              src="/image-25@2x.png"
+            />
+            <img
+              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+              loading="lazy"
+              alt=""
+              src="/image-25@2x.png"
+            />
+            <img
+              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+              loading="lazy"
+              alt=""
+              src="/image-25@2x.png"
+            />
+            <img
+              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+              loading="lazy"
+              alt=""
+              src="/image-25@2x.png"
+            />
+            <img
+              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+              loading="lazy"
+              alt=""
+              src="/image-25@2x.png"
+            />
+            <img
+              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+              loading="lazy"
+              alt=""
+              src="/image-25@2x.png"
+            />
+          </div>
         </div>
 
         {/** Card section */}
@@ -281,7 +313,7 @@ const SingleListingV2Approved: NextPage = () => {
                 </div>
               </div> */}
               <VideoPlayer />
-              <div className="flex flex-row items-start justify-end py-0 box-border max-w-full text-17xl text-white">
+              <div className="flex flex-row items-start justify-end py-0 box-border max-w-full text-17xl text-white w-full">
                 <div className="flex-1 rounded-8xs bg-darkslateblue flex flex-row items-start justify-start relative max-w-full">
                   <div className="self-stretch w-[1210px] relative rounded-8xs bg-darkslateblue hidden max-w-full z-[0]" />
                   <div className="flex-1 flex flex-row items-center justify-center pt-[20px] pb-[20px] pr-[20px] pl-[20px] box-border relative gap-[36px] max-w-full mq1275:flex-wrap mq1275:pl-[140px] mq1275:pr-[35px] mq1275:box-border mq450:pl-5 mq450:box-border mq900:gap-[18px] mq900:pl-[70px] mq900:box-border">
@@ -299,7 +331,7 @@ const SingleListingV2Approved: NextPage = () => {
                         voluptatem accusantium doloremque laudantium...
                       </div>
                     </div>
-                    <div className="flex flex-col items-start justify-start pt-[37px] px-0 pb-0 box-border mq1275:flex-1">
+                    <div className="flex flex-col items-start justify-start px-0 pb-0 box-border mq1275:flex-1">
                       <button className="cursor-pointer [border:none] pt-[16px] pb-[16px] pr-9 pl-[16px] bg-orange-200 flex flex-row items-start justify-start gap-[18px] z-[1]">
                         <div className="h-[77px] w-[313px] relative bg-orange-200 hidden" />
                         <img
@@ -315,7 +347,7 @@ const SingleListingV2Approved: NextPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col items-start justify-start py-0 pr-px pl-0 box-border gap-[38px] max-w-full text-40xl mq900:gap-[19px_38px]">
+              <div className="flex flex-col items-start justify-start py-0 pr-px pl-0 box-border gap-[38px] max-w-full text-40xl mq900:gap-[19px_38px] w-full">
                 <h1 className="relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
                   Location
                 </h1>
