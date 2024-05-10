@@ -52,7 +52,7 @@ const TextBlock = () => {
 };
 const FrameComponent10: FunctionComponent = () => {
   return (
-    <section className="flex flex-col w-full relative bg-[url('/rectangle-162.svg')] bg-no-repeat pb-16">
+    <section className="flex flex-col w-full relative bg-[url('/rectangle-162.svg')]  pb-16">
       <div className="">
         <div className="h-full w-full flex justify-between z-0 absolute ">
           <div className="h-full max-h-[783px]  border-r-[1px] border-orange-100/15 " />

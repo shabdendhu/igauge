@@ -19,7 +19,7 @@ import Footer from "../../components/Footer";
 const HomeV2Approved: FunctionComponent = () => {
   return (
     <div>
-      <div className="max-w-1920 ">
+      <div className="w-full ">
         <FrameComponent10 />
         <div className="px-6 sm:px-[150px] mt-20 sm:mt-48">
           <FrameComponent9 />

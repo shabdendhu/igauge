@@ -1,3 +1,4 @@
+"use client";
 import type { NextPage } from "next";
 import ConditionBranch from "./components/condition-branch";
 import FrameComponent1 from "./components/frame-component12";
@@ -7,7 +8,13 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BlogCardSmall from "@/app/(app)/components/v1/BlogCardSmall";
 import Link from "next/link";
+import { blogs } from "@/app/(app)/Constants";
+import React from "react";
+import { useState, useEffect } from "react";
+
 const BlogsV2Approved: NextPage = () => {
+  console.log("blogs----------", blogs);
+
   return (
     <div>
       <div className="flex w-full h-16 justify-between items-center mb-10 bg-orange-100/30  border border-orange-200 px-6 md:px-[150px]">
@@ -204,13 +211,21 @@ const BlogsV2Approved: NextPage = () => {
         <div className="grid grid-cols-7  gap-8">
           <div className="col-start-1 col-span-7 md:col-span-5 ">
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-3 md:gap-[50px]">
+              {blogs.map((item, key) => (
+                <BlogCardSmall
+                  image={item.image}
+                  title={item.title}
+                  date={item.date}
+                  description={item.description}
+                />
+              ))}
+
+              {/* <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
+              <BlogCardSmall /> */}
 
               <div className=" border  flex flex-col h-fit">
                 <div className="h-3/5 relative">
