@@ -17,6 +17,8 @@ import SubjectName from "@/collections/Subjects";
 import Category from "@/collections/Category";
 import Pages from "@/collections/Pages";
 import Features from "@/collections/Features";
+import States from "@/collections/States";
+import Cities from "@/collections/Cities";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -37,6 +39,8 @@ export default buildConfig({
     Blogscategory,
     Events,
     Features,
+    States,
+    Cities,
   ],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
