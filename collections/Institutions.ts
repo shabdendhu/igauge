@@ -53,8 +53,8 @@ const Institutions: CollectionConfig = {
                 },
                 {
                   name: "state",
-                  type: "text",
-
+                  type: "relationship",
+                  relationTo: "states",
                   label: "State",
                   admin: {
                     width: "25%",
@@ -62,13 +62,13 @@ const Institutions: CollectionConfig = {
                 },
                 {
                   name: "city",
-                  type: "text",
+                  type: "relationship",
+                  relationTo: "cities",
                   label: "City",
                   admin: {
                     width: "25%",
                   },
                 },
-
                 {
                   name: "type",
                   type: "radio",
