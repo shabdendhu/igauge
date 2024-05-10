@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import BookmarkInstitutionCompariso from "./sub-components/bookmark-institution-compariso";
 import TabSection from "../../components/TabSection";
-
+import TabBar from "@/app/(app)/components/v1/TabBar";
 const Dashboard: NextPage = () => {
   return (
     <div className="px-6 md:px-20 bg-white overflow-hidden flex flex-col items-start justify-start xl:px-[150px] md:px-[100px]">
