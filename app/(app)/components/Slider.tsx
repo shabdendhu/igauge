@@ -50,7 +50,7 @@ const Slider: FunctionComponent<SliderType> = ({
   }, [propDebugCommit1]);
 
   return (
-    <div className="flex flex-col items-start justify-start pt-[50px] px-6 sm:px-[150px] box-border max-w-full text-left text-45xl text-black font-libre-baskerville mq450:pt-8 mq450:box-border mq900:pt-[49px] mq900:box-border mq900:min-w-full mq1600:flex-1">
+    <div className="flex flex-col items-start justify-start pt-[76px] px-0 pb-0 box-border max-w-full text-left text-45xl text-black font-libre-baskerville mq450:pt-8 mq450:box-border mq900:pt-[49px] mq900:box-border mq900:min-w-full mq1600:flex-1">
       <div
         className="self-stretch flex flex-col items-start justify-start pt-0 px-0  box-border gap-[29px] max-w-full  mq900:box-border  mq1275:box-border mdm:pb-[20px]"
         style={radioButtonsStyle}
@@ -64,7 +64,7 @@ const Slider: FunctionComponent<SliderType> = ({
             className="self-stretch relative mq450:text-lgi"
             style={sedUtPerspiciatisContainerStyle}
           >
-            <p className="m-0">injn ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            <p className="m-0">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. `}</p>
             <p className="m-0">&nbsp;</p>
             <p className="m-0">
               Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,

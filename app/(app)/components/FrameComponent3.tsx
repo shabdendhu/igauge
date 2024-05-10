@@ -38,13 +38,13 @@ const cities = [
 
 const Card = ({ title, image }: { title: string; image: string }) => {
   return (
-    <div className="max-w-[390px] flex flex-row items-start justify-start pt-[58px] px-[38px] pb-14 box-border relative max-w-full bg-gradient-to-t from-black  to-black">
+    <div className="max-w-[390px] flex flex-row items-start justify-start pt-[58px] px-[38px] pb-14 box-border relative max-w-full">
       <img
-        className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover opacity-80"
+        className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
         alt=""
         src={image}
       />
-      <div className="w-[190px] relative font-semibold  inline-block shrink-0 z-[1] mq450:text-lgi">
+      <div className="w-[190px] relative font-semibold inline-block shrink-0 z-[1] mq450:text-lgi">
         {title}
       </div>
     </div>

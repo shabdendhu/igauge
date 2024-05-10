@@ -8,7 +8,7 @@ const TopRatedCollection: FunctionComponent = () => {
           Top Rated Collections Section
         </h1>
 
-        <div className="flex flex-row justify-between w-2/3 mq1275:w-full">
+        <div className="flex flex-row justify-around w-2/3 mq1275:w-full">
           <div className="flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] bg-orange-100 smm:text-[10px] smm:h-[60px]">
             University
           </div>

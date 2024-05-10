@@ -50,12 +50,12 @@ const Accordion = () => {
 const FAQSection: FunctionComponent = () => {
   const arr = [1, 2, 4, 5, 6, 6, 6];
   return (
-    <section className="self-stretch mt-[220px] flex flex-col items-start justify-center pt-0 pb-[238px] pr-5 pl-[57px] box-border max-w-full text-left text-5xl text-black font-inter mq900:pb-[101px] mq900:box-border mq900:mt-[50px] mq1275:pl-7 mq1275:pb-[155px] mq1275:box-border">
+    <section className="self-stretch mt-32 flex flex-col items-start justify-center pt-0 pb-[238px] pr-5 pl-[57px] box-border max-w-full text-left text-5xl text-black font-inter mq900:pb-[101px] mq900:box-border mq900:mt-[50px] mq1275:pl-7 mq1275:pb-[155px] mq1275:box-border">
       <div className="flex flex-col items-start justify-start gap-[29px] max-w-full">
         <div className="self-stretch flex flex-row items-end justify-between max-w-full gap-[20px] text-36xl font-libre-baskerville mq1600:flex-wrap">
           <div className="w-[974px] flex flex-col items-start justify-start pt-0 px-0 pb-[41px] box-border min-w-[974px] min-h-[187px] max-w-full mq900:z-[2] mq1275:min-w-full mq1600:flex-1">
             <div className="self-stretch flex flex-col items-start justify-start gap-[19px] max-w-full">
-              <h1 className="m-0 self-stretch relative text-inherit font-bold font-libre-baskerville mq450:text-14xl mq900:text-25xl mq1440:text-[45px]">
+              <h1 className="m-0 self-stretch relative text-inherit font-bold font-inherit mq450:text-14xl mq900:text-25xl mq1440:text-[45px]">
                 Frequently Asked Questions
               </h1>
               <div className="w-[667px] flex flex-row items-start justify-start py-0 px-0.5 box-border max-w-full text-xl text-darkslategray-200 font-red-hat-text">

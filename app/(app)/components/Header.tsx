@@ -30,19 +30,19 @@ const Header: FunctionComponent = () => {
     right: false,
   });
 
-  const toggleDrawer = (anchor: "right", open: boolean) => (
-    event: React.KeyboardEvent | React.MouseEvent
-  ) => {
-    if (
-      event.type === "keydown" &&
-      ((event as React.KeyboardEvent).key === "Tab" ||
-        (event as React.KeyboardEvent).key === "Shift")
-    ) {
-      return;
-    }
+  const toggleDrawer =
+    (anchor: "right", open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
 
-    setState({ ...state, [anchor]: open });
-  };
+      setState({ ...state, [anchor]: open });
+    };
 
   const list = (anchor: "right") => (
     <Box
@@ -123,7 +123,7 @@ const Header: FunctionComponent = () => {
     </Box>
   );
   return (
-    <header className=" flex  justify-between items-center px-6 md:px-[150px] font-red-hat-display w-full h-auto font-normal  gap-x-10 my-2  z-50 bg-white  mb-0  sticky top-0 border-b">
+    <header className=" flex  justify-between items-center px-6  font-red-hat-display w-full h-auto font-normal  gap-x-10 my-2  z-50 bg-white  mb-0  sticky top-0 border-b">
       <div className="flex justify-center items-center w-[150px] h-[72px] md:w-[225px]">
         <img
           className="object-fill h-full w-full"

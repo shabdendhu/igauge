@@ -25,12 +25,12 @@ const FrameComponent7: FunctionComponent = () => {
     },
   ];
   return (
-    <div className="w-full  flex flex-row items-start justify-start gap-[30px] max-w-full text-left text-11xl text-black font-red-hat-text smm:flex-col smm:gap-[10px] sm:overflow-x-auto no-scrollbar">
+    <div className="w-full  flex flex-row items-start justify-start gap-[30px] max-w-full text-left text-11xl text-black font-red-hat-text smm:flex-col smm:gap-[10px] sm:overflow-x-auto">
       {universities.map((university) => {
         return (
           <div
             key={university.name}
-            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0  sm:pb-[50px] box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border"
+            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0  sm:pb-[91px] box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border"
           >
             <div className="self-stretch h-[308.7px] rounded-3xs flex flex-row items-start justify-end pt-[27.300000000000185px] px-0 pb-[27px] box-border bg-cover bg-no-repeat bg-[top] shrink-0 [debug_commit:1de1738] smm:w-full max-w-full">
               <img

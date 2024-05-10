@@ -33,50 +33,52 @@ const Select = ({ label = "select" }) => {
 
 const TextBlock = () => {
   return (
-    <div className="h-full  flex flex-1 flex-col justify-around text-center ">
+    <div className="h-full  flex flex-1 flex-col justify-around ">
       <h1
-        className="text-inherit px-5 font-bold font-inherit inline-block max-w-full z-[2]  text-[38px] sm:text-[64px]
-                
+        className="text-inherit font-bold font-inherit inline-block max-w-full z-[2]  
+                mq450:text-19xl mq900:text-32xl  mq1600:text-[45px] 
                 "
       >
         Looking for Best Institution?
       </h1>
-      <div className="w-full relative  font-red-hat-text text-[20px] z-[2] mq450:text-base ">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
-        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-        explicabo.
-      </div>
+      <div className="w-full relative text-xl font-red-hat-text text-[20px] z-[2] mq450:text-base ">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. `}</div>
     </div>
   );
 };
 const FrameComponent10: FunctionComponent = () => {
   return (
-    <section className="flex flex-col w-full relative bg-[url('/rectangle-162.svg')] bg-no-repeat pb-16">
-      <div className="">
-        <div className="h-full w-full flex justify-between z-0 absolute ">
-          <div className="h-full max-h-[783px]  border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]  border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px] border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]  border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]   border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]   border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]  hidden sm:block border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]  hidden sm:block border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]  hidden sm:block border-r-[1px] border-orange-100/15 " />
-          <div className="h-full max-h-[783px]  hidden sm:block border-r-[1px] border-orange-100/15 " />
+    <section className="min-h-[100px] self-stretch flex flex-row items-start justify-start pt-0 px-0  box-border max-w-full text-center text-45xl text-black font-libre-baskerville mq900:pb-[45px] mq900:box-border mq1275:pb-[69px] mq1275:box-border">
+      <div className="h-[1000px] flex-1 relative [background:linear-gradient(180deg,_#fff0d1_71.5%,_#fff)] overflow-hidden max-w-full mq1275:h-auto mq1275:min-h-[983]">
+        <img
+          className="absolute top-[0px] left-[0px] w-full h-full hidden"
+          alt=""
+          src="/rectangle-162.svg"
+        />
+        <div className="absolute w-full h-full">
+          <div className="grid grid-cols-10 w-full h-full">
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
+            <div className="col-span-1" />
+          </div>
         </div>
-        <div className="w-full px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5 z-[15px]">
+        <div className="w-screen min-h-screen px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5">
           <div className="flex h-1/2 mdm:justify-between mdm:px-10 mq900:px-0">
-            <div className="w-1/4 mdm:w-2/4 z-10">
+            <div className="w-1/4 mdm:w-2/4">
               <img src="/image-16@2x.png" />
             </div>
-            <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px] ">
+            <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
               <div className=" h-full mdm:hidden">
                 <TextBlock />
               </div>
             </div>
-            <div className=" w-1/4 mdm:w-2/4 z-10">
+            <div className=" w-1/4 mdm:w-2/4">
               <img src="/image-15@2x.png" />
             </div>
           </div>
