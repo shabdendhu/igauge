@@ -2,13 +2,18 @@ import React from "react";
 import { blogs } from "@/app/(app)/Constants";
 
 type TProps = {
-  title: String;
-  date: String;
-  description: String;
-  image: string;
+  extractedData: {
+    blog_title: any;
+    first_text: any;
+    blog_category_name: any;
+    featured_image_url: any;
+    createdAt: any;
+    updatedAt: any;
+  };
 };
 
-const BlogCardSmall = (props: TProps) => {
+const BlogCardSmall = ({ extractedData }: TProps) => {
+  console.log("extractedData-----------", extractedData);
   return (
     <div
       className=" border  flex flex-col h-fit "
@@ -21,10 +26,10 @@ const BlogCardSmall = (props: TProps) => {
         <img
           className="h-full  w-full relative object-cover aspect-square  "
           alt=""
-          src={props.image}
+          src={extractedData.featured_image_url}
         />
         <button className="bg-darkslateblue font-libre-baskerville h-7 items-center absolute inline-flex  top-0 m-4 rounded-[4.26px] text-white p-2 text-[10px]">
-          Category
+          {extractedData.blog_category_name}
         </button>
       </div>
       <div className="m-3 h-full flex flex-col gap-y-3 ">
@@ -35,13 +40,13 @@ const BlogCardSmall = (props: TProps) => {
               alt=""
               src="/calendar-1.svg"
             />
-            <p className="text-xs"> {props.date}</p>
+            <p className="text-xs"> {extractedData.updatedAt}</p>
           </div>
           <div className="flex flex-col gap-y-2">
             <p className="text-lg font-libre-baskerville font-semibold">
-              {props.title}
+              {extractedData.blog_title}
             </p>
-            <p className="text-[11px]">{props.description}</p>
+            <p className="text-[11px]">{extractedData.first_text}</p>
           </div>
         </div>
         <div className="h-10 ">

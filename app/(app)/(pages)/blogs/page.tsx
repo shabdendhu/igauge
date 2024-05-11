@@ -15,6 +15,47 @@ import { useState, useEffect } from "react";
 const BlogsV2Approved: NextPage = () => {
   console.log("blogs----------", blogs);
 
+  function extractData(jsonData: object) {
+    const {
+      blog_title,
+      blog_content,
+      category,
+      featured_image,
+      createdAt,
+      updatedAt,
+    } = jsonData;
+
+    // Function to recursively find the first text in the object
+    function findFirstText(obj: object): any {
+      for (const key in obj) {
+        if (typeof obj[key] === "object") {
+          const result = findFirstText(obj[key]);
+          if (result) return result;
+        } else if (key === "text") {
+          return obj[key];
+        }
+      }
+    }
+
+    const firstText = findFirstText(blog_content);
+
+    return {
+      blog_title,
+      first_text: firstText,
+      blog_category_name: category.blog_category_name,
+      featured_image_url: featured_image.url,
+      createdAt,
+      updatedAt,
+    };
+  }
+
+  // Example usage:
+  const jsonData = {
+    /* Your JSON data */
+  };
+  const extractedData = extractData(blogs);
+  console.log("extractedData-------------------", extractedData);
+
   return (
     <div>
       <div className="flex w-full h-16 justify-between items-center mb-10 bg-orange-100/30  border border-orange-200 px-6 md:px-[150px]">
@@ -211,14 +252,19 @@ const BlogsV2Approved: NextPage = () => {
         <div className="grid grid-cols-7  gap-8">
           <div className="col-start-1 col-span-7 md:col-span-5 ">
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-3 md:gap-[50px]">
-              {blogs.map((item, key) => (
-                <BlogCardSmall
-                  image={item.image}
-                  title={item.title}
-                  date={item.date}
-                  description={item.description}
-                />
-              ))}
+              {/* {blogs.map((item, key) => (
+                <div key={key}> */}
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              <BlogCardSmall extractedData={extractedData} />
+              {/* </div> */}
+              {/* ))} */}
 
               {/* <BlogCardSmall />
               <BlogCardSmall />
@@ -227,7 +273,7 @@ const BlogsV2Approved: NextPage = () => {
               <BlogCardSmall />
               <BlogCardSmall /> */}
 
-              <div className=" border  flex flex-col h-fit">
+              {/* <div className=" border  flex flex-col h-fit">
                 <div className="h-3/5 relative">
                   <img
                     className="h-[200px]  w-full relative object-cover aspect-square  "
@@ -271,7 +317,7 @@ const BlogsV2Approved: NextPage = () => {
                     </button>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-start-6 col-span-2    mt-10 hidden md:block">
