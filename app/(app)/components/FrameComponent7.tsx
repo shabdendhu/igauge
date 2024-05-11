@@ -54,7 +54,7 @@ const FrameComponent7: FunctionComponent = ({
         return (
           <div
             onClick={() => {
-              router.push("/university-search/" + university.id);
+              router.push("/university-detail/" + university.id);
             }}
             key={university.name}
             className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer"
