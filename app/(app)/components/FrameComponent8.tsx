@@ -1,5 +1,13 @@
-import { FunctionComponent, useMemo, type CSSProperties } from "react";
-
+"use client";
+import {
+  FunctionComponent,
+  useMemo,
+  useState,
+  type CSSProperties,
+} from "react";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { IconButton } from "@mui/material";
 export type FrameComponent8Type = {
   cMRUniversity?: string;
   delhiIndia?: string;
@@ -31,14 +39,17 @@ const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
       display: propDisplay,
     };
   }, [propMinWidth, propDisplay]);
-
+  const [isBookMarked, setIsBookMarked] = useState(false);
   return (
     <div
       className="w-[376.9px] flex flex-row items-start justify-between shrink-0 [debug_commit:1de1738] max-w-full gap-[20px] text-left text-11xl text-black font-red-hat-text mt-[20px] mq900:w-full mq1600:mt-[17px]"
       style={frameDiv1Style}
     >
-      <div className="flex flex-col items-start justify-start gap-[9px] shrink-0 [debug_commit:1de1738]">
-        <div className="relative mq450:text-lg mq900:text-5xl mq1440:text-[21px] max-w-[70%] whitespace-nowrap overflow-hidden overflow-ellipsis">
+      <div className="max-w-[80%] flex flex-col items-start justify-start gap-[9px] shrink-0 [debug_commit:1de1738]">
+        <div
+          title={cMRUniversity}
+          className="relative mq450:text-lg mq900:text-5xl mq1440:text-[21px] max-w-[90%] whitespace-nowrap overflow-hidden overflow-ellipsis"
+        >
           {cMRUniversity}
         </div>
         <div className="flex flex-row items-start justify-start gap-[13px] text-xl mq1440:text-[14px]">
@@ -57,12 +68,19 @@ const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
           </div>
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start pt-[11.199999999999818px] px-0 pb-0">
-        <img
-          className="w-[29.8px] h-[24.8px] relative shrink-0 [debug_commit:1de1738]"
-          alt=""
-          src={vector1}
-        />
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="flex flex-col items-start justify-start  px-0 pb-0"
+      >
+        <IconButton onClick={() => setIsBookMarked((e) => !e)}>
+          {isBookMarked ? (
+            <FavoriteIcon style={{ fontSize: "30px", color: "#DC6A6A" }} />
+          ) : (
+            <FavoriteBorderIcon
+              style={{ fontSize: "30px", color: "#DC6A6A" }}
+            />
+          )}
+        </IconButton>
       </div>
     </div>
   );

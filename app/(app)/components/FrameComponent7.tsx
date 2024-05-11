@@ -1,5 +1,5 @@
 "use client";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect, useRef, useState } from "react";
 import FrameComponent8 from "./FrameComponent8";
 import { getInstitutionsByType } from "@/utils/getInstitution";
 import { set } from "lodash";
@@ -7,31 +7,10 @@ import { useRouter } from "next/navigation";
 
 const FrameComponent7: FunctionComponent = ({
   activeTab = "university",
+  scrollContainerRef,
 }: any) => {
   const [data, setData] = useState<any>([]);
   const router = useRouter();
-  const universities = [
-    {
-      image: "/rectangle-204.svg",
-      coverImage: "/rectangle-166@2x.png",
-      name: "CMR University",
-    },
-    {
-      coverImage: "/rectangle-167@2x.png",
-      image: "/rectangle-204-1.svg",
-      name: "Vignan University",
-    },
-    {
-      coverImage: "/rectangle-168@2x.png",
-      image: "/rectangle-204-2.svg",
-      name: "The NorthCap University",
-    },
-    {
-      coverImage: "/rectangle-166@2x.png",
-      image: "/rectangle-204-3.svg",
-      name: "FLAME University",
-    },
-  ];
 
   useEffect(() => {
     getInstitutionsByType(activeTab)
@@ -49,15 +28,32 @@ const FrameComponent7: FunctionComponent = ({
   }, [data]);
 
   return (
-    <div className="w-full  flex flex-row items-start justify-start gap-[30px] max-w-full text-left text-11xl text-black font-red-hat-text smm:flex-col smm:gap-[10px] sm:overflow-x-auto">
-      {data.map((university: any) => {
+    <div
+      ref={scrollContainerRef}
+      style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+      className="w-full  flex flex-row items-start justify-start gap-[30px] max-w-full text-left text-11xl text-black font-red-hat-text smm:flex-col smm:gap-[10px] sm:overflow-x-auto no-scrollbar"
+    >
+      {[
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+        ...data,
+      ].map((university: any) => {
         return (
           <div
             onClick={() => {
               router.push("/university-detail/" + university.id);
             }}
             key={university.name}
-            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer"
+            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left"
           >
             <div className="self-stretch h-[308.7px] rounded-3xs flex flex-row items-start justify-end pt-[27.300000000000185px] px-0 pb-[27px] box-border bg-cover bg-no-repeat bg-[top] shrink-0 [debug_commit:1de1738] smm:w-full max-w-full">
               <img

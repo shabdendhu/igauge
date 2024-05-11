@@ -1,7 +1,7 @@
 "use client";
 import { getInstitutionsByType } from "@/utils/getInstitution";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-
+import InstitutionSelection from "@/app/(app)/components/v1/Home/InstitutionSelection";
 const FrameComponent5: FunctionComponent = () => {
   const [collection, setCollections] = useState([
     { name: "Employability", image: "/rectangle-161@2x.png" },
@@ -10,53 +10,31 @@ const FrameComponent5: FunctionComponent = () => {
     { name: "Research", image: "/rectangle-164@2x.png" },
     { name: "Learning", image: "/rectangle-165@2x.png" },
   ]);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const [data, setData] = useState<any>([]);
-  const [selectedUniversity, setSelectedUniversity] = useState<any>("");
-  const handleSelectUniversity = (e: any) => {
-    console.log(
-      e.ratings.features.map((e: any) => ({
-        name: e.feature_name.features_name,
-      })),
-      "mmmmmmmmmmmmmmmmmmmmmm"
-    );
-    setSelectedUniversity(e);
-    setIsMenuOpen(false);
-  };
-  useEffect(() => {
-    getInstitutionsByType("university")
-      .then((e) => {
-        if (e.docs.length) {
-          setData(e.docs);
-        } else {
-          setData([]);
-        }
-      })
-      .catch((err) => console.error(err));
-  }, []);
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsMenuOpen(false);
+  const scrollContainerRef = useRef<any>(null);
+  const handleScroll = (direction: string) => {
+    const scrollContainer = scrollContainerRef.current;
+
+    if (scrollContainer) {
+      if (direction === "left") {
+        scrollContainer.scrollLeft -= 200; // Adjust the scroll amount as needed
+      } else if (direction === "right") {
+        scrollContainer.scrollLeft += 200; // Adjust the scroll amount as needed
       }
     }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuRef]);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
   };
   return (
     <section className="w-full h-[923px] flex flex-row items-start justify-start pt-0 px-0 pb-10 box-border max-w-[115%] shrink-0 text-left text-5xl text-white font-red-hat-display">
       <div className="self-stretch flex-1 overflow-hidden flex flex-col items-start justify-end py-[91px] pr-0 pl-[157px] box-border relative max-w-full mq900:pl-5 mdm:pt-[130px] mdm:self-auto mq900:pb-[59px] mq900:box-border mq1275:pl-[78px] mq1275:box-border mdm:pl-5">
-        <div className="w-full h-[530px] overflow-x-auto shrink-0 flex flex-row items-start justify-start py-0 pr-5 pl-0 box-border gap-[23px] max-w-full z-[2] no-scrollbar">
+        <div
+          ref={scrollContainerRef}
+          style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
+          className="w-full h-[530px] overflow-x-auto shrink-0 flex flex-row items-start justify-start py-0 pr-5 pl-0 box-border gap-[23px] max-w-full z-[2] no-scrollbar"
+        >
           {collection.map((e) => (
-            <div className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer">
+            <div
+              style={{ scrollSnapAlign: "start" }}
+              className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left"
+            >
               <div className="bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" />
               <img
                 className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
@@ -81,7 +59,18 @@ const FrameComponent5: FunctionComponent = () => {
     </div> */}
         </div>
         <div className="flex z-[99] w-[300px] self-center mt-[50px] mdm:w-[182px] md:hidden">
-          <img className="h-full w-full" alt="" src="/frame-29.svg" />
+          <img
+            className="h-full w-[45%]"
+            alt=""
+            src="/arrow-left.webp"
+            onClick={() => handleScroll("left")}
+          />
+          <img
+            className="h-full w-[45%]"
+            alt=""
+            src="/arrow-right.webp"
+            onClick={() => handleScroll("right")}
+          />
         </div>
         <div className="w-full !m-[0] absolute top-[0px] left-[0px] flex flex-row items-start justify-start max-w-full text-36xl text-black font-libre-baskerville">
           <img
@@ -91,11 +80,18 @@ const FrameComponent5: FunctionComponent = () => {
           />
           <div className="w-[334px] !m-[0] absolute top-[-53px] right-[0px] flex flex-row items-start justify-start py-0 px-0 box-border max-w-full mdm:hidden">
             <div className="h-[388px] w-[388px] relative shrink-0 [debug_commit:1de1738] max-w-[117%]">
-              <div className="absolute top-[0px] left-[0px] rounded-[50%] bg-orange-200 w-full h-full z-[1]" />
+              <div className=" top-[0px] left-[0px] rounded-[50%] bg-orange-200 w-full h-full z-[1]" />
               <img
-                className="absolute top-[195px] left-[72px] w-[182px] h-[14.7px] z-[2]"
+                onClick={() => handleScroll("left")}
+                className="absolute top-[195px] left-[72px] w-[182px] h-[14.7px] z-[5] cursor-pointer"
                 alt=""
-                src="/frame-29.svg"
+                src="/arrow-left.webp"
+              />
+              <img
+                onClick={() => handleScroll("right")}
+                className="absolute top-[195px] left-[140px] w-[182px] h-[14.7px] z-[5] cursor-pointer"
+                alt=""
+                src="/arrow-right.webp"
               />
             </div>
           </div>
@@ -106,39 +102,7 @@ const FrameComponent5: FunctionComponent = () => {
             </div>
             <h1 className="m-0 w-full flex items-center gap-[10px] justify-start relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block max-w-full z-[2] mt-[-97px] mq450:text-[25px] mq900:text-[30px] mq1440:text-[45px] ">
               Collections
-              <div className="relative flex items-center gap-[3px] z-[2]">
-                Universities
-                {/* onclick open menu and on outside click close menu*/}
-                <img
-                  onClick={toggleMenu}
-                  className="ml-2 h-[20px] w-[20px] object-contain cursor-pointer"
-                  alt=""
-                  src="/polygon-9.svg"
-                />
-                <img
-                  className="h-[134px] w-[400px] top-[-50%] absolute z-[-1] object-cover max-w-full mq450:h-[50px] mq900:h-[60px]"
-                  alt=""
-                  src="/untitled-design-3-1@2x.png"
-                />
-                {/* menu */}
-                {isMenuOpen && (
-                  <div
-                    ref={menuRef}
-                    className="w-full bg-white  absolute top-[70px] max-h-[280px] overflow-auto"
-                  >
-                    {/* menu items */}
-                    {data.map((e: any) => (
-                      <div
-                        title={e.institution_name}
-                        onClick={() => handleSelectUniversity(e)}
-                        className="h-[70px] hover:bg-orange-100 cursor-pointer px-5 py-3 font-red-hat-display  text-5xl mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]  flex items-center "
-                      >
-                        {e.institution_name}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <InstitutionSelection bgImage={"/untitled-design-3-1@2x.png"} />
             </h1>
           </div>
         </div>

@@ -6,6 +6,7 @@ import {
   searchInstitutions,
 } from "@/utils/getInstitution";
 import { getAllRatingBadges } from "@/utils/Ratings";
+import Select from "@/app/(app)/components/v1/Select";
 
 const SelectUnivercity = ({ label = "select" }) => {
   const [selectedValue, setSelectedValue] = useState<any>("");
@@ -28,9 +29,9 @@ const SelectUnivercity = ({ label = "select" }) => {
     },
   ]);
   const handleChange = (event: any) => {
-    setSelectedValue(event.target.value);
+    setSelectedValue(event);
     // Do something with the selected value
-    console.log("Selected value:", event.target.value);
+    console.log("Selected value:", event);
   };
 
   // useEffect(() => {
@@ -44,7 +45,13 @@ const SelectUnivercity = ({ label = "select" }) => {
 
   return (
     <div className="h-full w-full flex relative">
-      <select
+      <Select
+        getLabel={(e: any) => e.label}
+        defaultValue={""}
+        options={options}
+        onChange={handleChange}
+      />
+      {/* <select
         className="appearance-none  bg-white h-full w-full   top-0 border-[2px] border-[#F7A600] z-5 px-[10px]  font-red-hat-display text-xl text-darkslategray-100 mq1440:text-[14px] mq1600:text-[20px] mq900:text-[14px] text-gray-500"
         value={selectedValue}
         onChange={handleChange}
@@ -66,19 +73,19 @@ const SelectUnivercity = ({ label = "select" }) => {
         className="absolute right-5 top-[50%] transform -translate-y-1/2 w-[11px] h-1.5"
         alt=""
         src="/vector-5.svg"
-      />
+      /> */}
     </div>
   );
 };
 
 const SelectRatings = ({ label = "select" }) => {
-  const [selectedValue, setSelectedValue] = useState<any>("");
+  const [selectedValue, setSelectedValue] = useState<any>("Select Ratings");
   const [options, setOptions] = useState([{ badges_name: "" }]);
   //
   const handleChange = (event: any) => {
-    setSelectedValue(event.target.value);
+    setSelectedValue(event.badges_name);
     // Do something with the selected value
-    console.log("Selected value:", event.target.value);
+    console.log("Selected value:", event);
   };
 
   useEffect(() => {
@@ -92,7 +99,13 @@ const SelectRatings = ({ label = "select" }) => {
 
   return (
     <div className="h-full w-full flex relative">
-      <select
+      <Select
+        getLabel={(e: any) => e.badges_name}
+        defaultValue={selectedValue}
+        options={options}
+        onChange={handleChange}
+      />
+      {/* <select
         className="appearance-none  bg-white h-full w-full   top-0 border-[2px] border-[#F7A600] z-5 px-[10px]  font-red-hat-display text-xl text-darkslategray-100 mq1440:text-[14px] mq1600:text-[20px] mq900:text-[14px] text-gray-500 "
         value={selectedValue}
         onChange={handleChange}
@@ -117,7 +130,7 @@ const SelectRatings = ({ label = "select" }) => {
         className="absolute right-5 top-[50%] transform -translate-y-1/2 w-[11px] h-1.5"
         alt=""
         src="/vector-5.svg"
-      />
+      /> */}
     </div>
   );
 };
@@ -266,7 +279,7 @@ const Features = () => {
       <div className="flex justify-center mq900:w-full">
         <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
           <b className="relative mq450:text-14xl mq900:text-25xl">
-            {counts.collage + counts.school + counts.university}k+
+            {counts.collage + counts.school + counts.university}+
           </b>
           <div className="relative text-xl inline-block min-w-[78px] mq450:text-base">
             Institutions Rated
@@ -284,7 +297,7 @@ const Features = () => {
     </div>
   );
 };
-const TextBlock = () => {
+const TextBlock = ({ header, description }: any) => {
   return (
     <div className="h-full  flex flex-1 flex-col justify-around ">
       <h1
@@ -292,13 +305,13 @@ const TextBlock = () => {
                 mq450:text-19xl mq900:text-32xl  mq1600:text-[45px] 
                 "
       >
-        Looking for Best Institution?
+        {header}
       </h1>
       <div className="w-full relative text-xl font-red-hat-text text-[20px] z-[2] mq450:text-base ">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. `}</div>
     </div>
   );
 };
-const FrameComponent10: any = ({ router }: any) => {
+const FrameComponent10: any = ({ router, pageData }: any) => {
   return (
     <section className="min-h-[100px] self-stretch flex flex-row items-start justify-start pt-0 px-0  box-border max-w-full text-center text-45xl text-black font-libre-baskerville mq900:pb-[45px] mq900:box-border mq1275:pb-[69px] mq1275:box-border">
       <div className="h-[1000px] flex-1 relative [background:linear-gradient(180deg,_#fff0d1_71.5%,_#fff)] overflow-hidden max-w-full mq1275:h-auto mq1275:min-h-[983]">
@@ -308,7 +321,7 @@ const FrameComponent10: any = ({ router }: any) => {
           src="/rectangle-162.svg"
         />
         <div className="absolute w-full h-full">
-          <div className="grid grid-cols-10 w-full h-full">
+          <div className="grid grid-cols-10 w-full h-screen mq900:grid-cols-4">
             <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
             <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
             <div className="col-span-1 border-r-[1.6px] border-solid border-orange-300" />
@@ -328,7 +341,13 @@ const FrameComponent10: any = ({ router }: any) => {
             </div>
             <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
               <div className=" h-full mdm:hidden">
-                <TextBlock />
+                <TextBlock
+                  header={pageData.content[0].text}
+                  description={
+                    pageData.content[1].rich_content.root.children[0]
+                      .children[0].text
+                  }
+                />
               </div>
             </div>
             <div className=" w-1/4 mdm:w-2/4">

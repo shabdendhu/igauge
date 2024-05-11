@@ -1,0 +1,153 @@
+{
+  "id": 1,
+  "page_name": "Home",
+  "slug": "home",
+
+  "content": [
+    {
+      "id": "663f3a88f9d54e2d9b2c2a6f",
+      "text": "Looking for Best Institution?",
+      "blockName": "Hero Title",
+      "blockType": "text"
+    },
+
+    {
+      "id": "663f3a88f9d54e2d9b2c2a70",
+
+      "rich_content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "blockName": "Hero Description",
+      "blockType": "rich_editor"
+    },
+
+    {
+      "id": "663f3a8ff9d54e2d9b2c2a71",
+      "blockName": "hero-left",
+      "blockType": "image",
+
+      "image": {
+        "id": 8,
+        "alt": null,
+        "updatedAt": "2024-05-11T09:30:11.432Z",
+        "createdAt": "2024-05-11T09:30:11.432Z",
+        "url": "/api/media/file/hero-left.svg",
+        "thumbnailURL": null,
+        "filename": "hero-left.svg",
+        "mimeType": "image/svg+xml",
+        "filesize": 66340,
+        "width": 507,
+        "height": 385,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    },
+
+    {
+      "id": "663f3aa6f9d54e2d9b2c2a72",
+      "blockName": "hero-right",
+      "blockType": "image",
+
+      "image": {
+        "id": 9,
+        "alt": null,
+        "updatedAt": "2024-05-11T09:30:30.550Z",
+        "createdAt": "2024-05-11T09:30:30.550Z",
+        "url": "/api/media/file/hero-right.svg",
+        "thumbnailURL": null,
+        "filename": "hero-right.svg",
+        "mimeType": "image/svg+xml",
+        "filesize": 58160,
+        "width": 445,
+        "height": 363,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    }
+  ],
+  "updatedAt": "2024-05-11T09:32:15.405Z",
+  "createdAt": "2024-05-11T09:29:44.278Z"
+}

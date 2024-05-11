@@ -4,6 +4,7 @@ const TopRatedCollection: FunctionComponent = ({
   activeTab,
   setActiveTab,
   handleTabClick,
+  handleScroll,
 }: any) => {
   // State to keep track of the active tab
 
@@ -52,7 +53,10 @@ const TopRatedCollection: FunctionComponent = ({
             alt=""
             src="/image-7@2x.png"
           />
-          <div className="w-[60px] flex flex-col items-start justify-end pt-0 px-0 pb-[22.300000000000185px] box-border smm:hidden">
+          <div
+            onClick={() => handleScroll("left")}
+            className="cursor-pointer w-[60px] flex flex-col items-start justify-end pt-0 px-0 pb-[22.300000000000185px] box-border smm:hidden"
+          >
             <img
               className="self-stretch h-[14.7px] absolute right-[70px] max-w-full overflow-hidden shrink-0 object-contain"
               alt=""
@@ -62,7 +66,8 @@ const TopRatedCollection: FunctionComponent = ({
         </div>
       </div>
       <img
-        className="h-[14.7px] w-[60px] absolute !m-[0] right-[0px] bottom-[29.3px] smm:hidden"
+        onClick={() => handleScroll("right")}
+        className="cursor-pointer h-[14.7px] w-[60px] absolute !m-[0] right-[0px] bottom-[29.3px] smm:hidden"
         alt=""
         src="/arrow-9.svg"
       />
