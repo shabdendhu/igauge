@@ -1,7 +1,15 @@
-import { FunctionComponent } from "react";
+"use client";
+import { FunctionComponent, useEffect, useState } from "react";
 import FrameComponent8 from "./FrameComponent8";
+import { getInstitutionsByType } from "@/utils/getInstitution";
+import { set } from "lodash";
+import { useRouter } from "next/navigation";
 
-const FrameComponent7: FunctionComponent = () => {
+const FrameComponent7: FunctionComponent = ({
+  activeTab = "university",
+}: any) => {
+  const [data, setData] = useState<any>([]);
+  const router = useRouter();
   const universities = [
     {
       image: "/rectangle-204.svg",
@@ -24,18 +32,41 @@ const FrameComponent7: FunctionComponent = () => {
       name: "FLAME University",
     },
   ];
+
+  useEffect(() => {
+    getInstitutionsByType(activeTab)
+      .then((e) => {
+        if (e.docs.length) {
+          setData(e.docs);
+        } else {
+          setData([]);
+        }
+      })
+      .catch((err) => console.error(err));
+  }, [activeTab]);
+  useEffect(() => {
+    console.log({ data });
+  }, [data]);
+
   return (
     <div className="w-full  flex flex-row items-start justify-start gap-[30px] max-w-full text-left text-11xl text-black font-red-hat-text smm:flex-col smm:gap-[10px] sm:overflow-x-auto">
-      {universities.map((university) => {
+      {data.map((university: any) => {
         return (
           <div
+            onClick={() => {
+              router.push("/university-search/" + university.id);
+            }}
             key={university.name}
-            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border"
+            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer"
           >
             <div className="self-stretch h-[308.7px] rounded-3xs flex flex-row items-start justify-end pt-[27.300000000000185px] px-0 pb-[27px] box-border bg-cover bg-no-repeat bg-[top] shrink-0 [debug_commit:1de1738] smm:w-full max-w-full">
               <img
                 className="h-[308.7px] w-[390.5px] absolute rounded-3xs object-cover  max-w-full smm:w-full"
                 alt=""
+                // src={
+                //   data[0].media.gallery[0].gallery_image.url ||
+                //   "/rectangle-166@2x.png"
+                // }
                 src="/rectangle-166@2x.png"
               />
               <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[47.1px] w-[167.4px] absolute overflow-hidden shrink-0 z-[1] top-[52px] ">
@@ -51,16 +82,16 @@ const FrameComponent7: FunctionComponent = () => {
                     src="/rectangle-205.svg"
                   />
                   <div className="absolute top-[12.3px] left-[47.1px] text-mid uppercase font-inter text-black text-left inline-block w-[82px] h-[21px] min-w-[82px] z-[2]">
-                    Diamond
+                    {university.ratings.overall_rating.badges_name}
                   </div>
                 </div>
               </button>
             </div>
             <div className="w-full">
               <FrameComponent8
-                cMRUniversity="CMR University"
-                delhiIndia="Delhi, India"
-                vector1="/vector-8.svg"
+                cMRUniversity={university.institution_name}
+                delhiIndia={`${university.state.state_name}, ${university.city.city_name}`}
+                vector1={"/vector-8.svg"}
               />
             </div>
           </div>

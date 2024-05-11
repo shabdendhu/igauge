@@ -1,6 +1,12 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
-const TopRatedCollection: FunctionComponent = () => {
+const TopRatedCollection: FunctionComponent = ({
+  activeTab,
+  setActiveTab,
+  handleTabClick,
+}: any) => {
+  // State to keep track of the active tab
+
   return (
     <div className="self-stretch flex flex-row items-end justify-start relative [row-gap:20px] max-w-full text-left text-36xl text-black font-libre-baskerville mq1600:flex-wrap">
       <div className="w-[1036px] flex flex-col items-start justify-start gap-[79px] min-w-[1036px] max-w-full mq900:gap-[20px_79px] mq1275:gap-[39px_79px] mq1275:min-w-full mq1600:flex-1">
@@ -8,14 +14,32 @@ const TopRatedCollection: FunctionComponent = () => {
           Top Rated Collections Section
         </h1>
 
-        <div className="flex flex-row justify-around w-2/3 mq1275:w-full">
-          <div className="flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] bg-orange-100 smm:text-[10px] smm:h-[60px]">
+        <div
+          id="tab"
+          className="flex flex-row justify-around w-2/3 mq1275:w-full"
+        >
+          <div
+            onClick={() => handleTabClick("university")}
+            className={`cursor-pointer flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px]  smm:text-[10px] smm:h-[60px] ${
+              activeTab == "university" ? "bg-orange-100" : ""
+            }`}
+          >
             University
           </div>
-          <div className="flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] smm:text-[10px] smm:h-[60px]">
+          <div
+            onClick={() => handleTabClick("college")}
+            className={`cursor-pointer flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] smm:text-[10px] smm:h-[60px] ${
+              activeTab == "college" ? "bg-orange-100" : ""
+            }`}
+          >
             Colleges
           </div>
-          <div className="flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] smm:text-[10px] smm:h-[60px]">
+          <div
+            onClick={() => handleTabClick("school")}
+            className={`cursor-pointer flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] smm:text-[10px] smm:h-[60px]  ${
+              activeTab == "school" ? "bg-orange-100" : ""
+            }`}
+          >
             Schools
           </div>
         </div>

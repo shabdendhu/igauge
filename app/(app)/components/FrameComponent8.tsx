@@ -38,11 +38,11 @@ const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
       style={frameDiv1Style}
     >
       <div className="flex flex-col items-start justify-start gap-[9px] shrink-0 [debug_commit:1de1738]">
-        <div className="relative mq450:text-lg mq900:text-5xl mq1440:text-[21px]">
+        <div className="relative mq450:text-lg mq900:text-5xl mq1440:text-[21px] max-w-[70%] whitespace-nowrap overflow-hidden overflow-ellipsis">
           {cMRUniversity}
         </div>
         <div className="flex flex-row items-start justify-start gap-[13px] text-xl mq1440:text-[14px]">
-          <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0">
+          <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0 ">
             <img
               className="w-[15px] h-[19px] relative"
               alt=""
@@ -50,7 +50,7 @@ const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
             />
           </div>
           <div
-            className="relative inline-block min-w-[98px] mq450:text-base"
+            className="relative inline-block min-w-[98px] mq450:text-base capitalize"
             style={delhiIndiaStyle}
           >
             {delhiIndia}

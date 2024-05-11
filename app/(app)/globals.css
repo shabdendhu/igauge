@@ -86,3 +86,7 @@ input::-webkit-inner-spin-button {
 .border-custom-color {
   border-color: #f7a600;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

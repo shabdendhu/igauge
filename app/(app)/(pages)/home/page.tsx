@@ -1,7 +1,8 @@
+"use client";
 import { FunctionComponent } from "react";
 import Header from "../../components/Header";
 import FrameComponent10 from "../../components/HeroBanner";
-import FrameComponent9 from "../../components/TopRatedCollection";
+import TopRatedCollection from "../../components/TopRatedCollection";
 import FrameComponent7 from "../../components/FrameComponent7";
 import FrameComponent6 from "../../components/FrameComponent6";
 import FrameComponent5 from "../../components/FrameComponent5";
@@ -13,18 +14,18 @@ import Logarithmic from "../../components/Logarithmic";
 import FAQSection from "../../components/FAQSection";
 import SkewTransform from "../../components/SkewTransform";
 import FrameComponent1 from "../../components/FrameComponent1";
+import { useRouter } from "next/navigation";
+import TopRated from "../../components/v1/Home/TopRated";
+// import { searchInstitutions } from "@/utils/getInstitution";
 
 const HomeV2Approved: FunctionComponent = () => {
+  const router = useRouter();
+
   return (
     <div className="w-full  bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       <div className="w-full h-[39px]  hidden max-w-full" />
-      <FrameComponent10 />
-      <section className="self-stretch flex flex-row items-start justify-center pt-0 pb-[135.19999999999982px] pr-5 pl-[34px] box-border max-w-full smm:px-5 mq450:pb-[57px] mq450:box-border mq1275:pb-[88px] mq1275:box-border mq1440:pb-[94.5px]">
-        <div className="flex flex-col items-start justify-start gap-[45px] max-w-full mq900:gap-[22px_45px]">
-          <FrameComponent9 />
-          <FrameComponent7 />
-        </div>
-      </section>
+      <FrameComponent10 router={router} />
+      <TopRated />
       <FrameComponent6 prop="/19.svg" />
       <FrameComponent5 />
       <section className="self-stretch flex flex-row items-start justify-center pt-0 pb-[199.70000000000005px] pr-5 pl-[22px] box-border max-w-full mq900:pb-[84px]  mq900:px-5 mq900:box-border mq1275:pb-[130px] mq1275:box-border mq1440:px-[100px] mq1920:px-[136px]">

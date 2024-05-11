@@ -1,3 +1,5 @@
+"use client";
+import { useRouter } from "next/navigation";
 import { FunctionComponent, useMemo, type CSSProperties } from "react";
 
 export type FrameComponent6Type = {
@@ -17,10 +19,11 @@ const ViewMoreButton: FunctionComponent<FrameComponent6Type> = ({
       debugCommit: propDebugCommit,
     };
   }, [propDebugCommit]);
-
+  const router = useRouter();
   return (
     <div className="self-stretch flex flex-row items-start justify-center pt-0 pb-[105.69999999999982px] pr-5 pl-[33px] xlm:pb-10">
       <button
+        onClick={() => router.push("/university-search")}
         className="cursor-pointer [border:none] pt-[22.300000000000185px] px-[54.29999999999927px] pb-[18px] bg-orange-200  flex flex-row items-center justify-center box-border gap-[7.700000000000728px] mq450:pl-5 mq450:pr-5 mq450:box-border mq1440:px-[30px] mq1440:py-[16px] text-center"
         style={buttonStyle}
       >
