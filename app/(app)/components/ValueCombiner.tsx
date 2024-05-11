@@ -8,7 +8,7 @@ const ValueCombiner: FunctionComponent<ValueCombinerType> = ({ filterSet }) => {
   return (
     <div className="self-stretch flex flex-row items-start justify-start max-w-full [row-gap:20px] text-left text-17xl-7 text-black font-libre-baskerville mq900:flex-wrap">
       <img
-        className="h-[252px] w-[252px] relative object-cover min-h-[252px] z-[1] mq900:flex-1"
+        className="h-[252px] w-[252px] relative object-cover min-h-[252px] z-[1] mq900:flex-1 md:h-[270px]"
         loading="lazy"
         alt=""
         src={filterSet}

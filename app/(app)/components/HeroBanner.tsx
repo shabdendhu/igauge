@@ -321,7 +321,7 @@ const FrameComponent10: any = ({ router }: any) => {
             <div className="col-span-1" />
           </div>
         </div>
-        <div className="w-screen min-h-screen px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5">
+        <div className="w-screen min-h-screen px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5 relative">
           <div className="flex h-1/2 mdm:justify-between mdm:px-10 mq900:px-0">
             <div className="w-1/4 mdm:w-2/4">
               <img src="/image-16@2x.png" />

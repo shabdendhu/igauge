@@ -126,7 +126,7 @@ const Header: FunctionComponent = () => {
     <header className=" flex  justify-between items-center px-6  font-red-hat-display w-full h-auto font-normal  gap-x-10 my-2  z-50 bg-white  mb-0  sticky top-0 border-b">
       <div className="flex justify-center items-center w-[150px] h-[72px] md:w-[225px]">
         <img
-          className="object-fill h-full w-full"
+          className="object-fill h-full w-full md:pl-10"
           alt=""
           src="/igaugeinvertedrgb.svg"
         />
@@ -167,7 +167,7 @@ const Header: FunctionComponent = () => {
               <img
                 className="h-[19px] w-[19px]   cursor-pointer"
                 alt=""
-                src="/youtube.svg"
+                src="/youtube.png"
               />
             </div>
           </div>

@@ -6,8 +6,8 @@ import CornerRadius from "./CornerRadius";
 import FAQ from "./FAQ";
 import { useState } from "react";
 
-const Accordion = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Accordion = ({ open = false }: any) => {
+  const [isOpen, setIsOpen] = useState(open);
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -76,8 +76,8 @@ const FAQSection: FunctionComponent = () => {
       </div>
       <div className=" flex flex-row justify-between w-full flex-wrap gap-y-10 pt-[100px] mq900:pt-[50px]">
         {/* <FAQ /> */}
-        <Accordion />
-        <Accordion />
+        <Accordion open={true} />
+        <Accordion open={true} />
         <Accordion />
         <Accordion />
         <Accordion />

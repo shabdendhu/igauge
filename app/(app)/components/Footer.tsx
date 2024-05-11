@@ -5,7 +5,7 @@ const Footer: FunctionComponent = () => {
   return (
     <div className="flex flex-col gap-y-8  mt-10 mx-7 sm:mx-16 mb-3 ">
       <div className="flex justify-between items-center w-full">
-        <div className="flex  w-[120px] h-[52px] md:w-[225px]  ">
+        <div className="flex  h-[52px] md:h-[72px]">
           <img
             className="object-contain h-full w-full"
             alt=""
@@ -31,12 +31,12 @@ const Footer: FunctionComponent = () => {
           <img
             className="h-5 sm:h-7 w-5 sm:w-7  cursor-pointer "
             alt=""
-            src="/linkedin.svg"
+            src="/linkedin.png"
           />
           <img
             className="h-5 sm:h-7 w-5 sm:w-7  cursor-pointer "
             alt=""
-            src="/youtube.svg"
+            src="/youtube.png"
           />
         </div>
       </div>

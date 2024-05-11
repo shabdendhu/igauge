@@ -57,7 +57,7 @@ const FrameComponent5: FunctionComponent = () => {
         <div className="w-full h-[530px] overflow-x-auto shrink-0 flex flex-row items-start justify-start py-0 pr-5 pl-0 box-border gap-[23px] max-w-full z-[2] no-scrollbar">
           {collection.map((e) => (
             <div className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer">
-              <div className=" bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover" />
+              <div className="bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" />
               <img
                 className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
                 loading="lazy"
@@ -69,11 +69,21 @@ const FrameComponent5: FunctionComponent = () => {
               </div>
             </div>
           ))}
+          {/* <div className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full">
+      <div className=" bg-gradient-to-t  w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" />
+      <img
+        className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover opacity-80"
+        loading="lazy"
+        alt=""
+        src={image}
+      />
+      <div className="relative font-semibold z-[1] mq450:text-lgi">{title}</div>
+    </div> */}
         </div>
         <div className="flex z-[99] w-[300px] self-center mt-[50px] mdm:w-[182px] md:hidden">
           <img className="h-full w-full" alt="" src="/frame-29.svg" />
         </div>
-        <div className="w-[1920px] !m-[0] absolute top-[0px] left-[0px] flex flex-row items-start justify-start max-w-full text-36xl text-black font-libre-baskerville">
+        <div className="w-full !m-[0] absolute top-[0px] left-[0px] flex flex-row items-start justify-start max-w-full text-36xl text-black font-libre-baskerville">
           <img
             className="h-[604px] w-[618px] absolute !m-[0] bottom-[-280px] left-[-258px] z-[1]"
             alt=""
@@ -94,7 +104,7 @@ const FrameComponent5: FunctionComponent = () => {
             <div className="w-full flex flex-row items-start justify-center max-w-full mdm:w2/3">
               <div className="w-[538px] flex flex-row items-start justify-end pt-[58px] px-[85px] pb-[53px] box-border bg-cover bg-no-repeat bg-[top] max-w-full z-[1]"></div>
             </div>
-            <h1 className="m-0 w-full flex items-center gap-[10px] justify-center relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block max-w-full z-[2] mt-[-97px] mq450:text-[25px] mq900:text-[30px] mq1440:text-[45px] ">
+            <h1 className="m-0 w-full flex items-center gap-[10px] justify-start relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block max-w-full z-[2] mt-[-97px] mq450:text-[25px] mq900:text-[30px] mq1440:text-[45px] ">
               Collections
               <div className="relative flex items-center gap-[3px] z-[2]">
                 Universities

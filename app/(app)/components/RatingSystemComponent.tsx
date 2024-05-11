@@ -4,7 +4,7 @@ import classNames from "classnames";
 const Figure = ({ className }: any) => {
   return (
     <div className={className}>
-      <div className="flex flex-col items-start justify-start gap-[5px] py-5 mq450:gap-[1px] ">
+      <div className="flex flex-col items-start justify-start gap-[5px] py-5 mq450:gap-[1px] justify-around">
         <b className="relative z-[1] text-40xl mq450:text-4xl mq900:text-40xl mq450:self-center">
           5k+
         </b>
@@ -12,10 +12,10 @@ const Figure = ({ className }: any) => {
           University
         </div>
       </div>
-      <div className="self-stretch flex flex-col items-start justify-start py-0 pr-5 pl-0 mq900:pr-0">
+      <div className="self-stretch flex flex-col items-start justify-start py-0 pr-5 pl-0 mq900:pr-0 ">
         <div className="w-px flex-1 relative box-border z-[1] border-r-[1px] border-solid border-whitesmoke-100" />
       </div>
-      <div className="flex flex-col items-start justify-start gap-[5px] py-5">
+      <div className="flex flex-col items-start justify-start gap-[5px] py-5 justify-around">
         <b className="relative z-[1] text-40xl mq450:text-4xl mq900:text-40xl mq450:self-center">
           10k+
         </b>
@@ -102,7 +102,7 @@ const RatingSystemComponent: FunctionComponent = () => {
 
             <Figure className="flex justify-center bg-orange-200 w-[95%] m-auto z-[5] relative bottom-[30px] self-center justify-around  px-2 md:px-5 md:py-5 md:w-1/3 md:min-w-[650px] md:hidden" />
           </div>
-          <div className="w-1/2 px-20 mdm:pt-[150px] mdm:px-5 mdm:w-full">
+          <div className="w-1/2 px-20 mdm:pt-[150px] mdm:px-5 mdm:w-full flex items-center">
             <Slider divider="/19-2.svg" />
           </div>
         </div>

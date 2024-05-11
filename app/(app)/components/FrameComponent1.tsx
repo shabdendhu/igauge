@@ -6,7 +6,7 @@ const FrameComponent1: FunctionComponent = () => {
       <div className="top-[0px] left-[-3px] bg-darkslateblue w-full h-full hidden" />
       <div className="col-span-3 flex flex-col justify-center items-end bottom-0">
         <img
-          className="w-full  object-cover z-[1]"
+          className="w-full  object-cover z-[1] h-full relative top-[50px]"
           alt=""
           src="/image-9@2x.png"
         />
