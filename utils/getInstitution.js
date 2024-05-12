@@ -60,11 +60,11 @@ export const searchInstitutions = async (query) => {
 };
 
 // Function to Get All institutions
-export const getAllInstitutions = async () => {
+export const getAllInstitutions = async (query) => {
   const client = await getPayloadClient();
   const allInstitutions = await client.find({
     collection: "institutions",
-    depth: 3, // Increase the depth as per your requirement
+    ...query,
   });
   return allInstitutions;
 };

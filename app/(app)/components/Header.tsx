@@ -1,5 +1,4 @@
 "use client";
-import { InboxIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import {
   Accordion,
   AccordionDetails,
@@ -8,6 +7,7 @@ import {
   Button,
   Divider,
   Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -15,7 +15,6 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
 import React, { AnchorHTMLAttributes, FunctionComponent } from "react";
 
 const Header: FunctionComponent = () => {
@@ -23,75 +22,28 @@ const Header: FunctionComponent = () => {
   // const [menu, setMenu] = React.useState(false);
   // const menuList = ["Contact", "Resource", "About"];
 
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  const [state, setState] = React.useState(false);
 
-  const toggleDrawer =
-    (anchor: "right", open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      if (
-        event.type === "keydown" &&
-        ((event as React.KeyboardEvent).key === "Tab" ||
-          (event as React.KeyboardEvent).key === "Shift")
-      ) {
-        return;
-      }
-
-      setState({ ...state, [anchor]: open });
-    };
+  const toggleDrawer = () => setState((e) => !e);
 
   const list = (anchor: "right") => (
     <Box
-      sx={{ width: 250 }}
+      // style={{
+      //   width: window.innerWidth - 50,
+
+      // }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      // onClick={() => toggleDrawer()}
+      // onKeyDown={() => toggleDrawer()}
     >
       <div className="w-full">
         <img
-          className="object-fill  w-[60%] px-4 my-5"
+          className="object-fill h-full px-4 my-5 max-h-[100px]"
           alt=""
           src="/igaugeinvertedrgb.svg"
         />
       </div>
       <List>
-        <ul className="border border-red-500 font-normal">
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Higher Education</p> <p>{`>`}</p>
-          </li>
-          <Divider />
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> School education</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Media</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Events</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Tought Leadership</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Menu Item</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Menu Item</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> About</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Resource</p>
-          </li>
-          <li className=" flex justify-between text-sm font-normal  p-3">
-            <p className="font-normal"> Contact</p>
-          </li>
-        </ul>
         <ListItem disablePadding>
           <Accordion className="w-full shadow-none">
             <AccordionSummary
@@ -110,12 +62,39 @@ const Header: FunctionComponent = () => {
                 </Typography>
               </AccordionDetails>
               <List>
-                <ListItem disablePadding>bara</ListItem>
-                <ListItem disablePadding>alu</ListItem>
-                <ListItem disablePadding>chart</ListItem>
+                <ListItem disablePadding>A</ListItem>
+                <ListItem disablePadding>B</ListItem>
+                <ListItem disablePadding>C</ListItem>
               </List>
             </AccordionDetails>
           </Accordion>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> School education</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Media</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Events</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Tought Leadership</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Menu Item</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Menu Item</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> About</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Resource</p>
+        </ListItem>
+        <ListItem className=" flex justify-between text-sm font-normal  p-3">
+          <p className="font-normal"> Contact</p>
         </ListItem>
       </List>
       <List>ghjk</List>
@@ -263,16 +242,16 @@ const Header: FunctionComponent = () => {
       </div>
 
       <div className="flex md:hidden font-bold  gap-x-4 ">
-        <img className="w-6 h-6 relative z-[1]" alt="" src="/search.svg" />
-        <img className="w-6 h-6 relative z-[1]" alt="" src="/vector-4.svg" />
-        <Button className="min-w-0 p-0" onClick={toggleDrawer("right", true)}>
+        <IconButton className="min-w-0 p-0">
+          <img className="w-6 h-6 relative z-[1]" alt="" src="/search.svg" />
+        </IconButton>
+        <IconButton className="min-w-0 p-0">
+          <img className="w-6 h-6 relative z-[1]" alt="" src="/vector-4.svg" />
+        </IconButton>
+        <IconButton className="min-w-0 p-0" onClick={() => toggleDrawer()}>
           <img className="w-6 h-6 relative z-[1]" alt="" src="/menu.svg" />
-        </Button>
-        <Drawer
-          anchor={"right"}
-          open={state["right"]}
-          onClose={toggleDrawer("right", false)}
-        >
+        </IconButton>
+        <Drawer anchor={"right"} open={state} onClose={() => toggleDrawer()}>
           {list("right")}
         </Drawer>
         {/* menu icon here */}

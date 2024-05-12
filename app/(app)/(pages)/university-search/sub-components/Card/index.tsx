@@ -7,8 +7,9 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Button from "@mui/material/Button";
 import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
-const Card = () => {
+const Card = ({ university }: any) => {
   const fontSize = useCalculateFontSize();
+  console.log(university);
   return (
     <div className="relative">
       <div className="border border-[#EAEAEA]-500 flex  aspect-[1333/265] mq450:aspect-[349/133] overflow-hidden ">
@@ -27,29 +28,34 @@ const Card = () => {
                   <span
                     style={{
                       fontSize: fontSize(16, 7, 1920, 400),
+                      textTransform: "capitalize",
                     }}
                     className="bg-orange-200 rounded-8xs font-semibold text-base px-3 py-1 font-red-hat-text text-black mdm:w-[30px] mdm:h-[12px] mdm:text-[6.21px]"
                   >
-                    Univercity
+                    {university.institution_type[0]}
                   </span>
                 </div>
-                <h2
-                  style={{
-                    fontSize: fontSize(33, 11, 1920, 400),
-                  }}
-                  className="tborder border-red-500 flex-1 text-14xl  font-bold font-libre-baskerville flex items-center mdm:text-xs"
-                >
-                  CMR University
-                </h2>
+                <div className="flex-1 flex items-center">
+                  <h2
+                    style={{
+                      fontSize: fontSize(33, 11, 1920, 400),
+                    }}
+                    className="tborder border-red-500  text-14xl  font-bold font-libre-baskerville  mdm:text-xs  max-w-[90%] whitespace-nowrap overflow-hidden overflow-ellipsis"
+                  >
+                    {university?.institution_name.slice(0, 25)}
+                    {university?.institution_name.length > 20 ? "..." : ""}
+                  </h2>
+                </div>
                 <div className="tborder border-yellow-500 flex gap-2">
                   <img src="location.svg" className="w-[7px]" />
                   <div
                     style={{
                       fontSize: fontSize(20, 8, 1920, 400),
+                      textTransform: "capitalize",
                     }}
                     className="flex-1 mdm:text-[7.61px]"
                   >
-                    Delhi, India
+                    {university.city.city_name}, {university.state.state_name}
                   </div>
                 </div>
               </div>
@@ -61,7 +67,7 @@ const Card = () => {
                     }}
                     className="font-semibold text-xl mdm:text-[7.76px]"
                   >
-                    Undergraduate
+                    {university.keypoints[0].keypoint_title}
                   </div>
                   <div
                     style={{
@@ -69,7 +75,7 @@ const Card = () => {
                     }}
                     className="text-mini font-red-hat-text mdm:text-[5.82px]"
                   >
-                    54 Courses
+                    {university.keypoints[0].keypoint_value}
                   </div>
                 </div>
                 <div>
@@ -79,7 +85,7 @@ const Card = () => {
                     }}
                     className="font-semibold text-xl mdm:text-[7.76px]"
                   >
-                    Postgraduate
+                    {university.keypoints[1].keypoint_title}
                   </div>
                   <div
                     style={{
@@ -87,7 +93,7 @@ const Card = () => {
                     }}
                     className="text-mini font-red-hat-text mdm:text-[5.82px]"
                   >
-                    58 Courses
+                    {university.keypoints[1].keypoint_value}
                   </div>
                 </div>
               </div>
