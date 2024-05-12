@@ -1,3 +1,4 @@
+"use client";
 import IconButton from "@mui/material/IconButton";
 import React from "react";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -5,118 +6,169 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Button from "@mui/material/Button";
+import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
 const Card = () => {
+  const fontSize = useCalculateFontSize();
   return (
-    <div className="border border-[#EAEAEA]-500 flex mdm:min-h-[220px] aspect-[1333/265] overflow-hidden mdm:aspect-[350/133]">
-      <div className="h-full relative aspect-[241/265] mdm:aspect-[110/133] mdm:w-2/5">
-        <img
-          className="h-full relative rounded-tl-8xs rounded-tr-none rounded-br-none rounded-bl-8xs max-w-full overflow-hidden object-cover z-[1]"
-          alt=""
-          src="/rectangle-161@2x.png"
-        />
-        {/* <div className="h-[38px] w-44 absolute !m-[0] right-[28px] bottom-[-19px]">
+    <div className="relative">
+      <div className="border border-[#EAEAEA]-500 flex  aspect-[1333/265] mq450:aspect-[349/133] overflow-hidden ">
+        <div className="h-full relative aspect-[241/265] mdm:aspect-[110/133] mq450:w-1/3">
           <img
-            className="absolute top-[0px] left-[0px] rounded-sm w-full h-full z-[2]"
+            className="h-full relative rounded-tl-8xs rounded-tr-none rounded-br-none rounded-bl-8xs max-w-full overflow-hidden object-cover z-[1]"
             alt=""
-            src="/rectangle-2041.svg"
+            src="/rectangle-161@2x.png"
           />
-          <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[2px] left-[3px] w-[170px] h-[34px] z-[5]">
-            <img
-              className="absolute top-[0px] left-[0px] rounded-sm w-full h-full z-[3]"
-              alt=""
-              src="/rectangle-2051.svg"
-            />
-            <div className="absolute top-[9px]  left-[50px] text-[14px] uppercase font-inter text-black text-left inline-block w-[66px] h-[17px] min-w-[66px] z-[4]">
-              Diamond
-            </div>
-          </button>
-        </div> */}
-      </div>
-      <div className="kborder border-red-500 flex-1 p-[2%] md:flex flex-row mdm:flex-col">
-        <div className="kborder border-green-500 mdm:h-1/2" style={{ flex: 2 }}>
-          <div className="kborder border-pink-500 h-3/4 flex">
-            <div className="kborder border-green-500 w-3/4 flex flex-col">
-              <div className="kborder border-black-500">
-                <span className="bg-orange-200 rounded-8xs font-semibold text-base px-3 py-1 font-red-hat-text text-black mdm:w-[30px] mdm:h-[12px] mdm:text-[6.21px]">
-                  Univercity
-                </span>
-              </div>
-              <h2 className="kborder border-red-500 flex-1 text-14xl  font-bold font-libre-baskerville flex items-center mdm:text-xs">
-                CMR University
-              </h2>
-              <div className="kborder border-yellow-500 flex gap-2">
-                <img src="location.svg" className="w-[7px]" />
-                <div className="flex-1 mdm:text-[7.61px]">Delhi, India</div>
-              </div>
-            </div>
-            <div className="kborder border-blue-500 w-1/4">
-              <div>
-                <div className="font-semibold text-xl mdm:text-[7.76px]">
-                  Undergraduate
-                </div>
-                <div className="text-mini font-red-hat-text mdm:text-[5.82px]">
-                  54 Courses
-                </div>
-              </div>
-              <div>
-                <div className="font-semibold text-xl mdm:text-[7.76px]">
-                  Postgraduate
-                </div>
-                <div className="text-mini font-red-hat-text mdm:text-[5.82px]">
-                  58 Courses
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="kborder border-red-500 h-1/4 flex justify-between items-end text-xl font-red-hat-text mdm:text-[7px]">
-            <div>Scholarships</div>
-            <div>1:16 Student/Faculty Ratio</div>
-            <div>M Size</div>
-          </div>
         </div>
-        <div
-          className="kborder border-blue-500 flex flex-row"
-          style={{ flex: 1 }}
-        >
-          <div className="kborder border-red-500 flex items-end flex-1 justify-end mdm:hidden">
-            <IconButton>
-              <FavoriteBorderIcon
+        <div className="tborder border-red-500 flex-1 p-[2%] flex flex-row mq450:flex-col">
+          <div className="tborder border-green-500 " style={{ flex: 2 }}>
+            <div className="tborder border-pink-500 h-3/4 flex">
+              <div className="tborder border-green-500 w-3/4 flex flex-col">
+                <div className="tborder border-black-500">
+                  <span
+                    style={{
+                      fontSize: fontSize(16, 7, 1920, 400),
+                    }}
+                    className="bg-orange-200 rounded-8xs font-semibold text-base px-3 py-1 font-red-hat-text text-black mdm:w-[30px] mdm:h-[12px] mdm:text-[6.21px]"
+                  >
+                    Univercity
+                  </span>
+                </div>
+                <h2
+                  style={{
+                    fontSize: fontSize(33, 11, 1920, 400),
+                  }}
+                  className="tborder border-red-500 flex-1 text-14xl  font-bold font-libre-baskerville flex items-center mdm:text-xs"
+                >
+                  CMR University
+                </h2>
+                <div className="tborder border-yellow-500 flex gap-2">
+                  <img src="location.svg" className="w-[7px]" />
+                  <div
+                    style={{
+                      fontSize: fontSize(20, 8, 1920, 400),
+                    }}
+                    className="flex-1 mdm:text-[7.61px]"
+                  >
+                    Delhi, India
+                  </div>
+                </div>
+              </div>
+              <div className="tborder border-blue-500 w-1/4">
+                <div>
+                  <div
+                    style={{
+                      fontSize: fontSize(20, 8, 1920, 400),
+                    }}
+                    className="font-semibold text-xl mdm:text-[7.76px]"
+                  >
+                    Undergraduate
+                  </div>
+                  <div
+                    style={{
+                      fontSize: fontSize(15, 6, 1920, 400),
+                    }}
+                    className="text-mini font-red-hat-text mdm:text-[5.82px]"
+                  >
+                    54 Courses
+                  </div>
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontSize: fontSize(20, 8, 1920, 400),
+                    }}
+                    className="font-semibold text-xl mdm:text-[7.76px]"
+                  >
+                    Postgraduate
+                  </div>
+                  <div
+                    style={{
+                      fontSize: fontSize(15, 6, 1920, 400),
+                    }}
+                    className="text-mini font-red-hat-text mdm:text-[5.82px]"
+                  >
+                    58 Courses
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                fontSize: fontSize(20, 7, 1920, 400),
+              }}
+              className="tborder border-red-500 h-1/4 flex justify-between items-end text-xl font-red-hat-text mdm:text-[7px]"
+            >
+              <div>Scholarships</div>
+              <div>1:16 Student/Faculty Ratio</div>
+              <div>M Size</div>
+            </div>
+          </div>
+          <div
+            className="tborder border-blue-500 flex flex-row"
+            style={{ flex: 1 }}
+          >
+            <div className="tborder border-red-500 flex items-end flex-1 justify-end mq450:hidden">
+              <IconButton>
+                <FavoriteBorderIcon
+                  style={{
+                    color: "#DC6A6A",
+                    fontSize: fontSize(21, 19, 1920, 400),
+                  }}
+                />
+              </IconButton>
+            </div>
+            <div className="tborder border-green-500  flex flex-col items-center mq450:w-full mq450:flex-row">
+              <img src="/image-19@2x.png" className="h-[60%] mdm:h-[50px]" />
+              <span className="mdm:flex mdm:flex-row">
+                <IconButton>
+                  <ArrowCircleLeftIcon
+                    style={{
+                      color: "#F7A600",
+                      backgroundColor: "#000000",
+                      borderRadius: "50%",
+                      fontSize: fontSize(21, 19, 1920, 400),
+                    }}
+                  />
+                </IconButton>
+                <IconButton>
+                  <ArrowCircleRightIcon
+                    style={{
+                      color: "#F7A600",
+                      backgroundColor: "#000000",
+                      borderRadius: "50%",
+                      fontSize: fontSize(21, 19, 1920, 400),
+                    }}
+                  />
+                </IconButton>
+              </span>
+              <div className="tborder border-red-500 flex items-end flex-1 justify-end xs:hidden">
+                <IconButton>
+                  <FavoriteBorderIcon
+                    style={{
+                      color: "#DC6A6A",
+                      fontSize: fontSize(21, 19, 1920, 400),
+                    }}
+                  />
+                </IconButton>
+              </div>
+              <Button
                 style={{
-                  color: "#DC6A6A",
-                  fontSize: "30px",
+                  fontSize: fontSize(14, 6, 1920, 400),
                 }}
-              />
-            </IconButton>
-          </div>
-          <div className="kborder border-green-500  flex flex-col items-center mdm:w-full mdm:flex-row">
-            <img src="/image-19@2x.png" className="h-[60%] mdm:h-[30%]" />
-            <span className="mdm:flex mdm:flex-row">
-              <IconButton>
-                <ArrowCircleLeftIcon
+                className="bg-[#F7A600] h-[40px] font-red-hat-text rounded-none font-normal text-black px-5 mq450:px-3 mq450:h-[20px]"
+              >
+                Read More{" "}
+                <KeyboardDoubleArrowRightIcon
                   style={{
-                    color: "#F7A600",
-                    backgroundColor: "#000000",
-                    borderRadius: "50%",
+                    fontSize: fontSize(17, 8, 1920, 400),
                   }}
                 />
-              </IconButton>
-              <IconButton>
-                <ArrowCircleRightIcon
-                  style={{
-                    color: "#F7A600",
-                    backgroundColor: "#000000",
-                    borderRadius: "50%",
-                  }}
-                />
-              </IconButton>
-            </span>
-            <Button className="bg-[#F7A600] h-[40px] font-red-hat-text rounded-none font-normal text-black px-5">
-              Read More <KeyboardDoubleArrowRightIcon />
-            </Button>
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-      {/* <div className="col-span-9 flex-1 rounded-tl-none rounded-tr-8xs rounded-br-8xs rounded-bl-none bg-white box-kborder flex flex-row items-start justify-between pt-[21px] px-10  max-w-full gap-[20px] border-[1px] border-solid border-whitesmoke-100 mq900:min-w-full mq1300:flex-wrap mq1300:pl-6 mq1300:pr-6 mq1300:box-border pb-10">
+
+        {/* <div className="col-span-9 flex-1 rounded-tl-none rounded-tr-8xs rounded-br-8xs rounded-bl-none bg-white box-border flex flex-row items-start justify-between pt-[21px] px-10  max-w-full gap-[20px] border-[1px] border-solid border-whitesmoke-100 mq900:min-w-full mq1300:flex-wrap mq1300:pl-6 mq1300:pr-6 mq1300:box-border pb-10">
         <div className="flex flex-2 flex-col items-start justify-end pt-0 px-0 pb-[3.7px] box-border max-w-full ">
           <div className="self-stretch flex flex-col items-start justify-start gap-[20px]">
             <div className="self-stretch flex flex-row items-end justify-between gap-[20px] mq900:flex-wrap">
@@ -233,6 +285,24 @@ const Card = () => {
           </div>
         </div>
       </div> */}
+      </div>
+      <div className="h-[38px] w-44 absolute !m-[0] left-[2%] bottom-[-19px] smm:w-[110px] 2xlm:w-[90px]">
+        <img
+          className="absolute top-[0px] left-[0px] rounded-sm w-full h-full z-[2]"
+          alt=""
+          src="/rectangle-2041.svg"
+        />
+        <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[2px] left-[3px] w-[170px] h-[34px] z-[5] smm:w-[105px] 2xlm:w-[95px]">
+          <img
+            className="absolute top-[0px] left-[0px] rounded-sm w-full h-full z-[3]"
+            alt=""
+            src="/rectangle-2051.svg"
+          />
+          <div className="absolute top-[10px]  left-[50px] text-[14px] uppercase font-inter text-black text-left inline-block w-[66px] h-[17px] min-w-[66px] z-[4] smm:text-[11px] smm:left-[30px] 2xlm:text-[11px] 2xlm:left-[25px] mq450:left-[28px] ">
+            Diamond
+          </div>
+        </button>
+      </div>
     </div>
   );
 

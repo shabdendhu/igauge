@@ -100,7 +100,7 @@ const FrameComponent5: FunctionComponent = () => {
             <div className="w-full flex flex-row items-start justify-center max-w-full mdm:w2/3">
               <div className="w-[538px] flex flex-row items-start justify-end pt-[58px] px-[85px] pb-[53px] box-border bg-cover bg-no-repeat bg-[top] max-w-full z-[1]"></div>
             </div>
-            <h1 className="m-0 w-full flex items-center gap-[10px] justify-start relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block max-w-full z-[2] mt-[-97px] mq450:text-[25px] mq900:text-[30px] mq1440:text-[45px] ">
+            <h1 className="m-0 w-full flex flex-wrap items-center gap-[10px] justify-start relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block max-w-full z-[2] mt-[-97px] mq450:text-[25px] mq900:text-[30px] mq1440:text-[45px] ">
               Collections
               <InstitutionSelection bgImage={"/untitled-design-3-1@2x.png"} />
             </h1>
