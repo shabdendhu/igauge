@@ -1,66 +1,63 @@
-import { CollectionConfig } from 'payload/types'
-import {lexicalEditor} from '@payloadcms/richtext-lexical'
-
+import { CollectionConfig } from "payload/types";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 const Events: CollectionConfig = {
-    slug: 'events',
-    admin: {
-        useAsTitle: 'event_title',
+  slug: "events",
+  admin: {
+    useAsTitle: "event_title",
+  },
+  fields: [
+    {
+      name: "event_title",
+      type: "text",
+      required: true,
+      label: "Blog Title",
     },
-    fields: [
-        {
-            name: 'event_title',
-            type: 'text',
-            required: true,
-            label: 'Blog Title',
-        },
-        {
-            name: 'slug',
-            type: 'text',
-            required: true,
-            label: 'Slug',
-            unique: true,
-            admin: {
-                position: 'sidebar',
-            }
-        },
-
-        {
-            name: 'blog_content',
-            type: 'richText',
-            required: true,
-            label: 'Blog Content',
-            editor: lexicalEditor({})
-        },
-        {
-            name: 'category',
-            type: 'relationship',
-            relationTo: 'blogs-category',
-            hasMany: false,
-            required: true,
-            admin: {
-                position: 'sidebar',
-            }
-        },
-        {
-            name: 'featured_image',
-            type: 'upload',
-            relationTo: 'media',
-            required: true,
-            label: 'Featured Image',
-            filterOptions: {
-                mimeType: { contains: 'image' },
-            },
-            admin: {
-                position: 'sidebar',
-            }
-        },
-
-
-    ],
-    versions: {
-        drafts: true,
-        maxPerDoc: 25,
+    {
+      name: "slug",
+      type: "text",
+      required: true,
+      label: "Slug",
+      unique: true,
+      admin: {
+        position: "sidebar",
+      },
     },
-}
-export default Events
+
+    {
+      name: "blog_content",
+      type: "richText",
+      required: true,
+      label: "Blog Content",
+      editor: lexicalEditor({}),
+    },
+    {
+      name: "category",
+      type: "relationship",
+      relationTo: "blogs-category",
+      hasMany: false,
+      required: true,
+      admin: {
+        position: "sidebar",
+      },
+    },
+    {
+      name: "featured_image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      label: "Featured Image",
+      filterOptions: {
+        mimeType: { contains: "image" },
+      },
+      admin: {
+        position: "sidebar",
+      },
+    },
+  ],
+  versions: {
+    drafts: true,
+    maxPerDoc: 25,
+  },
+};
+export default Events;
