@@ -18,6 +18,7 @@
     "@mui/material": "^5.15.17",
     "@payloadcms/db-postgres": "^3.0.0-beta.28",
     "@payloadcms/next": "^3.0.0-beta.28",
+    "@payloadcms/plugin-seo": "3.0.0-beta.30",
     "@payloadcms/richtext-lexical": "^3.0.0-beta.28",
     "classnames": "^2.5.1",
     "graphql": "^16.8.1",
