@@ -211,7 +211,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             </div>
             {/* eslint-disable */}
 
-            {univercityes?.docs?.map((university: any, i: number) => (
+            {univercityes?.map((university: any, i: number) => (
               <Card university={university} key={i} />
             ))}
           </div>
