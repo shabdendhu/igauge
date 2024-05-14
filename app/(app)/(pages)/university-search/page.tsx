@@ -24,6 +24,7 @@ import { getAllCities } from "@/utils/city";
 import { getAllSubjects } from "@/utils/Subjects";
 import { getAllRatingBadges } from "@/utils/Ratings";
 import { getAllProductCategories } from "@/utils/Category";
+import { equal } from "assert";
 
 const CollectionPageV2Approved: FunctionComponent = () => {
   const [univercityes, setUniverCityes] = useState<any>([]);
@@ -37,11 +38,14 @@ const CollectionPageV2Approved: FunctionComponent = () => {
   const [category, setCategory] = useState<any>([]);
   console.log({ univercityes });
   const [filters, setFilters] = useState({
-    institution_type: "",
-    overall_rating: "",
+    institution_type: [],
+    overall_rating: [],
   });
-  const fetchUnivercity = (filter = {}) => {
-    getAllInstitutions().then((e) => setUniverCityes(e.docs));
+  const fetchUnivercity = (filter: any = undefined) => {
+    getAllInstitutions(filter).then((e) => {
+      setUniverCityes(e.docs);
+      console.log(e, "kkkkkkkkkkkkkkkkkkkkkkkk");
+    });
   };
   useEffect(() => {
     fetchUnivercity();
@@ -52,15 +56,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
     getAllProductCategories().then((e) => setCategory(e.docs));
   }, []);
   //write a function to filter the data based on the filters
-  const handleFilterChange = () => {
-    fetchUnivercity({
-      where: {
-        institution_type: {
-          equals: filters.institution_type,
-        },
-      },
-    });
-  };
+
   const handleChange = (type: string, value: any) => {
     console.log(type, value);
     setFilters({
@@ -68,6 +64,15 @@ const CollectionPageV2Approved: FunctionComponent = () => {
       [type]: value,
     });
   };
+
+  useEffect(() => {
+    fetchUnivercity({
+      institution_type: {
+        all: ["university", "school"],
+      },
+    });
+  }, [filters]);
+
   return (
     <div className="university-search flex flex-col">
       <div className="bg-papayawhip box-border md:h-32 border-[1px] border-solid border-orange-200 flex items-center justify-between w-full md:px-[150px] mdm:px-5 mdm:py-5">
@@ -89,6 +94,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <Autocomplete
               id="combo-box-demo"
               options={states}
+              multiple
               getOptionLabel={(e: any) => e.state_name}
               renderInput={(params) => (
                 <TextField {...params} label="Select State" />
@@ -97,6 +103,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <Autocomplete
               id="combo-box-demo"
               options={cities}
+              multiple
               getOptionLabel={(e: any) => e.city_name}
               renderInput={(params) => (
                 <TextField {...params} label="Select City" />
@@ -107,6 +114,8 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <FormControl style={{ minWidth: 200 }}>
               <InputLabel>Filter by Institutions</InputLabel>
               <Select
+                multiple
+                multiline
                 value={filters.institution_type}
                 placeholder="Filter by Institutions"
                 label="Age"
@@ -126,6 +135,8 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               <InputLabel>Filter by Ratings</InputLabel>
               <Select
                 value={filters.overall_rating}
+                multiline
+                multiple
                 placeholder="Filter by Ratings"
                 label="Age"
                 onChange={(e) => handleChange("overall_rating", e.target.value)}
