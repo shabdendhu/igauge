@@ -1,10 +1,11 @@
 import { postgresAdapter } from "@payloadcms/db-postgres";
-// import { payloadCloud } from '@payloadcms/plugin-cloud'
+
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
 import { buildConfig } from "payload/config";
 // import sharp from 'sharp'
 import { fileURLToPath } from "url";
+import { seoPlugin } from '@payloadcms/plugin-seo'
 
 import { Users } from "@/collections/Users";
 import Institutions from "@/collections/Institutions";
@@ -43,11 +44,20 @@ export default buildConfig({
     Cities,
   ],
   editor: lexicalEditor({}),
-  // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
+
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
+  plugins: [
+    seoPlugin({
+      collections: ["institutions", "blogs", "events", "pages"],
+      tabbedUI: true,
+      uploadsCollection: "media",
+      generateTitle: (data: any) => `igauge.in — ${data?.doc?.title?.value}`,
+      generateDescription: ({ doc }: any) => doc?.excerpt?.value,
+    }),
+  ],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || "",
