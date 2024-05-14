@@ -152,7 +152,6 @@ const Header: FunctionComponent = () => {
           </div>
           <div className=" h-full w-full items-center ">
             <div className="flex justify-between items-center h-full gap-x-5">
-              {/* <div className="flex  flex-row items-start justify-start gap-x-1 "> */}
               <button
                 type="button"
                 className=" flex  flex-row items-start justify-start gap-x-1"
@@ -171,17 +170,7 @@ const Header: FunctionComponent = () => {
                   />
                 </div>
               </button>
-              {/* <div className="relative inline-block  whitespace-nowrap">
-                  Higher Education
-                </div>
-                <div className="flex flex-col items-start justify-start pt-[9px] ">
-                  <img
-                    className="min-w-[7px] h-1 relative"
-                    alt=""
-                    src="/vector.svg"
-                  />
-                </div> */}
-              {/* </div> */}
+
               <div className="relative inline-block  whitespace-nowrap">
                 School Education
               </div>
@@ -240,6 +229,7 @@ const Header: FunctionComponent = () => {
           </div>
         </div>
       </div>
+      {/* <div className="border border-red-500 text-black">dd</div> */}
 
       <div className="flex md:hidden font-bold  gap-x-4 ">
         <IconButton className="min-w-0 p-0">

@@ -33,16 +33,18 @@ const FrameComponent5: FunctionComponent = () => {
           {collection.map((e) => (
             <div
               style={{ scrollSnapAlign: "start" }}
-              className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left"
+              className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left relative"
             >
-              <div className="bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" />
+              {/* <div className="bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" /> */}
+              <div className="absolute h-full  z-[2] w-full left-0 top-0 inset-0 bg-gradient-to-t from-black to-transparent" />
+
               <img
                 className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
                 loading="lazy"
                 alt=""
                 src={e.image}
               />
-              <div className="relative font-semibold z-[1] mq450:text-lgi">
+              <div className="relative font-semibold z-[1] mq450:text-lgi z-[3]">
                 {e.name}
               </div>
             </div>
