@@ -1206,6 +1206,11 @@
     sass "^1.71.1"
     ws "^8.16.0"
 
+"@payloadcms/plugin-seo@3.0.0-beta.30":
+  version "3.0.0-beta.30"
+  resolved "https://registry.yarnpkg.com/@payloadcms/plugin-seo/-/plugin-seo-3.0.0-beta.30.tgz#d7b069f4a8109e22f1110898e346c84770db45a2"
+  integrity sha512-F+cHgZ9omjJ+rHo43i8/lFsG56a1wb4ptaIhbCTEGKLasqMtL3t2x4w3P0/09OSSlpOr5Wg+4v1evQ2utzyJtw==
+
 "@payloadcms/richtext-lexical@^3.0.0-beta.28":
   version "3.0.0-beta.28"
   resolved "https://registry.yarnpkg.com/@payloadcms/richtext-lexical/-/richtext-lexical-3.0.0-beta.28.tgz#1baa11bf73a41ebcb850e344d48bbef1fd891fd5"
@@ -2534,11 +2539,6 @@ fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==
-
-fs@^0.0.1-security:
-  version "0.0.1-security"
-  resolved "https://registry.yarnpkg.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
-  integrity sha512-3XY9e1pP0CVEUCdj5BmfIZxRBTSDycnbqhIOGec9QYtmVH2fbLpj86CFWkrNOkt/Fvty4KZG5lTglL9j/gJ87w==
 
 fsevents@~2.3.2:
   version "2.3.3"
