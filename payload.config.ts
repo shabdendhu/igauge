@@ -8,21 +8,32 @@ import { fileURLToPath } from "url";
 import { seoPlugin } from '@payloadcms/plugin-seo'
 
 import { Users } from "@/collections/Users";
-import Institutions from "@/collections/Institutions";
 import Media from "@/collections/Media";
 import Blogs from "@/collections/Blogs";
 import Blogscategory from "@/collections/Blogscategory";
-import RatingBadges from "@/collections/RatingBadges";
 import Events from "@/collections/Events";
-import SubjectName from "@/collections/Subjects";
-import Category from "@/collections/Category";
 import Pages from "@/collections/Pages";
-import Features from "@/collections/Features";
 import States from "@/collections/States";
 import Cities from "@/collections/Cities";
+import Sch_SubjectRatings from "./collections/Sch_SubjectRatings";
+import Coll_SubjectRatings from "./collections/Coll_SubjectRatings";
+import Uni_SubjectRatings from "./collections/Uni_SubjectRatings";
+import Schools from "./collections/Schools";
+import University from "@/collections/University";
+import Colleges from "./collections/Colleges";
+import Uni_OverallRating from "./collections/Uni_OverallRating";
+import Uni_CategoryRatings from "./collections/Uni_CategoryRating";
+import Coll_CategoryRatings from "./collections/Coll_CategoryRating";
+import Coll_OverallRating from "./collections/Coll_OverallRating";
+import Sch_CategoryRatings from "./collections/Sch_CategoryRating";
+import Sch_OverallRating from "./collections/Sch_OverallRating";
+import Uni_KeyPoints from "./collections/Uni_KeyPoints";
+import Coll_KeyPoints from "./collections/Coll_KeyPoints";
+import Sch_KeyPoints from "./collections/Sch_KeyPoints";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
+
 
 export default buildConfig({
   admin: {
@@ -30,19 +41,30 @@ export default buildConfig({
   },
   collections: [
     Users,
-    Institutions,
-    RatingBadges,
-    SubjectName,
-    Category,
+    University,
+    Uni_KeyPoints,
+    Uni_SubjectRatings,
+    Uni_CategoryRatings,
+    Uni_OverallRating,
+    Colleges,
+    Coll_KeyPoints,
+    Coll_SubjectRatings,
+    Coll_CategoryRatings,
+    Coll_OverallRating,
+    Schools,
+    Sch_KeyPoints,
+    Sch_SubjectRatings,
+    Sch_CategoryRatings,
+    Sch_OverallRating,
     Pages,
     Media,
     Blogs,
     Blogscategory,
     Events,
-    Features,
     States,
     Cities,
   ],
+  
   editor: lexicalEditor({}),
 
   secret: process.env.PAYLOAD_SECRET || "",
@@ -51,7 +73,7 @@ export default buildConfig({
   },
   plugins: [
     seoPlugin({
-      collections: ["institutions", "blogs", "events", "pages"],
+      collections: ["universities", "colleges", "schools", "blogs", "events", "pages"],
       tabbedUI: true,
       uploadsCollection: "media",
       generateTitle: (data: any) => `igauge.in — ${data?.doc?.title?.value}`,

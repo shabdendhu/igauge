@@ -1,52 +1,71 @@
+//helpers
 "use server";
+import config from "@/payload.config";
+import payload from "payload";
 import { getPayloadClient } from "./getClient";
 
-export const createRatingBadge = async (badgeData) => {
-  const client = await getPayloadClient();
-  await client.create({
-    collection: "rating-badges",
-    data: badgeData,
-  });
+// Initialize Payload with config
+const initializePayload = async () => {
+  await payload.init({ config });
 };
 
+// Function to Create a rating badge
+export const createRatingBadge = async (ratingBadgeData) => {
+  await initializePayload();
+  const createdRatingBadge = await payload.create({
+    collection: "rating-badges",
+    data: ratingBadgeData,
+  });
+  return createdRatingBadge;
+};
+
+// Function to Read (Get) a rating badge by ID
 export const getRatingBadgeById = async (id) => {
-  const client = await getPayloadClient();
-  return client.findOne({
+  await initializePayload();
+  const ratingBadge = await payload.findOne({
     collection: "rating-badges",
     id,
   });
+  return ratingBadge;
 };
 
+// Function to Update a rating badge by ID
 export const updateRatingBadge = async (id, updatedData) => {
-  const client = await getPayloadClient();
-  await client.update({
+  await initializePayload();
+  const updatedRatingBadge = await payload.update({
     collection: "rating-badges",
     id,
     data: updatedData,
   });
+  return updatedRatingBadge;
 };
 
+// Function to Delete a rating badge by ID
 export const deleteRatingBadge = async (id) => {
-  const client = await getPayloadClient();
-  await client.deleteOne({
+  await initializePayload();
+  await payload.deleteOne({
     collection: "rating-badges",
     id,
   });
 };
 
+// Function to Search for rating badges
 export const searchRatingBadges = async (query) => {
-  const client = await getPayloadClient();
-  return client.find({
+  await initializePayload();
+  const ratingBadges = await payload.find({
     collection: "rating-badges",
-    depth: 3,
-    ...query,
+    depth: 1, // Increase the depth as per your requirement
+    ...query, // You can pass query parameters such as filters, sorting, etc.
   });
+  return ratingBadges;
 };
 
-export const getAllRatingBadges = async () => {
+// Function to Get All rating badges
+export const getAllRatingBadges = async (query) => {
   const client = await getPayloadClient();
-  return client.find({
+  const allRatingBadges = await client.find({
     collection: "rating-badges",
-    depth: 3,
+    ...query,
   });
+  return allRatingBadges;
 };

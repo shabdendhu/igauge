@@ -78,23 +78,43 @@ const Pages: CollectionConfig = {
             singular: "Counter",
             plural: "Counters",
           },
-          fields: Array.from({ length: 4 }).map((_, i) => ({
-            name: `counter_${i + 1}`,
-            type: "array",
-            fields: [
-              {
-                name: "number",
-                type: "number",
-                required: true,
-              },
-              {
-                name: "title",
-                type: "text",
-                required: true,
-              },
-            ],
-          })),
+          fields: [
+            {
+              type: "array",
+              name: "counters",
+              label: "Counters",
+              required: true,
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "number",
+                      type: "number",
+                      label: "Counter Value",
+                      required: true,
+                      admin: {
+                        width: "50%",
+                      },
+                    },
+                    {
+                      name: "title",
+                      type: "text",
+                      label: "Counter Title",
+                      required: true,
+                      admin: {
+                        width: "50%",
+                      },
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
         },
+        
+        
+        
         {
           slug: "city",
           labels: {
