@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 
 const Uni_OverallRating: CollectionConfig = {
-    slug: 'univ-overall-rating',
+    slug: 'university-overall-rating',
     labels: {
         singular: 'Overall Rating',
         plural: 'Overall Ratings',

@@ -241,7 +241,7 @@ const Schools: CollectionConfig = {
                         {
                           name: "keypoint_title",
                           type: "relationship",
-                          relationTo: "sch-keypoints",
+                          relationTo: "school-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",
@@ -381,7 +381,7 @@ const Schools: CollectionConfig = {
             {
               name: "overall_rating",
               type: "relationship",
-              relationTo: "school-overallRating",
+              relationTo: "school-overall-rating",
               hasMany: false,
               label: "Overall Rating",
             },

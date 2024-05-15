@@ -1,7 +1,7 @@
 import { CollectionConfig } from 'payload/types'
 
 const Uni_KeyPoints: CollectionConfig = {
-    slug: 'uni-keypoints',
+    slug: 'university-keypoints',
     labels: {
         singular: 'Keypoint',
         plural: 'Keypoints',

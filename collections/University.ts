@@ -39,21 +39,13 @@ const University: CollectionConfig = {
                   },
                   label: "Short Description",
                 },
-                {
-                  name: "website",
-                  type: "text",
-
-                  label: "Website",
-                  admin: {
-                    width: "25%",
-                  },
-                },
+                
                 {
                   name: "established_on",
                   type: "text",
                   label: "Established On",
                   admin: {
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
@@ -62,7 +54,7 @@ const University: CollectionConfig = {
                   relationTo: "states",
                   label: "State",
                   admin: {
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
@@ -71,7 +63,7 @@ const University: CollectionConfig = {
                   relationTo: "cities",
                   label: "City",
                   admin: {
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
@@ -95,26 +87,23 @@ const University: CollectionConfig = {
                   },
                 },
                 {
-                  name: "institution_type",
-                  type: "select",
-                  label: "Institution Type",
-                  hasMany: true,
+                  name: "autonomous",
+                  type: "radio",
+                  label: "Is it a Autonomous College",
                   options: [
                     {
-                      label: "University",
-                      value: "university",
+                      label: "No",
+                      value: "no",
                     },
                     {
-                      label: "College",
-                      value: "college",
-                    },
-                    {
-                      label: "Autonomous College",
-                      value: "Autonomous College",
+                      label: "Yes",
+                      value: "yes",
                     },
                   ],
+                  defaultValue: "no",
                   admin: {
-                    width: "37.5%",
+                    layout: "horizontal",
+                    width: "25%",
                   },
                 },
                 // {
@@ -128,12 +117,21 @@ const University: CollectionConfig = {
                 //   },
                 // },
                 {
+                  name: "website",
+                  type: "text",
+
+                  label: "Website",
+                  admin: {
+                    width: "25%",
+                  },
+                },
+                {
                   name: "fee_structure_url",
                   type: "text",
 
                   label: "Admission Page URL",
                   admin: {
-                    width: "33%",
+                    width: "25%",
                   },
                 },
                 {
@@ -214,7 +212,7 @@ const University: CollectionConfig = {
                         {
                           name: "keypoint_title",
                           type: "relationship",
-                          relationTo: "uni-keypoints",
+                          relationTo: "university-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",
@@ -354,7 +352,7 @@ const University: CollectionConfig = {
             {
               name: "overall_rating",
               type: "relationship",
-              relationTo: "univ-overall-rating",
+              relationTo: "university-overall-rating",
               label: "Overall Rating",
             },
             {
