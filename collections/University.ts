@@ -1,10 +1,15 @@
 import { CollectionConfig } from "payload/types";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
-const Institutions: CollectionConfig = {
-  slug: "institutions",
+const University: CollectionConfig = {
+  slug: "universities-colleges",
+  labels: {
+    singular: "Univeristy",
+    plural: "Universities",
+  },
   admin: {
     useAsTitle: "institution_name",
+    group: 'Universities',
   },
   fields: [
     {
@@ -45,7 +50,7 @@ const Institutions: CollectionConfig = {
                 },
                 {
                   name: "established_on",
-                  type: "date",
+                  type: "text",
                   label: "Established On",
                   admin: {
                     width: "25%",
@@ -86,7 +91,7 @@ const Institutions: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "33%",
+                    width: "25%",
                   },
                 },
                 {
@@ -104,60 +109,48 @@ const Institutions: CollectionConfig = {
                       value: "college",
                     },
                     {
-                      label: "School",
-                      value: "school",
-                    },
-                    {
                       label: "Autonomous College",
                       value: "Autonomous College",
                     },
                   ],
                   admin: {
-                    width: "33%",
+                    width: "37.5%",
                   },
                 },
-                {
-                  name: "subjects",
-                  type: "relationship",
-                  relationTo: "subjects",
-                  hasMany: true,
-                  label: "Subjects",
-                  admin: {
-                    width: "25%",
-                  },
-                },
-                {
-                  name: "product_category",
-                  type: "relationship",
-                  relationTo: "product-categories",
-                  admin: {
-                    width: "25%",
-                  },
-                },
+                // {
+                //   name: "subjects",
+                //   type: "relationship",
+                //   relationTo: "uni_subjects",
+                //   hasMany: true,
+                //   label: "Subjects",
+                //   admin: {
+                //     width: "37.5%",
+                //   },
+                // },
                 {
                   name: "fee_structure_url",
                   type: "text",
 
-                  label: "Admission Page link",
+                  label: "Admission Page URL",
                   admin: {
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
                   name: "map_location",
                   type: "text",
 
-                  label: "Map Location",
+                  label: "Map Location URL",
                   admin: {
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
                   name: "source",
                   type: "text",
-                  label: "Source URL",
+                  label: "Source",
                   admin: {
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
@@ -210,8 +203,6 @@ const Institutions: CollectionConfig = {
                   name: "keypoints",
                   type: "array",
                   label: "Keypoints",
-                  minRows: 3,
-                  maxRows: 9,
                   labels: {
                     singular: "keypoint",
                     plural: "keypoints",
@@ -253,6 +244,41 @@ const Institutions: CollectionConfig = {
                     width: "100%",
                   },
                   editor: lexicalEditor({}),
+                },
+                {
+                  name: "salient_features",
+                  type: "array",
+                  label: "Salient Features",
+                  labels: {
+                    singular: "Feature",
+                    plural: "Features",
+                  },
+                  fields: [
+                    {
+                      type: "row",
+                      fields: [
+                        {
+                          name: "salient_feature_title",
+                          type: "text",
+                          label: "Salient Feature Title",
+                          admin: {
+                            width: "100%",
+                          },
+                        },
+                      ],
+                    },
+                  ],
+                  admin: {
+                    width: "100%",
+                  },
+                },
+                {
+                  name: "video",
+                  type: "text",
+                  label: "Youtube Video URL",
+                  admin: {
+                    width: "100%",
+                  },
                 },
               ],
             },
@@ -327,16 +353,13 @@ const Institutions: CollectionConfig = {
             {
               name: "overall_rating",
               type: "relationship",
-              relationTo: "rating-badges",
-              hasMany: false,
+              relationTo: "univ-overall-rating",
               label: "Overall Rating",
             },
             {
-              name: "features",
+              name: "category-ratings",
               type: "array",
-              label: "Features",
-              minRows: 3,
-              maxRows: 9,
+              label: "Catgeory Ratings",
               labels: {
                 singular: "Item",
                 plural: "Items",
@@ -345,23 +368,15 @@ const Institutions: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
+                    
                     {
-                      name: "feature_name",
+                      name: "category_rating",
                       type: "relationship",
-                      relationTo: "features",
-                      label: "Feature Name",
-                      admin: {
-                        width: "50%",
-                      },
-                    },
-                    {
-                      name: "subject_rating",
-                      type: "relationship",
-                      relationTo: "rating-badges",
+                      relationTo: "university-category-rating",
                       hasMany: false,
-                      // label: 'Subject Rating',
+                      label: "Category Rating",
                       admin: {
-                        width: "50%",
+                        width: "100%",
                       },
                     },
                   ],
@@ -370,12 +385,38 @@ const Institutions: CollectionConfig = {
             },
 
             {
-              name: "video",
-              type: "text",
-              label: "Youtube Video URL",
+              name: "subject_ratings",
+              type: "array",
+              label: "Subject Ratings",
+              labels: {
+                singular: "Item",
+                plural: "Items",
+              },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    
+                    {
+                      name: "subject_rating",
+                      type: "relationship",
+                      relationTo: "university-subject-ratings",
+                      hasMany: false,
+                      label: "Subject Rating",
+                      admin: {
+                        width: "100%",
+                      },
+                    },
+                  ],
+                },
+              ],
             },
+
+            
           ],
         },
+
+        
       ],
     },
   ],
@@ -384,4 +425,4 @@ const Institutions: CollectionConfig = {
   },
 };
 
-export default Institutions;
+export default University;
