@@ -213,7 +213,8 @@ const Colleges: CollectionConfig = {
                       fields: [
                         {
                           name: "keypoint_title",
-                          type: "text",
+                          type: "relationship",
+                          relationTo: "col-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",

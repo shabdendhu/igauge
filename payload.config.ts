@@ -27,6 +27,9 @@ import Coll_CategoryRatings from "./collections/Coll_CategoryRating";
 import Coll_OverallRating from "./collections/Coll_OverallRating";
 import Sch_CategoryRatings from "./collections/Sch_CategoryRating";
 import Sch_OverallRating from "./collections/Sch_OverallRating";
+import Uni_KeyPoints from "./collections/Uni_KeyPoints";
+import Coll_KeyPoints from "./collections/Coll_KeyPoints";
+import Sch_KeyPoints from "./collections/Sch_KeyPoints";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -39,14 +42,17 @@ export default buildConfig({
   collections: [
     Users,
     University,
+    Uni_KeyPoints,
     Uni_SubjectRatings,
     Uni_CategoryRatings,
     Uni_OverallRating,
     Colleges,
+    Coll_KeyPoints,
     Coll_SubjectRatings,
     Coll_CategoryRatings,
     Coll_OverallRating,
     Schools,
+    Sch_KeyPoints,
     Sch_SubjectRatings,
     Sch_CategoryRatings,
     Sch_OverallRating,

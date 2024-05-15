@@ -4,7 +4,7 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 const Schools: CollectionConfig = {
   slug: "schools",
   admin: {
-    useAsTitle: "school_name",
+    useAsTitle: "institution_name",
     group: 'Schools',
   },
   fields: [
@@ -240,7 +240,8 @@ const Schools: CollectionConfig = {
                       fields: [
                         {
                           name: "keypoint_title",
-                          type: "text",
+                          type: "relationship",
+                          relationTo: "sch-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",
