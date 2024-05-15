@@ -67,7 +67,7 @@ export default buildConfig({
   },
   plugins: [
     seoPlugin({
-      collections: ["institutions", "blogs", "events", "pages"],
+      collections: ["universities", "colleges", "schools", "blogs", "events", "pages"],
       tabbedUI: true,
       uploadsCollection: "media",
       generateTitle: (data: any) => `igauge.in — ${data?.doc?.title?.value}`,

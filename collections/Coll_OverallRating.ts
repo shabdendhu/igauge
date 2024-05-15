@@ -8,7 +8,7 @@ const Coll_OverallRating: CollectionConfig = {
     },
     admin: {
         useAsTitle: 'badges_name',
-        group: 'College',
+        group: 'Colleges',
     },
     fields: [
         {

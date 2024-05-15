@@ -142,7 +142,7 @@ const Colleges: CollectionConfig = {
 
                   label: "Map Location URL",
                   admin: {
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 {
@@ -150,7 +150,7 @@ const Colleges: CollectionConfig = {
                   type: "text",
                   label: "Source",
                   admin: {
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 {

@@ -2,7 +2,7 @@ import { CollectionConfig } from "payload/types";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 
 const University: CollectionConfig = {
-  slug: "universities-colleges",
+  slug: "universities",
   labels: {
     singular: "Univeristy",
     plural: "Universities",
@@ -142,7 +142,7 @@ const University: CollectionConfig = {
 
                   label: "Map Location URL",
                   admin: {
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 {
@@ -150,7 +150,7 @@ const University: CollectionConfig = {
                   type: "text",
                   label: "Source",
                   admin: {
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 {
