@@ -25,8 +25,11 @@ import { getAllSubjects } from "@/utils/Subjects";
 import { getAllRatingBadges } from "@/utils/Ratings";
 import { getAllProductCategories } from "@/utils/Category";
 import { equal } from "assert";
+import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 
 const CollectionPageV2Approved: FunctionComponent = () => {
+  const fontSize = useCalculateFontSize();
+
   const [univercityes, setUniverCityes] = useState<any>([]);
   const [states, setStates] = useState<any>([]);
   const [cities, setCities] = useState<any>([]);
@@ -66,11 +69,11 @@ const CollectionPageV2Approved: FunctionComponent = () => {
   };
 
   useEffect(() => {
-    fetchUnivercity({
-      institution_type: {
-        all: ["university", "school"],
-      },
-    });
+    // fetchUnivercity({
+    //   institution_type: {
+    //     all: ["university", "school"],
+    //   },
+    // });
   }, [filters]);
 
   return (
@@ -85,7 +88,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
           <span>{` Rated Institution `}</span>
         </div>
       </div>
-      <section className="md:mt-[71px] md:mx-[150px] mdm:px-5">
+      <section className="md:mt-[71px] md:mx-[150px] mdm:px-5 mb-5">
         <div className="grid grid-cols-12 gap-[50px] mdm:grid-cols-3 mdm:gap-10">
           <div className="col-span-3 border-[1px] border-whitesmoke-100 flex flex-col p-[16px] gap-[15px] mdm:hidden">
             <div className="text-[29px] font-semibold"> Filter</div>
@@ -174,9 +177,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <div className="bg-white box-border  border-[1px] border- border-whitesmoke-100 my-[20px]" />
           </div>
 
-          {/* Right section */}
           <div className="col-span-3 md:col-span-9 flex flex-col w-full gap-10">
-            {/* Card section */}
             <div className="bordder border-red-500 flex justify-between mdm:flex-col mdm:gap-2">
               <div className="flex gap-10 mdm:flex-col mdm:gap-2">
                 <span>
@@ -220,7 +221,6 @@ const CollectionPageV2Approved: FunctionComponent = () => {
                 }}
               />
             </div>
-            {/* eslint-disable */}
 
             {univercityes?.map((university: any, i: number) => (
               <Card university={university} key={i} />
@@ -228,6 +228,47 @@ const CollectionPageV2Approved: FunctionComponent = () => {
           </div>
         </div>
       </section>
+      <div
+        style={{
+          background: "linear-gradient(90deg, #272761 0%, #321489 100%)",
+        }}
+        className=" overflow-hidden border-red-500 bordcer-[2px] aspect-[1920/628] relative flex items-center justify-between px-5 md:px-20"
+      >
+        <div className="aspect-[600/311]  h-[50%] borcder border-red-500 flex flex-col justify-between mdm:h-[60%]">
+          <div
+            style={{
+              fontSize: fontSize(48, 12, 1920, 400),
+              fontWeight: 700,
+              textAlign: "left",
+            }}
+            className="text-white font-semibold text-center font-libre-baskerville"
+          >
+            Register to QS i-gauge to compare Institutions
+          </div>
+          <div
+            style={{
+              fontSize: fontSize(20, 4, 1920, 400),
+              fontFamily: "Libre Baskerville",
+              fontWeight: 400,
+              textAlign: "left",
+            }}
+            className="text-white font-semibold text-center font-red-hat-text "
+          >
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium...
+          </div>
+          <button>
+            <img
+              src="Button.svg"
+              style={{
+                height: fontSize(76, 15, 1920, 400),
+              }}
+            />
+          </button>
+        </div>
+        <img src="qs.svg" className="h-full" />
+        <img src="circle-left.png" className="absolute bottom-[-50%] left-0" />
+      </div>
     </div>
   );
 };

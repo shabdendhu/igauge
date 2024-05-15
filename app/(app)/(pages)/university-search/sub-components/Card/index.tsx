@@ -17,7 +17,8 @@ const Card = ({ university }: any) => {
           <img
             className="h-full relative rounded-tl-8xs rounded-tr-none rounded-br-none rounded-bl-8xs max-w-full overflow-hidden object-cover z-[1]"
             alt=""
-            src={university.media.featured_image.url}
+            // src={university.media.featured_image.url}
+            src="/rectangle-161@2x.png"
           />
         </div>
         <div className="tborder border-red-500 flex-1 p-[2%] flex flex-row mq450:flex-col">

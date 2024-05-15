@@ -20,6 +20,7 @@
     "@payloadcms/next": "^3.0.0-beta.28",
     "@payloadcms/plugin-seo": "3.0.0-beta.30",
     "@payloadcms/richtext-lexical": "^3.0.0-beta.28",
+    "@react-google-maps/api": "^2.19.3",
     "classnames": "^2.5.1",
     "graphql": "^16.8.1",
     "lodash": "^4.17.21",

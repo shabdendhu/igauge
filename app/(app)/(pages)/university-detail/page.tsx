@@ -1,9 +1,12 @@
+"use client";
 import type { NextPage } from "next";
 import Header from "../../components/Header";
 import Badge from "./sub-components/badge";
 import Footer from "../../components/Footer";
 import ImageSwiper from "../../components/ImageSwiper.tsx";
 import RatingSection from "./sub-components/RatingSection";
+import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
+import MapComponent from "@/app/(app)/components/v1/GoogleMap";
 const VideoPlayer = () => {
   return (
     <div className="w-full mx-auto aspect-[1230/650]">
@@ -61,7 +64,7 @@ const SingleListingV2Approved: NextPage = () => {
       alt: "",
     },
   ];
-
+  const fontSize = useCalculateFontSize();
   return (
     <div className="w-full text-black bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       {/* <Header /> */}
@@ -76,7 +79,7 @@ const SingleListingV2Approved: NextPage = () => {
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium...
           </div>
-          <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-10 md:w-[70%]">
+          <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-10 md:w-[70%]">
             <img
               className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
               loading="lazy"
@@ -118,7 +121,7 @@ const SingleListingV2Approved: NextPage = () => {
 
         {/** Card section */}
 
-        <div className="mt-[-50px] col-span-6 rounded-8xs bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[756px] flex flex-col items-start justify-start pt-[47px] pb-[35px] pr-[45px] pl-12 gap-[40px] max-w-full z-[1] border-[1px] border-solid border-whitesmoke mq450:gap-10 mq900:col-span-12 mq900:m-auto mq900:mt-[40px] mq1275:px-5">
+        <div className="mt-[-50px] col-span-6 rounded-8xs bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[756px] flex flex-col items-start justify-start pt-[47px] pb-[35px] pr-[45px] pl-12 gap-[40px] max-w-full z-[1] border-[1px] border-solid border-whitesmoke mq450:gap-5 mq900:py-[20px] mq900:col-span-12 mq900:m-auto mq900:mt-[40px] mq1275:px-5">
           <div className="rounded-8xs bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke" />
           <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-[21px] pr-[54px] pl-[50px] box-border max-w-full mq900:px-3 mq450:py-0">
             <img
@@ -129,7 +132,7 @@ const SingleListingV2Approved: NextPage = () => {
           </div>
           <div className="w-[116px] h-[55.9px] relative hidden" />
           <div className="self-stretch flex flex-row items-center justify-between max-w-full gap-[20px] ">
-            <div className="flex flex-col items-start justify-start pt-1 px-0 pb-0">
+            <div className="w-1/2 flex flex-col items-start justify-start pt-1 px-0 pb-0">
               <div className="flex flex-col items-start justify-start gap-[26px] mq450:gap-[10px]">
                 <div className="flex flex-row items-start justify-start py-0 px-px">
                   <div className="flex flex-row items-center justify-center gap-[10px] ">
@@ -140,7 +143,12 @@ const SingleListingV2Approved: NextPage = () => {
                         src="/location.svg"
                       />
                     </div>
-                    <div className="relative inline-block min-w-[50px] z-[1] mq450:text-sm">
+                    <div
+                      style={{
+                        fontSize: fontSize(25, 11, 1920, 400),
+                      }}
+                      className="relative inline-block min-w-[50px] z-[1] mq450:text-sm"
+                    >
                       Delhi, India
                     </div>
                   </div>
@@ -153,13 +161,18 @@ const SingleListingV2Approved: NextPage = () => {
                       src="/global-1.svg"
                     />
                   </div>
-                  <div className="relative z-[1] mq450:text-sm">
+                  <div
+                    style={{
+                      fontSize: fontSize(25, 11, 1920, 400),
+                    }}
+                    className="relative z-[1] mq450:text-sm"
+                  >
                     Private / Public
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex flex-row items-center ">
+            <div className="w-1/2 flex flex-row items-center ">
               <div className="h-[73px] w-[327px] relative rounded-8xs-4 bg-white hidden max-w-full z-[0]" />
 
               <div className="flex flex-col items-start justify-end pt-0 px-0 pb-[1.7999999999992724px]">
@@ -172,7 +185,12 @@ const SingleListingV2Approved: NextPage = () => {
                     />
                   </div>
                   <div className="flex flex-col items-start justify-start pt-[2.699999999999818px] px-0 pb-0">
-                    <div className="relative inline-block min-w-[39px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm">
+                    <div
+                      style={{
+                        fontSize: fontSize(25, 11, 1920, 400),
+                      }}
+                      className="relative inline-block min-w-[39px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm"
+                    >
                       Save
                     </div>
                   </div>
@@ -186,7 +204,12 @@ const SingleListingV2Approved: NextPage = () => {
                     src="/exchangehorizontal.svg"
                   />
                 </div>
-                <div className="relative inline-block min-w-[73px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm">
+                <div
+                  style={{
+                    fontSize: fontSize(25, 11, 1920, 400),
+                  }}
+                  className="relative inline-block min-w-[73px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm"
+                >
                   Compare
                 </div>
               </div>
@@ -195,35 +218,50 @@ const SingleListingV2Approved: NextPage = () => {
           <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-0.5 box-border max-w-full">
             <div className="flex-1 flex flex-col items-start justify-start gap-[24.300000000000185px] max-w-full">
               <div className="w-[637.1px] flex flex-row items-start justify-start py-0 px-[10px] box-border max-w-full">
-                <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq900:flex-wrap mq900:justify-center mq450:gap-5 mq1275:gap-0">
+                <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq900:flex-wrap xsm:justify-center mq450:gap-5 mq1275:gap-0">
                   <img
-                    className="h-[69.7px] w-[69.7px] relative min-h-[70px] z-[1] mq450:w-[40px]"
+                    style={{
+                      width: fontSize(70, 32, 1920, 400),
+                    }}
+                    className="aspect-square relative z-[1] mq450:w-[40px]"
                     alt=""
                     src="/frame-2-1.svg"
                   />
                   <img
-                    className="h-[69.7px] w-[69.7px] relative min-h-[70px] z-[1] mq450:w-[40px]"
+                    style={{
+                      width: fontSize(70, 32, 1920, 400),
+                    }}
+                    className="aspect-square relative z-[1] mq450:w-[40px]"
                     alt=""
                     src="/frame-3-1.svg"
                   />
                   <img
-                    className="h-[69.7px] w-[69.7px] relative overflow-hidden shrink-0 min-h-[70px] z-[1] mq450:w-[40px]"
+                    style={{
+                      width: fontSize(70, 32, 1920, 400),
+                    }}
+                    className="aspect-square relative overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
                     alt=""
                     src="/twitter-1-1.svg"
                   />
                   <img
-                    className="h-[69.7px] w-[69.7px] relative rounded-[183.37px] overflow-hidden shrink-0 min-h-[70px] z-[1] mq450:w-[40px]"
+                    style={{
+                      width: fontSize(70, 32, 1920, 400),
+                    }}
+                    className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
                     alt=""
                     src="/linkedin-1.svg"
                   />
                   <img
-                    className="h-[69.7px] w-[69.7px] relative rounded-[183.37px] overflow-hidden shrink-0 min-h-[70px] z-[1] mq450:w-[40px]"
+                    style={{
+                      width: fontSize(70, 32, 1920, 400),
+                    }}
+                    className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
                     alt=""
                     src="/youtube-1.svg"
                   />
                 </div>
               </div>
-              <button className="cursor-pointer [border:none] py-[23px] flex items-center px-5 bg-orange-200 self-stretch rounded-8xs flex flex-row items-start justify-center box-border gap-[18px] max-w-full z-[1]">
+              <button className="cursor-pointer [border:none] py-[23px] flex items-center px-5 bg-orange-200 self-stretch rounded-8xs flex flex-row items-start justify-center box-border gap-[18px] max-w-full z-[1] mq900:py-[10px]">
                 <div className="h-[86px] w-[659px] relative rounded-8xs bg-orange-200 hidden max-w-full" />
                 <div className="flex flex-col items-start justify-start  px-0 pb-0">
                   <img
@@ -351,12 +389,13 @@ const SingleListingV2Approved: NextPage = () => {
                 <h1 className="relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
                   Location
                 </h1>
-                <img
+                {/* <img
                   className="self-stretch h-[496px] relative rounded-8xs max-w-full overflow-hidden shrink-0 object-cover"
                   loading="lazy"
                   alt=""
                   src="/rectangle-157@2x.png"
-                />
+                /> */}
+                <MapComponent />
               </div>
             </div>
           </div>
