@@ -1,0 +1,176 @@
+{
+  "id": 1,
+  "institution_name": "Kalinga Institute of Industrial Technology (Kiit)",
+  "short_description": "Kalinga Institute of Industrial Technology, formerly KIIT University, is a Premier deemed university located in Bhubaneswar, Odisha, India. It primarily emphasizes on higher education and research in engineering and science.",
+  "established_on": "1992",
+  "state": {
+    "id": 3,
+    "state_name": "Odisha",
+    "updatedAt": "2024-05-15T15:23:33.224Z",
+    "createdAt": "2024-05-15T15:23:33.224Z"
+  },
+  "city": {
+    "id": 1,
+    "city_name": "Bhubuneswar",
+    "updatedAt": "2024-05-10T17:00:12.291Z",
+    "createdAt": "2024-05-10T17:00:12.291Z"
+  },
+  "type": "private",
+  "autonomous": "yes",
+  "website": "https://kiit.ac.in/",
+  "fee_structure_url": "https://kiit.ac.in/training-placement/",
+  "map_location": "https://maps.app.goo.gl/CBnRAb8U6uww8KdL9",
+  "source": "https://kiit.ac.in/sap/",
+  "facebook_url": "https://www.facebook.com/KIITUniversity",
+  "twitter_url": "https://www.twitter.com/KIITUniversity",
+  "instagram_url": "https://www.linkedin.com/school/kiituniversity/",
+  "linkedin_url": "https://www.linkedin.com/school/kiituniversity/",
+  "youtube_url": "https://www.youtube.com/channel/UC2x7DxsTyZj7XBa3hlLVPCQ",
+  "keypoints": [
+    {
+      "id": "6644d5cb1b7b003a02db3ed9",
+      "keypoint_value": "11854",
+      "keypoint_title": {
+        "id": 1,
+        "KeyPoint_title": "Publications",
+        "updatedAt": "2024-05-15T15:27:52.735Z",
+        "createdAt": "2024-05-15T15:27:52.735Z"
+      }
+    },
+    {
+      "id": "6644d5cb1b7b003a02db3eda",
+      "keypoint_value": "109",
+      "keypoint_title": {
+        "id": 2,
+        "KeyPoint_title": "h-index",
+        "updatedAt": "2024-05-15T15:28:18.829Z",
+        "createdAt": "2024-05-15T15:28:18.829Z"
+      }
+    },
+    {
+      "id": "6644d5cb1b7b003a02db3edb",
+      "keypoint_value": "3,000",
+      "keypoint_title": {
+        "id": 3,
+        "KeyPoint_title": "Faculty & Researchers",
+        "updatedAt": "2024-05-15T15:29:07.179Z",
+        "createdAt": "2024-05-15T15:29:07.179Z"
+      }
+    },
+    {
+      "id": "6644d5cb1b7b003a02db3edc",
+      "keypoint_value": "40,000",
+      "keypoint_title": {
+        "id": 4,
+        "KeyPoint_title": "Students",
+        "updatedAt": "2024-05-15T15:29:32.183Z",
+        "createdAt": "2024-05-15T15:29:32.183Z"
+      }
+    },
+    {
+      "id": "6644d5cb1b7b003a02db3edd",
+      "keypoint_value": "30",
+      "keypoint_title": {
+        "id": 5,
+        "KeyPoint_title": "World Class Campuses",
+        "updatedAt": "2024-05-15T15:30:07.513Z",
+        "createdAt": "2024-05-15T15:30:07.513Z"
+      }
+    }
+  ],
+  "overview": null,
+  "salient_features": [],
+  "video": null,
+  "media": {
+    "logo": {
+      "id": 8,
+      "alt": null,
+      "updatedAt": "2024-05-15T15:31:23.294Z",
+      "createdAt": "2024-05-15T15:31:23.294Z",
+      "url": "/api/media/file/kiit.png",
+      "thumbnailURL": null,
+      "filename": "kiit.png",
+      "mimeType": "image/png",
+      "filesize": 28595,
+      "width": 250,
+      "height": 75,
+      "sizes": {
+        "thumbnail": {
+          "url": null,
+          "width": null,
+          "height": null,
+          "mimeType": null,
+          "filesize": null,
+          "filename": null
+        },
+        "card": {
+          "url": null,
+          "width": null,
+          "height": null,
+          "mimeType": null,
+          "filesize": null,
+          "filename": null
+        },
+        "tablet": {
+          "url": null,
+          "width": null,
+          "height": null,
+          "mimeType": null,
+          "filesize": null,
+          "filename": null
+        }
+      }
+    },
+    "featured_image": {
+      "id": 9,
+      "alt": null,
+      "updatedAt": "2024-05-15T15:32:29.078Z",
+      "createdAt": "2024-05-15T15:32:29.078Z",
+      "url": "/api/media/file/Screenshot from 2024-05-09 11-55-31.png",
+      "thumbnailURL": null,
+      "filename": "Screenshot from 2024-05-09 11-55-31.png",
+      "mimeType": "image/png",
+      "filesize": 44207,
+      "width": 1885,
+      "height": 827,
+      "sizes": {
+        "thumbnail": {
+          "url": null,
+          "width": null,
+          "height": null,
+          "mimeType": null,
+          "filesize": null,
+          "filename": null
+        },
+        "card": {
+          "url": null,
+          "width": null,
+          "height": null,
+          "mimeType": null,
+          "filesize": null,
+          "filename": null
+        },
+        "tablet": {
+          "url": null,
+          "width": null,
+          "height": null,
+          "mimeType": null,
+          "filesize": null,
+          "filename": null
+        }
+      }
+    },
+    "gallery": []
+  },
+  "ratings": {
+    "category-ratings": [],
+    "subject_ratings": []
+  },
+  "meta": {
+    "title": null,
+    "description": null
+  },
+  "updatedAt": "2024-05-15T15:33:31.261Z",
+  "createdAt": "2024-05-15T15:33:31.261Z",
+  "_status": "published"
+}

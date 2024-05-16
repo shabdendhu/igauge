@@ -5,6 +5,8 @@ import Badge from "./sub-components/badge";
 import Footer from "../../components/Footer";
 import ImageSwiper from "../../components/ImageSwiper.tsx";
 import RatingSection from "./sub-components/RatingSection";
+import FrameComponent1 from "../../components/FrameComponent1";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import MapComponent from "@/app/(app)/components/v1/GoogleMap";
 const VideoPlayer = () => {
@@ -329,7 +331,30 @@ const SingleListingV2Approved: NextPage = () => {
                 </div>
               </div>
               <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
-                Highlights
+                Salient Features
+              </h1>
+              <div className="border border-orange-200 w-full bg-papayawhip px-10 flex flex-col gap-10 py-5 rounded-8xs">
+                {Array(4)
+                  .fill("")
+                  .map((e, i) => (
+                    <div className="flex items-center gap-5">
+                      <ArrowCircleRightIcon
+                        style={{
+                          color: "#F7A600",
+                          backgroundColor: "#000000",
+                          borderRadius: "50%",
+                          // fontSize: fontSize(21, 19, 1920, 400),
+                        }}
+                      />
+                      <div className="text-[22.1px] font-red-hat-text text-darkslategray mq450:text-lg mq900:text-sm">
+                        Sed ut perspiciatis unde omnis iste natus error sit
+                        voluptatem accusantium doloremque laudantium
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
+                Walkthrough Video
               </h1>
               {/* <div className="flex-1 w-full flex flex-col items-start justify-start pt-[33px] px-0 pb-0 box-border  max-w-full mq1275:min-w-full">
                 <div className="self-stretch w-full flex flex-row items-start justify-center pt-[275px] px-5 pb-[274px] relative mq900:pt-[179px] mq900:pb-[178px] mq900:box-border">
@@ -401,7 +426,9 @@ const SingleListingV2Approved: NextPage = () => {
           </div>
         </div>
       </section>
-
+      <div className="mt-10">
+        <FrameComponent1 />
+      </div>
       {/*Location */}
 
       {/* <Footer /> */}

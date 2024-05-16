@@ -1,6 +1,10 @@
+"use client";
+import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
 import type { NextPage } from "next";
 
 const FeatureSplitter: NextPage = () => {
+  const fontSize = useCalculateFontSize();
+
   return (
     <div className="  h-60 flex  justify-between items-center pr-8 ">
       <div className="flex flex-col gap-y-3">
@@ -11,10 +15,20 @@ const FeatureSplitter: NextPage = () => {
           src="/frame-202.svg"
         />
         <div className="flex flex-col gap-y-2">
-          <h2 className="text-[20px] font-semibold font-libre-baskerville">
+          <h2
+            style={{
+              fontSize: fontSize(28, 22, 1920, 400),
+            }}
+            className=" font-semibold font-libre-baskerville"
+          >
             Lorem Ipsum
           </h2>
-          <p className="text-[14px] text-darkslategray font-red-hat-text ">
+          <p
+            style={{
+              fontSize: fontSize(20, 15, 1920, 400),
+            }}
+            className="text-darkslategray font-red-hat-text "
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             saepe blanditi
           </p>

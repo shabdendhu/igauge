@@ -1,3 +1,4 @@
+"use client";
 import type { NextPage } from "next";
 import ConditionBranch from "./components/condition-branch";
 import FrameComponent1 from "./components/frame-component12";
@@ -5,9 +6,14 @@ import FrameComponent from "./components/frame-component9";
 import ShapeSplitter from "./components/shape-splitter";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import FrameComponent11 from "../../components/FrameComponent1";
+
 import BlogCardSmall from "@/app/(app)/components/v1/BlogCardSmall";
 import Link from "next/link";
+import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 const BlogsV2Approved: NextPage = () => {
+  const fontSize = useCalculateFontSize();
+
   return (
     <div>
       <div className="flex w-full h-16 justify-between items-center mb-10 bg-orange-100/30  border border-orange-200 px-6 md:px-[150px]">
@@ -84,10 +90,20 @@ const BlogsV2Approved: NextPage = () => {
                       <p className="text-xs"> 12 March, 2024</p>
                     </div>
                     <div className="flex flex-col gap-y-2 md:gap-[15px]">
-                      <p className="text-lg font-libre-baskerville font-semibold md:text-11xl">
+                      <p
+                        style={{
+                          fontSize: fontSize(30, 14, 1920, 400),
+                        }}
+                        className="text-lg font-libre-baskerville font-semibold md:text-11xl"
+                      >
                         Lorem ipsum dolor sit amet
                       </p>
-                      <p className="text-[11px] md:text-mid">
+                      <p
+                        style={{
+                          fontSize: fontSize(17, 8, 1920, 400),
+                        }}
+                        className="text-[11px] md:text-mid"
+                      >
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -111,90 +127,62 @@ const BlogsV2Approved: NextPage = () => {
                 </div>
               </div>
               <div className="flex flex-col h-full w-1/2   gap-y-4  ">
-                <div className="h-1/2 flex gap-x-3 border">
-                  <div className="w-3/5 h-full">
-                    <img
-                      className="w-full h-full relative object-cover aspect-square  max-w-full"
-                      alt=""
-                      src="/rectangle-245@2x.png"
-                    />
-                  </div>
-                  <div className=" w-full flex flex-col justify-around pl-5 ">
-                    <div className=" flex gap-x-1">
-                      <img
-                        className="w-[11.9px] h-[11.9px] relative overflow-hidden "
-                        alt=""
-                        src="/calendar-1.svg"
-                      />
-                      <p className="text-xs"> 12 March, 2024</p>
-                    </div>
-                    <div className="flex flex-col gap-y-2">
-                      <p className="text-lg font-libre-baskerville font-semibold">
-                        Lorem ipsum dolor sit amet
-                      </p>
-                      <p className="text-[11px]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quis est odit repellendus minima voluptas sit adipisci
-                        quasi eveniet id suscipit, eum, voluptate eligendi illo
-                        voluptates!
-                      </p>
-                    </div>
-                    <div className="w-full ">
-                      <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
-                        <div> Read More</div>
-                        <div className="h-full bg-orange-200 flex items-center">
+                {Array(2)
+                  .fill("")
+                  .map((e, i) => (
+                    <div key={i} className="h-1/2 flex gap-x-3 border">
+                      <div className="w-3/5 h-full">
+                        <img
+                          className="w-full h-full relative object-cover aspect-square  max-w-full"
+                          alt=""
+                          src="/rectangle-245@2x.png"
+                        />
+                      </div>
+                      <div className=" w-full flex flex-col justify-around pl-5 ">
+                        <div className=" flex gap-x-1">
                           <img
-                            className=" h-[6px] w-[6px] relative "
+                            className="w-[11.9px] h-[11.9px] relative overflow-hidden "
                             alt=""
-                            src="/double_arrow.svg"
+                            src="/calendar-1.svg"
                           />
+                          <p className="text-xs"> 12 March, 2024</p>
                         </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div className="h-1/2 flex gap-x-3 border">
-                  <div className="w-3/5 h-full">
-                    <img
-                      className="w-full h-full relative object-cover aspect-square  max-w-full"
-                      alt=""
-                      src="/rectangle-245@2x.png"
-                    />
-                  </div>
-                  <div className=" w-full flex flex-col justify-around pl-5 ">
-                    <div className=" flex gap-x-1">
-                      <img
-                        className="w-[11.9px] h-[11.9px] relative overflow-hidden "
-                        alt=""
-                        src="/calendar-1.svg"
-                      />
-                      <p className="text-xs"> 12 March, 2024</p>
-                    </div>
-                    <div className="flex flex-col gap-y-2">
-                      <p className="text-lg font-libre-baskerville font-semibold">
-                        Lorem ipsum dolor sit amet
-                      </p>
-                      <p className="text-[11px]">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quis est odit repellendus minima voluptas sit adipisci
-                        quasi eveniet id suscipit, eum, voluptate eligendi illo
-                        voluptates!
-                      </p>
-                    </div>
-                    <div className="w-full ">
-                      <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
-                        <div> Read More</div>
-                        <div className="h-full bg-orange-200 flex items-center">
-                          <img
-                            className=" h-[6px] w-[6px] relative "
-                            alt=""
-                            src="/double_arrow.svg"
-                          />
+                        <div className="flex flex-col gap-y-2">
+                          <p
+                            style={{
+                              fontSize: fontSize(30, 14, 1920, 400),
+                            }}
+                            className="text-lg font-libre-baskerville font-semibold"
+                          >
+                            Lorem ipsum dolor sit amet
+                          </p>
+                          <p
+                            style={{
+                              fontSize: fontSize(17, 8, 1920, 400),
+                            }}
+                            className="text-[11px]"
+                          >
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Quis est odit repellendus minima voluptas sit
+                            adipisci quasi eveniet id suscipit, eum, voluptate
+                            eligendi illo voluptates!
+                          </p>
                         </div>
-                      </button>
+                        <div className="w-full ">
+                          <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
+                            <div> Read More</div>
+                            <div className="h-full bg-orange-200 flex items-center">
+                              <img
+                                className=" h-[6px] w-[6px] relative "
+                                alt=""
+                                src="/double_arrow.svg"
+                              />
+                            </div>
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  ))}
               </div>
             </div>
           </div>
@@ -211,52 +199,6 @@ const BlogsV2Approved: NextPage = () => {
               <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
-
-              <div className=" border  flex flex-col h-fit">
-                <div className="h-3/5 relative">
-                  <img
-                    className="h-[200px]  w-full relative object-cover aspect-square  "
-                    alt=""
-                    src="/rectangle-245@2x.png"
-                  />
-                  <button className="bg-darkslateblue font-libre-baskerville h-7 items-center absolute inline-flex  top-0 m-4 rounded-[4.26px] text-white p-2 text-[10px]">
-                    Category
-                  </button>
-                </div>
-                <div className="m-3 h-full flex flex-col gap-y-3 ">
-                  <div className=" flex gap-x-1">
-                    <img
-                      className="w-[11.9px] h-[11.9px] relative overflow-hidden shrink-0 [debug_commit:1de1738] z-[1]"
-                      alt=""
-                      src="/calendar-1.svg"
-                    />
-                    <p className="text-xs"> 12 March, 2024</p>
-                  </div>
-                  <div className="flex flex-col gap-y-2">
-                    <p className="text-lg font-libre-baskerville font-semibold">
-                      Lorem ipsum dolor sit amet
-                    </p>
-                    <p className="text-[11px]">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Quis est odit repellendus minima voluptas sit adipisci
-                      quasi eveniet id suscipit, eum, voluptate eligendi illo
-                      voluptates!
-                    </p>
-                  </div>
-                  <div className="h-10 ">
-                    <button className="bg-orange-200 h-full  flex justify-center items-center gap-x-1 px-7">
-                      <div> Read More</div>
-                      <div className="h-full bg-orange-200 flex items-center">
-                        <img
-                          className=" h-[6px] w-[6px] relative "
-                          alt=""
-                          src="/double_arrow.svg"
-                        />
-                      </div>
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           <div className="col-start-6 col-span-2    mt-10 hidden md:block">
@@ -356,28 +298,7 @@ const BlogsV2Approved: NextPage = () => {
         </div>
       </div>
       <div className="mt-5">
-        <div className="h-[200px] w-full flex  relative overflow-hidden bg-darkslateblue  justify-center items-center z-1">
-          <img
-            className="h-60  -bottom-10 right-0 md:-left-10 z-0  absolute object-cover hidden sm:block"
-            alt=""
-            src="/image-9@2x.png"
-          />
-          <div className="text-white  flex justify-center items-center flex-col gap-y-2 ">
-            <h1 className="font-libre-baskerville text-3xl md:text-5xl  capitalize text-center w-full xs:max-w-[55%]">
-              Register to QS i-gauge To Compare Institutions
-            </h1>
-            <div className="flex text-center justify-center">
-              <p className="font-red-hat-text  text-center flex max-w-[55%] text-xs">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium...
-              </p>
-            </div>
-
-            <div className="relative text-base bg-orange-200 p-2 font-red-hat-display text-black text-left ">
-              <Link href={"/signup"}> Register Now</Link>
-            </div>
-          </div>
-        </div>
+        <FrameComponent11 />
       </div>
     </div>
   );

@@ -1,9 +1,12 @@
+import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
 import React from "react";
 
 const BlogCardSmall = () => {
+  const fontSize = useCalculateFontSize();
+
   return (
     <div
-      className=" border  flex flex-col h-fit"
+      className=" border  flex flex-col "
       style={{
         aspectRatio: 550 / 530,
         overflow: "hidden",
@@ -30,10 +33,20 @@ const BlogCardSmall = () => {
             <p className="text-xs"> 12 March, 2024</p>
           </div>
           <div className="flex flex-col gap-y-2">
-            <p className="text-lg font-libre-baskerville font-semibold">
+            <p
+              style={{
+                fontSize: fontSize(30, 8, 1920, 400),
+              }}
+              className="text-lg font-libre-baskerville font-semibold"
+            >
               Lorem ipsum dolor sit amet
             </p>
-            <p className="text-[11px]">
+            <p
+              style={{
+                fontSize: fontSize(13, 9, 1920, 400),
+              }}
+              className="text-[11px]"
+            >
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis est
               odit repellendus minima voluptas sit adipisci quasi eveniet id
               suscipit, eum, voluptate eligendi illo voluptates!
