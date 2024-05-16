@@ -44,6 +44,46 @@ const Pages: CollectionConfig = {
           ],
         },
         {
+          slug: "animatedTextField",
+          labels: {
+            singular: "Animated Text Field",
+            plural: "Animated Text Fields",
+          },
+          fields: [
+            {
+              name: "prefix",
+              type: "text",
+              label: "Prefix",
+              admin: {
+                position: "sidebar",
+              },
+            },
+            {
+              name: "suffix",
+              type: "text",
+              label: "Suffix",
+              admin: {
+                position: "sidebar",
+              },
+            },
+            {
+              name: "texts",
+              type: "array",
+              label: "Highlighted Text",
+              fields: [
+                {
+                  name: "text",
+                  type: "text",
+                  required: true,
+                  label: "Highlighted Text",
+                },
+              ],
+            
+            },
+          ],
+        
+        },
+        {
           slug: "image",
           labels: {
             singular: "Image",
@@ -149,6 +189,7 @@ const Pages: CollectionConfig = {
                         { label: "School", value: "school" },
                         { label: "College", value: "college" },
                         { label: "University", value: "university" },
+                        { label: "Autonomous College", value: "autonomous" },
                       ],
                     },
                   ],
@@ -191,6 +232,7 @@ const Pages: CollectionConfig = {
                         { label: "School", value: "school" },
                         { label: "College", value: "college" },
                         { label: "University", value: "university" },
+                        { label: "Autonomous College", value: "autonomous" },
                       ],
                     },
                   ],
@@ -319,6 +361,39 @@ const Pages: CollectionConfig = {
                   required: true,
                 },
               ],
+            },
+          ],
+        },
+        {
+          slug: "call_to_action",
+          labels: {
+            singular: "Call To Action",
+            plural: "Call To Actions",
+          },
+          fields: [
+            {
+              name: "image",
+              type: "upload",
+              relationTo: "media",
+              required: true,
+            },
+            {
+              name: "title",
+              type: "text",
+              required: true,
+              label: "Title",
+            },
+            {
+              name: "description",
+              type: "textarea",
+              required: true,
+              label: "Description",
+            },
+            {
+              name: "link",
+              type: "text",
+              required: true,
+              label: "Link",
             },
           ],
         },
