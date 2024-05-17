@@ -1,5 +1,5 @@
 "use client";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import FrameComponent10 from "../../components/HeroBanner";
 import TopRatedCollection from "../../components/TopRatedCollection";
@@ -17,13 +17,14 @@ import FrameComponent1 from "../../components/FrameComponent1";
 import { useRouter } from "next/navigation";
 import TopRated from "../../components/v1/Home/TopRated";
 import Testimonials from "../../components/v1/Home/Testimonials";
-import data from "@/x.json";
+import dummyData from "@/x.json";
 import axios from "axios";
 const HomeV2Approved: FunctionComponent = () => {
   const router = useRouter();
+  const [data,setData]=useState<any>(dummyData)
   const getPages = async () => {
     try {
-      const page = await axios(`/api/pages`, {
+      const page = await axios(`/api/pages/1`, {
         method: "GET",
         // credentials: "include",
         withCredentials: true,

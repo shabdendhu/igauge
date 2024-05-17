@@ -6,25 +6,17 @@
   "content": [
     {
       "id": "6645e20f995bde327d4f96e2",
-      "prefix": "Make Informed Choices: Compare",
-      "suffix": "Easily WithQS I-GAUGE’s Trusted Rating",
+      "prefix": "",
+      "suffix": "",
       "blockName": "Hero Title",
 
       "texts": [
         {
           "id": "6645e224995bde327d4f96e3",
-          "text": "Schools"
-        },
-
-        {
-          "id": "6645e226995bde327d4f96e4",
-          "text": "Colleges"
-        },
-
-        {
-          "id": "6645e22c995bde327d4f96e5",
-          "text": "University"
+          "text": "Shools"
         }
+
+        
       ],
       "blockType": "animatedTextField"
     },
