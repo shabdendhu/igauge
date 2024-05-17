@@ -1,0 +1,395 @@
+{
+  "id": 1,
+  "page_name": "Home",
+  "slug": "home",
+
+  "content": [
+    {
+      "id": "",
+      "prefix": "",
+      "suffix": "",
+      "blockName": "Hero Title",
+
+      "texts": [
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "blockType": "animatedTextField"
+    },
+
+    {
+      "id": "",
+      "blockName": "Hero-Left",
+      "blockType": "image",
+
+      "image": {
+        "id": 1,
+        "alt": null,
+        "updatedAt": "2024-05-16T10:40:43.148Z",
+        "createdAt": "2024-05-16T10:40:43.148Z",
+        "url": "",
+        "thumbnailURL": null,
+        "filename": "",
+        "mimeType": "",
+        "filesize": 71399,
+        "width": 507,
+        "height": 385,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    },
+
+    {
+      "id": "",
+      "blockName": "Hero-Right",
+      "blockType": "image",
+
+      "image": {
+        "id": 2,
+        "alt": null,
+        "updatedAt": "2024-05-16T10:40:55.451Z",
+        "createdAt": "2024-05-16T10:40:55.451Z",
+        "url": "",
+        "thumbnailURL": null,
+        "filename": "",
+        "mimeType": "",
+        "filesize": 47804,
+        "width": 445,
+        "height": 363,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    },
+
+    {
+      "id": "",
+      "text": "",
+      "blockName": "counter-hero-title",
+      "blockType": "text"
+    },
+
+    {
+      "id": "",
+      "blockName": "counter-hero",
+
+      "counters": [
+        {
+          "id": "",
+          "number": 200,
+          "title": "Institutions Rated"
+        }
+      ],
+      "blockType": "counter"
+    },
+
+    {
+      "id": "",
+      "text": "",
+      "blockName": "section-2-title",
+      "blockType": "text"
+    },
+
+    {
+      "id": "",
+      "blockName": "discover-categories",
+
+      "categories": [
+        {
+          "id": "",
+
+          "category": {
+            "text": "",
+
+            "image": {
+              "id": 3,
+              "alt": null,
+              "updatedAt": "2024-05-16T10:47:03.696Z",
+              "createdAt": "2024-05-16T10:47:03.696Z",
+              "url": "",
+              "thumbnailURL": null,
+              "filename": "",
+              "mimeType": "image/jpeg",
+              "filesize": 164327,
+              "width": 390,
+              "height": 530,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        }
+      ],
+      "blockType": "category"
+    },
+
+    {
+      "id": "",
+      "blockName": "discover-cities",
+
+      "cities": [
+        {
+          "id": "",
+
+          "city": {
+            "text": "",
+
+            "image": {
+              "id": 9,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:07:54.294Z",
+              "createdAt": "2024-05-16T11:07:54.294Z",
+              "url": "",
+              "thumbnailURL": null,
+              "filename": "",
+              "mimeType": "image/png",
+              "filesize": 92354,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        }
+      ],
+      "blockType": "city"
+    },
+
+    {
+      "id": "",
+      "title": "",
+      "description": "",
+      "button_url": "/about",
+      "blockName": null,
+      "blockType": "context_with_button",
+
+      "image": {
+        "id": 17,
+        "alt": "",
+        "updatedAt": "2024-05-16T11:17:13.341Z",
+        "createdAt": "2024-05-16T11:17:13.341Z",
+        "url": "",
+        "thumbnailURL": null,
+        "filename": "",
+        "mimeType": "",
+        "filesize": 844904,
+        "width": 962,
+        "height": 1074,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    },
+
+    {
+      "id": "",
+      "title": "",
+      "description": "",
+      "blockName": null,
+
+      "questions_answers": [
+        {
+          "id": "",
+          "question": "",
+          "answer": ""
+        }
+      ],
+      "blockType": "faqs"
+    },
+
+    {
+      "id": "",
+      "title": " ",
+      "description": " ",
+      "link": "/register",
+      "blockName": "cta",
+      "blockType": "call_to_action",
+
+      "image": {
+        "id": 18,
+        "alt": null,
+        "updatedAt": "2024-05-16T11:29:43.016Z",
+        "createdAt": "2024-05-16T11:29:43.016Z",
+        "url": " ",
+        "thumbnailURL": null,
+        "filename": "image 9.png",
+        "mimeType": "image/png",
+        "filesize": 105139,
+        "width": 624,
+        "height": 442,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    }
+  ],
+
+  "meta": {
+    "title": null,
+    "description": null
+  },
+  "updatedAt": "2024-05-16T11:29:45.101Z",
+  "createdAt": "2024-05-16T09:15:29.550Z"
+}

@@ -8,6 +8,7 @@ import {
 import { getAllRatingBadges } from "@/utils/Ratings";
 import Select from "@/app/(app)/components/v1/Select";
 import TypingEffect from "@/app/(app)/components/v1/TypeingEffect";
+import { useRouter } from "next/navigation";
 
 const SelectUnivercity = ({ label = "select" }) => {
   const [selectedValue, setSelectedValue] = useState<any>("");
@@ -317,7 +318,9 @@ const TextBlock = ({ header, description }: any) => {
     </div>
   );
 };
-const FrameComponent10: any = ({ router, pageData }: any) => {
+const FrameComponent10: any = ({ pageData }: any) => {
+  const router = useRouter();
+
   return (
     <section className="min-h-[100px] self-stretch flex flex-row items-start justify-start pt-0 px-0  box-border max-w-full text-center text-45xl text-black font-libre-baskerville mq900:pb-[45px] mq900:box-border mq1275:pb-[69px] mq1275:box-border">
       <div className="h-[1000px] flex-1 relative [background:linear-gradient(180deg,_#fff0d1_71.5%,_#fff)] overflow-hidden max-w-full mq1275:h-auto mq1275:min-h-[983]">
@@ -343,7 +346,7 @@ const FrameComponent10: any = ({ router, pageData }: any) => {
         <div className="w-screen min-h-screen px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5 relative">
           <div className="flex h-1/2 mdm:justify-between mdm:px-10 mq900:px-0">
             <div className="w-1/4 mdm:w-2/4">
-              <img src={pageData.content[1].image.url} />
+              <img src={pageData?.content[1]?.image.url} />
             </div>
             <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
               <div className=" h-full mdm:hidden">

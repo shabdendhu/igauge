@@ -17,11 +17,10 @@ import FrameComponent1 from "../../components/FrameComponent1";
 import { useRouter } from "next/navigation";
 import TopRated from "../../components/v1/Home/TopRated";
 import Testimonials from "../../components/v1/Home/Testimonials";
-import dummyData from "@/x.json";
+import dummyData from "@/datatypes/home.json";
 import axios from "axios";
 const HomeV2Approved: FunctionComponent = () => {
-  const router = useRouter();
-  const [data,setData]=useState<any>(dummyData)
+  const [data, setData] = useState<any>(dummyData);
   const getPages = async () => {
     try {
       const page = await axios(`/api/pages/1`, {
@@ -47,7 +46,7 @@ const HomeV2Approved: FunctionComponent = () => {
   return (
     <div className="w-full  bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       <div className="w-full h-[39px]  hidden max-w-full" />
-      <FrameComponent10 pageData={data} router={router} />
+      <FrameComponent10 pageData={data} />
 
       <TopRated pageData={data} />
       <FrameComponent6 prop="/double_arrow.svg" />
