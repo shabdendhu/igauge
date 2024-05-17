@@ -33,7 +33,7 @@ const HomeV2Approved: FunctionComponent = () => {
         },
       });
       // const s = axiosManager.get("/api/pages/1?depth=1&draft=false");
-
+      setData(page.data);
       console.log({ page }, "00000000000000000000000000000");
     } catch (err) {
       console.log(err);

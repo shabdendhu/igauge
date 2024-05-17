@@ -1,8 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
-
-const FrameComponent1 = ({ pageData }: any) => {
+import dummydata from "@/datatypes/home.json";
+const FrameComponent1 = ({ pageData = dummydata }: any) => {
   const router = useRouter();
   return (
     <section className="w-full grid grid-cols-12 flex justify-center bg-darkslateblue overflow-hidden shrink-0 max-w-full z-[2] text-center text-36xl text-white font-libre-baskerville">

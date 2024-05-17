@@ -1,15 +1,7 @@
 "use client";
 import type { NextPage } from "next";
-import ConditionBranch from "./components/condition-branch";
-import FrameComponent1 from "./components/frame-component12";
-import FrameComponent from "./components/frame-component9";
-import ShapeSplitter from "./components/shape-splitter";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
 import FrameComponent11 from "../../components/FrameComponent1";
-
 import BlogCardSmall from "@/app/(app)/components/v1/BlogCardSmall";
-import Link from "next/link";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 const BlogsV2Approved: NextPage = () => {
   const fontSize = useCalculateFontSize();

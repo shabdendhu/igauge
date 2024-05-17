@@ -1,7 +1,4 @@
 import type { NextPage } from "next";
-import FrameComponent6 from "./sub-components/frame-component6";
-import FrameComponent5 from "./sub-components/frame-component5";
-import FrameComponent4 from "./sub-components/frame-component4";
 import Badge from "../badge";
 import "./index.css";
 

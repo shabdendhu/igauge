@@ -1,14 +1,11 @@
 "use client";
-import type { NextPage } from "next";
-import Header from "../../components/Header";
-import Badge from "./sub-components/badge";
-import Footer from "../../components/Footer";
-import ImageSwiper from "../../components/ImageSwiper.tsx";
-import RatingSection from "./sub-components/RatingSection";
-import FrameComponent1 from "../../components/FrameComponent1";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
-import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import MapComponent from "@/app/(app)/components/v1/GoogleMap";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import type { NextPage } from "next";
+import FrameComponent1 from "../../components/FrameComponent1";
+import ImageSwiper from "../../components/ImageSwiper.tsx";
+import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
+import RatingSection from "./sub-components/RatingSection";
 const VideoPlayer = () => {
   return (
     <div className="w-full mx-auto aspect-[1230/650]">
