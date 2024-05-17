@@ -13,15 +13,15 @@ const FrameComponent7: FunctionComponent = ({
   const router = useRouter();
 
   useEffect(() => {
-    getInstitutionsByType(activeTab)
-      .then((e) => {
-        if (e.docs.length) {
-          setData(e.docs);
-        } else {
-          setData([]);
-        }
-      })
-      .catch((err) => console.error(err));
+    // getInstitutionsByType(activeTab)
+    //   .then((e) => {
+    //     if (e.docs.length) {
+    //       setData(e.docs);
+    //     } else {
+    //       setData([]);
+    //     }
+    //   })
+    //   .catch((err) => console.error(err));
   }, [activeTab]);
   useEffect(() => {
     console.log({ data });

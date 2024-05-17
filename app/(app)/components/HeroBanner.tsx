@@ -89,9 +89,9 @@ const SelectRatings = ({ label = "select" }) => {
   };
 
   useEffect(() => {
-    getAllRatingBadges()
-      .then((data: any) => setOptions(data?.docs))
-      .catch((err) => console.log(err));
+    // getAllRatingBadges()
+    //   .then((data: any) => setOptions(data?.docs))
+    //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     console.log(options);
@@ -246,9 +246,9 @@ const Features = () => {
     university: 0,
   });
   useEffect(() => {
-    getInstitutionCountsByType()
-      .then((data: any) => setCounts({ ...counts, ...data }))
-      .catch((err) => console.log(err));
+    // getInstitutionCountsByType()
+    //   .then((data: any) => setCounts({ ...counts, ...data }))
+    //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     console.log(counts);

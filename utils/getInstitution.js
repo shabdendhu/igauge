@@ -32,7 +32,7 @@ export const getInstitutionById = async (id) => {
 export const updateInstitution = async (id, updatedData) => {
   await initializePayload();
   const updatedInstitution = await payload.update({
-    collection: "institutions",
+    collection: "universities",
     id,
     data: updatedData,
   });
@@ -43,7 +43,7 @@ export const updateInstitution = async (id, updatedData) => {
 export const deleteInstitution = async (id) => {
   await initializePayload();
   await payload.deleteOne({
-    collection: "institutions",
+    collection: "universities",
     id,
   });
 };
@@ -52,7 +52,7 @@ export const deleteInstitution = async (id) => {
 export const searchInstitutions = async (query) => {
   await initializePayload();
   const institutions = await payload.find({
-    collection: "institutions",
+    collection: "universities",
     depth: 3, // Increase the depth as per your requirement
     ...query, // You can pass query parameters such as filters, sorting, etc.
   });
@@ -63,7 +63,7 @@ export const searchInstitutions = async (query) => {
 export const getAllInstitutions = async (query) => {
   const client = await getPayloadClient();
   const allInstitutions = await client.find({
-    collection: "institutions",
+    collection: "universities",
     ...query,
   });
   return allInstitutions;
@@ -72,7 +72,7 @@ export const getAllInstitutions = async (query) => {
 export const getInstitutionCountsByType = async () => {
   const client = await getPayloadClient();
   const allInstitutions = await client.find({
-    collection: "institutions",
+    collection: "universities",
     depth: 1, // Depth 1 is sufficient to get institution_type field
   });
 
@@ -105,7 +105,7 @@ export const getInstitutionsByType = async (type) => {
   await initializePayload();
   const institutions = await payload.find(
     {
-      collection: "institutions",
+      collection: "universities",
       where: {
         institution_type: {
           equals: type,
