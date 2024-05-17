@@ -5,6 +5,7 @@ const TopRatedCollection: FunctionComponent = ({
   setActiveTab,
   handleTabClick,
   handleScroll,
+  pageData,
 }: any) => {
   // State to keep track of the active tab
 
@@ -12,7 +13,7 @@ const TopRatedCollection: FunctionComponent = ({
     <div className="self-stretch flex flex-row items-end justify-start relative [row-gap:20px] max-w-full text-left text-36xl text-black font-libre-baskerville mq1600:flex-wrap">
       <div className="w-[1036px] flex flex-col items-start justify-start gap-[79px] min-w-[1036px] max-w-full mq900:gap-[20px_79px] mq1275:gap-[39px_79px] mq1275:min-w-full mq1600:flex-1">
         <h1 className="m-0 self-stretch relative text-inherit font-semibold text-[55px] z-[1] mq450:text-14xl mq900:text-25xl mq1440:text-[38.5px] mq1440:text-[45px]">
-          Top Rated Collections Section
+          {pageData?.content[5].text}
         </h1>
 
         <div

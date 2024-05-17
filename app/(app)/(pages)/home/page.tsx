@@ -48,21 +48,21 @@ const HomeV2Approved: FunctionComponent = () => {
       <div className="w-full h-[39px]  hidden max-w-full" />
       <FrameComponent10 pageData={data} router={router} />
 
-      <TopRated />
+      <TopRated pageData={data} />
       <FrameComponent6 prop="/double_arrow.svg" />
-      <FrameComponent5 />
+      <FrameComponent5 pageData={data} />
       <section className="self-stretch flex flex-row items-start justify-center pt-0 pb-[199.70000000000005px] pr-5 pl-[22px] box-border max-w-full mq900:pb-[84px]  mq900:px-5 mq900:box-border mq1275:pb-[130px] mq1275:box-border mq1440:px-[100px] mq1920:px-[136px]">
         <div className="w-[1650px] flex flex-col items-start justify-start gap-[30px] max-w-full">
           <TopRatedUniversitySection />
-          <FrameComponent3 />
+          <FrameComponent3 pageData={data} />
         </div>
       </section>
-      <FrameComponent2 />
+      <FrameComponent2 pageData={data} />
       {/* <Icon /> */}
       <Testimonials />
-      <FAQSection />
+      <FAQSection pageData={data} />
       <SkewTransform />
-      <FrameComponent1 />
+      <FrameComponent1 pageData={data} />
     </div>
   );
 };

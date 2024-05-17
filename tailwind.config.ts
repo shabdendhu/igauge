@@ -12,6 +12,15 @@ module.exports = withMT({
 
   theme: {
     extend: {
+      animation: {
+        blink: "blink 0.7s infinite",
+      },
+      keyframes: {
+        blink: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0 },
+        },
+      },
       aspectRatio: {
         "1333/265": "1333 / 265",
       },
