@@ -18,26 +18,30 @@ import { useRouter } from "next/navigation";
 import TopRated from "../../components/v1/Home/TopRated";
 import Testimonials from "../../components/v1/Home/Testimonials";
 import data from "@/x.json";
+import axios from "axios";
 const HomeV2Approved: FunctionComponent = () => {
   const router = useRouter();
   const getPages = async () => {
     try {
-      const page = await fetch(`/api/pages`, {
+      const page = await axios(`/api/pages`, {
         method: "GET",
-        credentials: "include",
+        // credentials: "include",
+        withCredentials: true,
+        xsrfCookieName: "payload-token",
         headers: {
           "Content-Type": "application/json",
         },
       });
       // const s = axiosManager.get("/api/pages/1?depth=1&draft=false");
 
-      console.log({ page });
+      console.log({ page }, "00000000000000000000000000000");
     } catch (err) {
       console.log(err);
     }
   };
   useEffect(() => {
     getPages();
+    console.log(data);
   }, []);
   return (
     <div className="w-full  bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
