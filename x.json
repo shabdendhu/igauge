@@ -5,66 +5,45 @@
 
   "content": [
     {
-      "id": "663f3a88f9d54e2d9b2c2a6f",
-      "text": "Looking for Best Institution?",
+      "id": "6645e20f995bde327d4f96e2",
+      "prefix": "Make Informed Choices: Compare",
+      "suffix": "Easily WithQS I-GAUGE’s Trusted Rating",
       "blockName": "Hero Title",
-      "blockType": "text"
-    },
 
-    {
-      "id": "663f3a88f9d54e2d9b2c2a70",
+      "texts": [
+        {
+          "id": "6645e224995bde327d4f96e3",
+          "text": "Schools"
+        },
 
-      "rich_content": {
-        "root": {
-          "type": "root",
-          "format": "",
-          "indent": 0,
-          "version": 1,
+        {
+          "id": "6645e226995bde327d4f96e4",
+          "text": "Colleges"
+        },
 
-          "children": [
-            {
-              "type": "paragraph",
-              "format": "",
-              "indent": 0,
-              "version": 1,
-
-              "children": [
-                {
-                  "mode": "normal",
-                  "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
-                  "type": "text",
-                  "style": "",
-                  "detail": 0,
-                  "format": 0,
-                  "version": 1
-                }
-              ],
-              "direction": "ltr",
-              "textFormat": 0
-            }
-          ],
-          "direction": "ltr"
+        {
+          "id": "6645e22c995bde327d4f96e5",
+          "text": "University"
         }
-      },
-      "blockName": "Hero Description",
-      "blockType": "rich_editor"
+      ],
+      "blockType": "animatedTextField"
     },
 
     {
-      "id": "663f3a8ff9d54e2d9b2c2a71",
-      "blockName": "hero-left",
+      "id": "6645e244995bde327d4f96e6",
+      "blockName": "Hero-Left",
       "blockType": "image",
 
       "image": {
-        "id": 8,
+        "id": 1,
         "alt": null,
-        "updatedAt": "2024-05-11T09:30:11.432Z",
-        "createdAt": "2024-05-11T09:30:11.432Z",
-        "url": "/api/media/file/hero-left.svg",
+        "updatedAt": "2024-05-16T10:40:43.148Z",
+        "createdAt": "2024-05-16T10:40:43.148Z",
+        "url": "/image-16@2x.png",
         "thumbnailURL": null,
-        "filename": "hero-left.svg",
-        "mimeType": "image/svg+xml",
-        "filesize": 66340,
+        "filename": "image 16.png",
+        "mimeType": "image/png",
+        "filesize": 71399,
         "width": 507,
         "height": 385,
 
@@ -100,20 +79,20 @@
     },
 
     {
-      "id": "663f3aa6f9d54e2d9b2c2a72",
-      "blockName": "hero-right",
+      "id": "6645e2af995bde327d4f96e7",
+      "blockName": "Hero-Right",
       "blockType": "image",
 
       "image": {
-        "id": 9,
+        "id": 2,
         "alt": null,
-        "updatedAt": "2024-05-11T09:30:30.550Z",
-        "createdAt": "2024-05-11T09:30:30.550Z",
-        "url": "/api/media/file/hero-right.svg",
+        "updatedAt": "2024-05-16T10:40:55.451Z",
+        "createdAt": "2024-05-16T10:40:55.451Z",
+        "url": "/image-15@2x.png",
         "thumbnailURL": null,
-        "filename": "hero-right.svg",
-        "mimeType": "image/svg+xml",
-        "filesize": 58160,
+        "filename": "image 15.png",
+        "mimeType": "image/png",
+        "filesize": 47804,
         "width": 445,
         "height": 363,
 
@@ -146,8 +125,901 @@
           }
         }
       }
+    },
+
+    {
+      "id": "6645e37acfcd9f34fee09dc8",
+      "text": "Trusted by the India's leading Institutions",
+      "blockName": "counter-hero-title",
+      "blockType": "text"
+    },
+
+    {
+      "id": "6645e2df995bde327d4f96e8",
+      "blockName": "counter-hero",
+
+      "counters": [
+        {
+          "id": "6645e2f4995bde327d4f96e9",
+          "number": 200,
+          "title": "Institutions Rated"
+        },
+
+        {
+          "id": "6645e306cfcd9f34fee09dc5",
+          "number": 200,
+          "title": "Colleges/Universities"
+        },
+
+        {
+          "id": "6645e311cfcd9f34fee09dc6",
+          "number": 20,
+          "title": "Website Visitors"
+        },
+
+        {
+          "id": "6645e31bcfcd9f34fee09dc7",
+          "number": 20,
+          "title": "Years QS Legacy"
+        }
+      ],
+      "blockType": "counter"
+    },
+
+    {
+      "id": "6645e39ccfcd9f34fee09dc9",
+      "text": "Top Rated Institutions",
+      "blockName": "section-2-title",
+      "blockType": "text"
+    },
+
+    {
+      "id": "6645e3b8cfcd9f34fee09dca",
+      "blockName": "discover-categories",
+
+      "categories": [
+        {
+          "id": "6645e3c3cfcd9f34fee09dcb",
+
+          "category": {
+            "text": "Employability",
+
+            "image": {
+              "id": 3,
+              "alt": null,
+              "updatedAt": "2024-05-16T10:47:03.696Z",
+              "createdAt": "2024-05-16T10:47:03.696Z",
+              "url": "/api/media/file/Rectangle 162.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 162.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 164327,
+              "width": 390,
+              "height": 530,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645e42dcfcd9f34fee09dcc",
+
+          "category": {
+            "text": "Faculty",
+
+            "image": {
+              "id": 4,
+              "alt": null,
+              "updatedAt": "2024-05-16T10:49:59.565Z",
+              "createdAt": "2024-05-16T10:49:59.565Z",
+              "url": "/api/media/file/Rectangle 163.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 163.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 162514,
+              "width": 390,
+              "height": 530,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645e4dacfcd9f34fee09dcd",
+
+          "category": {
+            "text": "Facilities",
+
+            "image": {
+              "id": 7,
+              "alt": null,
+              "updatedAt": "2024-05-16T10:51:04.161Z",
+              "createdAt": "2024-05-16T10:51:04.161Z",
+              "url": "/api/media/file/Rectangle 164.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 164.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 199376,
+              "width": 390,
+              "height": 530,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "college"
+          }
+        },
+
+        {
+          "id": "6645e4f2cfcd9f34fee09dce",
+
+          "category": {
+            "text": "Research",
+
+            "image": {
+              "id": 6,
+              "alt": null,
+              "updatedAt": "2024-05-16T10:50:53.353Z",
+              "createdAt": "2024-05-16T10:50:53.353Z",
+              "url": "/api/media/file/Rectangle 165-1.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 165-1.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 279097,
+              "width": 390,
+              "height": 530,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "school"
+          }
+        },
+
+        {
+          "id": "6645e51bcfcd9f34fee09dcf",
+
+          "category": {
+            "text": "Learning",
+
+            "image": {
+              "id": 8,
+              "alt": null,
+              "updatedAt": "2024-05-16T10:51:25.723Z",
+              "createdAt": "2024-05-16T10:51:25.723Z",
+              "url": "/api/media/file/Rectangle 166.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 166.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 199308,
+              "width": 390,
+              "height": 530,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        }
+      ],
+      "blockType": "category"
+    },
+
+    {
+      "id": "6645e70bcfcd9f34fee09dd0",
+      "blockName": "discover-cities",
+
+      "cities": [
+        {
+          "id": "6645e732cfcd9f34fee09dd1",
+
+          "city": {
+            "text": "Delhi",
+
+            "image": {
+              "id": 9,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:07:54.294Z",
+              "createdAt": "2024-05-16T11:07:54.294Z",
+              "url": "/api/media/file/Rectangle 161.png",
+              "thumbnailURL": null,
+              "filename": "Rectangle 161.png",
+              "mimeType": "image/png",
+              "filesize": 92354,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645e90ccfcd9f34fee09dd2",
+
+          "city": {
+            "text": "Bangalore",
+
+            "image": {
+              "id": 10,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:08:48.312Z",
+              "createdAt": "2024-05-16T11:08:48.312Z",
+              "url": "/api/media/file/Frame 39.jpg",
+              "thumbnailURL": null,
+              "filename": "Frame 39.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 102049,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645e943cfcd9f34fee09dd3",
+
+          "city": {
+            "text": "Mumbai",
+
+            "image": {
+              "id": 11,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:09:07.839Z",
+              "createdAt": "2024-05-16T11:09:07.839Z",
+              "url": "/api/media/file/Rectangle 163-1.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 163-1.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 92615,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645e95fcfcd9f34fee09dd4",
+
+          "city": {
+            "text": "Chennai",
+
+            "image": {
+              "id": 12,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:09:42.633Z",
+              "createdAt": "2024-05-16T11:09:42.633Z",
+              "url": "/api/media/file/Rectangle 164-1.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 164-1.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 88225,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645e995cfcd9f34fee09dd5",
+
+          "city": {
+            "text": "Pune",
+
+            "image": {
+              "id": 13,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:10:37.912Z",
+              "createdAt": "2024-05-16T11:10:37.912Z",
+              "url": "/api/media/file/Rectangle 165-2.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 165-2.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 114278,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645ea13cfcd9f34fee09dd6",
+
+          "city": {
+            "text": "Nagpur",
+
+            "image": {
+              "id": 14,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:12:26.652Z",
+              "createdAt": "2024-05-16T11:12:26.652Z",
+              "url": "/api/media/file/Rectangle 166-1.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 166-1.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 69651,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645ea1ccfcd9f34fee09dd7",
+
+          "city": {
+            "text": "Hyderabad",
+
+            "image": {
+              "id": 15,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:14:25.116Z",
+              "createdAt": "2024-05-16T11:14:25.116Z",
+              "url": "/api/media/file/Rectangle 167.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 167.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 66281,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+
+        {
+          "id": "6645ea99cfcd9f34fee09dd8",
+
+          "city": {
+            "text": "Kolkata",
+
+            "image": {
+              "id": 16,
+              "alt": null,
+              "updatedAt": "2024-05-16T11:14:53.182Z",
+              "createdAt": "2024-05-16T11:14:53.182Z",
+              "url": "/api/media/file/Rectangle 168.jpg",
+              "thumbnailURL": null,
+              "filename": "Rectangle 168.jpg",
+              "mimeType": "image/jpeg",
+              "filesize": 92770,
+              "width": 390,
+              "height": 146,
+
+              "sizes": {
+                "thumbnail": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "card": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+
+                "tablet": {
+                  "url": null,
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        }
+      ],
+      "blockType": "city"
+    },
+
+    {
+      "id": "6645eb08cfcd9f34fee09dd9",
+      "title": "Why QS I-GAUGE?",
+      "description": "QS I-GAUGE, by Quacquarelli Symonds global group, is a well-known brand in India. We provide ratings to educational institutions and a roadmap for their future development. Our independent, comprehensive rating methodology includes four steps to assess and rate the institutions. Leveraging the extensive experience and legacy of the Quacquarelli Symonds global group, QS I-GAUGE has firmly established its presence in India, and is trusted by students and parents.\n\nThrough self-assessment, peer evaluation, and expert feedback, our ratings help institutions in gaining valuable insights into their strengths, weaknesses, and areas for improvement, enabling them to develop targeted strategies for enhancement.",
+      "button_url": "/about",
+      "blockName": null,
+      "blockType": "context_with_button",
+
+      "image": {
+        "id": 17,
+        "alt": "",
+        "updatedAt": "2024-05-16T11:17:13.341Z",
+        "createdAt": "2024-05-16T11:17:13.341Z",
+        "url": "/api/media/file/Rectangle 161.jpg",
+        "thumbnailURL": null,
+        "filename": "Rectangle 161.jpg",
+        "mimeType": "image/jpeg",
+        "filesize": 844904,
+        "width": 962,
+        "height": 1074,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    },
+
+    {
+      "id": "6645ed76cfcd9f34fee09dda",
+      "title": "Frequently Asked Questions",
+      "description": "Get answers to some of the most frequently asked questions about QS",
+      "blockName": null,
+
+      "questions_answers": [
+        {
+          "id": "6645ed84cfcd9f34fee09ddb",
+          "question": "How can we trust the credibility of QS I-GAUGE?",
+          "answer": "With the esteemed legacy of the Quacquarelli Symonds global group backing our ratings, students and parents can trust in the credibility of our evaluations to make informed decisions about their educational journey."
+        },
+
+        {
+          "id": "6645ed8acfcd9f34fee09ddc",
+          "question": "How thorough is QS I-GAUGE in evaluating educational institutions?",
+          "answer": "QS I-GAUGE employs a rigorous and comprehensive evaluation process, comprising self-assessment, peer evaluation, and expert feedback. Our commitment to meticulous evaluation instills confidence in students and parents, knowing that our ratings provide a comprehensive and accurate depiction of educational institutions."
+        },
+
+        {
+          "id": "6645ed95cfcd9f34fee09ddd",
+          "question": "What criteria are used to assess institutions at QS I-GAUGE?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        },
+
+        {
+          "id": "6645edb4cfcd9f34fee09dde",
+          "question": "Can I compare multiple institutions on your website?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        },
+
+        {
+          "id": "6645edc0cfcd9f34fee09ddf",
+          "question": "How does QS I-GAUGE ensure the credibility of the rating process?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        },
+
+        {
+          "id": "6645edc9cfcd9f34fee09de0",
+          "question": "How often are the ratings updated on QS I-GAUGE?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        }
+      ],
+      "blockType": "faqs"
+    },
+
+    {
+      "id": "6645eddecfcd9f34fee09de1",
+      "title": "Find An institutions that ticks all Your boxes",
+      "description": "Register now and compare between top institutions with \nQS I-GAUGE ratings.",
+      "link": "/register",
+      "blockName": "cta",
+      "blockType": "call_to_action",
+
+      "image": {
+        "id": 18,
+        "alt": null,
+        "updatedAt": "2024-05-16T11:29:43.016Z",
+        "createdAt": "2024-05-16T11:29:43.016Z",
+        "url": "/api/media/file/image 9.png",
+        "thumbnailURL": null,
+        "filename": "image 9.png",
+        "mimeType": "image/png",
+        "filesize": 105139,
+        "width": 624,
+        "height": 442,
+
+        "sizes": {
+          "thumbnail": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "card": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+
+          "tablet": {
+            "url": null,
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
     }
   ],
-  "updatedAt": "2024-05-11T09:32:15.405Z",
-  "createdAt": "2024-05-11T09:29:44.278Z"
+
+  "meta": {
+    "title": null,
+    "description": null
+  },
+  "updatedAt": "2024-05-16T11:29:45.101Z",
+  "createdAt": "2024-05-16T09:15:29.550Z"
 }

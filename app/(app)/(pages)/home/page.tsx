@@ -1,5 +1,5 @@
 "use client";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import Header from "../../components/Header";
 import FrameComponent10 from "../../components/HeroBanner";
 import TopRatedCollection from "../../components/TopRatedCollection";
@@ -17,12 +17,32 @@ import FrameComponent1 from "../../components/FrameComponent1";
 import { useRouter } from "next/navigation";
 import TopRated from "../../components/v1/Home/TopRated";
 import Testimonials from "../../components/v1/Home/Testimonials";
-// import { searchInstitutions } from "@/utils/getInstitution";
-import Select from "../../components/v1/Select";
 import data from "@/x.json";
+import axios from "axios";
 const HomeV2Approved: FunctionComponent = () => {
   const router = useRouter();
-  console.log({ data });
+  const getPages = async () => {
+    try {
+      const page = await axios(`/api/pages`, {
+        method: "GET",
+        // credentials: "include",
+        withCredentials: true,
+        xsrfCookieName: "payload-token",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      // const s = axiosManager.get("/api/pages/1?depth=1&draft=false");
+
+      console.log({ page }, "00000000000000000000000000000");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    getPages();
+    console.log(data);
+  }, []);
   return (
     <div className="w-full  bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       <div className="w-full h-[39px]  hidden max-w-full" />

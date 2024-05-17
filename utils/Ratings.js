@@ -13,7 +13,7 @@ const initializePayload = async () => {
 export const createRatingBadge = async (ratingBadgeData) => {
   await initializePayload();
   const createdRatingBadge = await payload.create({
-    collection: "rating-badges",
+    collection: "college-overall-rating",
     data: ratingBadgeData,
   });
   return createdRatingBadge;
@@ -23,7 +23,7 @@ export const createRatingBadge = async (ratingBadgeData) => {
 export const getRatingBadgeById = async (id) => {
   await initializePayload();
   const ratingBadge = await payload.findOne({
-    collection: "rating-badges",
+    collection: "college-overall-rating",
     id,
   });
   return ratingBadge;
@@ -33,7 +33,7 @@ export const getRatingBadgeById = async (id) => {
 export const updateRatingBadge = async (id, updatedData) => {
   await initializePayload();
   const updatedRatingBadge = await payload.update({
-    collection: "rating-badges",
+    collection: "college-overall-rating",
     id,
     data: updatedData,
   });
@@ -44,7 +44,7 @@ export const updateRatingBadge = async (id, updatedData) => {
 export const deleteRatingBadge = async (id) => {
   await initializePayload();
   await payload.deleteOne({
-    collection: "rating-badges",
+    collection: "college-overall-rating",
     id,
   });
 };
@@ -53,7 +53,7 @@ export const deleteRatingBadge = async (id) => {
 export const searchRatingBadges = async (query) => {
   await initializePayload();
   const ratingBadges = await payload.find({
-    collection: "rating-badges",
+    collection: "college-overall-rating",
     depth: 1, // Increase the depth as per your requirement
     ...query, // You can pass query parameters such as filters, sorting, etc.
   });
@@ -64,7 +64,7 @@ export const searchRatingBadges = async (query) => {
 export const getAllRatingBadges = async (query) => {
   const client = await getPayloadClient();
   const allRatingBadges = await client.find({
-    collection: "rating-badges",
+    collection: "college-overall-rating",
     ...query,
   });
   return allRatingBadges;

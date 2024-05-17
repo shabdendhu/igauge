@@ -51,12 +51,12 @@ const CollectionPageV2Approved: FunctionComponent = () => {
     });
   };
   useEffect(() => {
-    fetchUnivercity();
-    getAllStates().then((e) => setStates(e.docs));
-    getAllCities().then((e) => setCities(e.docs));
-    getAllSubjects().then((e) => setSubjects(e.docs));
-    getAllRatingBadges().then((e) => setRatingBadges(e.docs));
-    getAllProductCategories().then((e) => setCategory(e.docs));
+    // fetchUnivercity();
+    // getAllStates().then((e) => setStates(e.docs));
+    // getAllCities().then((e) => setCities(e.docs));
+    // getAllSubjects().then((e) => setSubjects(e.docs));
+    // getAllRatingBadges().then((e) => setRatingBadges(e.docs));
+    // getAllProductCategories().then((e) => setCategory(e.docs));
   }, []);
   //write a function to filter the data based on the filters
 

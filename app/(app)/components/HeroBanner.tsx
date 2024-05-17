@@ -89,9 +89,9 @@ const SelectRatings = ({ label = "select" }) => {
   };
 
   useEffect(() => {
-    getAllRatingBadges()
-      .then((data: any) => setOptions(data?.docs))
-      .catch((err) => console.log(err));
+    // getAllRatingBadges()
+    //   .then((data: any) => setOptions(data?.docs))
+    //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     console.log(options);
@@ -237,7 +237,7 @@ const SearchUniversity: any = ({ router }: any) => {
   );
 };
 
-const Features = () => {
+const Features = ({ pageData }: any) => {
   const [counts, setCounts] = useState({
     school: 0,
     collage: 0,
@@ -246,9 +246,9 @@ const Features = () => {
     university: 0,
   });
   useEffect(() => {
-    getInstitutionCountsByType()
-      .then((data: any) => setCounts({ ...counts, ...data }))
-      .catch((err) => console.log(err));
+    // getInstitutionCountsByType()
+    //   .then((data: any) => setCounts({ ...counts, ...data }))
+    //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
     console.log(counts);
@@ -337,25 +337,27 @@ const FrameComponent10: any = ({ router, pageData }: any) => {
         <div className="w-screen min-h-screen px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5 relative">
           <div className="flex h-1/2 mdm:justify-between mdm:px-10 mq900:px-0">
             <div className="w-1/4 mdm:w-2/4">
-              <img src="/image-16@2x.png" />
+              <img src={pageData.content[1].image.url} />
             </div>
             <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
               <div className=" h-full mdm:hidden">
                 <TextBlock
-                  header={pageData.content[0].text}
-                  description={
-                    pageData.content[1].rich_content.root.children[0]
-                      .children[0].text
+                  header={
+                    pageData.content[0].prefix + pageData.content[0].suffix
                   }
+                  description={"missing"}
                 />
               </div>
             </div>
             <div className=" w-1/4 mdm:w-2/4">
-              <img src="/image-15@2x.png" />
+              <img src={pageData.content[2].image.url} />
             </div>
           </div>
           <div className="pt-10 px-10 md:hidden mdm:px-0">
-            <TextBlock />
+            <TextBlock
+              header={pageData.content[0].prefix + pageData.content[0].suffix}
+              description={"missing"}
+            />
           </div>
           <div className="w-4/5 mx-auto flex flex-wrap justify-around  px-10 py-10  mdm:px-0 mdm:w-full ">
             <div className="flex px-[10px] w-1/4 h-[70px] mq900:w-1/2 mq900:h-[50px]">
@@ -374,7 +376,7 @@ const FrameComponent10: any = ({ router, pageData }: any) => {
                 </b>
               </div>
               <div className="self-stretch flex flex-row items-start justify-center justify-start gap-[98px] z-[3] text-left text-36xl font-red-hat-text mq1275:flex-wrap mq1275:justify-center">
-                <Features />
+                <Features pageData={pageData} />
               </div>
             </div>
           </div>
