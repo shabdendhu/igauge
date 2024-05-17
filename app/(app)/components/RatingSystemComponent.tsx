@@ -38,7 +38,7 @@ const Figure = ({ className }: any) => {
     </div>
   );
 };
-const RatingSystemComponent: FunctionComponent = () => {
+const RatingSystemComponent = ({ pageData }: any) => {
   return (
     <>
       {/* <section className="grid grid-cols-12 justify-center pt-0 pb-[351px] pr-5 pl-0 box-border gap-[131px] max-w-full text-left text-55xl text-black font-red-hat-text lgm:grid-cols-6 lgm:px-0 mq450:gap-[131px_16px] mq900:gap-[131px_33px] mq900:pb-[148px] mq900:box-border mq1275:gap-[131px_65px] mq1920:pb-[228px] mq1275:box-border mq1600:flex-wrap mq1440:pb-[114px]">
@@ -97,13 +97,13 @@ const RatingSystemComponent: FunctionComponent = () => {
           <div className="h-[440px] w-1/2 md:h-[1074px] mdm:w-full relative">
             <img
               className="h-full w-full flex-1 max-w-full overflow-hidden object-cover "
-              src="/rectangle-161-2@2x.png"
+              src={pageData.content[8].image.url}
             />
 
             <Figure className="flex justify-center bg-orange-200 w-[95%] m-auto z-[5] relative bottom-[30px] self-center justify-around  px-2 md:px-5 md:py-5 md:w-1/3 md:min-w-[650px] md:hidden" />
           </div>
           <div className="w-1/2 px-20 mdm:pt-[150px] mdm:px-5 mdm:w-full flex items-center">
-            <Slider divider="/19-2.svg" />
+            <Slider pageData={pageData} divider="/19-2.svg" />
           </div>
         </div>
 

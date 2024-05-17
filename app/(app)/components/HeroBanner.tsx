@@ -7,6 +7,7 @@ import {
 } from "@/utils/getInstitution";
 import { getAllRatingBadges } from "@/utils/Ratings";
 import Select from "@/app/(app)/components/v1/Select";
+import TypingEffect from "@/app/(app)/components/v1/TypeingEffect";
 
 const SelectUnivercity = ({ label = "select" }) => {
   const [selectedValue, setSelectedValue] = useState<any>("");
@@ -31,7 +32,7 @@ const SelectUnivercity = ({ label = "select" }) => {
   const handleChange = (event: any) => {
     setSelectedValue(event);
     // Do something with the selected value
-    console.log("Selected value:", event);
+    // console.log("Selected value:", event);
   };
 
   // useEffect(() => {
@@ -85,7 +86,7 @@ const SelectRatings = ({ label = "select" }) => {
   const handleChange = (event: any) => {
     setSelectedValue(event.badges_name);
     // Do something with the selected value
-    console.log("Selected value:", event);
+    // console.log("Selected value:", event);
   };
 
   useEffect(() => {
@@ -94,7 +95,7 @@ const SelectRatings = ({ label = "select" }) => {
     //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
-    console.log(options);
+    // console.log(options);
   }, [options]);
 
   return (
@@ -251,22 +252,24 @@ const Features = ({ pageData }: any) => {
     //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
-    console.log(counts);
+    // console.log(counts);
   }, [counts]);
 
   return (
     <div className=" w-2/3 grid grid-cols-4 mq900:grid-cols-2 gap-4 w-full">
-      <div className=" flex justify-center mq900:w-full">
-        <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
-          <b className="relative mq450:text-14xl mq900:text-25xl">
-            {counts.school}+
-          </b>
-          <div className="relative text-xl inline-block min-w-[78px] mq450:text-base">
-            School
+      {pageData.content[4].counters.map((e: any) => (
+        <div className=" flex justify-center mq900:w-full">
+          <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
+            <b className="relative mq450:text-14xl mq900:text-25xl">
+              {e.number}+
+            </b>
+            <div className="relative text-xl inline-block min-w-[78px] mq450:text-base">
+              {e.title}
+            </div>
           </div>
         </div>
-      </div>
-      <div className=" flex justify-center mq900:w-full">
+      ))}
+      {/* <div className=" flex justify-center mq900:w-full">
         <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
           <b className="relative mq450:text-14xl mq900:text-25xl">
             {counts.collage}+
@@ -293,11 +296,12 @@ const Features = ({ pageData }: any) => {
             Years QS Legacy
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
 const TextBlock = ({ header, description }: any) => {
+  // console.log({ header });
   return (
     <div className="h-full  flex flex-1 flex-col justify-around ">
       <h1
@@ -305,7 +309,9 @@ const TextBlock = ({ header, description }: any) => {
                 mq450:text-19xl mq900:text-32xl  mq1600:text-[45px] 
                 "
       >
-        {header}
+        {header.prefix}
+        <TypingEffect words={header.texts.map((e: any) => e.text)} />
+        {header.suffix}
       </h1>
       <div className="w-full relative text-xl font-red-hat-text text-[20px] z-[2] mq450:text-base ">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. `}</div>
     </div>
@@ -342,9 +348,12 @@ const FrameComponent10: any = ({ router, pageData }: any) => {
             <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
               <div className=" h-full mdm:hidden">
                 <TextBlock
-                  header={
-                    pageData.content[0].prefix + pageData.content[0].suffix
-                  }
+                  className=""
+                  header={{
+                    prefix: pageData.content[0].prefix,
+                    suffix: pageData.content[0].suffix,
+                    texts: pageData.content[0].texts,
+                  }}
                   description={"missing"}
                 />
               </div>
@@ -355,7 +364,12 @@ const FrameComponent10: any = ({ router, pageData }: any) => {
           </div>
           <div className="pt-10 px-10 md:hidden mdm:px-0">
             <TextBlock
-              header={pageData.content[0].prefix + pageData.content[0].suffix}
+              className
+              header={{
+                prefix: pageData.content[0].prefix,
+                suffix: pageData.content[0].suffix,
+                texts: pageData.content[0].texts,
+              }}
               description={"missing"}
             />
           </div>
@@ -372,7 +386,7 @@ const FrameComponent10: any = ({ router, pageData }: any) => {
             <div className="flex flex-col items-center justify-center py-0 pr-0 pl-5 box-border gap-[45px] max-w-full">
               <div className="w-[1137px] flex flex-row items-start justify-center py-0 px-5 box-border max-w-full mq900:px-0">
                 <b className="w-[829px] relative inline-block shrink-0 max-w-full z-[3] mq450:text-lgi mq900:text-7xl md:pt-[50px]">
-                  {`Trusted by the world's leading Institutions`}
+                  {pageData.content[3].text}
                 </b>
               </div>
               <div className="self-stretch flex flex-row items-start justify-center justify-start gap-[98px] z-[3] text-left text-36xl font-red-hat-text mq1275:flex-wrap mq1275:justify-center">

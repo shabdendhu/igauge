@@ -2,7 +2,7 @@
 import { getInstitutionsByType } from "@/utils/getInstitution";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import InstitutionSelection from "@/app/(app)/components/v1/Home/InstitutionSelection";
-const FrameComponent5: FunctionComponent = () => {
+const FrameComponent5 = ({ pageData }: any) => {
   const [collection, setCollections] = useState([
     { name: "Employability", image: "/rectangle-161@2x.png" },
     { name: "Faculty", image: "/rectangle-162@2x.png" },
@@ -30,7 +30,7 @@ const FrameComponent5: FunctionComponent = () => {
           style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
           className="w-full h-[530px] overflow-x-auto shrink-0 flex flex-row items-start justify-start py-0 pr-5 pl-0 box-border gap-[23px] max-w-full z-[2] no-scrollbar"
         >
-          {collection.map((e) => (
+          {pageData.content[6].categories.map((e: any) => (
             <div
               style={{ scrollSnapAlign: "start" }}
               className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left relative"
@@ -42,10 +42,10 @@ const FrameComponent5: FunctionComponent = () => {
                 className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
                 loading="lazy"
                 alt=""
-                src={e.image}
+                src={e.category.image.url}
               />
               <div className="relative font-semibold z-[1] mq450:text-lgi z-[3]">
-                {e.name}
+                {e.category.text}
               </div>
             </div>
           ))}

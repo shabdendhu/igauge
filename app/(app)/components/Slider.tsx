@@ -12,7 +12,7 @@ export type SliderType = {
   propDebugCommit1?: CSSProperties;
 };
 
-const Slider: FunctionComponent<SliderType> = ({
+const Slider = ({
   divider,
   propPadding,
   propWidth,
@@ -20,7 +20,8 @@ const Slider: FunctionComponent<SliderType> = ({
   propPadding1,
   propDebugCommit,
   propDebugCommit1,
-}) => {
+  pageData,
+}: any) => {
   const radioButtonsStyle: CSSProperties = useMemo(() => {
     return {
       padding: propPadding,
@@ -55,7 +56,9 @@ const Slider: FunctionComponent<SliderType> = ({
         className="self-stretch flex flex-col items-start justify-start pt-0 px-0  box-border gap-[29px] max-w-full  mq900:box-border  mq1275:box-border mdm:pb-[20px]"
         style={radioButtonsStyle}
       >
-        <h1 className="m-0 self-stretch relative text-inherit font-bold font-inherit shrink-0 mq450:text-19xl mq900:text-32xl mq1440:text-[45px]">{`Independence & Transparent Rating System`}</h1>
+        <h1 className="m-0 self-stretch relative text-inherit font-bold font-inherit shrink-0 mq450:text-19xl mq900:text-32xl mq1440:text-[45px]">
+          {pageData.content[8].title}
+        </h1>
         <div
           className="flex flex-col items-start justify-start gap-[45px] max-w-full shrink-0 text-5xl text-darkslategray-200 font-red-hat-text mq900:gap-[22px_45px]"
           style={frameDiv2Style}
@@ -66,12 +69,7 @@ const Slider: FunctionComponent<SliderType> = ({
           >
             <p className="m-0">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. `}</p>
             <p className="m-0">&nbsp;</p>
-            <p className="m-0">
-              Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-              consectetur, adipisci velit, sed quia non numquam eius modi
-              tempora incidunt ut labore et dolore magnam aliquam quaerat
-              voluptatem. Ut enim ad minima veniam
-            </p>
+            <p className="m-0">{pageData.content[8].description}</p>
           </div>
           <div className="flex flex-row items-start justify-start py-0 px-0.5">
             <button
