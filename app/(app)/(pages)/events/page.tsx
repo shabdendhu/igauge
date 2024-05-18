@@ -129,15 +129,15 @@ const EventsV2Approved: NextPage = () => {
               className=" flex justify-between pr-8 border-b border-orange-200 sm:border-none"
             >
               <FeatureSplitter data={e} />
-              {i == dummyData?.content[1]?.icon_boxes?.length - 1 ? (
+              {/* {i == dummyData?.content[1]?.icon_boxes?.length - 1 ? (
                 <></>
-              ) : (
-                <div className="h-full hidden sm:block">
-                  <div className=" xs:w-full h-full flex items-center">
-                    <span className="border-l border-orange-200/50  h-[60%]"></span>
-                  </div>
+              ) : ( */}
+              <div className="h-full hidden sm:block">
+                <div className=" xs:w-full h-full flex items-center">
+                  <span className="border-l border-orange-200/50  h-[60%]"></span>
                 </div>
-              )}
+              </div>
+              {/* )} */}
             </div>
           ))}
         </div>
