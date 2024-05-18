@@ -9,7 +9,7 @@ import { getAllRatingBadges } from "@/utils/Ratings";
 import Select from "@/app/(app)/components/v1/Select";
 import TypingEffect from "@/app/(app)/components/v1/TypeingEffect";
 import { useRouter } from "next/navigation";
-
+import dummyData from "@/datatypes/home.json";
 const SelectUnivercity = ({ label = "select" }) => {
   const [selectedValue, setSelectedValue] = useState<any>("");
   const [options, setOptions] = useState([
@@ -318,7 +318,7 @@ const TextBlock = ({ header, description }: any) => {
     </div>
   );
 };
-const FrameComponent10: any = ({ pageData }: any) => {
+const FrameComponent10: any = ({ pageData = dummyData }: any) => {
   const router = useRouter();
 
   return (

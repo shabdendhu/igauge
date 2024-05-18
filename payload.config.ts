@@ -5,7 +5,7 @@ import path from "path";
 import { buildConfig } from "payload/config";
 // import sharp from 'sharp'
 import { fileURLToPath } from "url";
-import { seoPlugin } from '@payloadcms/plugin-seo'
+import { seoPlugin } from "@payloadcms/plugin-seo";
 // import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 // import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
 
@@ -51,7 +51,6 @@ const dirname = path.dirname(filename);
 //   bucket: process.env.S3_BUCKET,
 // });
 
-
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -82,13 +81,8 @@ export default buildConfig({
     Cities,
   ],
 
-  globals: [
-    General,
-    HeaderMenu,
-    Footer,
-  ],
-  
-  
+  globals: [General, HeaderMenu, Footer],
+
   editor: lexicalEditor({}),
 
   secret: process.env.PAYLOAD_SECRET || "",
@@ -97,7 +91,14 @@ export default buildConfig({
   },
   plugins: [
     seoPlugin({
-      collections: ["universities", "colleges", "schools", "blogs", "events", "pages"],
+      collections: [
+        "universities",
+        "colleges",
+        "schools",
+        "blogs",
+        "events",
+        "pages",
+      ],
       tabbedUI: true,
       uploadsCollection: "media",
       generateTitle: (data: any) => `igauge.in — ${data?.doc?.title?.value}`,

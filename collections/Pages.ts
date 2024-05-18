@@ -5,6 +5,9 @@ const Pages: CollectionConfig = {
   admin: {
     useAsTitle: "page_name",
   },
+  access: {
+    read: () => true, // Allow public read access
+  },
   fields: [
     {
       name: "page_name",
