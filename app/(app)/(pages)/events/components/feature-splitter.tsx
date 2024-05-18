@@ -2,7 +2,7 @@
 import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
 import type { NextPage } from "next";
 
-const FeatureSplitter: NextPage = () => {
+const FeatureSplitter = ({ data }: any) => {
   const fontSize = useCalculateFontSize();
 
   return (
@@ -12,7 +12,7 @@ const FeatureSplitter: NextPage = () => {
           className="w-16 h-16  "
           loading="lazy"
           alt=""
-          src="/frame-202.svg"
+          src={data.image.url}
         />
         <div className="flex flex-col gap-y-2">
           <h2
@@ -21,7 +21,7 @@ const FeatureSplitter: NextPage = () => {
             }}
             className=" font-semibold font-libre-baskerville"
           >
-            Lorem Ipsum
+            {data.title}
           </h2>
           <p
             style={{
@@ -29,8 +29,7 @@ const FeatureSplitter: NextPage = () => {
             }}
             className="text-darkslategray font-red-hat-text "
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
-            saepe blanditi
+            {data.description}
           </p>
         </div>
       </div>

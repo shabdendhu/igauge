@@ -1,0 +1,245 @@
+{
+  "id": 10,
+  "page_name": "Events",
+  "slug": "events",
+  "content": [
+    {
+      "id": "6646fd9f0c4b050d5d13866d",
+      "text": "“Universities exist to transmit knowledge and understanding of ideas and values to students not to provide entertainment for spectators or employment for athletes.”",
+      "blockName": "quote",
+      "blockType": "text"
+    },
+    {
+      "id": "6646fdb80c4b050d5d13866e",
+      "title": "What to Expect",
+      "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+      "blockName": "icon-box",
+      "icon_boxes": [
+        {
+          "id": "6646fdc10c4b050d5d13866f",
+          "title": "Lorem Ipsum",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+          "image": {
+            "id": 22,
+            "alt": null,
+            "updatedAt": "2024-05-17T06:49:06.650Z",
+            "createdAt": "2024-05-17T06:49:06.650Z",
+            "url": "/api/media/file/Frame 202.svg",
+            "thumbnailURL": null,
+            "filename": "Frame 202.svg",
+            "mimeType": "image/svg+xml",
+            "filesize": 1507,
+            "width": 103,
+            "height": 103,
+            "sizes": {
+              "thumbnail": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "card": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "tablet": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          }
+        },
+        {
+          "id": "6646fdf70c4b050d5d13867c",
+          "title": "Lorem Ipsum",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+          "image": {
+            "id": 22,
+            "alt": null,
+            "updatedAt": "2024-05-17T06:49:06.650Z",
+            "createdAt": "2024-05-17T06:49:06.650Z",
+            "url": "/api/media/file/Frame 202.svg",
+            "thumbnailURL": null,
+            "filename": "Frame 202.svg",
+            "mimeType": "image/svg+xml",
+            "filesize": 1507,
+            "width": 103,
+            "height": 103,
+            "sizes": {
+              "thumbnail": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "card": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "tablet": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          }
+        },
+        {
+          "id": "6646fdf70c4b050d5d13867d",
+          "title": "Lorem Ipsum",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+          "image": {
+            "id": 22,
+            "alt": null,
+            "updatedAt": "2024-05-17T06:49:06.650Z",
+            "createdAt": "2024-05-17T06:49:06.650Z",
+            "url": "/api/media/file/Frame 202.svg",
+            "thumbnailURL": null,
+            "filename": "Frame 202.svg",
+            "mimeType": "image/svg+xml",
+            "filesize": 1507,
+            "width": 103,
+            "height": 103,
+            "sizes": {
+              "thumbnail": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "card": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "tablet": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          }
+        },
+        {
+          "id": "6646fdf70c4b050d5d13867e",
+          "title": "Lorem Ipsum",
+          "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+          "image": {
+            "id": 22,
+            "alt": null,
+            "updatedAt": "2024-05-17T06:49:06.650Z",
+            "createdAt": "2024-05-17T06:49:06.650Z",
+            "url": "/api/media/file/Frame 202.svg",
+            "thumbnailURL": null,
+            "filename": "Frame 202.svg",
+            "mimeType": "image/svg+xml",
+            "filesize": 1507,
+            "width": 103,
+            "height": 103,
+            "sizes": {
+              "thumbnail": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "card": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              },
+              "tablet": {
+                "url": null,
+                "width": null,
+                "height": null,
+                "mimeType": null,
+                "filesize": null,
+                "filename": null
+              }
+            }
+          }
+        }
+      ],
+      "blockType": "Icon_boxes"
+    },
+    {
+      "id": "6646fe0f0c4b050d5d13867f",
+      "text": "Events",
+      "blockName": "events-heading",
+      "blockType": "text"
+    },
+    {
+      "id": "6646fe350c4b050d5d138680",
+      "rich_content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "blockName": "events-description",
+      "blockType": "rich_editor"
+    }
+  ],
+  "meta": {
+    "title": null,
+    "description": null
+  },
+  "updatedAt": "2024-05-17T06:50:54.270Z",
+  "createdAt": "2024-05-17T06:47:52.141Z"
+}

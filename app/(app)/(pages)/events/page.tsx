@@ -5,9 +5,13 @@ import FrameComponent4 from "./components/frame-component4";
 import FeatureSplitter from "./components/feature-splitter";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import { Button } from "@mui/material";
-
+import dummyData from "@/datatypes/events.json";
+import { useEffect } from "react";
 const EventsV2Approved: NextPage = () => {
   const fontSize = useCalculateFontSize();
+  useEffect(() => {
+    console.log({ dummyData });
+  }, []);
 
   return (
     <div className="">
@@ -70,9 +74,7 @@ const EventsV2Approved: NextPage = () => {
             }}
             className="text-sm sm:text-4xl font-semibold font-libre-baskerville text-center mt-2"
           >
-            “Universities exist to transmit knowledge and understanding of ideas
-            and values to students not to provide entertainment for spectators
-            or employment for athletes.”
+            {dummyData.content[0].text}
           </p>
         </div>
       </div>
@@ -107,7 +109,7 @@ const EventsV2Approved: NextPage = () => {
                 }}
                 className="text-4xl md:text-[41px] font-bold "
               >
-                What to Expect
+                {dummyData.content[1].title}
               </h1>
             </div>
             <p
@@ -116,42 +118,28 @@ const EventsV2Approved: NextPage = () => {
               }}
               className="text-sm font-normal font-red-hat-text text-darkslategray text-center "
             >
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam omnis iste
-              natus error sit voluptatemsit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam omnis iste natus error sit
-              voluptatem
+              {dummyData.content[1].description}
             </p>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-4 justify-around ">
-          <div className=" flex justify-between pr-8 border-b border-orange-200 sm:border-none">
-            <FeatureSplitter />
-            <div className="h-full hidden sm:block">
-              <div className=" xs:w-full h-full flex items-center">
-                <span className="border-l border-orange-200/50  h-[60%]"></span>
-              </div>
+          {dummyData.content[1].icon_boxes?.map((e, i) => (
+            <div
+              key={i}
+              className=" flex justify-between pr-8 border-b border-orange-200 sm:border-none"
+            >
+              <FeatureSplitter data={e} />
+              {i == dummyData?.content[1]?.icon_boxes?.length - 1 ? (
+                <></>
+              ) : (
+                <div className="h-full hidden sm:block">
+                  <div className=" xs:w-full h-full flex items-center">
+                    <span className="border-l border-orange-200/50  h-[60%]"></span>
+                  </div>
+                </div>
+              )}
             </div>
-          </div>
-          <div className=" flex justify-between pr-8 border-b border-orange-200 sm:border-none">
-            <FeatureSplitter />
-            <div className="h-full hidden sm:block">
-              <div className=" xs:w-full h-full flex items-center">
-                <span className="border-l border-orange-200/50  h-[60%]"></span>
-              </div>
-            </div>
-          </div>
-          <div className=" flex justify-between pr-8 border-b border-orange-200 sm:border-none">
-            <FeatureSplitter />
-            <div className="h-full hidden sm:block">
-              <div className=" xs:w-full h-full flex items-center">
-                <span className="border-l border-orange-200/50  h-[60%]"></span>
-              </div>
-            </div>
-          </div>
-          <div className=" flex justify-between pr-8 border-b border-orange-200 sm:border-none">
-            <FeatureSplitter />
-          </div>
+          ))}
         </div>
       </div>
 

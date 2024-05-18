@@ -78,10 +78,8 @@ const Pages: CollectionConfig = {
                   label: "Highlighted Text",
                 },
               ],
-            
             },
           ],
-        
         },
         {
           slug: "image",
@@ -152,9 +150,7 @@ const Pages: CollectionConfig = {
             },
           ],
         },
-        
-        
-        
+
         {
           slug: "city",
           labels: {
