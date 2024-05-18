@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.577.0",
+    "@aws-sdk/lib-storage": "^3.578.0",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@headlessui/react": "^2.0.3",
@@ -18,16 +20,19 @@
     "@mui/material": "^5.15.17",
     "@payloadcms/db-postgres": "^3.0.0-beta.28",
     "@payloadcms/next": "^3.0.0-beta.28",
+    "@payloadcms/plugin-cloud-storage": "^3.0.0-beta.6-86adc6f",
     "@payloadcms/plugin-seo": "^3.0.0-beta.32",
     "@payloadcms/richtext-lexical": "^3.0.0-beta.28",
     "@react-google-maps/api": "^2.19.3",
     "axios": "^1.6.8",
+    "aws-crt": "^1.21.2",
     "classnames": "^2.5.1",
     "graphql": "^16.8.1",
     "lodash": "^4.17.21",
     "next": "^14.3.0-canary.7",
     "payload": "^3.0.0-beta.28",
     "react": "^18",
+    "react-countup": "^6.5.3",
     "react-dom": "^18",
     "swiper": "^11.1.1"
   },
@@ -37,7 +42,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5"
   }
 }

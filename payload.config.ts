@@ -8,6 +8,8 @@ import { fileURLToPath } from "url";
 import { seoPlugin } from "@payloadcms/plugin-seo";
 // import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 // import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 
 import { Users } from "@/collections/Users";
 import Media from "@/collections/Media";
@@ -50,6 +52,19 @@ const dirname = path.dirname(filename);
 //   },
 //   bucket: process.env.S3_BUCKET,
 // });
+const adapter = s3Adapter({
+  config: {
+    forcePathStyle: true,
+    region: process.env.S3_REGION,
+    endpoint: process.env.S3_ENDPOINT,
+    credentials: {
+      accessKeyId: process.env.S3_ACCESS_KEY_ID || "",
+      secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "",
+    },
+  },
+  acl: "public-read",
+  bucket: process.env.S3_BUCKET || "",
+});
 
 export default buildConfig({
   admin: {
@@ -73,12 +88,12 @@ export default buildConfig({
     Sch_CategoryRatings,
     Sch_OverallRating,
     Pages,
-    Media,
     Blogs,
     Blogscategory,
     Events,
     States,
     Cities,
+    Media,
   ],
 
   globals: [General, HeaderMenu, Footer],
@@ -104,13 +119,16 @@ export default buildConfig({
       generateTitle: (data: any) => `igauge.in — ${data?.doc?.title?.value}`,
       generateDescription: ({ doc }: any) => doc?.excerpt?.value,
     }),
-    // cloudStorage({
-    //   collections: {
-    //     'media': {
-    //       adapter
-    //     },
-    //   },
-    // }),
+    cloudStorage({
+      collections: {
+        media: {
+          adapter,
+          generateFileURL: (file) => {
+            return `https://qs-igauge.blr1.digitaloceanspaces.com/${file.filename}`;
+          },
+        },
+      },
+    }),
   ],
   db: postgresAdapter({
     pool: {

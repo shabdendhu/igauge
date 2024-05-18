@@ -1,10 +1,10 @@
+import { url } from 'inspector'
 import { CollectionConfig } from 'payload/types'
 
 export const Media: CollectionConfig = {
     slug: 'media',
     upload: {
-
-        staticDir: 'media',
+        
         imageSizes: [
             {
                 name: 'thumbnail',
