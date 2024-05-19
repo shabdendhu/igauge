@@ -7,18 +7,28 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Button from "@mui/material/Button";
 import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
-const Card = ({ university }: any) => {
+import { useRouter } from "next/navigation";
+const Card = ({ university, filters }: any) => {
+  const router = useRouter();
   const fontSize = useCalculateFontSize();
   console.log(university);
+  const handleClickInstitution = () => {
+    router.push(
+      `/university-detail?id=${university.id}&institution_type=${filters.type.institution_type}`
+    );
+  };
   return (
     <div className="relative">
-      <div className="border border-[#EAEAEA]-500 flex  aspect-[1333/265] mq450:aspect-[349/133] overflow-hidden ">
+      <div
+        onClick={handleClickInstitution}
+        className="border border-[#EAEAEA]-500 flex  aspect-[1333/265] mq450:aspect-[349/133] overflow-hidden cursor-pointer"
+      >
         <div className="h-full relative aspect-[241/265] mdm:aspect-[110/133] mq450:w-1/3">
           <img
             className="h-full relative rounded-tl-8xs rounded-tr-none rounded-br-none rounded-bl-8xs max-w-full overflow-hidden object-cover z-[1]"
             alt=""
-            // src={university.media.featured_image.url}
-            src="/rectangle-161@2x.png"
+            src={university.media.featured_image.url}
+            // src="/rectangle-161@2x.png"
           />
         </div>
         <div className="tborder border-red-500 flex-1 p-[2%] flex flex-row mq450:flex-col">
@@ -33,7 +43,7 @@ const Card = ({ university }: any) => {
                     }}
                     className="bg-orange-200 rounded-8xs font-semibold text-base px-3 py-1 font-red-hat-text text-black mdm:w-[30px] mdm:h-[12px] mdm:text-[6.21px]"
                   >
-                    {university.institution_type[0]}
+                    {filters.type.institution_type}
                   </span>
                 </div>
                 <div className="flex-1 flex items-center">
@@ -68,7 +78,7 @@ const Card = ({ university }: any) => {
                     }}
                     className="font-semibold text-xl mdm:text-[7.76px]"
                   >
-                    {university.keypoints[0].keypoint_title}
+                    {university.keypoints[0].keypoint_title.KeyPoint_title}
                   </div>
                   <div
                     style={{
@@ -86,7 +96,7 @@ const Card = ({ university }: any) => {
                     }}
                     className="font-semibold text-xl mdm:text-[7.76px]"
                   >
-                    {university.keypoints[1].keypoint_title}
+                    {university.keypoints[1].keypoint_title.KeyPoint_title}
                   </div>
                   <div
                     style={{

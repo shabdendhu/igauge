@@ -20,7 +20,7 @@ type ImageSwiperProps = {
   images: Images[];
 };
 
-const ImageSwiper: React.FC<ImageSwiperProps> = ({ images }) => {
+const ImageSwiper: React.FC<ImageSwiperProps> = ({ images }: any) => {
   return (
     <Swiper
       spaceBetween={0} // Space between slides
@@ -31,12 +31,12 @@ const ImageSwiper: React.FC<ImageSwiperProps> = ({ images }) => {
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      {images.map((image, index) => (
+      {images.map((image: any, index: number) => (
         <SwiperSlide key={index}>
           <img
             className="ml-0"
-            src={image.src}
-            alt={image.alt}
+            src={image.gallery_image.url}
+            alt={image.gallery_image.alt}
             style={{ width: "100%", height: "auto" }}
           />
         </SwiperSlide>

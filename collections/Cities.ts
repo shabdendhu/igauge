@@ -5,6 +5,9 @@ const Cities: CollectionConfig = {
   admin: {
     useAsTitle: "city_name",
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "city_name",

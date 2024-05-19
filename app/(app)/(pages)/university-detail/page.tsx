@@ -6,14 +6,17 @@ import FrameComponent1 from "../../components/FrameComponent1";
 import ImageSwiper from "../../components/ImageSwiper.tsx";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import RatingSection from "./sub-components/RatingSection";
-const VideoPlayer = () => {
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { fetchData } from "../../services/institution";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+const VideoPlayer = ({ university }: any) => {
+  console.log(university.video);
   return (
     <div className="w-full mx-auto aspect-[1230/650]">
       <video controls className="w-full" poster="/rectangle-271@2x.png">
-        <source
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-          type="video/mp4"
-        />
+        <source src={university.video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
@@ -44,7 +47,7 @@ const RequestMethodology = () => {
     </div>
   );
 };
-const SingleListingV2Approved: NextPage = () => {
+const SingleListingV2Approved = () => {
   const images = [
     {
       src: "/rectangle-219@2x.png",
@@ -64,19 +67,38 @@ const SingleListingV2Approved: NextPage = () => {
     },
   ];
   const fontSize = useCalculateFontSize();
+  const param = useSearchParams();
+  const router = useRouter();
+  const [university, setUniversity] = useState<any>({
+    keypoints: [],
+    salient_features: [],
+  });
+  useEffect(() => {
+    console.log(param.get("id"));
+    const type = param.get("institution_type");
+    const id = param.get("id");
+    const url = `${type}/${id}`;
+    fetchData(url, {
+      page: 0,
+      limit: 5,
+      depth: 1,
+    })
+      .then((data) => setUniversity(data))
+      .catch((error) => console.log("Error fetching data:", error));
+  }, [param.get("id")]);
+
   return (
     <div className="w-full text-black bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       {/* <Header /> */}
 
-      <ImageSwiper images={images} />
+      <ImageSwiper images={university?.media?.gallery || []} />
       <section className="crm-university-section grid grid-cols-12 w-full px-[100px] mq1275:px-[30px] ">
         <div className="col-span-6 mt-[80px] flex flex-col gap-[14px] mq900:col-span-12">
           <h1 className=" text-[45px] font-bold font-libre-baskerville mq450:text-19xl mq900:text-[51px] xl:text-[64px]">
-            CMR University
+            {university?.institution_name}
           </h1>
           <div className=" text-[16px] font-inter text-darkslategray inline-block w-[663px] mq900:w-full mq450:text-lg w-[70%] xl:text-[25px]">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium...
+            {university.short_description}
           </div>
           <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-10 md:w-[70%]">
             <img
@@ -126,7 +148,7 @@ const SingleListingV2Approved: NextPage = () => {
             <img
               className="w-full h-[100%] flex-1 relative max-w-full overflow-hidden object-cover z-[1]"
               alt=""
-              src="/image-23@2x.png"
+              src={university?.media?.logo.url}
             />
           </div>
           <div className="w-[116px] h-[55.9px] relative hidden" />
@@ -148,7 +170,9 @@ const SingleListingV2Approved: NextPage = () => {
                       }}
                       className="relative inline-block min-w-[50px] z-[1] mq450:text-sm"
                     >
-                      Delhi, India
+                      {university?.city?.city_name}
+                      {", "}
+                      {university?.state?.state_name}
                     </div>
                   </div>
                 </div>
@@ -166,7 +190,7 @@ const SingleListingV2Approved: NextPage = () => {
                     }}
                     className="relative z-[1] mq450:text-sm"
                   >
-                    Private / Public
+                    {university?.type}
                   </div>
                 </div>
               </div>
@@ -218,61 +242,73 @@ const SingleListingV2Approved: NextPage = () => {
             <div className="flex-1 flex flex-col items-start justify-start gap-[24.300000000000185px] max-w-full">
               <div className="w-[637.1px] flex flex-row items-start justify-start py-0 px-[10px] box-border max-w-full">
                 <div className="flex-1 flex flex-row items-start justify-between max-w-full gap-[20px] mq900:flex-wrap xsm:justify-center mq450:gap-5 mq1275:gap-0">
-                  <img
-                    style={{
-                      width: fontSize(70, 32, 1920, 400),
-                    }}
-                    className="aspect-square relative z-[1] mq450:w-[40px]"
-                    alt=""
-                    src="/frame-2-1.svg"
-                  />
-                  <img
-                    style={{
-                      width: fontSize(70, 32, 1920, 400),
-                    }}
-                    className="aspect-square relative z-[1] mq450:w-[40px]"
-                    alt=""
-                    src="/frame-3-1.svg"
-                  />
-                  <img
-                    style={{
-                      width: fontSize(70, 32, 1920, 400),
-                    }}
-                    className="aspect-square relative overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
-                    alt=""
-                    src="/twitter-1-1.svg"
-                  />
-                  <img
-                    style={{
-                      width: fontSize(70, 32, 1920, 400),
-                    }}
-                    className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
-                    alt=""
-                    src="/linkedin-1.svg"
-                  />
-                  <img
-                    style={{
-                      width: fontSize(70, 32, 1920, 400),
-                    }}
-                    className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
-                    alt=""
-                    src="/youtube-1.svg"
-                  />
+                  <Link href={university?.facebook_url || ""}>
+                    <img
+                      style={{
+                        width: fontSize(70, 32, 1920, 400),
+                      }}
+                      className="aspect-square relative z-[1] mq450:w-[40px]"
+                      alt=""
+                      src="/frame-2-1.svg"
+                    />
+                  </Link>
+                  <Link href={university?.instagram_url || ""}>
+                    <img
+                      style={{
+                        width: fontSize(70, 32, 1920, 400),
+                      }}
+                      className="aspect-square relative z-[1] mq450:w-[40px]"
+                      alt=""
+                      src="/frame-3-1.svg"
+                    />
+                  </Link>
+                  <Link href={university?.twitter_url || ""}>
+                    <img
+                      style={{
+                        width: fontSize(70, 32, 1920, 400),
+                      }}
+                      className="aspect-square relative overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
+                      alt=""
+                      src="/twitter-1-1.svg"
+                    />
+                  </Link>
+                  <Link href={university?.linkedin_url || ""}>
+                    <img
+                      style={{
+                        width: fontSize(70, 32, 1920, 400),
+                      }}
+                      className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
+                      alt=""
+                      src="/linkedin-1.svg"
+                    />
+                  </Link>
+                  <Link href={university?.youtube_url || ""}>
+                    <img
+                      style={{
+                        width: fontSize(70, 32, 1920, 400),
+                      }}
+                      className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
+                      alt=""
+                      src="/youtube-1.svg"
+                    />
+                  </Link>
                 </div>
               </div>
-              <button className="cursor-pointer [border:none] py-[23px] flex items-center px-5 bg-orange-200 self-stretch rounded-8xs flex flex-row items-start justify-center box-border gap-[18px] max-w-full z-[1] mq900:py-[10px]">
-                <div className="h-[86px] w-[659px] relative rounded-8xs bg-orange-200 hidden max-w-full" />
-                <div className="flex flex-col items-start justify-start  px-0 pb-0">
-                  <img
-                    className="w-5 h-5 relative z-[2]"
-                    alt=""
-                    src="/group.svg"
-                  />
-                </div>
-                <div className="relative text-11xl font-red-hat-text text-black text-left inline-block min-w-[119px] z-[2] mq450:text-lg mq900:text-5xl">
-                  Visit Site
-                </div>
-              </button>
+              <Link className="w-full" href={university?.website || ""}>
+                <button className="cursor-pointer [border:none] py-[23px] flex items-center px-5 bg-orange-200 self-stretch rounded-8xs flex flex-row items-start justify-center box-border gap-[18px] w-full z-[1] mq900:py-[10px]">
+                  <div className="h-[86px] w-[659px] relative rounded-8xs bg-orange-200 hidden max-w-full" />
+                  <div className="flex flex-col items-start justify-start  px-0 pb-0">
+                    <img
+                      className="w-5 h-5 relative z-[2]"
+                      alt=""
+                      src="/group.svg"
+                    />
+                  </div>
+                  <div className="relative text-11xl font-red-hat-text text-black text-left inline-block min-w-[119px] z-[2] mq450:text-lg mq900:text-5xl">
+                    Visit Site
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -280,7 +316,7 @@ const SingleListingV2Approved: NextPage = () => {
 
       {/* Rating section */}
 
-      <RatingSection />
+      <RatingSection university={university} />
 
       <section className="w-full">
         <div className="grid grid-cols-12 gap-[40px] mx-[100px] mq900:grid-cols-2 mq900:mx-5">
@@ -331,24 +367,21 @@ const SingleListingV2Approved: NextPage = () => {
                 Salient Features
               </h1>
               <div className="border border-orange-200 w-full bg-papayawhip px-10 flex flex-col gap-10 py-5 rounded-8xs">
-                {Array(4)
-                  .fill("")
-                  .map((e, i) => (
-                    <div className="flex items-center gap-5">
-                      <ArrowCircleRightIcon
-                        style={{
-                          color: "#F7A600",
-                          backgroundColor: "#000000",
-                          borderRadius: "50%",
-                          // fontSize: fontSize(21, 19, 1920, 400),
-                        }}
-                      />
-                      <div className="text-[22.1px] font-red-hat-text text-darkslategray mq450:text-lg mq900:text-sm">
-                        Sed ut perspiciatis unde omnis iste natus error sit
-                        voluptatem accusantium doloremque laudantium
-                      </div>
+                {university.salient_features.map((e: any, i: number) => (
+                  <div key={i} className="flex items-center gap-5">
+                    <ArrowCircleRightIcon
+                      style={{
+                        color: "#F7A600",
+                        backgroundColor: "#000000",
+                        borderRadius: "50%",
+                        // fontSize: fontSize(21, 19, 1920, 400),
+                      }}
+                    />
+                    <div className="text-[22.1px] font-red-hat-text text-darkslategray mq450:text-lg mq900:text-sm">
+                      {e.salient_feature_title}
                     </div>
-                  ))}
+                  </div>
+                ))}
               </div>
               <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
                 Walkthrough Video
@@ -372,7 +405,7 @@ const SingleListingV2Approved: NextPage = () => {
                   </button>
                 </div>
               </div> */}
-              <VideoPlayer />
+              <VideoPlayer university={university} />
               <div className="flex flex-row items-start justify-end py-0 box-border max-w-full text-17xl text-white w-full">
                 <div className="flex-1 rounded-8xs bg-darkslateblue flex flex-row items-start justify-start relative max-w-full">
                   <div className="self-stretch w-[1210px] relative rounded-8xs bg-darkslateblue hidden max-w-full z-[0]" />

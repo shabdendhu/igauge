@@ -1,5 +1,5 @@
 "use client";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useCallback, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Card from "./sub-components/Card";
@@ -19,62 +19,228 @@ import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { getAllInstitutions } from "@/utils/getInstitution";
-import { getAllStates } from "@/utils/state";
-import { getAllCities } from "@/utils/city";
-import { getAllSubjects } from "@/utils/Subjects";
-import { getAllRatingBadges } from "@/utils/Ratings";
-import { getAllProductCategories } from "@/utils/Category";
-import { equal } from "assert";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
+import { fetchData } from "@/app/(app)/services/institution";
+import { debounce, set } from "lodash";
+import { useSearchParams } from "next/navigation";
 
 const CollectionPageV2Approved: FunctionComponent = () => {
   const fontSize = useCalculateFontSize();
-
-  const [univercityes, setUniverCityes] = useState<any>([]);
+  const [universities, setUniversities] = useState<any>([]);
   const [states, setStates] = useState<any>([]);
   const [cities, setCities] = useState<any>([]);
   const [subjects, setSubjects] = useState<any>([]);
   const [ratingBadges, setRatingBadges] = useState<any>([]);
+  const [overallRating, setOverallRating] = useState<any>([]);
   const [sort, setSort] = useState<any>("");
   const [search, setSearch] = useState<any>("");
   const [certified, setCertified] = useState("");
   const [category, setCategory] = useState<any>([]);
-  console.log({ univercityes });
+  const [institution, setInstitution] = useState([
+    "universities",
+    "schools",
+    "colleges",
+  ]);
   const [filters, setFilters] = useState({
-    institution_type: [],
-    overall_rating: [],
+    state: [],
+    city: [],
+    "ratings.overall_rating": { equals: null },
+    "ratings.subject_ratings.subject_rating": { equals: null },
+    "ratings.category-ratings.category_rating": { equals: null },
+    institution_name: "",
+    type: {
+      institution_type: "universities",
+      subj_ratings: "university-subject-ratings",
+      overall_rating: "university-overall-rating",
+      category_rating: "university-category-rating",
+    },
   });
-  const fetchUnivercity = (filter: any = undefined) => {
-    getAllInstitutions(filter).then((e) => {
-      setUniverCityes(e.docs);
-      console.log(e, "kkkkkkkkkkkkkkkkkkkkkkkk");
-    });
-  };
-  useEffect(() => {
-    // fetchUnivercity();
-    // getAllStates().then((e) => setStates(e.docs));
-    // getAllCities().then((e) => setCities(e.docs));
-    // getAllSubjects().then((e) => setSubjects(e.docs));
-    // getAllRatingBadges().then((e) => setRatingBadges(e.docs));
-    // getAllProductCategories().then((e) => setCategory(e.docs));
+  const fetchDataWithFilter = useCallback((filter: any) => {
+    fetchData(filter.type.institution_type, {
+      page: 0,
+      limit: 5,
+      depth: 1,
+      filter: {
+        state: { in: filter.state.map((e: any) => e.id) },
+        city: { in: filter.city.map((e: any) => e.id) },
+        "ratings.overall_rating": filter["ratings.overall_rating"].equals
+          ? filter["ratings.overall_rating"]
+          : undefined,
+        "ratings.subject_ratings.subject_rating": filter[
+          "ratings.subject_ratings.subject_rating"
+        ].equals
+          ? filter["ratings.subject_ratings.subject_rating"]
+          : undefined,
+        "ratings.category-ratings.category_rating": filter[
+          "ratings.category-ratings.category_rating"
+        ].equals
+          ? filter["ratings.category-ratings.category_rating"]
+          : undefined,
+        institution_name: {
+          like: filter.institution_name || undefined, // Adjust the search term as needed
+        },
+      },
+    })
+      .then((data) => setUniversities(data.docs))
+      .catch((error) => console.log("Error fetching data:", error));
   }, []);
-  //write a function to filter the data based on the filters
-
-  const handleChange = (type: string, value: any) => {
-    console.log(type, value);
-    setFilters({
-      ...filters,
-      [type]: value,
-    });
-  };
+  useEffect(() => {
+    fetchData("states", { page: 0, limit: 100, filter: {} }).then((data) =>
+      setStates(data.docs)
+    );
+    fetchData("cities", { page: 0, limit: 100, filter: {} }).then((data) =>
+      setCities(data.docs)
+    );
+  }, []);
 
   useEffect(() => {
-    // fetchUnivercity({
-    //   institution_type: {
-    //     all: ["university", "school"],
-    //   },
-    // });
-  }, [filters]);
+    fetchData(filters.type.subj_ratings, {
+      page: 0,
+      limit: 100,
+      filter: {},
+    }).then((data) => setSubjects(data.docs));
+    fetchData(filters.type.overall_rating, {
+      page: 0,
+      limit: 100,
+      filter: {},
+    }).then((data) => setOverallRating(data.docs));
+    fetchData(filters.type.category_rating, {
+      page: 0,
+      limit: 100,
+      filter: {},
+    }).then((data) => setCategory(data.docs));
+  }, [filters.type.subj_ratings, filters.type.overall_rating]);
+
+  useEffect(() => {
+    fetchDataWithFilter(filters);
+  }, [filters, fetchDataWithFilter]);
+
+  const handleFilterChange = (type: string, value: any) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [type]: value,
+    }));
+  };
+
+  const handleSelectChange = (event: any) => {
+    const value = event.target.value;
+
+    const institutionDetails = {
+      universities: {
+        institution_type: "universities",
+        subj_ratings: "university-subject-ratings",
+        overall_rating: "university-overall-rating",
+        category_rating: "university-category-rating",
+      },
+      colleges: {
+        institution_type: "colleges",
+        subj_ratings: "college-rating-badges",
+        overall_rating: "college-overall-rating",
+        category_rating: "collage-category-rating",
+      },
+      schools: {
+        institution_type: "schools",
+        subj_ratings: "school-subject-rating-badges",
+        overall_rating: "school-overall-rating",
+        category_rating: "school-category-rating",
+      },
+    };
+
+    switch (value) {
+      case "universities":
+        handleFilterChange("type", institutionDetails.universities);
+        break;
+      case "colleges":
+        handleFilterChange("type", institutionDetails.colleges);
+        break;
+      case "schools":
+        handleFilterChange("type", institutionDetails.schools);
+        break;
+      default:
+        break;
+    }
+  };
+
+  //newly added
+  // useEffect(() => {
+  //   fetchData("universities", {
+  //     page: 0,
+  //     limit: 5,
+  //     filter: filters,
+  //   })
+  //     .then((data) => {
+  //       console.log(data, "fetched data");
+  //       setUniverCityes(data.docs);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data:", error);
+  //     });
+  //   fetchData("university-subject-ratings", {
+  //     page: 0,
+  //     limit: 5,
+  //     filter: {},
+  //   })
+  //     .then((data) => {
+  //       console.log(data, "fetched data");
+  //       setSubjects(data.docs);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data:", error);
+  //     });
+  //   fetchData("university-overall-rating", {
+  //     page: 0,
+  //     limit: 5,
+  //     filter: {},
+  //   })
+  //     .then((data) => {
+  //       console.log(data, "fetched data");
+  //       setOverallRating(data.docs);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data:", error);
+  //     });
+  //   fetchData("states", {
+  //     page: 0,
+  //     limit: 5,
+  //     filter: {},
+  //   })
+  //     .then((data) => {
+  //       console.log(data, "fetched data");
+  //       setStates(data.docs);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data:", error);
+  //     });
+  //   fetchData("cities", {
+  //     page: 0,
+  //     limit: 5,
+  //     filter: {},
+  //   })
+  //     .then((data) => {
+  //       console.log(data, "fetched data");
+  //       setCities(data.docs);
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error fetching data:", error);
+  //     });
+  // }, []);
+  //impliment search debounse
+  const debouncedFetchData = useCallback(
+    debounce((searchTerm: string) => {
+      handleFilterChange("institution_name", searchTerm);
+    }, 500),
+    []
+  );
+
+  useEffect(() => {
+    console.log({
+      univercityes: universities,
+      states,
+      cities,
+      overallRating,
+      subjects,
+    });
+  }, [universities, states, cities, overallRating, subjects]);
 
   return (
     <div className="university-search flex flex-col">
@@ -98,7 +264,9 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               id="combo-box-demo"
               options={states}
               multiple
+              value={filters.state}
               getOptionLabel={(e: any) => e.state_name}
+              onChange={(e, i) => handleFilterChange("state", i)}
               renderInput={(params) => (
                 <TextField {...params} label="Select State" />
               )}
@@ -106,8 +274,10 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <Autocomplete
               id="combo-box-demo"
               options={cities}
+              value={filters.city}
               multiple
               getOptionLabel={(e: any) => e.city_name}
+              onChange={(e, i) => handleFilterChange("city", i)}
               renderInput={(params) => (
                 <TextField {...params} label="Select City" />
               )}
@@ -117,19 +287,17 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <FormControl style={{ minWidth: 200 }}>
               <InputLabel>Filter by Institutions</InputLabel>
               <Select
-                multiple
+                // multiple
                 multiline
-                value={filters.institution_type}
+                value={filters.type.institution_type}
                 placeholder="Filter by Institutions"
                 label="Age"
-                onChange={(e) =>
-                  handleChange("institution_type", e.target.value)
-                }
+                onChange={handleSelectChange}
               >
-                <MenuItem value={"university"}>University</MenuItem>
-                <MenuItem value={"college"}>College</MenuItem>
-                <MenuItem value={"school"}>School</MenuItem>
-                <MenuItem value={"Autonomous College"}>
+                <MenuItem value={"universities"}>University</MenuItem>
+                <MenuItem value={"colleges"}>College</MenuItem>
+                <MenuItem value={"schools"}>School</MenuItem>
+                <MenuItem value={"autonomous-college"}>
                   Autonomous College
                 </MenuItem>
               </Select>
@@ -137,14 +305,17 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <FormControl style={{ minWidth: 200 }}>
               <InputLabel>Filter by Ratings</InputLabel>
               <Select
-                value={filters.overall_rating}
+                value={filters["ratings.overall_rating"].equals}
                 multiline
-                multiple
+                // multiple
                 placeholder="Filter by Ratings"
-                label="Age"
-                onChange={(e) => handleChange("overall_rating", e.target.value)}
+                onChange={(e) =>
+                  handleFilterChange("ratings.overall_rating", {
+                    equals: e.target.value,
+                  })
+                }
               >
-                {ratingBadges.map((e: any, i: number) => (
+                {overallRating.map((e: any, i: number) => (
                   <MenuItem key={i} value={e.id}>
                     {e.badges_name}
                   </MenuItem>
@@ -154,14 +325,17 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <FormControl style={{ minWidth: 200 }}>
               <InputLabel>Filter by Subject</InputLabel>
               <Select
-                // value={age}
+                value={filters["ratings.subject_ratings.subject_rating"].equals}
                 placeholder="Filter by Subject"
-                label="Age"
-                // onChange={handleChange}
+                onChange={(e: any) =>
+                  handleFilterChange("ratings.subject_ratings.subject_rating", {
+                    equals: e.target.value,
+                  })
+                }
               >
                 {subjects.map((e: any, i: number) => (
-                  <MenuItem key={i} value={i}>
-                    {e.subject_name}
+                  <MenuItem key={i} value={e.id}>
+                    {e.badges_name}
                   </MenuItem>
                 ))}
               </Select>
@@ -198,12 +372,21 @@ const CollectionPageV2Approved: FunctionComponent = () => {
                     // value={age}
                     size="small"
                     placeholder="Sort By Category"
-                    label="Age"
-                    // onChange={handleChange}
+                    value={
+                      filters["ratings.category-ratings.category_rating"].equals
+                    }
+                    onChange={(e: any) =>
+                      handleFilterChange(
+                        "ratings.category-ratings.category_rating",
+                        {
+                          equals: e.target.value,
+                        }
+                      )
+                    }
                   >
                     {category.map((e: any, i: number) => (
-                      <MenuItem key={i} value={e.product_category_name}>
-                        {e.product_category_name}
+                      <MenuItem key={i} value={e.id}>
+                        {e.badges_name}
                       </MenuItem>
                     ))}
                   </Select>
@@ -212,6 +395,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               <TextField
                 size="small"
                 placeholder="Search"
+                onChange={(e) => debouncedFetchData(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -222,8 +406,8 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               />
             </div>
 
-            {univercityes?.map((university: any, i: number) => (
-              <Card university={university} key={i} />
+            {universities?.map((university: any, i: number) => (
+              <Card university={university} filters={filters} key={i} />
             ))}
           </div>
         </div>

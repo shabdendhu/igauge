@@ -5,6 +5,9 @@ const States: CollectionConfig = {
   admin: {
     useAsTitle: "state_name",
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "state_name",

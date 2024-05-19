@@ -5,7 +5,10 @@ const Schools: CollectionConfig = {
   slug: "schools",
   admin: {
     useAsTitle: "institution_name",
-    group: 'Schools',
+    group: "Schools",
+  },
+  access: {
+    read: () => true,
   },
   fields: [
     {
@@ -95,65 +98,67 @@ const Schools: CollectionConfig = {
                   type: "select",
                   label: "School Category",
                   options: [
-                  {
-                    label: "Central Board of Secondary Education",
-                    value: "cbse",
-                  },
-                  {
-                    label: "Indian Certificate of Secondary Education",
-                    value: "icse",
-                  },
-                  {
-                    label: "Council for the Indian School Certificate Examination",
-                    value: "cisce",
-                  },
-                  {
-                    label: "The International General Certificate of Secondary Education",
-                    value: "igcse",
-                  },
-                  {
-                    label: "State Board",
-                    value: "state",
-                  },
-                  {
-                    label: "International Baccalaureate",
-                    value: "ib",
-                  },
-                  {
-                    label: "Cambridge International Examinations",
-                    value: "cie",
-                  },
-                  {
-                   label: "National Institute of Open Schooling",
-                    value: "nios",
-                  },
+                    {
+                      label: "Central Board of Secondary Education",
+                      value: "cbse",
+                    },
+                    {
+                      label: "Indian Certificate of Secondary Education",
+                      value: "icse",
+                    },
+                    {
+                      label:
+                        "Council for the Indian School Certificate Examination",
+                      value: "cisce",
+                    },
+                    {
+                      label:
+                        "The International General Certificate of Secondary Education",
+                      value: "igcse",
+                    },
+                    {
+                      label: "State Board",
+                      value: "state",
+                    },
+                    {
+                      label: "International Baccalaureate",
+                      value: "ib",
+                    },
+                    {
+                      label: "Cambridge International Examinations",
+                      value: "cie",
+                    },
+                    {
+                      label: "National Institute of Open Schooling",
+                      value: "nios",
+                    },
                   ],
                   admin: {
-                  width: "37.5%",
+                    width: "37.5%",
                   },
-                  },
-                  {
-                    name: "residential",
-                    type: "select",
-                    label: "Residential/Non Residential/Day school",
-                    options: [
-                      {
-                        label: "Residential",
-                        value: "residential",
-                      },
-                      {
-                        label: "Non Residential",
-                        value: "non-residential",
-                      },
-                      {
-                        label: "Day School",
-                        value: "day-school",
-                      },
-                    ],
-                    admin: {
-                      width: "37.5%",
+                },
+                {
+                  name: "residential",
+                  type: "select",
+                  label: "Residential/Non Residential/Day school",
+                  options: [
+                    {
+                      label: "Residential",
+                      value: "residential",
                     },
+                    {
+                      label: "Non Residential",
+                      value: "non-residential",
+                    },
+                    {
+                      label: "Day School",
+                      value: "day-school",
+                    },
+                  ],
+                  admin: {
+                    width: "37.5%",
                   },
+                },
                 {
                   name: "fee_structure_url",
                   type: "text",
@@ -397,7 +402,6 @@ const Schools: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    
                     {
                       name: "category_rating",
                       type: "relationship",
@@ -438,12 +442,8 @@ const Schools: CollectionConfig = {
                 },
               ],
             },
-
-            
           ],
         },
-
-        
       ],
     },
   ],

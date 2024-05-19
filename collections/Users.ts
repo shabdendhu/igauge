@@ -16,6 +16,7 @@ export const Users: CollectionConfig = {
       name: "phoneNumber",
       type: "text",
       required: true,
+      unique: true, // Ensure phone number is unique
     },
     {
       name: "gender",
@@ -71,19 +72,5 @@ export const Users: CollectionConfig = {
       ],
       required: true,
     },
-    // {
-    //   name: "bookmarkedInstitutions",
-    //   type: "array",
-    //   label: "Bookmarked Institutions",
-    //   fields: [
-    //     {
-    //       name: "institution",
-    //       type: "relationship",
-    //       relationTo: "institutions",
-    //       required: true,
-    //     },
-    //   ],
-    // },
-    // Email field is added by default by Payload for auth collections
   ],
 };

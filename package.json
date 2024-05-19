@@ -24,8 +24,8 @@
     "@payloadcms/plugin-seo": "^3.0.0-beta.32",
     "@payloadcms/richtext-lexical": "^3.0.0-beta.28",
     "@react-google-maps/api": "^2.19.3",
-    "axios": "^1.6.8",
     "aws-crt": "^1.21.2",
+    "axios": "^1.6.8",
     "classnames": "^2.5.1",
     "graphql": "^16.8.1",
     "lodash": "^4.17.21",
@@ -34,7 +34,8 @@
     "react": "^18",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
-    "swiper": "^11.1.1"
+    "swiper": "^11.1.1",
+    "twilio": "^5.0.4"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.1",

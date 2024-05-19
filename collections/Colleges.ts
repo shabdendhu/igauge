@@ -7,9 +7,12 @@ const Colleges: CollectionConfig = {
     singular: "College",
     plural: "Colleges",
   },
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: "institution_name",
-    group: 'Colleges',
+    group: "Colleges",
   },
   fields: [
     {
@@ -39,7 +42,7 @@ const Colleges: CollectionConfig = {
                   },
                   label: "Short Description",
                 },
-                
+
                 {
                   name: "established_on",
                   type: "text",
@@ -368,7 +371,6 @@ const Colleges: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    
                     {
                       name: "category_rating",
                       type: "relationship",
@@ -396,7 +398,6 @@ const Colleges: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    
                     {
                       name: "subject_rating",
                       type: "relationship",
@@ -411,12 +412,8 @@ const Colleges: CollectionConfig = {
                 },
               ],
             },
-
-            
           ],
         },
-
-        
       ],
     },
   ],

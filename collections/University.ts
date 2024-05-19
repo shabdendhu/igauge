@@ -9,7 +9,10 @@ const University: CollectionConfig = {
   },
   admin: {
     useAsTitle: "institution_name",
-    group: 'Universities',
+    group: "Universities",
+  },
+  access: {
+    read: () => true, // Allow public read access
   },
   fields: [
     {
@@ -39,7 +42,7 @@ const University: CollectionConfig = {
                   },
                   label: "Short Description",
                 },
-                
+
                 {
                   name: "established_on",
                   type: "text",
@@ -367,7 +370,6 @@ const University: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    
                     {
                       name: "category_rating",
                       type: "relationship",
@@ -395,7 +397,6 @@ const University: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    
                     {
                       name: "subject_rating",
                       type: "relationship",
@@ -410,12 +411,8 @@ const University: CollectionConfig = {
                 },
               ],
             },
-
-            
           ],
         },
-
-        
       ],
     },
   ],
