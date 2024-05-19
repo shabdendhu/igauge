@@ -1,9 +1,10 @@
 import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
+import { useRouter } from "next/navigation";
 import React from "react";
 
-const BlogCardSmall = () => {
+const BlogCardSmall = ({ blog }) => {
   const fontSize = useCalculateFontSize();
-
+  const router = useRouter();
   return (
     <div
       className=" border  flex flex-col "
@@ -16,7 +17,7 @@ const BlogCardSmall = () => {
         <img
           className="h-full  w-full relative object-cover aspect-square  "
           alt=""
-          src="/rectangle-245@2x.png"
+          src={blog?.featured_image?.url}
         />
         <button className="bg-darkslateblue font-libre-baskerville h-7 items-center absolute inline-flex  top-0 m-4 rounded-[4.26px] text-white p-2 text-[10px]">
           Category
@@ -37,24 +38,25 @@ const BlogCardSmall = () => {
               style={{
                 fontSize: fontSize(30, 8, 1920, 400),
               }}
-              className="text-lg font-libre-baskerville font-semibold"
+              className="text-lg font-libre-baskerville font-semibold line-clamp-1"
             >
-              Lorem ipsum dolor sit amet
+              {blog.blog_title}
             </p>
             <p
               style={{
                 fontSize: fontSize(13, 9, 1920, 400),
               }}
-              className="text-[11px]"
+              className="text-[11px] line-clamp-3"
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis est
-              odit repellendus minima voluptas sit adipisci quasi eveniet id
-              suscipit, eum, voluptate eligendi illo voluptates!
+              {blog.excerpt}
             </p>
           </div>
         </div>
         <div className="h-10 ">
-          <button className="bg-orange-200 h-full  flex justify-center items-center gap-x-1 px-7">
+          <button
+            onClick={() => router.push(`/blog?id=${blog.id}`)}
+            className="bg-orange-200 h-full  flex justify-center items-center gap-x-1 px-7"
+          >
             <div> Read More</div>
             <div className="h-full bg-orange-200 flex items-center">
               <img

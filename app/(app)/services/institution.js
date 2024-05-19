@@ -3,7 +3,7 @@ import qs from "qs";
 
 const fetchData = async (
   collectionSlug,
-  { page = 1, limit = 10, filter = {}, depth = 0 }
+  { page = 1, limit = 10, filter = {}, sort = {}, depth = 0 }
 ) => {
   const queryString = qs.stringify({
     where: filter,

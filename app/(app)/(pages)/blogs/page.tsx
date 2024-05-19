@@ -1,10 +1,31 @@
+//@ts-nocheck
 "use client";
 import type { NextPage } from "next";
 import FrameComponent11 from "../../components/FrameComponent1";
 import BlogCardSmall from "@/app/(app)/components/v1/BlogCardSmall";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
+import { useEffect, useState } from "react";
+import { fetchData } from "../../services/institution";
+import { useRouter } from "next/navigation";
 const BlogsV2Approved: NextPage = () => {
+  const router = useRouter();
+  const [blogs, setBlogs] = useState([]);
+  const [latestBlogs, setLatestBlogs] = useState([]);
   const fontSize = useCalculateFontSize();
+  useEffect(() => {
+    fetchData("blogs", { page: 0, limit: 100, depth: 1, filter: {} }).then(
+      (data) => setBlogs(data.docs)
+    );
+    fetchData("blogs", {
+      page: 0,
+      limit: 3,
+      depth: 1,
+      sort: {
+        createdAt: -1, // Sort by createdAt in descending order
+      },
+      filter: {},
+    }).then((data) => setLatestBlogs(data.docs));
+  }, []);
 
   return (
     <div>
@@ -57,124 +78,127 @@ const BlogsV2Approved: NextPage = () => {
           </h1>
           <div className="  mt-6">
             <div className="flex w-full  ">
-              <div
-                className=" w-1/2 flex flex-col mr-5 border overflow-hidden md:mr-[30px]"
-                style={{ aspectRatio: 1 }}
-              >
-                <div className="h-3/5 relative">
-                  <img
-                    className="h-full w-full w-full relative object-cover aspect-square  max-w-full"
-                    alt=""
-                    src="/rectangle-245@2x.png"
-                  />
-                  <button className="bg-darkslateblue absolute inline-flex  top-0 m-4 rounded-[4.26px] text-white p-2">
-                    Category
-                  </button>
-                </div>
-                <div className="m-3 h-full flex flex-col gap-y-3 md:m-[30px]">
-                  <div className="flex-1 flex flex-col gap-[20px]">
-                    <div className=" flex gap-x-1">
-                      <img
-                        className="w-[11.9px] h-[11.9px] relative overflow-hidden shrink-0 [debug_commit:1de1738] z-[1]"
-                        alt=""
-                        src="/calendar-1.svg"
-                      />
-                      <p className="text-xs"> 12 March, 2024</p>
-                    </div>
-                    <div className="flex flex-col gap-y-2 md:gap-[15px]">
-                      <p
-                        style={{
-                          fontSize: fontSize(30, 14, 1920, 400),
-                        }}
-                        className="text-lg font-libre-baskerville font-semibold md:text-11xl"
-                      >
-                        Lorem ipsum dolor sit amet
-                      </p>
-                      <p
-                        style={{
-                          fontSize: fontSize(17, 8, 1920, 400),
-                        }}
-                        className="text-[11px] md:text-mid"
-                      >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat
-                      </p>
-                    </div>
-                  </div>
-                  <div className="min-h-[50px]">
-                    <button className="bg-orange-200 h-full flex justify-center items-center gap-x-1 px-7">
-                      <div> Read More</div>
-                      <div className="h-full bg-orange-200 flex items-center">
-                        <img
-                          className=" h-[6px] w-[6px] relative "
-                          alt=""
-                          src="/double_arrow.svg"
-                        />
-                      </div>
+              {latestBlogs.length ? (
+                <div
+                  className=" w-1/2 flex flex-col mr-5 border overflow-hidden md:mr-[30px]"
+                  style={{ aspectRatio: 1 }}
+                >
+                  <div className="h-3/5 relative">
+                    <img
+                      className="h-full w-full w-full relative object-cover aspect-square  max-w-full"
+                      alt=""
+                      // src="/rectangle-245@2x.png"
+                      src={latestBlogs[0]?.featured_image?.url}
+                    />
+                    <button className="bg-darkslateblue absolute inline-flex  top-0 m-4 rounded-[4.26px] text-white p-2">
+                      {latestBlogs[0]?.category.blog_category_name}
                     </button>
                   </div>
-                </div>
-              </div>
-              <div className="flex flex-col h-full w-1/2   gap-y-4  ">
-                {Array(2)
-                  .fill("")
-                  .map((e, i) => (
-                    <div key={i} className="h-1/2 flex gap-x-3 border">
-                      <div className="w-3/5 h-full">
+                  <div className="m-3 h-full flex flex-col gap-y-3 md:m-[30px]">
+                    <div className="flex-1 flex flex-col gap-[20px]">
+                      <div className=" flex gap-x-1">
                         <img
-                          className="w-full h-full relative object-cover aspect-square  max-w-full"
+                          className="w-[11.9px] h-[11.9px] relative overflow-hidden shrink-0 [debug_commit:1de1738] z-[1]"
                           alt=""
-                          src="/rectangle-245@2x.png"
+                          src="/calendar-1.svg"
                         />
+                        <p className="text-xs"> 12 March, 2024</p>
                       </div>
-                      <div className=" w-full flex flex-col justify-around pl-5 ">
-                        <div className=" flex gap-x-1">
-                          <img
-                            className="w-[11.9px] h-[11.9px] relative overflow-hidden "
-                            alt=""
-                            src="/calendar-1.svg"
-                          />
-                          <p className="text-xs"> 12 March, 2024</p>
-                        </div>
-                        <div className="flex flex-col gap-y-2">
-                          <p
-                            style={{
-                              fontSize: fontSize(30, 14, 1920, 400),
-                            }}
-                            className="text-lg font-libre-baskerville font-semibold"
-                          >
-                            Lorem ipsum dolor sit amet
-                          </p>
-                          <p
-                            style={{
-                              fontSize: fontSize(17, 8, 1920, 400),
-                            }}
-                            className="text-[11px]"
-                          >
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quis est odit repellendus minima voluptas sit
-                            adipisci quasi eveniet id suscipit, eum, voluptate
-                            eligendi illo voluptates!
-                          </p>
-                        </div>
-                        <div className="w-full ">
-                          <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
-                            <div> Read More</div>
-                            <div className="h-full bg-orange-200 flex items-center">
-                              <img
-                                className=" h-[6px] w-[6px] relative "
-                                alt=""
-                                src="/double_arrow.svg"
-                              />
-                            </div>
-                          </button>
-                        </div>
+                      <div className="flex flex-col gap-y-2 md:gap-[15px]">
+                        <p
+                          style={{
+                            fontSize: fontSize(30, 14, 1920, 400),
+                          }}
+                          className="text-lg font-libre-baskerville font-semibold md:text-11xl"
+                        >
+                          {latestBlogs[0].blog_title}
+                        </p>
+                        <p
+                          style={{
+                            fontSize: fontSize(17, 8, 1920, 400),
+                          }}
+                          className="text-[11px] md:text-mid line-clamp-5"
+                        >
+                          {latestBlogs[0].excerpt}
+                        </p>
                       </div>
                     </div>
-                  ))}
+                    <div className="min-h-[50px]">
+                      <button
+                        onClick={() =>
+                          router.push("/blog?id=" + latestBlogs[0].id)
+                        }
+                        className="bg-orange-200 h-full flex justify-center items-center gap-x-1 px-7"
+                      >
+                        <div> Read More</div>
+                        <div className="h-full bg-orange-200 flex items-center">
+                          <img
+                            className=" h-[6px] w-[6px] relative "
+                            alt=""
+                            src="/double_arrow.svg"
+                          />
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )}
+              <div className="flex flex-col h-full w-1/2   gap-y-4  ">
+                {latestBlogs.slice(1, 2).map((e, i) => (
+                  <div key={i} className="h-1/2 flex gap-x-3 border">
+                    <div className="w-3/5 h-full">
+                      <img
+                        className="w-full h-full relative object-cover aspect-square  max-w-full"
+                        alt=""
+                        src={e?.featured_image?.url}
+                      />
+                    </div>
+                    <div className=" w-full flex flex-col justify-around pl-5 ">
+                      <div className=" flex gap-x-1">
+                        <img
+                          className="w-[11.9px] h-[11.9px] relative overflow-hidden "
+                          alt=""
+                          src="/calendar-1.svg"
+                        />
+                        <p className="text-xs"> 12 March, 2024</p>
+                      </div>
+                      <div className="flex flex-col gap-y-2">
+                        <p
+                          style={{
+                            fontSize: fontSize(30, 14, 1920, 400),
+                          }}
+                          className="text-lg font-libre-baskerville font-semibold line-clamp-1"
+                        >
+                          {e?.blog_title}
+                        </p>
+                        <p
+                          style={{
+                            fontSize: fontSize(17, 8, 1920, 400),
+                          }}
+                          className="text-[11px] line-clamp-3"
+                        >
+                          {e?.excerpt}
+                        </p>
+                      </div>
+                      <div className="w-full ">
+                        <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
+                          <div onClick={() => router.push("/blog?id=" + e.id)}>
+                            Read More
+                          </div>
+                          <div className="h-full bg-orange-200 flex items-center">
+                            <img
+                              className=" h-[6px] w-[6px] relative "
+                              alt=""
+                              src="/double_arrow.svg"
+                            />
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -184,13 +208,15 @@ const BlogsV2Approved: NextPage = () => {
         <div className="grid grid-cols-7  gap-8">
           <div className="col-start-1 col-span-7 md:col-span-5 ">
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-3 md:gap-[50px]">
+              {blogs.map((blog, i) => (
+                <BlogCardSmall key={i} blog={blog} />
+              ))}
+              {/* <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
               <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
+              <BlogCardSmall /> */}
             </div>
           </div>
           <div className="col-start-6 col-span-2    mt-10 hidden md:block">

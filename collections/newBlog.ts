@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import {
-  HTMLConverterFeature,
   lexicalEditor,
+  HTMLConverterFeature,
   lexicalHTML,
 } from "@payloadcms/richtext-lexical";
 
@@ -68,24 +68,24 @@ const Blogs: CollectionConfig = {
             width: "100%",
           },
         },
-        {
-          name: "blog_content",
-          type: "richText",
-          required: true,
-          label: "Blog Content",
-          editor: lexicalEditor({
-            features: ({ defaultFeatures }) => [
-              ...defaultFeatures,
-              HTMLConverterFeature({}),
-            ],
-          }),
-          admin: {
-            width: "100%",
-          },
-        },
-        lexicalHTML("blog_content", { name: "blog_content_html" }),
       ],
     },
+    {
+      name: "blog_content",
+      type: "richText",
+      required: true,
+      label: "Blog Content",
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({}),
+        ],
+      }),
+      admin: {
+        width: "100%",
+      },
+    },
+    lexicalHTML("blog_content", { name: "blog_content_html" }),
   ],
   versions: {
     drafts: true,

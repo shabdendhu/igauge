@@ -7,7 +7,7 @@ import ImageSwiper from "../../components/ImageSwiper.tsx";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import RatingSection from "./sub-components/RatingSection";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { fetchData } from "../../services/institution";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -465,5 +465,11 @@ const SingleListingV2Approved = () => {
     </div>
   );
 };
-
-export default SingleListingV2Approved;
+const UniversityDetails = () => {
+  return (
+    <Suspense>
+      <SingleListingV2Approved />
+    </Suspense>
+  );
+};
+export default UniversityDetails;
