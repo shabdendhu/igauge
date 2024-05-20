@@ -23,7 +23,14 @@ const Coll_OverallRating: CollectionConfig = {
             relationTo: 'media',
             required: true,
             label: 'Badges Image',
-        }
+        },
+        {
+            name: 'ribbon',
+            type: 'upload',
+            relationTo: 'media',
+            required: true,
+            label: 'Ribbon',
+        },
 
     ],
 }
