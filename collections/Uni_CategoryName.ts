@@ -1,22 +1,21 @@
 import { CollectionConfig } from 'payload/types'
 
-const Sch_CoreAdvanced: CollectionConfig = {
-    slug: 'school-core-criteria',
+const Uni_CategoryName: CollectionConfig = {
+    slug: 'university-category-name',
     labels: {
-        singular: 'Core Criteria',
-        plural: 'Core Criteria',
+        singular: 'Category Name',
+        plural: 'Category Names',
     },
     admin: {
-        useAsTitle: 'title',
-        group: 'Schools',
+        useAsTitle: 'category_name',
+        group: 'Universities',
     },
     fields: [
-        
         {
-            name: 'title',
+            name: 'category_name',
             type: 'text',
             required: true,
-            label: 'Other Factors Title',
+            label: 'Badges Name',
         },
         {
             name: 'icon',
@@ -28,4 +27,4 @@ const Sch_CoreAdvanced: CollectionConfig = {
 
     ],
 }
-export default Sch_CoreAdvanced
+export default Uni_CategoryName

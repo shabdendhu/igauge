@@ -1,22 +1,21 @@
 import { CollectionConfig } from 'payload/types'
 
-const Sch_Advanced: CollectionConfig = {
-    slug: 'school-advanced-criteria',
+const Coll_SubjectName: CollectionConfig = {
+    slug: 'college-subject_name',
     labels: {
-        singular: 'Advanced Criteria',
-        plural: 'Advanced Criteria',
+        singular: 'Subject Name',
+        plural: 'Subject Names',
     },
     admin: {
-        useAsTitle: 'title',
-        group: 'Schools',
+        useAsTitle: 'subject_name',
+        group: 'Colleges',
     },
     fields: [
-        
         {
-            name: 'title',
+            name: 'subject_name',
             type: 'text',
             required: true,
-            label: 'Advanced Criteria Title',
+            label: 'Badges Name',
         },
         {
             name: 'icon',
@@ -28,4 +27,4 @@ const Sch_Advanced: CollectionConfig = {
 
     ],
 }
-export default Sch_Advanced
+export default Coll_SubjectName

@@ -83,7 +83,7 @@ const Colleges: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 {
@@ -103,7 +103,7 @@ const Colleges: CollectionConfig = {
                   defaultValue: "no",
                   admin: {
                     layout: "horizontal",
-                    width: "25%",
+                    width: "33%",
                   },
                 },
                 // {
@@ -116,6 +116,27 @@ const Colleges: CollectionConfig = {
                 //     width: "37.5%",
                 //   },
                 // },
+                {
+                  name: "e-lead",
+                  type: "radio",
+                  label: "Does this institution have E-Lead certfication?",
+                  options: [
+                    {
+                      label: "No",
+                      value: "no",
+                    },
+                    {
+                      label: "Yes",
+                      value: "yes",
+                    },
+                  ],
+                  defaultValue: "no",
+                  admin: {
+                    layout: "horizontal",
+                    width: "33%",
+                  },
+                },
+
                 {
                   name: "website",
                   type: "text",
@@ -140,7 +161,7 @@ const Colleges: CollectionConfig = {
 
                   label: "Map Location URL",
                   admin: {
-                    width: "50%",
+                    width: "25%",
                   },
                 },
                 {
@@ -148,7 +169,7 @@ const Colleges: CollectionConfig = {
                   type: "text",
                   label: "Source",
                   admin: {
-                    width: "50%",
+                    width: "25%",
                   },
                 },
                 {
@@ -368,15 +389,23 @@ const Colleges: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
+                    {
+                      name: "category_name",
+                      type: "relationship",
+                      relationTo: "college-category-name",
+                      label: "Category Name",
+                      admin: {
+                        width: "50%",
+                      },
+                    },
                     
                     {
                       name: "category_rating",
                       type: "relationship",
                       relationTo: "collage-category-rating",
-                      hasMany: false,
                       label: "Category Rating",
                       admin: {
-                        width: "100%",
+                        width: "50%",
                       },
                     },
                   ],
@@ -396,6 +425,16 @@ const Colleges: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
+                    {
+                      name: "subject_name",
+                      type: "relationship",
+                      relationTo: "college-subject_name",
+                      hasMany: false,
+                      label: "Subject Name",
+                      admin: {
+                        width: "50%",
+                      },
+                    },
                     
                     {
                       name: "subject_rating",
@@ -404,76 +443,14 @@ const Colleges: CollectionConfig = {
                       hasMany: false,
                       label: "Subject Rating",
                       admin: {
-                        width: "100%",
+                        width: "50%",
                       },
                     },
                   ],
                 },
               ],
             },
-
-            {
-              name: "core_criteria",
-              type: "array",
-              label: "Core Criteria",
-              labels: {
-                singular: "Item",
-                plural: "Items",
-              },
-              fields: [
-                {
-                  type: "row",
-                  fields: [
-                    {
-                      name: "core_criteria_title",
-                      type: "relationship",
-                      relationTo: "college-core-criteria",
-                      label: "Core Criteria Title",
-                      admin: {
-                        width: "100%",
-                      },
-                    },
-                    {
-                      name: "core_criteria_badge",
-                      type: "relationship",
-                      relationTo: "college-overall-rating",
-                      label: "Core Criteria Badge",
-                    }
-                  ],
-                },
-              ],
-            },
-            {
-              name: "advanced_criteria",
-              type: "array",
-              label: "Advanced Criteria",
-              labels: {
-                singular: "Item",
-                plural: "Items",
-              },
-              fields: [
-                {
-                  type: "row",
-                  fields: [
-                    {
-                      name: "advanced_criteria_title",
-                      type: "relationship",
-                      relationTo: "college-advanced-criteria",
-                      label: "Advanced Criteria Title",
-                      admin: {
-                        width: "100%",
-                      },
-                    },
-                    {
-                      name: "advanced_criteria_badge",
-                      type: "relationship",
-                      relationTo: "college-overall-rating",
-                      label: "Advanced Criteria Badge",
-                    }
-                  ],
-                },
-              ],
-            },
+          
             {
               name: "other_factors",
               type: "array",
@@ -493,7 +470,7 @@ const Colleges: CollectionConfig = {
                       relationTo: "college-other-factors",
                       label: "Other Factor",
                       admin: {
-                        width: "100%",
+                        width: "50%",
                       },
                     },
                     {
@@ -501,7 +478,7 @@ const Colleges: CollectionConfig = {
                       type: "text",
                       label: "Factor Value",
                       admin: {
-                        width: "100%",
+                        width: "50%",
                       },
                     },
                     
