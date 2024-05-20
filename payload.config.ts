@@ -5,11 +5,11 @@ import path from "path";
 import { buildConfig } from "payload/config";
 // import sharp from 'sharp'
 import { fileURLToPath } from "url";
-import { seoPlugin } from "@payloadcms/plugin-seo";
-// import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
-// import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
-import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
-import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
+import { seoPlugin } from '@payloadcms/plugin-seo'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
+import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
+import { Logo } from './app/graphics/logo';
+import { Icon } from './app/graphics/icon';
 
 import { Users } from "@/collections/Users";
 import Media from "@/collections/Media";
@@ -38,15 +38,14 @@ import Footer from "./global/Footer";
 import General from "./global/general";
 import HeaderMenu from "./global/HeaderMenu";
 import Uni_OtherFactor from "./collections/Uni_OtherFactor";
-import Uni_CoreAdvanced from "./collections/Uni_Core-Criteria";
-import Sch_CoreAdvanced from "./collections/Sch_Core-Advanced";
 import Sch_OtherFactor from "./collections/Sch_OtherFactor";
-import Coll_CoreAdvanced from "./collections/Coll_Core-Advanced";
 import Coll_OtherFactor from "./collections/Coll_OtherFactor";
-import Uni_Advanced from "./collections/Uni_Advanced-Criteria";
-import Coll_Advanced from "./collections/Coll_Advanced-Criteria";
-import Sch_Advanced from "./collections/Sch_Advanced";
-import Otps from "./collections/Otp";
+import Uni_CategoryName from "./collections/Uni_CategoryName";
+import Uni_SubjectName from "./collections/Uni_SubjectName";
+import Coll_SubjectName from "./collections/Coll_SubjectName";
+import Coll_CategoryName from "./collections/Coll_CategoryName";
+import Sch_SubjectName from "./collections/Sch_SubjectName";
+import Sch_CategoryName from "./collections/Sch_CategoryName";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -79,32 +78,43 @@ const adapter = s3Adapter({
 export default buildConfig({
   admin: {
     user: Users.slug,
+    meta: {
+      titleSuffix: '- QS I-GAUGE',
+      favicon: '/favicon.svg',
+      ogImage: '/logo.svg',
+    },
+    components: {
+      graphics: {
+        Logo,
+        Icon,
+      },
+    },
   },
   collections: [
     Users,
     University,
     Uni_KeyPoints,
+    Uni_SubjectName,
     Uni_SubjectRatings,
+    Uni_CategoryName,
     Uni_CategoryRatings,
     Uni_OverallRating,
-    Uni_CoreAdvanced,
-    Uni_Advanced,
     Uni_OtherFactor,
     Colleges,
     Coll_KeyPoints,
+    Coll_SubjectName,
     Coll_SubjectRatings,
+    Coll_CategoryName,
     Coll_CategoryRatings,
     Coll_OverallRating,
-    Coll_CoreAdvanced,
-    Coll_Advanced,
     Coll_OtherFactor,
     Schools,
     Sch_KeyPoints,
+    Sch_SubjectName,
     Sch_SubjectRatings,
+    Sch_CategoryName,
     Sch_CategoryRatings,
     Sch_OverallRating,
-    Sch_CoreAdvanced,
-    Sch_Advanced,
     Sch_OtherFactor,
     Pages,
     Blogs,

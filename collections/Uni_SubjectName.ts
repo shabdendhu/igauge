@@ -1,22 +1,21 @@
 import { CollectionConfig } from 'payload/types'
 
-const Coll_Advanced: CollectionConfig = {
-    slug: 'college-advanced-criteria',
+const Uni_SubjectName: CollectionConfig = {
+    slug: 'university-subject-name',
     labels: {
-        singular: 'Advanced Criteria',
-        plural: 'Advanced Criteria',
+        singular: 'Subject Names',
+        plural: 'Subject Names',
     },
     admin: {
-        useAsTitle: 'title',
-        group: 'Colleges',
+        useAsTitle: 'subject_name',
+        group: 'Universities',
     },
     fields: [
-        
         {
-            name: 'title',
+            name: 'subject_name',
             type: 'text',
             required: true,
-            label: 'Other Factors Title',
+            label: 'Subject Name',
         },
         {
             name: 'icon',
@@ -26,6 +25,7 @@ const Coll_Advanced: CollectionConfig = {
             label: 'Icon',
         },
 
+
     ],
 }
-export default Coll_Advanced
+export default Uni_SubjectName
