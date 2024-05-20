@@ -37,6 +37,15 @@ import Sch_KeyPoints from "./collections/Sch_KeyPoints";
 import Footer from "./global/Footer";
 import General from "./global/general";
 import HeaderMenu from "./global/HeaderMenu";
+import Uni_OtherFactor from "./collections/Uni_OtherFactor";
+import Uni_CoreAdvanced from "./collections/Uni_Core-Criteria";
+import Sch_CoreAdvanced from "./collections/Sch_Core-Advanced";
+import Sch_OtherFactor from "./collections/Sch_OtherFactor";
+import Coll_CoreAdvanced from "./collections/Coll_Core-Advanced";
+import Coll_OtherFactor from "./collections/Coll_OtherFactor";
+import Uni_Advanced from "./collections/Uni_Advanced-Criteria";
+import Coll_Advanced from "./collections/Coll_Advanced-Criteria";
+import Sch_Advanced from "./collections/Sch_Advanced";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -77,16 +86,25 @@ export default buildConfig({
     Uni_SubjectRatings,
     Uni_CategoryRatings,
     Uni_OverallRating,
+    Uni_CoreAdvanced,
+    Uni_Advanced,
+    Uni_OtherFactor,
     Colleges,
     Coll_KeyPoints,
     Coll_SubjectRatings,
     Coll_CategoryRatings,
     Coll_OverallRating,
+    Coll_CoreAdvanced,
+    Coll_Advanced,
+    Coll_OtherFactor,
     Schools,
     Sch_KeyPoints,
     Sch_SubjectRatings,
     Sch_CategoryRatings,
     Sch_OverallRating,
+    Sch_CoreAdvanced,
+    Sch_Advanced,
+    Sch_OtherFactor,
     Pages,
     Blogs,
     Blogscategory,
