@@ -10,6 +10,7 @@ import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
 import { Logo } from './app/graphics/logo';
 import { Icon } from './app/graphics/icon';
+import Otps from "@/collections/Otps";
 
 import { Users } from "@/collections/Users";
 import Media from "@/collections/Media";
