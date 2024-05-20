@@ -27,7 +27,7 @@ const Card = ({ university, filters }: any) => {
           <img
             className="h-full relative rounded-tl-8xs rounded-tr-none rounded-br-none rounded-bl-8xs max-w-full overflow-hidden object-cover z-[1]"
             alt=""
-            src={university.media.featured_image.url}
+            src={university?.media?.featured_image?.url}
             // src="/rectangle-161@2x.png"
           />
         </div>
@@ -66,7 +66,8 @@ const Card = ({ university, filters }: any) => {
                     }}
                     className="flex-1 mdm:text-[7.61px]"
                   >
-                    {university.city.city_name}, {university.state.state_name}
+                    {university?.city?.city_name},{" "}
+                    {university?.state?.state_name}
                   </div>
                 </div>
               </div>

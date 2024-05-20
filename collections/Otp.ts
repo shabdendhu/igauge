@@ -5,6 +5,12 @@ export const OTPs: CollectionConfig = {
   admin: {
     useAsTitle: "userId",
   },
+  access: {
+    // create: () => true,
+    // read: () => true,
+    // update: () => true,
+    // delete: () => true,
+  },
   fields: [
     {
       name: "userId",

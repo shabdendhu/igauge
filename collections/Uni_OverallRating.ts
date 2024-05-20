@@ -6,12 +6,12 @@ const Uni_OverallRating: CollectionConfig = {
     singular: "Overall Rating",
     plural: "Overall Ratings",
   },
-  access: {
-    read: () => true, // Allow public read access
-  },
   admin: {
     useAsTitle: "badges_name",
     group: "Universities",
+  },
+  access: {
+    read: () => true, // Allow public read access
   },
   fields: [
     {
@@ -26,6 +26,13 @@ const Uni_OverallRating: CollectionConfig = {
       relationTo: "media",
       required: true,
       label: "Badges Image",
+    },
+    {
+      name: "ribbon",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      label: "Ribbon",
     },
   ],
 };

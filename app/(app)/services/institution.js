@@ -12,9 +12,7 @@ const fetchData = async (
     depth: depth,
   });
 
-  const response = await axios.get(
-    `http://localhost:3000/api/${collectionSlug}?${queryString}`
-  );
+  const response = await axios.get(`/api/${collectionSlug}?${queryString}`);
   return response.data;
 };
 
