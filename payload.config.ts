@@ -8,8 +8,6 @@ import { fileURLToPath } from "url";
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
 import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
-import { Logo } from './app/graphics/logo';
-import { Icon } from './app/graphics/icon';
 import Otps from "./collections/Otp";
 
 import { Users } from "./collections/Users";
@@ -83,12 +81,6 @@ export default buildConfig({
       titleSuffix: '- QS I-GAUGE',
       favicon: '/favicon.svg',
       ogImage: '/logo.svg',
-    },
-    components: {
-      graphics: {
-        Logo,
-        Icon,
-      },
     },
   },
   collections: [
