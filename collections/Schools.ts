@@ -439,6 +439,104 @@ const Schools: CollectionConfig = {
               ],
             },
 
+            {
+              name: "core_criteria",
+              type: "array",
+              label: "Core Criteria",
+              labels: {
+                singular: "Item",
+                plural: "Items",
+              },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "core_criteria_title",
+                      type: "relationship",
+                      relationTo: "school-core-criteria",
+                      label: "Core Criteria Title",
+                      admin: {
+                        width: "100%",
+                      },
+                    },
+                    {
+                      name: "core_criteria_badge",
+                      type: "relationship",
+                      relationTo: "school-overall-rating",
+                      label: "Core Criteria Badge",
+                    }
+                  ],
+                },
+              ],
+            },
+            {
+              name: "advanced_criteria",
+              type: "array",
+              label: "Advanced Criteria",
+              labels: {
+                singular: "Item",
+                plural: "Items",
+              },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                    {
+                      name: "advanced_criteria_title",
+                      type: "relationship",
+                      relationTo: "school-advanced-criteria",
+                      label: "Advanced Criteria Title",
+                      admin: {
+                        width: "100%",
+                      },
+                    },
+                    {
+                      name: "advanced_criteria_badge",
+                      type: "relationship",
+                      relationTo: "school-overall-rating",
+                      label: "Advanced Criteria Badge",
+                    }
+                  ],
+                },
+              ],
+            },
+            {
+              name: "other_factors",
+              type: "array",
+              label: "Other Factors",
+              labels: {
+                singular: "Item",
+                plural: "Items",
+              },
+              fields: [
+                {
+                  type: "row",
+                  fields: [
+                  
+                    {
+                      name: "other_factor",
+                      type: "relationship",
+                      relationTo: "school-other-factors",
+                      label: "Other Factor",
+                      admin: {
+                        width: "100%",
+                      },
+                    },
+                    {
+                      name: "factor_value",
+                      type: "text",
+                      label: "Factor Value",
+                      admin: {
+                        width: "100%",
+                      },
+                    },
+                    
+                  ],
+                },
+              ],
+            },
+
             
           ],
         },
