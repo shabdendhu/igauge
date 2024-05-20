@@ -15,14 +15,24 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import React, { AnchorHTMLAttributes, FunctionComponent } from "react";
-
+import React, {
+  AnchorHTMLAttributes,
+  FunctionComponent,
+  useEffect,
+  useState,
+} from "react";
+import { fetchData } from "../services/institution";
+import Menu from "@/app/(app)/components/v1/Header/Menu";
+import Link from "next/link";
 const Header: FunctionComponent = () => {
-  // const [menu, setMenu] = useState(false);
+  const [menu, setMenu] = useState({ mainItems: [], top_bar_menu: [] });
   // const [menu, setMenu] = React.useState(false);
   // const menuList = ["Contact", "Resource", "About"];
 
   const [state, setState] = React.useState(false);
+  useEffect(() => {
+    fetchData("/globals/header-menu", {}).then((e) => setMenu(e));
+  }, []);
 
   const toggleDrawer = () => setState((e) => !e);
 
@@ -114,13 +124,14 @@ const Header: FunctionComponent = () => {
       <div className="hidden md:block text-sm md:text-base">
         <div className="flex flex-col items-center justify-center h-28   ">
           <div className=" flex w-full  justify-end gap-x-7 h-full items-center border-b">
-            <div className="relative inline-block min-w-[51px]">Contact</div>
-
-            <div className="relative inline-block min-w-[59px]">Resource</div>
-            <div className="relative inline-block min-w-[39px]">About</div>
-            <div className="relative inline-block min-w-[66px] whitespace-nowrap">
-              Menu item
-            </div>
+            {menu.top_bar_menu.map((e: any) => (
+              <Link
+                href={e.link}
+                className="relative inline-block min-w-[51px]"
+              >
+                {e.name}
+              </Link>
+            ))}
 
             <div className="flex flex-row items-start justify-start gap-[13px]">
               <img
@@ -152,7 +163,7 @@ const Header: FunctionComponent = () => {
           </div>
           <div className=" h-full w-full items-center ">
             <div className="flex justify-between items-center h-full gap-x-5">
-              <button
+              {/* <button
                 type="button"
                 className=" flex  flex-row items-start justify-start gap-x-1"
                 id="menu-button"
@@ -169,47 +180,11 @@ const Header: FunctionComponent = () => {
                     src="/vector.svg"
                   />
                 </div>
-              </button>
+              </button> */}
+              {menu.mainItems.map((e: any) => (
+                <Menu items={e} />
+              ))}
 
-              <div className="relative inline-block  whitespace-nowrap">
-                School Education
-              </div>
-              <div className="flex flex-row items-start justify-start gap-x-1">
-                <div className="relative inline-block  whitespace-nowrap">
-                  Media
-                </div>
-                <div className="flex flex-col items-start justify-start pt-[9px] ">
-                  <img
-                    className="min-w-[7px] h-1 relative"
-                    alt=""
-                    src="/vector-1.svg"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row items-start justify-start gap-x-1">
-                <div className="relative inline-block  whitespace-nowrap">
-                  Events
-                </div>
-                <div className="flex flex-col items-start justify-start pt-[9px] ">
-                  <img
-                    className="min-w-[7px] h-1 relative"
-                    alt=""
-                    src="/vector-2.svg"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row items-start justify-start gap-x-1">
-                <div className="relative whitespace-nowrap">
-                  Thought Leadership
-                </div>
-                <div className="flex flex-col items-start justify-start pt-[9px] ">
-                  <img
-                    className="min-w-[7px] h-1 relative"
-                    alt=""
-                    src="/vector.svg"
-                  />
-                </div>
-              </div>
               <div className="flex flex-col items-center justify-center w-5 h-5 ">
                 <img className="w-5 h-5 " alt="" src="/search.svg" />
               </div>
