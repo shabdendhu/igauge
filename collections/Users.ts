@@ -10,7 +10,6 @@ export const Users: CollectionConfig = {
     {
       name: "name",
       type: "text",
-      required: true,
     },
     {
       name: "phoneNumber",
@@ -35,23 +34,19 @@ export const Users: CollectionConfig = {
           value: "other",
         },
       ],
-      required: true,
     },
     {
       name: "dob",
       label: "Date of Birth",
       type: "date",
-      required: true,
     },
     {
       name: "state",
       type: "text",
-      required: true,
     },
     {
       name: "city",
       type: "text",
-      required: true,
     },
     {
       name: "userCategory",
@@ -70,7 +65,6 @@ export const Users: CollectionConfig = {
           value: "guest",
         },
       ],
-      required: true,
     },
   ],
 };

@@ -46,6 +46,7 @@ import Coll_OtherFactor from "./collections/Coll_OtherFactor";
 import Uni_Advanced from "./collections/Uni_Advanced-Criteria";
 import Coll_Advanced from "./collections/Coll_Advanced-Criteria";
 import Sch_Advanced from "./collections/Sch_Advanced";
+import Otps from "./collections/Otp";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -112,6 +113,7 @@ export default buildConfig({
     States,
     Cities,
     Media,
+    Otps,
   ],
 
   globals: [General, HeaderMenu, Footer],
