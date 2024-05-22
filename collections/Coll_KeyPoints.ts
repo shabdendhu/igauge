@@ -1,23 +1,25 @@
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from "payload/types";
 
 const Coll_KeyPoints: CollectionConfig = {
-    slug: 'college-keypoints',
-    labels: {
-        singular: 'Keypoint',
-        plural: 'Keypoints',
+  slug: "college-keypoints",
+  labels: {
+    singular: "Keypoint",
+    plural: "Keypoints",
+  },
+  access: {
+    read: () => true,
+  },
+  admin: {
+    useAsTitle: "KeyPoint_title",
+    group: "Colleges",
+  },
+  fields: [
+    {
+      name: "KeyPoint_title",
+      type: "text",
+      required: true,
+      label: "KeyPoint Title",
     },
-    admin: {
-        useAsTitle: 'KeyPoint_title',
-        group: 'Colleges',
-    },
-    fields: [
-        {
-            name: 'KeyPoint_title',
-            type: 'text',
-            required: true,
-            label: 'KeyPoint Title',
-        },
-
-    ],
-}
-export default Coll_KeyPoints
+  ],
+};
+export default Coll_KeyPoints;

@@ -50,21 +50,6 @@ const CompareInstitutionsV: NextPage = () => {
         </div>
       </div>
       <div className=" w-full mt-10">
-        <div className="flex justify-between  h-16 mb-5">
-          <div className="flex justify-start ">
-            <h1 className="text-xl font-bold text-gray-900 ">
-              Compare Institutions
-            </h1>
-          </div>
-          <div className="h-10">
-            <button className=" text-nowrap hidden md:block bg-orange-200 w-full h-full px-5 ">
-              <div className="flex justify-center items-center gap-2">
-                <img className=" h-4 w-4 relative " alt="" src="/logout.png" />
-                Back
-              </div>
-            </button>
-          </div>
-        </div>
         <CompareInstitutions />
       </div>
       {/* <Footer /> */}

@@ -1,31 +1,32 @@
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from "payload/types";
 
 const Sch_OtherFactor: CollectionConfig = {
-    slug: 'school-other-factors',
-    labels: {
-        singular: 'Other Factor',
-        plural: 'Other Factors',
+  slug: "school-other-factors",
+  labels: {
+    singular: "Other Factor",
+    plural: "Other Factors",
+  },
+  access: {
+    read: () => true,
+  },
+  admin: {
+    useAsTitle: "other_factors",
+    group: "Schools",
+  },
+  fields: [
+    {
+      name: "other_factors",
+      type: "text",
+      required: true,
+      label: "Other Factors Title",
     },
-    admin: {
-        useAsTitle: 'other_factors',
-        group: 'Schools',
+    {
+      name: "icon",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      label: "Icon",
     },
-    fields: [
-        
-        {
-            name: 'other_factors',
-            type: 'text',
-            required: true,
-            label: 'Other Factors Title',
-        },
-        {
-            name: 'icon',
-            type: 'upload',
-            relationTo: 'media',
-            required: true,
-            label: 'Icon',
-        },
-
-    ],
-}
-export default Sch_OtherFactor
+  ],
+};
+export default Sch_OtherFactor;

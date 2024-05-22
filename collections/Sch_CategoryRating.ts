@@ -1,30 +1,32 @@
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from "payload/types";
 
 const Sch_CategoryRatings: CollectionConfig = {
-    slug: 'school-category-rating',
-    labels: {
-        singular: 'Category Badge',
-        plural: 'Category Badges',
+  slug: "school-category-rating",
+  labels: {
+    singular: "Category Badge",
+    plural: "Category Badges",
+  },
+  access: {
+    read: () => true,
+  },
+  admin: {
+    useAsTitle: "badges_name",
+    group: "Schools",
+  },
+  fields: [
+    {
+      name: "badges_name",
+      type: "text",
+      required: true,
+      label: "Badges Name",
     },
-    admin: {
-        useAsTitle: 'badges_name',
-        group: 'Schools',
+    {
+      name: "badges_image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      label: "Badges Image",
     },
-    fields: [
-        {
-            name: 'badges_name',
-            type: 'text',
-            required: true,
-            label: 'Badges Name',
-        },
-        {
-            name: 'badges_image',
-            type: 'upload',
-            relationTo: 'media',
-            required: true,
-            label: 'Badges Image',
-        }
-
-    ],
-}
-export default Sch_CategoryRatings
+  ],
+};
+export default Sch_CategoryRatings;
