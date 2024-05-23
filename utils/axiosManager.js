@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://128.199.29.72:3000/", // Replace this with your API base URL
+  baseURL: "http://localhost:3000/api/", // Replace this with your API base URL
   timeout: 10000, // Adjust timeout as needed
   withCredentials: true,
 });
@@ -25,7 +25,24 @@ const axiosManager = {
       throw error;
     }
   },
-  // Add methods for other HTTP verbs as needed (e.g., put, delete)
+  patch: async (url, data = {}, config = {}) => {
+    try {
+      const response = await axiosInstance.patch(url, data, config);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
+  delete: async (url, config = {}) => {
+    try {
+      const response = await axiosInstance.delete(url, config);
+      return response.data;
+    } catch (error) {
+      handleAxiosError(error);
+      throw error;
+    }
+  },
 };
 
 const handleAxiosError = (error) => {

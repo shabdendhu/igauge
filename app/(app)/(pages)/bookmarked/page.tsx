@@ -13,9 +13,116 @@ import CompareInstitutions from "./components/Table";
 import InsitutionCard from "@/app/(app)/(pages)/bookmarked/components/Card";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import TabBar from "../../components/v1/TabBar";
+import Card from "@/app/(app)/(pages)/university-search/sub-components/Card";
+import { useEffect, useState } from "react";
+import { getBookmarkedInstitutionsByUserId } from "../../services/bookmark";
+import { fetchData } from "../../services/institution";
+function convertInstitutionData(data: any) {
+  // Create an object to hold the institutionType as keys and an array of ids as values
+  const resultDict: any = {};
+
+  // Loop through each item in the input array
+  data.forEach((item: any) => {
+    // If the institutionType hasn't been added to the resultDict, initialize it
+    if (!resultDict[item.institutionType]) {
+      resultDict[item.institutionType] = [];
+    }
+    // Push the institutionId into the array corresponding to the institutionType
+    resultDict[item.institutionType].push(item.institutionId);
+  });
+
+  // Convert the dictionary into an array format suitable for the output
+  const resultArray = Object.keys(resultDict).map((key) => ({
+    institutionType: key,
+    ids: resultDict[key],
+  }));
+
+  return resultArray;
+}
 
 const CompareInstitutionsV: NextPage = () => {
   const fontSize = useCalculateFontSize();
+  const [institution, setInstitutions] = useState<any>([]);
+  // useEffect(() => {
+  //   getBookmarkedInstitutionsByUserId(1).then((res) => {
+  //     const data = convertInstitutionData(res);
+  //     const inst: any = [];
+  //     data.forEach((e) => {
+  //       fetchData(e.institutionType, {
+  //         filter: {
+  //           id: {
+  //             in: e.ids,
+  //           },
+  //         },
+  //       }).then((res: any) => {
+  //         inst.push({ institution: res.docs, type: e.institutionType });
+  //         setInstitutions((prevInstitutions: any) => [
+  //           ...prevInstitutions,
+  //           { institution: res.docs, type: e.institutionType },
+  //         ]);
+  //         // setInstitutions(res);
+  //       });
+  //     });
+  //     console.log(inst);
+  //     // fetchData()
+  //   });
+  // }, []);
+
+  useEffect(() => {
+    const fetchDataAndSetInstitutions = async () => {
+      try {
+        const bookmarkedInstitutions = await getBookmarkedInstitutionsByUserId(
+          1
+        );
+        const data = convertInstitutionData(bookmarkedInstitutions);
+
+        for (const e of data) {
+          const res = await fetchData(e.institutionType, {
+            filter: {
+              id: {
+                in: e.ids,
+              },
+            },
+            depth: 4,
+          });
+
+          setInstitutions((prevInstitutions: any) => {
+            const newInstitutions = [...prevInstitutions];
+            const existingIndex = newInstitutions.findIndex(
+              (inst) => inst.type === e.institutionType
+            );
+
+            if (existingIndex !== -1) {
+              const updatedInstitutionList = res.docs.filter((doc: any) => {
+                return !newInstitutions[existingIndex].institution.some(
+                  (existingInst: any) => existingInst.id === doc.id
+                );
+              });
+              newInstitutions[existingIndex].institution = [
+                ...newInstitutions[existingIndex].institution,
+                ...updatedInstitutionList,
+              ];
+            } else {
+              newInstitutions.push({
+                institution: res.docs,
+                type: e.institutionType,
+              });
+            }
+
+            return newInstitutions;
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchDataAndSetInstitutions();
+  }, []);
+
+  useEffect(() => {
+    console.log(institution);
+  }, [institution]);
 
   return (
     <div className="px-6 md:px-[150px] bg-white overflow-hidden flex flex-col items-start justify-start">
@@ -89,8 +196,21 @@ const CompareInstitutionsV: NextPage = () => {
           </div>
         </div>
         {/* <CompareInstitutions /> */}
-        <div className="flex flex-col gap-5">
-          <InsitutionCard
+        <div className="flex flex-col gap-10 py-20">
+          {institution.map((e: any, i: any) => (
+            <>
+              {e.institution.map((item: any) => (
+                <Card
+                  key={item?.id + e?.type}
+                  university={item}
+                  filters={{ type: { institution_type: e?.type } }}
+                />
+              ))}
+            </>
+            // <Card key={i} university={e} filters={} />
+          ))}
+
+          {/* <InsitutionCard
             university={{ institution_type: [], keypoints: [] }}
           />{" "}
           <InsitutionCard
@@ -110,7 +230,7 @@ const CompareInstitutionsV: NextPage = () => {
           />{" "}
           <InsitutionCard
             university={{ institution_type: [], keypoints: [] }}
-          />
+          /> */}
         </div>
       </div>
       {/* <Footer /> */}

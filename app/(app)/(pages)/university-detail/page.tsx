@@ -8,9 +8,17 @@ import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import RatingSection from "./sub-components/RatingSection";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import { fetchData } from "../../services/institution";
+import SyncAltIcon from "@mui/icons-material/SyncAlt";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { IconButton } from "@mui/material";
+import {
+  addBookmarkInstitutionByUserId,
+  removeBookmarkInstitutionByUserId,
+} from "@/app/(app)/services/bookmark";
 const VideoPlayer = ({ university }: any) => {
   console.log(university.video);
   return (
@@ -48,30 +56,14 @@ const RequestMethodology = () => {
   );
 };
 const SingleListingV2Approved = () => {
-  const images = [
-    {
-      src: "/rectangle-219@2x.png",
-      alt: "",
-    },
-    {
-      src: "/rectangle-220@2x.png",
-      alt: "",
-    },
-    {
-      src: "/rectangle-221@2x.png",
-      alt: "",
-    },
-    {
-      src: "/rectangle-221@2x.png",
-      alt: "",
-    },
-  ];
   const fontSize = useCalculateFontSize();
   const param = useSearchParams();
   const router = useRouter();
+  const [bookmarked, setBookmarked] = useState(false);
   const [university, setUniversity] = useState<any>({
     keypoints: [],
     salient_features: [],
+    ratings: { "category-ratings": [{}] },
   });
   useEffect(() => {
     console.log(param.get("id"));
@@ -81,12 +73,22 @@ const SingleListingV2Approved = () => {
     fetchData(url, {
       page: 0,
       limit: 5,
-      depth: 1,
+      depth: 3,
     })
       .then((data) => setUniversity(data))
       .catch((error) => console.log("Error fetching data:", error));
   }, [param.get("id")]);
-
+  const bookmark = () => {
+    addBookmarkInstitutionByUserId(1, 1, "university")
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+    setBookmarked(true);
+  };
+  const handleClickCompare = () => {
+    router.push(
+      `/compare?id=[${university?.id}]&&type=${param.get("institution_type")}`
+    );
+  };
   return (
     <div className="w-full text-black bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       {/* <Header /> */}
@@ -148,7 +150,7 @@ const SingleListingV2Approved = () => {
             <img
               className="w-full h-[100%] flex-1 relative max-w-full overflow-hidden object-cover z-[1]"
               alt=""
-              src={university?.media?.logo.url}
+              src={university?.media?.logo?.url}
             />
           </div>
           <div className="w-[116px] h-[55.9px] relative hidden" />
@@ -195,17 +197,29 @@ const SingleListingV2Approved = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 flex flex-row items-center ">
+            <div className="w-1/2 flex flex-row items-center justify-between">
               <div className="h-[73px] w-[327px] relative rounded-8xs-4 bg-white hidden max-w-full z-[0]" />
 
               <div className="flex flex-col items-start justify-end pt-0 px-0 pb-[1.7999999999992724px]">
                 <div className="flex flex-row items-start justify-start gap-[10.500000000003638px]">
                   <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
-                    <img
-                      className="w-4 h-5 relative z-[1] mq450:w-[10px]"
-                      alt=""
-                      src="/vector-17.svg"
-                    />
+                    <IconButton onClick={bookmark}>
+                      {bookmarked ? (
+                        <FavoriteIcon
+                          style={{
+                            color: "#DC6A6A",
+                            fontSize: fontSize(21, 19, 1920, 400),
+                          }}
+                        />
+                      ) : (
+                        <FavoriteBorderIcon
+                          style={{
+                            color: "#DC6A6A",
+                            fontSize: fontSize(21, 19, 1920, 400),
+                          }}
+                        />
+                      )}
+                    </IconButton>
                   </div>
                   <div className="flex flex-col items-start justify-start pt-[2.699999999999818px] px-0 pb-0">
                     <div
@@ -221,11 +235,14 @@ const SingleListingV2Approved = () => {
               </div>
               <div className="flex flex-row items-center justify-start gap-[10px]">
                 <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
-                  <img
-                    className="w-4 h-5 relative z-[1] mq450:w-[10px]"
-                    alt=""
-                    src="/exchangehorizontal.svg"
-                  />
+                  <IconButton onClick={handleClickCompare}>
+                    <SyncAltIcon
+                      style={{
+                        color: "blue",
+                        fontSize: fontSize(21, 19, 1920, 400),
+                      }}
+                    />
+                  </IconButton>
                 </div>
                 <div
                   style={{

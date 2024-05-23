@@ -14,7 +14,7 @@ export type FrameComponent6Type = {
   propMinWidth1?: CSSProperties["minWidth"];
 };
 
-const Badge: NextPage<FrameComponent6Type> = ({
+const Badge = ({
   rectangle204,
   rectangle205,
   diamond,
@@ -23,7 +23,10 @@ const Badge: NextPage<FrameComponent6Type> = ({
   propMinWidth,
   propDisplay,
   propMinWidth1,
-}) => {
+  value,
+}: any) => {
+  console.log(value);
+
   const diamondStyle: CSSProperties = useMemo(() => {
     return {
       textAlign: propTextAlign,
@@ -41,12 +44,12 @@ const Badge: NextPage<FrameComponent6Type> = ({
   return (
     <div className="w-[165px] flex flex-col items-start justify-start gap-[9.199999999999818px] text-left text-sm text-black font-red-hat-text">
       <div className="self-stretch h-[35.8px] relative">
-        <img
+        {/* <img
           className="absolute top-[0px] left-[0px] rounded-[1.89px] w-full h-full"
           alt=""
           src={rectangle204}
-        />
-        <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[1.9px] left-[2.8px] w-[160.3px] h-[32.1px]">
+        /> */}
+        {/* <button className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[1.9px] left-[2.8px] w-[160.3px] h-[32.1px]">
           <img
             className="absolute top-[0px] left-[0px] rounded-[1.89px] w-full h-full z-[1]"
             loading="lazy"
@@ -59,10 +62,11 @@ const Badge: NextPage<FrameComponent6Type> = ({
           >
             {diamond}
           </div>
-        </button>
+        </button> */}
+        <img src={value?.category_rating?.badges_image?.url} />
       </div>
       <div className="relative font-medium" style={teachingLearningStyle}>
-        {teachingLearning}
+        {value?.category_name?.category_name}
       </div>
     </div>
   );

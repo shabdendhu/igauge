@@ -23,6 +23,7 @@ import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import { fetchData } from "@/app/(app)/services/institution";
 import { debounce, set } from "lodash";
 import { useSearchParams } from "next/navigation";
+import { addBookmarkInstitutionByUserId } from "../../services/bookmark";
 
 const CollectionPageV2Approved: FunctionComponent = () => {
   const fontSize = useCalculateFontSize();
@@ -225,6 +226,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
   //     });
   // }, []);
   //impliment search debounse
+
   const debouncedFetchData = useCallback(
     debounce((searchTerm: string) => {
       handleFilterChange("institution_name", searchTerm);

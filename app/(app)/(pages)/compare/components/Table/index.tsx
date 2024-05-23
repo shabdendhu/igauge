@@ -11,6 +11,7 @@ import UniversitySelectionModal from "@/app/(app)/components/v1/Comapre/AddInsti
 import { Add as AddIcon, Remove as RemoveIcon } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
+import { useSearchParams } from "next/navigation";
 
 type Criteria = {
   coreCriteria: string[];
@@ -141,8 +142,9 @@ export default function CompareInstitutions() {
   const [universities, setUniversities] = useState([]);
   const [selectedUniversities, setSelectedUniversities] = useState({
     type: "universities",
-    ids: [1],
+    ids: [],
   });
+  const params = useSearchParams();
   const [criteria, setCriteria] = useState({
     coreCriteria: [],
     advancedCriteria: [],
@@ -288,6 +290,16 @@ export default function CompareInstitutions() {
   useEffect(() => {
     console.log(criteria);
   }, [criteria]);
+  useEffect(() => {
+    setSelectedUniversities({
+      ids: JSON.parse(params.get("id")),
+      type: params.get("type"),
+    });
+    console.log({
+      ids: JSON.parse(params.get("id")),
+      type: params.get("type"),
+    });
+  }, [params]);
 
   return (
     <>

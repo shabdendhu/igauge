@@ -2,8 +2,11 @@ import type { NextPage } from "next";
 import Badge from "../badge";
 import "./index.css";
 
-const RatingSection = ({ university = { keypoints: [] } }: any) => {
-  console.log(university.keypoints);
+const RatingSection = ({
+  university = { keypoints: [], ratings: { "category-ratings": [{}] } },
+}: any) => {
+  console.log(university);
+  const categoryRatings = university?.ratings["category-ratings"] || [];
   return (
     <div className="mx-[100px] flex my-[66px] self-stretch flex flex-row items-start justify-start  box-border max-w-full text-left text-17xl text-black font-red-hat-text rounded-8xs bg-white shadow-[0px_0px_30px_4px_rgba(0,_0,_0,_0.05)] border-[1px] border-solid border-whitesmoke mq900:mx-5 mq900:mt-[50px] mq900:gap-[55px] mq900:border-none mq900:shadow-none mq900:flex-col lgm:mx-[50px]   ">
       <div className="pl-[35px] pb-10 col-span-8 flex-1 relative box-border max-w-full mq900:pl-0 mq900:w-full flex flex-col h-full">
@@ -24,11 +27,12 @@ const RatingSection = ({ university = { keypoints: [] } }: any) => {
         {/* <div className="absolute top-[144px] left-[500px] box-border w-px h-[299px] z-[1] border-r-[1px] border-solid border-whitesmoke" /> */}
         <div className="w-full  flex flex-row flex-wrap items-start justify-start gap-4 mq900:gap-8 flex-1 flex items-center">
           <div className="grid grid-cols-3 gap-x-4 w-full mq900:gap-x-8 gap-y-10 mdm:grid-cols-2 mq900:gap-y-8">
-            {Array.from({ length: 3 }).map((_, index) => {
+            {categoryRatings.map((value: any, index: number) => {
               return (
                 <>
                   <div className={`col-span-1 max-w-full`}>
                     <Badge
+                      value={value}
                       key={index}
                       rectangle204="/diamond-badge.svg"
                       rectangle205="/diamond-badge-1.svg"

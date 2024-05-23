@@ -5,9 +5,9 @@ import path from "path";
 import { buildConfig } from "payload/config";
 // import sharp from 'sharp'
 import { fileURLToPath } from "url";
-import { seoPlugin } from '@payloadcms/plugin-seo'
-import { cloudStorage } from '@payloadcms/plugin-cloud-storage';
-import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3';
+import { seoPlugin } from "@payloadcms/plugin-seo";
+import { cloudStorage } from "@payloadcms/plugin-cloud-storage";
+import { s3Adapter } from "@payloadcms/plugin-cloud-storage/s3";
 import Otps from "./collections/Otp";
 
 import { Users } from "./collections/Users";
@@ -45,6 +45,7 @@ import Coll_SubjectName from "./collections/Coll_SubjectName";
 import Coll_CategoryName from "./collections/Coll_CategoryName";
 import Sch_SubjectName from "./collections/Sch_SubjectName";
 import Sch_CategoryName from "./collections/Sch_CategoryName";
+import { BookmarkedInstitutions } from "./collections/Bookmarked";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -78,9 +79,9 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     meta: {
-      titleSuffix: '- QS I-GAUGE',
-      favicon: '/favicon.svg',
-      ogImage: '/logo.svg',
+      titleSuffix: "- QS I-GAUGE",
+      favicon: "/favicon.svg",
+      ogImage: "/logo.svg",
     },
   },
   collections: [
@@ -117,6 +118,7 @@ export default buildConfig({
     Cities,
     Media,
     Otps,
+    BookmarkedInstitutions,
   ],
 
   globals: [General, HeaderMenu, Footer],
