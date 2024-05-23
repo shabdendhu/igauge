@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import TopRatedCollection from "../../../TopRatedCollection";
 import FrameComponent7 from "../../../FrameComponent7";
 const TopRated = ({ pageData }) => {
-  const [activeTab, setActiveTab] = useState("university");
+  const [activeTab, setActiveTab] = useState("universities");
 
   // Function to handle tab click
   const handleTabClick = (tab) => {

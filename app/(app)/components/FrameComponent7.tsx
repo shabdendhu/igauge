@@ -4,9 +4,10 @@ import FrameComponent8 from "./FrameComponent8";
 import { getInstitutionsByType } from "@/utils/getInstitution";
 import { set } from "lodash";
 import { useRouter } from "next/navigation";
+import { fetchData } from "../services/institution";
 
 const FrameComponent7: FunctionComponent = ({
-  activeTab = "university",
+  activeTab = "universities",
   scrollContainerRef,
 }: any) => {
   const [data, setData] = useState<any>([]);
@@ -22,6 +23,14 @@ const FrameComponent7: FunctionComponent = ({
     //     }
     //   })
     //   .catch((err) => console.error(err));
+    fetchData(activeTab, {
+      limit: 10,
+      page: 0,
+      depth: 3,
+    }).then((e) => {
+      console.log({ e });
+      setData(e.docs);
+    });
   }, [activeTab]);
   useEffect(() => {
     console.log({ data });
@@ -33,37 +42,22 @@ const FrameComponent7: FunctionComponent = ({
       style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
       className="w-full  flex flex-row items-start justify-start gap-[30px] max-w-full text-left text-11xl text-black font-red-hat-text smm:flex-col smm:gap-[10px] sm:overflow-x-auto no-scrollbar"
     >
-      {[
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-        ...data,
-      ].map((university: any) => {
+      {data.map((university: any) => {
         return (
           <div
             onClick={() => {
-              router.push("/university-detail/" + university.id);
+              router.push(
+                `/university-detail?id=${university.id}&institution_type=${activeTab}`
+              );
             }}
-            key={university.name}
+            key={university.id}
             className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left"
           >
             <div className="self-stretch h-[308.7px] rounded-3xs flex flex-row items-start justify-end pt-[27.300000000000185px] px-0 pb-[27px] box-border bg-cover bg-no-repeat bg-[top] shrink-0 [debug_commit:1de1738] smm:w-full max-w-full">
               <img
                 className="h-[308.7px] w-[390.5px] absolute rounded-3xs object-cover  max-w-full smm:w-full"
                 alt=""
-                // src={
-                //   data[0].media.gallery[0].gallery_image.url ||
-                //   "/rectangle-166@2x.png"
-                // }
-                src="/rectangle-166@2x.png"
+                src={university?.media?.featured_image.url}
               />
               <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[47.1px] w-[167.4px] absolute overflow-hidden shrink-0 z-[1] top-[52px] ">
                 <img
@@ -86,7 +80,7 @@ const FrameComponent7: FunctionComponent = ({
             <div className="w-full">
               <FrameComponent8
                 cMRUniversity={university.institution_name}
-                delhiIndia={`${university.state.state_name}, ${university.city.city_name}`}
+                delhiIndia={`${university?.state?.state_name}, ${university?.city?.city_name}`}
                 vector1={"/vector-8.svg"}
               />
             </div>

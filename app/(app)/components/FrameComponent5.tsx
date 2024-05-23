@@ -2,14 +2,8 @@
 import { getInstitutionsByType } from "@/utils/getInstitution";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import InstitutionSelection from "@/app/(app)/components/v1/Home/InstitutionSelection";
+import { IconButton } from "@mui/material";
 const FrameComponent5 = ({ pageData }: any) => {
-  const [collection, setCollections] = useState([
-    { name: "Employability", image: "/rectangle-161@2x.png" },
-    { name: "Faculty", image: "/rectangle-162@2x.png" },
-    { name: "Facilities", image: "/rectangle-163@2x.png" },
-    { name: "Research", image: "/rectangle-164@2x.png" },
-    { name: "Learning", image: "/rectangle-165@2x.png" },
-  ]);
   const scrollContainerRef = useRef<any>(null);
   const handleScroll = (direction: string) => {
     const scrollContainer = scrollContainerRef.current;
@@ -30,8 +24,9 @@ const FrameComponent5 = ({ pageData }: any) => {
           style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
           className="w-full h-[530px] overflow-x-auto shrink-0 flex flex-row items-start justify-start py-0 pr-5 pl-0 box-border gap-[23px] max-w-full z-[2] no-scrollbar"
         >
-          {pageData.content[6].categories.map((e: any) => (
+          {pageData.content[6].categories.map((e: any, i: number) => (
             <div
+              key={i}
               style={{ scrollSnapAlign: "start" }}
               className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left relative"
             >
@@ -49,30 +44,20 @@ const FrameComponent5 = ({ pageData }: any) => {
               </div>
             </div>
           ))}
-          {/* <div className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full">
-      <div className=" bg-gradient-to-t  w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" />
-      <img
-        className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover opacity-80"
-        loading="lazy"
-        alt=""
-        src={image}
-      />
-      <div className="relative font-semibold z-[1] mq450:text-lgi">{title}</div>
-    </div> */}
         </div>
         <div className="flex z-[99] w-[300px] self-center mt-[50px] mdm:w-[182px] md:hidden">
-          <img
+          <IconButton
             className="h-full w-[45%]"
-            alt=""
-            src="/arrow-left.webp"
             onClick={() => handleScroll("left")}
-          />
-          <img
+          >
+            <img className="h-full w-full" alt="" src="/arrow-left.webp" />
+          </IconButton>
+          <IconButton
             className="h-full w-[45%]"
-            alt=""
-            src="/arrow-right.webp"
             onClick={() => handleScroll("right")}
-          />
+          >
+            <img className="h-full w-full" alt="" src="/arrow-right.webp" />
+          </IconButton>
         </div>
         <div className="w-full !m-[0] absolute top-[0px] left-[0px] flex flex-row items-start justify-start max-w-full text-36xl text-black font-libre-baskerville">
           <img
@@ -83,22 +68,21 @@ const FrameComponent5 = ({ pageData }: any) => {
           <div className="w-[334px] !m-[0] absolute top-[-53px] right-[0px] flex flex-row items-start justify-start py-0 px-0 box-border max-w-full mdm:hidden">
             <div className="h-[388px] w-[388px] relative shrink-0 [debug_commit:1de1738] max-w-[117%]">
               <div className=" top-[0px] left-[0px] rounded-[50%] bg-orange-200 w-full h-full z-[1]" />
-              <img
+              <IconButton
+                className="absolute top-[195px] left-[72px]   h-[14.7px] z-[5] cursor-pointer"
                 onClick={() => handleScroll("left")}
-                className="absolute top-[195px] left-[72px] w-[182px] h-[14.7px] z-[5] cursor-pointer"
-                alt=""
-                src="/arrow-left.webp"
-              />
-              <img
+              >
+                <img alt="" src="/arrow-left.webp" />
+              </IconButton>
+              <IconButton
+                className="absolute top-[195px] left-[140px]   h-[14.7px] z-[5] cursor-pointer"
                 onClick={() => handleScroll("right")}
-                className="absolute top-[195px] left-[140px] w-[182px] h-[14.7px] z-[5] cursor-pointer"
-                alt=""
-                src="/arrow-right.webp"
-              />
+              >
+                <img alt="" src="/arrow-right.webp" />
+              </IconButton>
             </div>
           </div>
           <div className="flex-1 bg-blanchedalmond flex flex-col items-start justify-start pt-[74px] px-[157px] pb-[675px] box-border min-h-[883px] max-w-full mdm:pt-[30px] mdm:px-5">
-            {/* <div className="w-full h-[883px] relative bg-blanchedalmond hidden max-w-full z-[1]" /> */}
             <div className="w-full flex flex-row items-start justify-center max-w-full mdm:w2/3">
               <div className="w-[538px] flex flex-row items-start justify-end pt-[58px] px-[85px] pb-[53px] box-border bg-cover bg-no-repeat bg-[top] max-w-full z-[1]"></div>
             </div>

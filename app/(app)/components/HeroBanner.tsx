@@ -10,28 +10,31 @@ import Select from "@/app/(app)/components/v1/Select";
 import TypingEffect from "@/app/(app)/components/v1/TypeingEffect";
 import { useRouter } from "next/navigation";
 import dummyData from "@/datatypes/home.json";
-const SelectUnivercity = ({ label = "select" }) => {
+import { AnyARecord } from "dns";
+import { fetchData } from "../services/institution";
+const SelectUnivercity = ({ onChange }: any) => {
   const [selectedValue, setSelectedValue] = useState<any>("");
   const [options, setOptions] = useState([
     {
       label: "University",
-      value: "university",
+      value: "universities",
     },
     {
       label: "College",
-      value: "college",
+      value: "colleges",
     },
     {
       label: "School",
-      value: "school",
+      value: "schools",
     },
     {
       label: "Autonomous College",
-      value: "Autonomous College",
+      value: "colleges",
     },
   ]);
   const handleChange = (event: any) => {
     setSelectedValue(event);
+    onChange && onChange(event);
     // Do something with the selected value
     // console.log("Selected value:", event);
   };
@@ -53,39 +56,22 @@ const SelectUnivercity = ({ label = "select" }) => {
         options={options}
         onChange={handleChange}
       />
-      {/* <select
-        className="appearance-none  bg-white h-full w-full   top-0 border-[2px] border-[#F7A600] z-5 px-[10px]  font-red-hat-display text-xl text-darkslategray-100 mq1440:text-[14px] mq1600:text-[20px] mq900:text-[14px] text-gray-500"
-        value={selectedValue}
-        onChange={handleChange}
-      >
-        <option value="">{label}</option>
-        {options.map((e, i) => (
-          <option
-            style={{
-              maxWidth: "100%",
-            }}
-            value={e?.value}
-            key={i}
-          >
-            {e?.label}
-          </option>
-        ))}
-      </select>
-      <img
-        className="absolute right-5 top-[50%] transform -translate-y-1/2 w-[11px] h-1.5"
-        alt=""
-        src="/vector-5.svg"
-      /> */}
     </div>
   );
 };
 
-const SelectRatings = ({ label = "select" }) => {
+const SelectRatings = ({ onChange, institutionType }: any) => {
   const [selectedValue, setSelectedValue] = useState<any>("Select Ratings");
   const [options, setOptions] = useState([{ badges_name: "" }]);
-  //
+  const ratingCollections: any = {
+    colleges: "college-overall-rating",
+    schools: "school-overall-rating",
+    universities: "university-overall-rating",
+  };
   const handleChange = (event: any) => {
     setSelectedValue(event.badges_name);
+    console.log({ event });
+    onChange(event);
     // Do something with the selected value
     // console.log("Selected value:", event);
   };
@@ -96,8 +82,11 @@ const SelectRatings = ({ label = "select" }) => {
     //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
-    // console.log(options);
-  }, [options]);
+    fetchData(ratingCollections[institutionType], { depth: 3 })
+      .then((data: any) => setOptions(data?.docs))
+      .catch((err) => console.log(err));
+    console.log(ratingCollections[institutionType]);
+  }, [institutionType]);
 
   return (
     <div className="h-full w-full flex relative">
@@ -107,37 +96,11 @@ const SelectRatings = ({ label = "select" }) => {
         options={options}
         onChange={handleChange}
       />
-      {/* <select
-        className="appearance-none  bg-white h-full w-full   top-0 border-[2px] border-[#F7A600] z-5 px-[10px]  font-red-hat-display text-xl text-darkslategray-100 mq1440:text-[14px] mq1600:text-[20px] mq900:text-[14px] text-gray-500 "
-        value={selectedValue}
-        onChange={handleChange}
-      >
-        <option
-          className="h-[70px] w-full border cursor-pointer bg-white hover:bg-orange-500  px-[20px] flex items-center font-red-hat-display  text-5xl text-black mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]"
-          value=""
-        >
-          {label}
-        </option>
-        {options.map((e, i) => (
-          <option
-            className="h-[70px] w-full border cursor-pointer bg-white hover:bg-orange-500  px-[20px] flex items-center font-red-hat-display  text-5xl text-black mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]"
-            value={e?.badges_name}
-            key={i}
-          >
-            {e?.badges_name}
-          </option>
-        ))}
-      </select>
-      <img
-        className="absolute right-5 top-[50%] transform -translate-y-1/2 w-[11px] h-1.5"
-        alt=""
-        src="/vector-5.svg"
-      /> */}
     </div>
   );
 };
 
-const SearchUniversity: any = ({ router }: any) => {
+const SearchUniversity: any = ({ router, institutionType, ratings }: any) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [options, setOptions] = useState<any>([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -165,24 +128,35 @@ const SearchUniversity: any = ({ router }: any) => {
     // Implement your search logic here
     console.log("Searching for:", value);
     // Call the search function with the debounced search term
-    searchInstitutions({
-      // Example filters
-      filters: {
-        // Filter by institution name containing 'University'
-        institution_name: { $regex: value, $options: "i" },
-        // Filter by type 'public'
-        type: "public",
-        // Add more filters as needed
+    fetchData(institutionType, {
+      filter: {
+        institution_name: { contains: value },
       },
-      // Example sorting (optional)
-      sort: { established_on: -1 }, // Sort by established_on in descending order
-      // Example pagination (optional)
-      limit: 10, // Limit the results to 10 institutions
+      limit: 10,
     }).then((e) =>
       setOptions(
-        e.docs.map((e) => ({ label: e.institution_name, value: e.id }))
+        e.docs.map((e: any) => ({ label: e.institution_name, value: e.id }))
       )
     );
+
+    // searchInstitutions({
+    //   // Example filters
+    //   filters: {
+    //     // Filter by institution name containing 'University'
+    //     institution_name: { $regex: value, $options: "i" },
+    //     // Filter by type 'public'
+    //     type: "public",
+    //     // Add more filters as needed
+    //   },
+    //   // Example sorting (optional)
+    //   sort: { established_on: -1 }, // Sort by established_on in descending order
+    //   // Example pagination (optional)
+    //   limit: 10, // Limit the results to 10 institutions
+    // }).then((e) =>
+    //   setOptions(
+    //     e.docs.map((e) => ({ label: e.institution_name, value: e.id }))
+    //   )
+    // );
   }, 500);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -270,34 +244,6 @@ const Features = ({ pageData }: any) => {
           </div>
         </div>
       ))}
-      {/* <div className=" flex justify-center mq900:w-full">
-        <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
-          <b className="relative mq450:text-14xl mq900:text-25xl">
-            {counts.collage}+
-          </b>
-          <div className="relative text-xl inline-block min-w-[78px] mq450:text-base">
-            Collages
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center mq900:w-full">
-        <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
-          <b className="relative mq450:text-14xl mq900:text-25xl">
-            {counts.collage + counts.school + counts.university}+
-          </b>
-          <div className="relative text-xl inline-block min-w-[78px] mq450:text-base">
-            Institutions Rated
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center mq900:w-full">
-        <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
-          <b className="relative mq450:text-14xl mq900:text-25xl">20+</b>
-          <div className="relative text-xl inline-block min-w-[78px] mq450:text-base">
-            Years QS Legacy
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
@@ -320,7 +266,16 @@ const TextBlock = ({ header, description }: any) => {
 };
 const FrameComponent10: any = ({ pageData = dummyData }: any) => {
   const router = useRouter();
-
+  const [institutionType, setinstitutionType] = useState<any>("");
+  const [ratings, setRatings] = useState<any>("");
+  const handleChangeInstitutionType = (e: any) => {
+    console.log(e, "==============");
+    setinstitutionType(e.value);
+  };
+  const handleChangeRating = (e: any) => {
+    console.log(e, "==============");
+    setRatings(e.id);
+  };
   return (
     <section className="min-h-[100px] self-stretch flex flex-row items-start justify-start pt-0 px-0  box-border max-w-full text-center text-45xl text-black font-libre-baskerville mq900:pb-[45px] mq900:box-border mq1275:pb-[69px] mq1275:box-border">
       <div className="h-[1000px] flex-1 relative [background:linear-gradient(180deg,_#fff0d1_71.5%,_#fff)] overflow-hidden max-w-full mq1275:h-auto mq1275:min-h-[983]">
@@ -378,12 +333,20 @@ const FrameComponent10: any = ({ pageData = dummyData }: any) => {
           </div>
           <div className="w-4/5 mx-auto flex flex-wrap justify-around  px-10 py-10  mdm:px-0 mdm:w-full ">
             <div className="flex px-[10px] w-1/4 h-[70px] mq900:w-1/2 mq900:h-[50px]">
-              <SelectUnivercity label="Select Institution" />
+              <SelectUnivercity onChange={handleChangeInstitutionType} />
             </div>
             <div className=" flex px-[10px] w-1/4 h-[70px] mq900:w-1/2 mq900:h-[50px]">
-              <SelectRatings label="Select Ratings" />
+              <SelectRatings
+                onChange={handleChangeRating}
+                institutionType={institutionType}
+                label="Select Ratings"
+              />
             </div>
-            <SearchUniversity router={router} />
+            <SearchUniversity
+              institutionType={institutionType}
+              ratings={ratings}
+              router={router}
+            />
           </div>
           <div className="self-stretch flex flex-row items-center justify-center max-w-full text-13xl">
             <div className="flex flex-col items-center justify-center py-0 pr-0 pl-5 box-border gap-[45px] max-w-full">

@@ -21,25 +21,25 @@ const TopRatedCollection: FunctionComponent = ({
           className="flex flex-row justify-around w-2/3 mq1275:w-full"
         >
           <div
-            onClick={() => handleTabClick("university")}
+            onClick={() => handleTabClick("universities")}
             className={`cursor-pointer flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px]  smm:text-[10px] smm:h-[60px] ${
-              activeTab == "university" ? "bg-orange-100" : ""
+              activeTab == "universities" ? "bg-orange-100" : ""
             }`}
           >
             University
           </div>
           <div
-            onClick={() => handleTabClick("college")}
+            onClick={() => handleTabClick("colleges")}
             className={`cursor-pointer flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] smm:text-[10px] smm:h-[60px] ${
-              activeTab == "college" ? "bg-orange-100" : ""
+              activeTab == "colleges" ? "bg-orange-100" : ""
             }`}
           >
             Colleges
           </div>
           <div
-            onClick={() => handleTabClick("school")}
+            onClick={() => handleTabClick("schools")}
             className={`cursor-pointer flex items-center justify-center text-10xl font-red-hat-text text-black text-left inline-block min-w-[103px] z-[1] mq450:text-4xl mq1440:text-[20px] text-center w-[280px] h-[80px] smm:text-[10px] smm:h-[60px]  ${
-              activeTab == "school" ? "bg-orange-100" : ""
+              activeTab == "schools" ? "bg-orange-100" : ""
             }`}
           >
             Schools
