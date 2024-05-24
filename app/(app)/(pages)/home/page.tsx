@@ -19,8 +19,11 @@ import TopRated from "../../components/v1/Home/TopRated";
 import Testimonials from "../../components/v1/Home/Testimonials";
 import dummyData from "@/datatypes/home.json";
 import axios from "axios";
+import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 const HomeV2Approved: FunctionComponent = () => {
   const [data, setData] = useState<any>(dummyData);
+  const fontSize = useCalculateFontSize();
+
   const getPages = async () => {
     try {
       const page = await axios(`/api/pages/1`, {
@@ -57,9 +60,45 @@ const HomeV2Approved: FunctionComponent = () => {
           <FrameComponent3 pageData={data} />
         </div>
       </section>
+      <div className="bg-[#FFF1D2] px-[5vw] mb-[20vh] py-[5vh]">
+        <p
+          style={{
+            fontSize: fontSize(64, 26, 1920, 400),
+            fontFamily: "Libre Baskerville",
+            fontWeight: 700,
+            textAlign: "left",
+          }}
+          className="pb-[3vh]"
+        >
+          Evaluating Institutions, Guiding Students
+        </p>
+        <p
+          style={{
+            fontSize: fontSize(25, 15, 1920, 400),
+            fontFamily: " Red Hat Text",
+            fontWeight: 400,
+            textAlign: "left",
+          }}
+        >
+          Ratings are a method of assessing educational institutions based on
+          pre-defined, measurable, and quantifiable indicators. They serve as a
+          benchmark for institutions to evaluate, improve, and calibrate their
+          performance. Ratings are crucial for institutions to track their
+          reputation and competitiveness in the education market. They
+          significantly impact student outcomes, enrolment decisions, and
+          academic trajectories.
+          <br />
+          <br />
+          Ratings incentivise institutions to improve their performance and
+          quality of education. They guide students in making informed decisions
+          about where to study, which is particularly important in India's
+          diverse educational landscape.
+        </p>
+      </div>
       <FrameComponent2 pageData={data} />
       {/* <Icon /> */}
-      <Testimonials />
+      {/* <Testimonials /> */}
+
       <FAQSection pageData={data} />
       <SkewTransform />
       <FrameComponent1 pageData={data} />

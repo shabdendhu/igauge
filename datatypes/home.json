@@ -2,111 +2,63 @@
   "id": 1,
   "page_name": "Home",
   "slug": "home",
-
   "content": [
     {
-      "id": "",
-      "prefix": "",
-      "suffix": "",
+      "id": "664f1b0f12b0f41a20e747ee",
+      "prefix": "Make Informed Choices: Compare",
+      "suffix": "Easily WithQS I-GAUGE’s Trusted Rating",
       "blockName": "Hero Title",
-
       "texts": [
         {
-          "id": "",
-          "text": ""
+          "id": "664f1b0f12b0f41a20e747f4",
+          "text": "Schools"
+        },
+        {
+          "id": "664f1b0f12b0f41a20e747f5",
+          "text": "Colleges"
+        },
+        {
+          "id": "664f1b0f12b0f41a20e747f6",
+          "text": "University"
         }
       ],
       "blockType": "animatedTextField"
     },
-
     {
-      "id": "",
+      "id": "664f1b0f12b0f41a20e747ef",
       "blockName": "Hero-Left",
       "blockType": "image",
-
       "image": {
-        "id": 1,
+        "id": 45,
         "alt": null,
-        "updatedAt": "2024-05-16T10:40:43.148Z",
-        "createdAt": "2024-05-16T10:40:43.148Z",
-        "url": "",
+        "updatedAt": "2024-05-23T08:36:46.124Z",
+        "createdAt": "2024-05-23T08:36:46.124Z",
+        "url": "https://qs-igauge.blr1.digitaloceanspaces.com/image-161@2x.png",
         "thumbnailURL": null,
-        "filename": "",
-        "mimeType": "",
-        "filesize": 71399,
-        "width": 507,
-        "height": 385,
-
-        "sizes": {
-          "thumbnail": {
-            "url": null,
-            "width": null,
-            "height": null,
-            "mimeType": null,
-            "filesize": null,
-            "filename": null
-          },
-
-          "card": {
-            "url": null,
-            "width": null,
-            "height": null,
-            "mimeType": null,
-            "filesize": null,
-            "filename": null
-          },
-
-          "tablet": {
-            "url": null,
-            "width": null,
-            "height": null,
-            "mimeType": null,
-            "filesize": null,
-            "filename": null
-          }
-        }
-      }
-    },
-
-    {
-      "id": "",
-      "blockName": "Hero-Right",
-      "blockType": "image",
-
-      "image": {
-        "id": 2,
-        "alt": null,
-        "updatedAt": "2024-05-16T10:40:55.451Z",
-        "createdAt": "2024-05-16T10:40:55.451Z",
-        "url": "",
-        "thumbnailURL": null,
-        "filename": "",
-        "mimeType": "",
-        "filesize": 47804,
+        "filename": "image-161@2x.png",
+        "mimeType": "image/png",
+        "filesize": 43240,
         "width": 445,
         "height": 363,
-
         "sizes": {
           "thumbnail": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
             "filesize": null,
             "filename": null
           },
-
           "card": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
             "filesize": null,
             "filename": null
           },
-
           "tablet": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
@@ -116,80 +68,128 @@
         }
       }
     },
-
     {
-      "id": "",
-      "text": "",
+      "id": "664f1b0f12b0f41a20e747f0",
+      "blockName": "Hero-Right",
+      "blockType": "image",
+      "image": {
+        "id": 46,
+        "alt": null,
+        "updatedAt": "2024-05-23T08:37:56.663Z",
+        "createdAt": "2024-05-23T08:37:56.663Z",
+        "url": "https://qs-igauge.blr1.digitaloceanspaces.com/image-9@2x.png",
+        "thumbnailURL": null,
+        "filename": "image-9@2x.png",
+        "mimeType": "image/png",
+        "filesize": 49377,
+        "width": 478,
+        "height": 363,
+        "sizes": {
+          "thumbnail": {
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+          "card": {
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          },
+          "tablet": {
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+            "width": null,
+            "height": null,
+            "mimeType": null,
+            "filesize": null,
+            "filename": null
+          }
+        }
+      }
+    },
+    {
+      "id": "664f1b0f12b0f41a20e747f1",
+      "text": "Trusted by the India's leading Institutions",
       "blockName": "counter-hero-title",
       "blockType": "text"
     },
-
     {
-      "id": "",
+      "id": "664f1b0f12b0f41a20e747f2",
       "blockName": "counter-hero",
-
       "counters": [
         {
-          "id": "",
+          "id": "664f1b0f12b0f41a20e747f7",
           "number": 200,
           "title": "Institutions Rated"
+        },
+        {
+          "id": "664f1b0f12b0f41a20e747f8",
+          "number": 200,
+          "title": "Colleges/Universities"
+        },
+        {
+          "id": "664f1b0f12b0f41a20e747f9",
+          "number": 20,
+          "title": "Website Visitors"
+        },
+        {
+          "id": "664f1b0f12b0f41a20e747fa",
+          "number": 20,
+          "title": "Years QS Legacy"
         }
       ],
       "blockType": "counter"
     },
-
     {
-      "id": "",
-      "text": "",
+      "id": "664f1b0f12b0f41a20e747f3",
+      "text": "Top Rated Institutions",
       "blockName": "section-2-title",
       "blockType": "text"
     },
-
     {
-      "id": "",
+      "id": "664f23ae12b0f41a20e747fb",
       "blockName": "discover-categories",
-
       "categories": [
         {
-          "id": "",
-
+          "id": "664f23b412b0f41a20e747fc",
           "category": {
-            "text": "",
-
+            "text": "Employability",
             "image": {
-              "id": 3,
+              "id": 47,
               "alt": null,
-              "updatedAt": "2024-05-16T10:47:03.696Z",
-              "createdAt": "2024-05-16T10:47:03.696Z",
-              "url": "",
+              "updatedAt": "2024-05-23T11:09:08.567Z",
+              "createdAt": "2024-05-23T11:09:08.567Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/DALL·E 2024-05-23 16.37.18 - A high-contrast, professional employee teaching a 3D art class. The scene is high-quality with vivid orange accents throughout. The employee is standi.webp",
               "thumbnailURL": null,
-              "filename": "",
-              "mimeType": "image/jpeg",
-              "filesize": 164327,
-              "width": 390,
-              "height": 530,
-
+              "filename": "DALL·E 2024-05-23 16.37.18 - A high-contrast, professional employee teaching a 3D art class. The scene is high-quality with vivid orange accents throughout. The employee is standi.webp",
+              "mimeType": "image/webp",
+              "filesize": 292026,
+              "width": 1024,
+              "height": 1792,
               "sizes": {
                 "thumbnail": {
-                  "url": null,
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
                   "width": null,
                   "height": null,
                   "mimeType": null,
                   "filesize": null,
                   "filename": null
                 },
-
                 "card": {
-                  "url": null,
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
                   "width": null,
                   "height": null,
                   "mimeType": null,
                   "filesize": null,
                   "filename": null
                 },
-
                 "tablet": {
-                  "url": null,
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
                   "width": null,
                   "height": null,
                   "mimeType": null,
@@ -199,57 +199,188 @@
               }
             },
             "institution_type": "university"
+          }
+        },
+        {
+          "id": "664f23df12b0f41a20e747fd",
+          "category": {
+            "text": "Faculty",
+            "image": {
+              "id": 48,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:18:17.418Z",
+              "createdAt": "2024-05-23T11:18:17.418Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/faculty.webp",
+              "thumbnailURL": null,
+              "filename": "faculty.webp",
+              "mimeType": "image/webp",
+              "filesize": 683370,
+              "width": 1024,
+              "height": 1792,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "university"
+          }
+        },
+        {
+          "id": "664f241712b0f41a20e747fe",
+          "category": {
+            "text": "Facilities",
+            "image": {
+              "id": 49,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:18:38.209Z",
+              "createdAt": "2024-05-23T11:18:38.209Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/infra.webp",
+              "thumbnailURL": null,
+              "filename": "infra.webp",
+              "mimeType": "image/webp",
+              "filesize": 396388,
+              "width": 1024,
+              "height": 1792,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "college"
+          }
+        },
+        {
+          "id": "664f242912b0f41a20e747ff",
+          "category": {
+            "text": "Research",
+            "image": {
+              "id": 50,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:22:26.091Z",
+              "createdAt": "2024-05-23T11:22:26.091Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/Research.webp",
+              "thumbnailURL": null,
+              "filename": "Research.webp",
+              "mimeType": "image/webp",
+              "filesize": 418716,
+              "width": 1024,
+              "height": 1792,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": "school"
           }
         }
       ],
       "blockType": "category"
     },
-
     {
-      "id": "",
-      "blockName": "discover-cities",
-
+      "id": "664f245012b0f41a20e74800",
+      "blockName": null,
       "cities": [
         {
-          "id": "",
-
+          "id": "664f245512b0f41a20e74801",
           "city": {
-            "text": "",
-
+            "text": "Delhi",
             "image": {
-              "id": 9,
+              "id": 51,
               "alt": null,
-              "updatedAt": "2024-05-16T11:07:54.294Z",
-              "createdAt": "2024-05-16T11:07:54.294Z",
-              "url": "",
+              "updatedAt": "2024-05-23T11:33:28.899Z",
+              "createdAt": "2024-05-23T11:33:28.899Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/delhi.webp",
               "thumbnailURL": null,
-              "filename": "",
-              "mimeType": "image/png",
-              "filesize": 92354,
-              "width": 390,
-              "height": 146,
-
+              "filename": "delhi.webp",
+              "mimeType": "image/webp",
+              "filesize": 419730,
+              "width": 1792,
+              "height": 1024,
               "sizes": {
                 "thumbnail": {
-                  "url": null,
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
                   "width": null,
                   "height": null,
                   "mimeType": null,
                   "filesize": null,
                   "filename": null
                 },
-
                 "card": {
-                  "url": null,
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
                   "width": null,
                   "height": null,
                   "mimeType": null,
                   "filesize": null,
                   "filename": null
                 },
-
                 "tablet": {
-                  "url": null,
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
                   "width": null,
                   "height": null,
                   "mimeType": null,
@@ -260,53 +391,278 @@
             },
             "institution_type": "university"
           }
+        },
+        {
+          "id": "664f246012b0f41a20e74802",
+          "city": {
+            "text": "Bangalore",
+            "image": {
+              "id": 52,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:35:04.510Z",
+              "createdAt": "2024-05-23T11:35:04.510Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/banglore.webp",
+              "thumbnailURL": null,
+              "filename": "banglore.webp",
+              "mimeType": "image/webp",
+              "filesize": 793078,
+              "width": 1792,
+              "height": 1024,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": null
+          }
+        },
+        {
+          "id": "664f29a812b0f41a20e74803",
+          "city": {
+            "text": "Chennai",
+            "image": {
+              "id": 53,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:35:14.079Z",
+              "createdAt": "2024-05-23T11:35:14.079Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/chennai.webp",
+              "thumbnailURL": null,
+              "filename": "chennai.webp",
+              "mimeType": "image/webp",
+              "filesize": 472842,
+              "width": 1792,
+              "height": 1024,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": null
+          }
+        },
+        {
+          "id": "664f29b212b0f41a20e74804",
+          "city": {
+            "text": "Pune",
+            "image": {
+              "id": 52,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:35:04.510Z",
+              "createdAt": "2024-05-23T11:35:04.510Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/banglore.webp",
+              "thumbnailURL": null,
+              "filename": "banglore.webp",
+              "mimeType": "image/webp",
+              "filesize": 793078,
+              "width": 1792,
+              "height": 1024,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": null
+          }
+        },
+        {
+          "id": "664f29b912b0f41a20e74805",
+          "city": {
+            "text": "Hyderabad",
+            "image": {
+              "id": 53,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:35:14.079Z",
+              "createdAt": "2024-05-23T11:35:14.079Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/chennai.webp",
+              "thumbnailURL": null,
+              "filename": "chennai.webp",
+              "mimeType": "image/webp",
+              "filesize": 472842,
+              "width": 1792,
+              "height": 1024,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": null
+          }
+        },
+        {
+          "id": "664f29c112b0f41a20e74806",
+          "city": {
+            "text": "Kolkata",
+            "image": {
+              "id": 50,
+              "alt": null,
+              "updatedAt": "2024-05-23T11:22:26.091Z",
+              "createdAt": "2024-05-23T11:22:26.091Z",
+              "url": "https://qs-igauge.blr1.digitaloceanspaces.com/Research.webp",
+              "thumbnailURL": null,
+              "filename": "Research.webp",
+              "mimeType": "image/webp",
+              "filesize": 418716,
+              "width": 1024,
+              "height": 1792,
+              "sizes": {
+                "thumbnail": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "card": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                },
+                "tablet": {
+                  "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
+                  "width": null,
+                  "height": null,
+                  "mimeType": null,
+                  "filesize": null,
+                  "filename": null
+                }
+              }
+            },
+            "institution_type": null
+          }
         }
       ],
       "blockType": "city"
     },
-
     {
-      "id": "",
-      "title": "",
-      "description": "",
+      "id": "664f2a4912b0f41a20e74807",
+      "title": "Why QS I-GAUGE?",
+      "description": "QS I-GAUGE, by Quacquarelli Symonds global group, is a well-known brand in India. We provide ratings to educational institutions and a roadmap for their future development. Our independent,  comprehensive rating methodology includes four steps to assess and rate the institutions. Leveraging the extensive experience and legacy of the Quacquarelli Symonds global group, QS I-GAUGE has firmly established its presence in India, and is trusted by students and parents.\n\nThrough self-assessment, peer evaluation, and expert feedback, our ratings help institutions in gaining valuable insights into their strengths, weaknesses, and areas for improvement, enabling them to develop targeted strategies for enhancement.",
       "button_url": "/about",
       "blockName": null,
       "blockType": "context_with_button",
-
       "image": {
-        "id": 17,
-        "alt": "",
-        "updatedAt": "2024-05-16T11:17:13.341Z",
-        "createdAt": "2024-05-16T11:17:13.341Z",
-        "url": "",
+        "id": 53,
+        "alt": null,
+        "updatedAt": "2024-05-23T11:35:14.079Z",
+        "createdAt": "2024-05-23T11:35:14.079Z",
+        "url": "https://qs-igauge.blr1.digitaloceanspaces.com/chennai.webp",
         "thumbnailURL": null,
-        "filename": "",
-        "mimeType": "",
-        "filesize": 844904,
-        "width": 962,
-        "height": 1074,
-
+        "filename": "chennai.webp",
+        "mimeType": "image/webp",
+        "filesize": 472842,
+        "width": 1792,
+        "height": 1024,
         "sizes": {
           "thumbnail": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
             "filesize": null,
             "filename": null
           },
-
           "card": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
             "filesize": null,
             "filename": null
           },
-
           "tablet": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
@@ -316,65 +672,83 @@
         }
       }
     },
-
     {
-      "id": "",
-      "title": "",
-      "description": "",
+      "id": "664f2a7412b0f41a20e74808",
+      "title": "Frequently Asked Questions",
+      "description": "Get answers to some of the most frequently asked questions about QS",
       "blockName": null,
-
       "questions_answers": [
         {
-          "id": "",
-          "question": "",
-          "answer": ""
+          "id": "664f2a7f12b0f41a20e74809",
+          "question": "How can we trust the credibility of QS  I-GAUGE?",
+          "answer": "With the esteemed legacy of the Quacquarelli Symonds global group backing our ratings, students and parents can trust in the credibility of our evaluations to make informed decisions about their educational journey."
+        },
+        {
+          "id": "664f2a8812b0f41a20e7480a",
+          "question": "How thorough is QS I-GAUGE in evaluating educational institutions?",
+          "answer": "QS I-GAUGE employs a rigorous and comprehensive evaluation process, comprising self-assessment, peer evaluation, and expert feedback. Our commitment to meticulous evaluation instills confidence in students and parents, knowing that our ratings provide a comprehensive and accurate depiction of educational institutions."
+        },
+        {
+          "id": "664f2a9412b0f41a20e7480b",
+          "question": "What criteria are used to assess institutions at QS I-GAUGE?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        },
+        {
+          "id": "664f2a9c12b0f41a20e7480c",
+          "question": "Can I compare multiple institutions on your website?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        },
+        {
+          "id": "664f2aa212b0f41a20e7480d",
+          "question": "How does QS I-GAUGE ensure the credibility of the rating process?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+        },
+        {
+          "id": "664f2aae12b0f41a20e7480e",
+          "question": "How often are the ratings updated on QS I-GAUGE?",
+          "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
         }
       ],
       "blockType": "faqs"
     },
-
     {
-      "id": "",
-      "title": " ",
-      "description": " ",
+      "id": "664f2abe12b0f41a20e74810",
+      "title": "Find An institutions that ticks all Your boxes",
+      "description": "Register now and compare between top institutions with \nQS I-GAUGE ratings.",
       "link": "/register",
-      "blockName": "cta",
+      "blockName": null,
       "blockType": "call_to_action",
-
       "image": {
-        "id": 18,
+        "id": 46,
         "alt": null,
-        "updatedAt": "2024-05-16T11:29:43.016Z",
-        "createdAt": "2024-05-16T11:29:43.016Z",
-        "url": " ",
+        "updatedAt": "2024-05-23T08:37:56.663Z",
+        "createdAt": "2024-05-23T08:37:56.663Z",
+        "url": "https://qs-igauge.blr1.digitaloceanspaces.com/image-9@2x.png",
         "thumbnailURL": null,
-        "filename": "image 9.png",
+        "filename": "image-9@2x.png",
         "mimeType": "image/png",
-        "filesize": 105139,
-        "width": 624,
-        "height": 442,
-
+        "filesize": 49377,
+        "width": 478,
+        "height": 363,
         "sizes": {
           "thumbnail": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
             "filesize": null,
             "filename": null
           },
-
           "card": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
             "filesize": null,
             "filename": null
           },
-
           "tablet": {
-            "url": null,
+            "url": "https://qs-igauge.blr1.digitaloceanspaces.com/null",
             "width": null,
             "height": null,
             "mimeType": null,
@@ -385,11 +759,10 @@
       }
     }
   ],
-
   "meta": {
     "title": null,
     "description": null
   },
-  "updatedAt": "2024-05-16T11:29:45.101Z",
-  "createdAt": "2024-05-16T09:15:29.550Z"
+  "updatedAt": "2024-05-23T11:39:05.550Z",
+  "createdAt": "2024-05-23T10:31:43.567Z"
 }

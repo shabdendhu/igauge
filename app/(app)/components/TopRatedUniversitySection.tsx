@@ -4,7 +4,7 @@ import InstitutionSelection from "./v1/Home/InstitutionSelection";
 const TopRatedUniversitySection: FunctionComponent = () => {
   return (
     <div className=" w-full flex flex-row items-end justify-between max-w-full gap-[20px] text-left text-36xl text-black font-libre-baskerville mq1600:flex-wrap mt-[150px] mq900:mt-[20px]">
-      <div className="w-full flex flex-col items-start justify-end pt-0 px-0 pb-[37px] box-border max-w-full mq900:pb-[0px]">
+      <div className="w-full flex flex-col items-start justify-end pt-0 px-0 pb-[37px] box-border max-w-full mq900:pb-[0px] z-[5]">
         <div className="self-stretch flex flex-row items-start justify-start max-w-full">
           <div className="w-full flex flex-row flex-wrap items-start justify-start pt-7 px-0 pb-0 box-border max-w-full">
             {/* <h1 className="m-0 self-stretch flex items-center justify-start h-[76px] relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block shrink-0 z-[2] mq450:text-14xl mq900:text-25xl mq1440:text-[45px]">

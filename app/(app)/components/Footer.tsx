@@ -1,10 +1,18 @@
 "use client";
 import Image from "next/image";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { useCalculateFontSize } from "../hooks/use-calculate-font-size";
+import { fetchData } from "../services/institution";
 
 const Footer: FunctionComponent = () => {
   const fontSize = useCalculateFontSize();
+  const [footer, setFooter] = useState<any>({});
+  useEffect(() => {
+    fetchData("/globals/footer", {}).then((e) => {
+      setFooter(e);
+    });
+  }, []);
+
   return (
     <div className="flex flex-col gap-y-8  mt-10 mx-7 sm:mx-16 mb-3 ">
       <div className="flex justify-between items-center w-full">
@@ -44,18 +52,12 @@ const Footer: FunctionComponent = () => {
         </div>
       </div>
       <div>
-        <p
+        <div
           style={{
             fontSize: fontSize(24, 12, 1920, 400),
           }}
-        >
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-          aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-          qui ratione voluptatem sequi nesciunt.{" "}
-        </p>
+          dangerouslySetInnerHTML={{ __html: footer.footer_description_html }}
+        ></div>
       </div>
       <hr />
       <div
@@ -64,8 +66,16 @@ const Footer: FunctionComponent = () => {
         }}
         className="flex flex-col sm:flex-row items-start justify-start gap-y-4 sm:gap-x-12 w-full z-[1]  flex-wrap"
       >
-        <div className=" cursor-pointer hover:underline">About I-Gauge</div>
-        <div className=" cursor-pointer hover:underline">University Rating</div>
+        {footer?.primary_footer_menu?.map((e: any, i: number) => (
+          <a
+            href={e.link}
+            className=" cursor-pointer hover:underline"
+            key={e.id}
+          >
+            {e.name}
+          </a>
+        ))}
+        {/* <div className=" cursor-pointer hover:underline">University Rating</div>
         <div className=" cursor-pointer hover:underline">College Rating</div>
         <div className=" cursor-pointer hover:underline">Subject Rating</div>
         <div className="inline-block shrink-0  cursor-pointer hover:underline">
@@ -79,7 +89,7 @@ const Footer: FunctionComponent = () => {
         </div>
         <div className="inline-block shrink-0  cursor-pointer hover:underline">
           Blogs
-        </div>
+        </div> */}
       </div>
       <hr />
       <div
@@ -89,13 +99,15 @@ const Footer: FunctionComponent = () => {
         className="flex flex-col  sm:flex-row-reverse justify-between gap-3"
       >
         <div className="flex flex-row  justify-between items-center gap-5 ">
-          <div className="text-nowrap">Cookies</div>
-          <div className=" text-nowrap">Privacy Policy</div>
-          <div className="text-nowrap">Terms & Condition</div>
+          {footer?.policy_footer_menu?.map((e: any, i: number) => (
+            <a key={i} href={e.link} className="text-nowrap">
+              {e.name}
+            </a>
+          ))}
+          {/* <div className=" text-nowrap">Privacy Policy</div>
+          <div className="text-nowrap">Terms & Condition</div> */}
         </div>
-        <div className="  text-center my-4 md:my-0">
-          © 2024 QS Quacquarelli Symonds Limited. All rights reserved.
-        </div>
+        <div className="  text-center my-4 md:my-0">{footer.copy_right}</div>
       </div>
     </div>
   );

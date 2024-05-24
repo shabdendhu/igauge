@@ -55,7 +55,7 @@ const Card = ({ title, image }: { title: string; image: string }) => {
 
 const CardsSection = ({ pageData }: any) => {
   return (
-    <div className="self-stretch flex flex-col items-start justify-start gap-[79px] max-w-full text-left text-5xl text-white font-red-hat-text mq450:gap-[20px_79px] mq900:gap-[39px_79px]">
+    <div className="self-stretch flex flex-col items-start justify-start gap-[79px] max-w-full text-left text-5xl text-white font-red-hat-text mq450:gap-[20px_79px] mq900:gap-[39px_79px] z-[1]">
       <div className="w-full grid grid-cols-12  gap-[30px_28.7px] min-h-[322px] shrink-0 [debug_commit:1de1738] max-w-full mq900:grid-cols-3">
         {pageData.content[7].cities.map((city: any) => (
           <div className="col-span-3" key={city.image}>

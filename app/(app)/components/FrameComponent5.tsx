@@ -5,6 +5,9 @@ import InstitutionSelection from "@/app/(app)/components/v1/Home/InstitutionSele
 import { IconButton } from "@mui/material";
 const FrameComponent5 = ({ pageData }: any) => {
   const scrollContainerRef = useRef<any>(null);
+  const [dragging, setDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [currentTranslate, setCurrentTranslate] = useState(0);
   const handleScroll = (direction: string) => {
     const scrollContainer = scrollContainerRef.current;
 
@@ -16,6 +19,22 @@ const FrameComponent5 = ({ pageData }: any) => {
       }
     }
   };
+  const handleDragStart = (e: any) => {
+    setDragging(true);
+    setStartX(e.pageX - currentTranslate);
+  };
+
+  const handleDragMove = (e: any) => {
+    if (dragging) {
+      const translate = e.pageX - startX;
+      setCurrentTranslate(translate);
+    }
+  };
+
+  const handleDragEnd = () => {
+    setDragging(false);
+  };
+
   return (
     <section className="w-full h-[923px] flex flex-row items-start justify-start pt-0 px-0 pb-10 box-border max-w-[115%] shrink-0 text-left text-5xl text-white font-red-hat-display">
       <div className="self-stretch flex-1 overflow-hidden flex flex-col items-start justify-end py-[91px] pr-0 pl-[157px] box-border relative max-w-full mq900:pl-5 mdm:pt-[130px] mdm:self-auto mq900:pb-[59px] mq900:box-border mq1275:pl-[78px] mq1275:box-border mdm:pl-5">
@@ -25,14 +44,37 @@ const FrameComponent5 = ({ pageData }: any) => {
           className="w-full h-[530px] overflow-x-auto shrink-0 flex flex-row items-start justify-start py-0 pr-5 pl-0 box-border gap-[23px] max-w-full z-[2] no-scrollbar"
         >
           {pageData.content[6].categories.map((e: any, i: number) => (
+            // <div
+            //   key={i}
+            //   style={{ scrollSnapAlign: "start" }}
+            //   className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left relative"
+            // >
+            //   {/* <div className="bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" /> */}
+            //   <div className="absolute h-full  z-[2] w-full left-0 top-0 inset-0 bg-gradient-to-t from-black to-transparent" />
+
+            //   <img
+            //     className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
+            //     loading="lazy"
+            //     alt=""
+            //     src={e.category.image.url}
+            //   />
+            //   <div className="relative font-semibold z-[1] mq450:text-lgi z-[3]">
+            //     {e.category.text}
+            //   </div>
+            // </div>
             <div
               key={i}
-              style={{ scrollSnapAlign: "start" }}
-              className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left relative"
+              className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block transition-transform duration-300 transform-origin-left relative"
+              onMouseDown={handleDragStart}
+              onMouseMove={handleDragMove}
+              onMouseUp={handleDragEnd}
+              onMouseLeave={handleDragEnd}
+              style={{
+                transform: `translateX(${currentTranslate}px)`,
+                userSelect: "none",
+              }}
             >
-              {/* <div className="bg-gradient-to-b from-darkgray to-black w-full h-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover bg-gradient-to-t from-black  to-transparent" /> */}
               <div className="absolute h-full  z-[2] w-full left-0 top-0 inset-0 bg-gradient-to-t from-black to-transparent" />
-
               <img
                 className="h-full w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
                 loading="lazy"

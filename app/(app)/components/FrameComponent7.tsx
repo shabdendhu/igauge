@@ -5,12 +5,14 @@ import { getInstitutionsByType } from "@/utils/getInstitution";
 import { set } from "lodash";
 import { useRouter } from "next/navigation";
 import { fetchData } from "../services/institution";
+import { addBookmarkInstitutionByUserId } from "../services/bookmark";
 
 const FrameComponent7: FunctionComponent = ({
   activeTab = "universities",
   scrollContainerRef,
 }: any) => {
   const [data, setData] = useState<any>([]);
+  const [bookmarked, setBookmarked] = useState<any>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -32,9 +34,6 @@ const FrameComponent7: FunctionComponent = ({
       setData(e.docs);
     });
   }, [activeTab]);
-  useEffect(() => {
-    console.log({ data });
-  }, [data]);
 
   return (
     <div
@@ -79,6 +78,8 @@ const FrameComponent7: FunctionComponent = ({
             </div>
             <div className="w-full">
               <FrameComponent8
+                activeTab={activeTab}
+                university={university}
                 cMRUniversity={university.institution_name}
                 delhiIndia={`${university?.state?.state_name}, ${university?.city?.city_name}`}
                 vector1={"/vector-8.svg"}

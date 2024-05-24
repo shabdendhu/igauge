@@ -100,14 +100,14 @@ const RatingSystemComponent = ({ pageData }: any) => {
               src={pageData.content[8].image.url}
             />
 
-            <Figure className="flex justify-center bg-orange-200 w-[95%] m-auto z-[5] relative bottom-[30px] self-center justify-around  px-2 md:px-5 md:py-5 md:w-1/3 md:min-w-[650px] md:hidden" />
+            {/* <Figure className="flex justify-center bg-orange-200 w-[95%] m-auto z-[5] relative bottom-[30px] self-center justify-around  px-2 md:px-5 md:py-5 md:w-1/3 md:min-w-[650px] md:hidden" /> */}
           </div>
-          <div className="w-1/2 px-20 mdm:pt-[150px] mdm:px-5 mdm:w-full flex items-center">
+          <div className="w-1/2 px-20 mdm:pt-[5vh] mdm:px-5 mdm:w-full flex items-center">
             <Slider pageData={pageData} divider="/19-2.svg" />
           </div>
         </div>
 
-        <Figure className="flex justify-center bg-orange-200 w-[95%] m-auto z-[5] relative bottom-[30px] self-center justify-around  px-2 md:px-5 md:py-5 md:w-1/3 md:min-w-[650px] mdm:hidden" />
+        {/* <Figure className="flex justify-center bg-orange-200 w-[95%] m-auto z-[5] relative bottom-[30px] self-center justify-around  px-2 md:px-5 md:py-5 md:w-1/3 md:min-w-[650px] mdm:hidden" /> */}
       </section>
     </>
   );

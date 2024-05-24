@@ -1,7 +1,25 @@
-import { FunctionComponent } from "react";
+"use client";
+import { FunctionComponent, useEffect, useState } from "react";
 import ValueCombiner from "./ValueCombiner";
+import { fetchData } from "../services/institution";
 
 const SkewTransform: FunctionComponent = () => {
+  const [blogs, setBlogs] = useState<any>([]);
+  useEffect(() => {
+    fetchData("blogs", {
+      page: 0,
+      limit: 4,
+      depth: 3,
+      sort: {
+        createdAt: -1,
+      },
+    }).then((e) => {
+      setBlogs(e?.docs);
+    });
+  }, []);
+
+  console.log(blogs);
+
   return (
     <section className="self-stretch flex flex-row items-start justify-center pt-0 pb-[149px] pr-5 pl-[21px] box-border max-w-full text-left text-36xl text-black font-libre-baskerville mq450:pb-[63px] mq450:box-border mq900:pb-[97px] mq900:box-border">
       <div className="w-[1645px] flex flex-row flex-wrap items-end justify-center gap-[103px] max-w-full mq450:gap-[26px] mq900:gap-[51px]">
@@ -12,8 +30,13 @@ const SkewTransform: FunctionComponent = () => {
             </h1>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[45px] max-w-full text-17xl-7 mq450:gap-[22px_45px]">
-            <ValueCombiner filterSet="/rectangle-160@2x.png" />
-            <ValueCombiner filterSet="/rectangle-160-1@2x.png" />
+            {blogs.slice(0, 2).map((e: any, i: number) => (
+              <ValueCombiner
+                key={i}
+                data={e}
+                filterSet="/rectangle-160@2x.png"
+              />
+            ))}
           </div>
         </div>
         <div className="flex-1 flex flex-col items-end justify-start gap-[95.5px] min-w-[501px] max-w-full text-lgi-2 text-darkslateblue font-red-hat-display mq450:gap-[24px_95.5px] mq900:gap-[48px_95.5px] mq900:min-w-full">
@@ -37,8 +60,9 @@ const SkewTransform: FunctionComponent = () => {
             </div>
           </div>
           <div className="self-stretch flex flex-col items-start justify-start gap-[45px] max-w-full mq450:gap-[22px_45px]">
-            <ValueCombiner filterSet="/rectangle-160-2@2x.png" />
-            <ValueCombiner filterSet="/rectangle-160-1@2x.png" />
+            {blogs.slice(2, 4).map((e: any, i: number) => (
+              <ValueCombiner key={i} data={e} />
+            ))}
           </div>
         </div>
       </div>

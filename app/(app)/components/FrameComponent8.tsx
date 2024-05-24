@@ -8,6 +8,7 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { IconButton } from "@mui/material";
+import { addBookmarkInstitutionByUserId } from "../services/bookmark";
 export type FrameComponent8Type = {
   cMRUniversity?: string;
   delhiIndia?: string;
@@ -19,14 +20,16 @@ export type FrameComponent8Type = {
   propDisplay?: CSSProperties["display"];
 };
 
-const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
+const FrameComponent8 = ({
   cMRUniversity,
   delhiIndia,
   vector1,
   propWidth,
   propMinWidth,
   propDisplay,
-}) => {
+  activeTab,
+  university,
+}: any) => {
   const frameDiv1Style: CSSProperties = useMemo(() => {
     return {
       width: propWidth,
@@ -40,6 +43,13 @@ const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
     };
   }, [propMinWidth, propDisplay]);
   const [isBookMarked, setIsBookMarked] = useState(false);
+  const bookmark = (e: any) => {
+    // e.stopPropagation();
+    addBookmarkInstitutionByUserId(1, e.id, activeTab)
+      .then((data: any) => console.log(data))
+      .catch((error: any) => console.error(error));
+    setIsBookMarked(true);
+  };
   return (
     <div
       className="w-[376.9px] flex flex-row items-start justify-between shrink-0 [debug_commit:1de1738] max-w-full gap-[20px] text-left text-11xl text-black font-red-hat-text mt-[20px] mq900:w-full mq1600:mt-[17px]"
@@ -69,7 +79,11 @@ const FrameComponent8: FunctionComponent<FrameComponent8Type> = ({
         </div>
       </div>
       <div
-        onClick={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          e.stopPropagation();
+
+          bookmark(university);
+        }}
         className="flex flex-col items-start justify-start  px-0 pb-0"
       >
         <IconButton onClick={() => setIsBookMarked((e) => !e)}>
