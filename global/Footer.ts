@@ -12,6 +12,9 @@ const Footer: GlobalConfig = {
     //     url: 'http://localhost:3000/',
     // }
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: "footer_description",
