@@ -27,6 +27,13 @@ const Uni_CategoryRatings: CollectionConfig = {
       required: true,
       label: "Badges Image",
     },
+    {
+      name: "ribbon_image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      label: "Ribbon Image",
+    },
   ],
 };
 export default Uni_CategoryRatings;

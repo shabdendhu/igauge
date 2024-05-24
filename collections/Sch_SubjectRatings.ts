@@ -27,6 +27,13 @@ const Sch_SubjectRatings: CollectionConfig = {
       required: true,
       label: "Badges Image",
     },
+    {
+      name: "ribbon_image",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+      label: "Ribbon Image",
+    },
   ],
 };
 export default Sch_SubjectRatings;
