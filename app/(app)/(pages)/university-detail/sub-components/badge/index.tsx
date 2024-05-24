@@ -63,7 +63,7 @@ const Badge = ({
             {diamond}
           </div>
         </button> */}
-        <img src={value?.category_rating?.badges_image?.url} />
+        <img src={value?.category_rating?.ribbon_image?.url} />
       </div>
       <div className="relative font-medium" style={teachingLearningStyle}>
         {value?.category_name?.category_name}
