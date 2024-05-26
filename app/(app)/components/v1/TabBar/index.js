@@ -1,6 +1,8 @@
+import { BorderBottom } from "@mui/icons-material";
+import Link from "next/link";
 import React from "react";
 
-const TabBar = () => {
+const TabBar = ({ activeTab }) => {
   return (
     <div className="w-full flex flex-col items-start justify-start gap-8 ">
       <div className="flex mt-10 justify-between  w-full">
@@ -20,12 +22,26 @@ const TabBar = () => {
       {/* <TabSection /> */}
       <div className="md:border w-full flex justify-between h-full md:h-16 items-center text-[#272761] xl:h-[100px] ">
         <div className="flex flex-col items-start  md:flex-row w-full h-full px-5   justify-start gap-x-8  gap-y-3 md:gap-y-0 xl:gap-[200px]">
-          <div className="h-full flex items-center md:border-b md:border-b-[#272761] xl:text-[30px]">
-            <a href="/dashboard"> Dashboard </a>
+          <div
+            style={
+              activeTab == "dashboard"
+                ? { borderBottom: "1px solid #272761" }
+                : {}
+            }
+            className="h-full flex items-center xl:text-[30px] "
+          >
+            <Link href="/dashboard"> Dashboard </Link>
           </div>
 
-          <div className="h-full flex items-center xl:text-[30px] ">
-            <a href="/account"> Account Details </a>
+          <div
+            style={
+              activeTab == "account"
+                ? { borderBottom: "1px solid  #272761" }
+                : {}
+            }
+            className="h-full flex items-center xl:text-[30px]"
+          >
+            <Link href="/account"> Account Details </Link>
           </div>
         </div>
         <div className="h-full  text-white aspect-[250/100]">

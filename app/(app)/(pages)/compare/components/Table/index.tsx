@@ -237,68 +237,71 @@ export default function CompareInstitutions() {
   };
 
   useEffect(() => {
-    fetchData(collectionName[selectedUniversities.type].category, {
-      page: 0,
-      limit: 100,
-      depth: 1,
-    }).then((e) => {
-      setCriteria((state) => ({
-        ...state,
-        coreCriteria: e.docs.map((i: any) => ({
-          name: i.category_name,
-          icon: i.icon.url,
-        })),
-      }));
-    });
-    fetchData(collectionName[selectedUniversities.type].subject, {
-      page: 0,
-      limit: 100,
-      depth: 1,
-    }).then((e) =>
-      setCriteria((state) => ({
-        ...state,
-        advancedCriteria: e.docs.map((i: any) => ({
-          name: i.subject_name,
-          icon: i.icon.url,
-        })),
-      }))
-    );
-    fetchData(collectionName[selectedUniversities.type].other, {
-      page: 0,
-      limit: 100,
-      depth: 1,
-    }).then((e) =>
-      setCriteria((state) => ({
-        ...state,
-        otherFactors: e.docs.map((i: any) => ({
-          name: i.other_factors,
-          icon: i.icon.url,
-        })),
-      }))
-    );
+    if (!selectedUniversities?.ids?.length) {
+      setIsModalOpen(true);
+    } else {
+      fetchData(collectionName[selectedUniversities.type].category, {
+        page: 0,
+        limit: 100,
+        depth: 1,
+      }).then((e) => {
+        setCriteria((state) => ({
+          ...state,
+          coreCriteria: e.docs.map((i: any) => ({
+            name: i.category_name,
+            icon: i.icon.url,
+          })),
+        }));
+      });
+      fetchData(collectionName[selectedUniversities.type].subject, {
+        page: 0,
+        limit: 100,
+        depth: 1,
+      }).then((e) =>
+        setCriteria((state) => ({
+          ...state,
+          advancedCriteria: e.docs.map((i: any) => ({
+            name: i.subject_name,
+            icon: i.icon.url,
+          })),
+        }))
+      );
+      fetchData(collectionName[selectedUniversities.type].other, {
+        page: 0,
+        limit: 100,
+        depth: 1,
+      }).then((e) =>
+        setCriteria((state) => ({
+          ...state,
+          otherFactors: e.docs.map((i: any) => ({
+            name: i.other_factors,
+            icon: i.icon.url,
+          })),
+        }))
+      );
+    }
   }, [selectedUniversities]);
   useEffect(() => {
-    if (
-      criteria.coreCriteria.length &&
-      criteria.advancedCriteria.length &&
-      criteria.otherFactors.length
-    ) {
-      getUnivercities();
+    if (!selectedUniversities.ids.length) {
+      setIsModalOpen(true);
+    } else {
+      if (
+        criteria.coreCriteria.length &&
+        criteria.advancedCriteria.length &&
+        criteria.otherFactors.length
+      ) {
+        getUnivercities();
+      }
     }
   }, [criteria]);
 
   useEffect(() => {
-    console.log(criteria);
-  }, [criteria]);
-  useEffect(() => {
-    setSelectedUniversities({
-      ids: JSON.parse(params.get("id")),
-      type: params.get("type"),
-    });
-    console.log({
-      ids: JSON.parse(params.get("id")),
-      type: params.get("type"),
-    });
+    if (JSON.parse(params.get("id"))) {
+      setSelectedUniversities({
+        ids: JSON.parse(params.get("id")),
+        type: params.get("type"),
+      });
+    }
   }, [params]);
 
   return (

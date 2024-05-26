@@ -4,6 +4,7 @@ import CanvasArea from "./CanvasArea";
 import AlignTools from "./AlignTools";
 import CornerRadius from "./CornerRadius";
 import FAQ from "./FAQ";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useState } from "react";
 
 const Accordion = ({ open = false, data }: any) => {
@@ -16,14 +17,20 @@ const Accordion = ({ open = false, data }: any) => {
   return (
     <div className="w-[45%] mdm:w-[100%]">
       <div
-        className={`w-full min-h-[100px] flex items-center px-5 justify-between cursor-pointer transition-all duration-300 mq900:min-h-[50px] mq900:text-sm ${
+        className={`w-full min-h-[100px] flex items-center px-10 justify-between cursor-pointer transition-all duration-300 mq900:min-h-[50px] mq900:text-sm ${
           isOpen ? "bg-orange-200" : "bg-[#FFF0D1]"
         }`}
         onClick={toggleAccordion}
       >
         {data.question}
         {/* Render close icon if open, otherwise render open icon */}
-        {isOpen ? (
+        <ArrowBackIosNewIcon
+          style={{
+            transform: isOpen ? "rotate(-90deg)" : "rotate(0deg)",
+            transition: "transform 0.3s ease-in-out",
+          }}
+        />
+        {/* {isOpen ? (
           <img
             className="mq900:w-[13px]"
             src="/polygon-9.svg"
@@ -35,11 +42,11 @@ const Accordion = ({ open = false, data }: any) => {
             src="/polygon-9-1.svg"
             alt="Open Icon"
           />
-        )}
+        )} */}
       </div>
       {/* Render answer if open */}
       {isOpen && (
-        <div className="min-h-[100px] p-[10px] transition-all duration-300 mq900:min-h-[50px] mq900:text-sm">
+        <div className="min-h-[100px] text-xl py-5 px-10 transition-all duration-300 mq900:min-h-[50px] mq900:text-sm">
           {data.answer}
         </div>
       )}

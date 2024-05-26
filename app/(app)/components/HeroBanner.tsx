@@ -257,7 +257,7 @@ const TextBlock = ({ header, description }: any) => {
                 "
       >
         {header.prefix}
-        <TypingEffect words={header.texts.map((e: any) => e.text)} />
+        <TypingEffect words={header.texts.map((e: any) => e.text)} />{" "}
         {header.suffix}
       </h1>
       <div className="w-full relative text-xl font-red-hat-text text-[20px] z-[2] mq450:text-base ">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. `}</div>

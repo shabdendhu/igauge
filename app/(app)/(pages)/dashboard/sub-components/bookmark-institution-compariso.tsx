@@ -77,7 +77,7 @@ const BookmarkInstitutionCompariso: NextPage<
           </div>
           <div
             style={{
-              fontSize: fontSize(20, 12, 1920, 400),
+              fontSize: fontSize(24, 12, 1920, 400),
             }}
             className="self-stretch relative  text-darkslategray-300 text-center "
           >

@@ -141,7 +141,9 @@ const UniversitySelectionModal = ({
                 </MenuItem>
                 {institutions.map((institution) => (
                   <MenuItem
-                    disabled={selectedUniversities.ids.includes(institution.id)}
+                    disabled={selectedUniversities?.ids?.includes(
+                      institution.id
+                    )}
                     key={institution.id}
                     value={institution.id}
                   >
@@ -173,7 +175,8 @@ const UniversitySelectionModal = ({
             onClick={onClose}
             size="small"
             variant="contained"
-            sx={{ bgcolor: "orange", color: "white" }}
+            sx={{ bgcolor: "orange", color: "white", borderRadius: 0 }}
+            className="hover:bg-orange-500"
           >
             Submit
           </Button>

@@ -20,6 +20,7 @@ import Testimonials from "../../components/v1/Home/Testimonials";
 import dummyData from "@/datatypes/home.json";
 import axios from "axios";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
+import { Button } from "@mui/material";
 const HomeV2Approved: FunctionComponent = () => {
   const [data, setData] = useState<any>(dummyData);
   const fontSize = useCalculateFontSize();
@@ -101,7 +102,50 @@ const HomeV2Approved: FunctionComponent = () => {
 
       <FAQSection pageData={data} />
       <SkewTransform />
-      <FrameComponent1 pageData={data} />
+      {/* <FrameComponent1 pageData={data} /> */}
+      <div className="w-full min-h-[250px] aspect-[1920/450] bg-[#272761] flex justify-evenly mq450:flex-col mq450:mt-[150px] mq450:aspect-square">
+        <div className="w-1/3 bodrder border-red-500 mq450:w-full">
+          <img
+            src="image-9@2x.png"
+            className="relative top-[10%] h-full mq450:top-[-30%]"
+          />
+        </div>
+        <div
+          style={{
+            fontFamily: "Libre Baskerville",
+            fontSize: fontSize(45, 25, 1920, 400),
+            fontWeight: 700,
+            textAlign: "left",
+          }}
+          className="w-1/3 bordfer blue-red-500 text-white flex items-center mq450:w-full relative  mq450:top-[-20%]"
+        >
+          Unlock a world of educational opportunities
+        </div>
+        <div className="w-1/3 borfder yellow-red-500 justify-center flex flex-col items-start px-5 mq450:w-full relative  mq450:top-[-10%]">
+          <p
+            style={{
+              fontFamily: "Libre Baskerville",
+              fontSize: fontSize(20, 8, 1920, 400),
+              fontWeight: 700,
+              textAlign: "left",
+              color: "white",
+              lineHeight: `${fontSize(28, 13, 1920, 400)}px`,
+              marginBottom: "15px",
+            }}
+          >
+            Register now and compare between top institutions with QS I-GAUGE
+            ratings.
+          </p>
+          <Button
+            style={{
+              fontSize: fontSize(27, 11, 1920, 400),
+            }}
+            className="bg-orange-500 text-white rounded-none px-10 py-5 hover:bg-orange-500"
+          >
+            Sign Up Now
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

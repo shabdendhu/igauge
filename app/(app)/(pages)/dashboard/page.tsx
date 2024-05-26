@@ -9,7 +9,7 @@ import TabBar from "@/app/(app)/components/v1/TabBar";
 const Dashboard: NextPage = () => {
   return (
     <div className="px-6 md:px-20 bg-white overflow-hidden flex flex-col items-start justify-start xl:px-[150px] md:px-[100px]">
-      <TabBar />
+      <TabBar activeTab={"dashboard"} />
       {/* </section> */}
       <div className="grid grid-cols-1 md:grid-cols-2 md:flex-row w-full pt-8 gap-9 mt-3 xl:mt-[80px]">
         <BookmarkInstitutionCompariso

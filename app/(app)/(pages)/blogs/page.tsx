@@ -7,6 +7,10 @@ import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import { useEffect, useState } from "react";
 import { fetchData } from "../../services/institution";
 import { useRouter } from "next/navigation";
+import MultiActionAreaCard from "./components/card";
+import LinierCard from "./components/LinerCard";
+import PageHeader from "@/app/(app)/components/v1/PageHeader";
+
 const BlogsV2Approved: NextPage = () => {
   const router = useRouter();
   const [blogs, setBlogs] = useState([]);
@@ -29,18 +33,16 @@ const BlogsV2Approved: NextPage = () => {
 
   return (
     <div>
-      <div className="flex w-full h-16 justify-between items-center mb-10 bg-orange-100/30  border border-orange-200 px-6 md:px-[150px]">
-        <div className="text-4xl font-libre-baskerville font-semibold ">
-          Blogs
-        </div>
-        <div className="">
-          <p className="text-sm">
-            Home <span className="text-orange-400"> &gt; </span> Top Rated
-            School
-          </p>
-        </div>
-      </div>
-      <div className="max-w-[1920px] m-auto px-6 md:px-[150px]">
+      <PageHeader
+        header={"Blogs"}
+        path={
+          <>
+            Home <span className="text-orange-400"> &gt; </span>
+            Blogs
+          </>
+        }
+      />
+      <div className="max-w-[1920px] m-auto px-6 md:px-[150px] pt-20">
         <div className="w-full block md:hidden ">
           <div className="flex justify-center items-center px-5  w-full    h-10  ">
             <div className="flex w-full h-full justify-start items-center  rounded-sm ">
@@ -73,12 +75,18 @@ const BlogsV2Approved: NextPage = () => {
         </div>
 
         <div className="w-full h-full bg-white  hidden md:block">
-          <h1 className="font-libre-baskerville text-lg md:text-4xl font-semibold">
+          <h1
+            style={{
+              fontSize: fontSize(48, 14, 1920, 400),
+            }}
+            className="font-libre-baskerville text-lg md:text-4xl font-semibold"
+          >
             Latest Blog Posts
           </h1>
           <div className="  mt-6">
-            <div className="flex w-full  ">
-              {latestBlogs.length ? (
+            <div className="flex w-full  gap-5">
+              <MultiActionAreaCard data={latestBlogs[0]} />
+              {/* {latestBlogs.length ? (
                 <div
                   className=" w-1/2 flex flex-col mr-5 border overflow-hidden md:mr-[30px]"
                   style={{ aspectRatio: 1 }}
@@ -117,7 +125,7 @@ const BlogsV2Approved: NextPage = () => {
                           style={{
                             fontSize: fontSize(17, 8, 1920, 400),
                           }}
-                          className="text-[11px] md:text-mid line-clamp-5"
+                          className="text-[11px] md:text-mid line-clamp-3"
                         >
                           {latestBlogs[0].excerpt}
                         </p>
@@ -144,60 +152,64 @@ const BlogsV2Approved: NextPage = () => {
                 </div>
               ) : (
                 <></>
-              )}
+              )} */}
               <div className="flex flex-col h-full w-1/2   gap-y-4  ">
                 {latestBlogs.slice(1, 2).map((e, i) => (
-                  <div key={i} className="h-1/2 flex gap-x-3 border">
-                    <div className="w-3/5 h-full">
-                      <img
-                        className="w-full h-full relative object-cover aspect-square  max-w-full"
-                        alt=""
-                        src={e?.featured_image?.url}
-                      />
-                    </div>
-                    <div className=" w-full flex flex-col justify-around pl-5 ">
-                      <div className=" flex gap-x-1">
-                        <img
-                          className="w-[11.9px] h-[11.9px] relative overflow-hidden "
-                          alt=""
-                          src="/calendar-1.svg"
-                        />
-                        <p className="text-xs"> 12 March, 2024</p>
-                      </div>
-                      <div className="flex flex-col gap-y-2">
-                        <p
-                          style={{
-                            fontSize: fontSize(30, 14, 1920, 400),
-                          }}
-                          className="text-lg font-libre-baskerville font-semibold line-clamp-1"
-                        >
-                          {e?.blog_title}
-                        </p>
-                        <p
-                          style={{
-                            fontSize: fontSize(17, 8, 1920, 400),
-                          }}
-                          className="text-[11px] line-clamp-3"
-                        >
-                          {e?.excerpt}
-                        </p>
-                      </div>
-                      <div className="w-full ">
-                        <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
-                          <div onClick={() => router.push("/blog?id=" + e.id)}>
-                            Read More
-                          </div>
-                          <div className="h-full bg-orange-200 flex items-center">
-                            <img
-                              className=" h-[6px] w-[6px] relative "
-                              alt=""
-                              src="/double_arrow.svg"
-                            />
-                          </div>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                  // <div key={i} className="h-1/2 flex gap-x-3 border">
+                  //   <div className="w-3/5 h-full">
+                  //     <img
+                  //       className="w-full h-full relative object-cover aspect-square  max-w-full"
+                  //       alt=""
+                  //       src={e?.featured_image?.url}
+                  //     />
+                  //   </div>
+                  //   <div className=" w-full flex flex-col justify-around pl-5 ">
+                  //     <div className=" flex gap-x-1">
+                  //       <img
+                  //         className="w-[11.9px] h-[11.9px] relative overflow-hidden "
+                  //         alt=""
+                  //         src="/calendar-1.svg"
+                  //       />
+                  //       <p className="text-xs"> 12 March, 2024</p>
+                  //     </div>
+                  //     <div className="flex flex-col gap-y-2">
+                  //       <p
+                  //         style={{
+                  //           fontSize: fontSize(30, 14, 1920, 400),
+                  //         }}
+                  //         className="text-lg font-libre-baskerville font-semibold line-clamp-1"
+                  //       >
+                  //         {e?.blog_title}
+                  //       </p>
+                  //       <p
+                  //         style={{
+                  //           fontSize: fontSize(17, 8, 1920, 400),
+                  //         }}
+                  //         className="text-[11px] line-clamp-3"
+                  //       >
+                  //         {e?.excerpt}
+                  //       </p>
+                  //     </div>
+                  //     <div className="w-full ">
+                  //       <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
+                  //         <div onClick={() => router.push("/blog?id=" + e.id)}>
+                  //           Read More
+                  //         </div>
+                  //         <div className="h-full bg-orange-200 flex items-center">
+                  //           <img
+                  //             className=" h-[6px] w-[6px] relative "
+                  //             alt=""
+                  //             src="/double_arrow.svg"
+                  //           />
+                  //         </div>
+                  //       </button>
+                  //     </div>
+                  //   </div>
+                  // </div>
+                  <LinierCard
+                    onClick={() => router.push("/blog?id=" + e.id)}
+                    data={e}
+                  />
                 ))}
               </div>
             </div>
@@ -209,7 +221,8 @@ const BlogsV2Approved: NextPage = () => {
           <div className="col-start-1 col-span-7 md:col-span-5 ">
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-3 md:gap-[50px]">
               {blogs.map((blog, i) => (
-                <BlogCardSmall key={i} blog={blog} />
+                // <BlogCardSmall key={i} blog={blog} />
+                <MultiActionAreaCard className="w-full" data={blog} />
               ))}
               {/* <BlogCardSmall />
               <BlogCardSmall />

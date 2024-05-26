@@ -12,7 +12,7 @@ import TabBar from "../../components/v1/TabBar";
 const AccountDetails: NextPage = () => {
   return (
     <div className=" flex flex-col px-6 md:px-[150px] mt-10">
-      <TabBar />
+      <TabBar activeTab={"account"} />
 
       <NameInputField />
     </div>

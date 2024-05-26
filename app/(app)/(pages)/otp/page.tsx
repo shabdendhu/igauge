@@ -16,28 +16,32 @@ const SignInApproved: NextPage = () => {
         <div className="flex h-full justify-center sm:grid sm:col-span-4  font-semibold  items-center  p-14 ">
           <div className="w-full  min-w-auto">
             <form action="submit" className="flex flex-col gap-y-6 ">
-              <h3 className=" font-bold font-libre-baskerville text-[20px] sm:text-[36px] text-center">
-                Sign up to your Account
-              </h3>
-              <input
-                className="h-[82px] px-5 mq450:h-[52px]  border-2 font-normal capitalize rounded-sm"
-                placeholder="Name"
-                type="text"
-              />
-              <input
-                className="h-[82px] px-5 mq450:h-[52px]  border-2 font-normal rounded-sm"
-                placeholder="Phone Number"
-                type="number"
-              />
+              <div>
+                <h3 className=" font-bold font-libre-baskerville text-[20px] sm:text-[36px] text-left">
+                  Enter OTP
+                </h3>
+                <p>Sent to xxxxx896</p>
+              </div>
+              <div className="flex justify-around">
+                {Array(5)
+                  .fill("")
+                  .map((e) => (
+                    <input
+                      className=" px-5 border-2 font-normal capitalize rounded-sm w-1/6 aspect-square"
+                      //   placeholder="Phone Number"
+                      type="text"
+                    />
+                  ))}
+              </div>
 
               <button className="h-[82px] text-[20px] cursor-pointer py-4 px-5 bg-orange-200  rounded-md justify-center hover:scale-105 active:scale-95">
-                Sign Up
+                Sign In
               </button>
 
               <div>
-                Already have an Account ? &nbsp;
+                Don’t have an Account? &nbsp;
                 <span className="underline text-[#272761] text-base">
-                  Sign In
+                  Sign Up
                 </span>
               </div>
             </form>

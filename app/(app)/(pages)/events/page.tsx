@@ -9,6 +9,7 @@ import { Button } from "@mui/material";
 import dummyData from "@/datatypes/events.json";
 import { useEffect, useState } from "react";
 import { fetchData } from "../../services/institution";
+import PageHeader from "@/app/(app)/components/v1/PageHeader";
 const EventsV2Approved: NextPage = () => {
   const fontSize = useCalculateFontSize();
   const [page, setPage] = useState<any>(dummyData);
@@ -41,27 +42,15 @@ const EventsV2Approved: NextPage = () => {
   };
   return (
     <div className="">
-      <div className="flex w-full  justify-between items-center  bg-orange-100/30  border border-orange-200 px-6 md:px-[150px] aspect-[1920/130] min-h-[57px]">
-        <div
-          style={{
-            fontSize: fontSize(36, 15, 1920, 400),
-          }}
-          className="font-libre-baskerville font-semibold "
-        >
-          Events
-        </div>
-        <div className="">
-          <p
-            style={{
-              fontSize: fontSize(20, 12, 1920, 400),
-            }}
-            className=""
-          >
+      <PageHeader
+        header={"Events"}
+        path={
+          <>
             Home <span className="text-orange-400"> &gt; </span>
             Events
-          </p>
-        </div>
-      </div>
+          </>
+        }
+      />
       {/* <FrameComponent4 /> */}
       <div className="px-5 sm:px-[150px] relative flex justify-center items-center">
         <div className="h-full w-full flex justify-between z-0 absolute ">

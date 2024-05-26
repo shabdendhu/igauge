@@ -37,6 +37,7 @@ const TypingEffect = ({ words, className = "" }) => {
         }}
         className={className}
       >
+        {" "}
         {words[wordIndex].substring(0, charIndex)}
       </span>
       <span

@@ -126,7 +126,7 @@ const CompareInstitutionsV: NextPage = () => {
 
   return (
     <div className="px-6 md:px-[150px] bg-white overflow-hidden flex flex-col items-start justify-start">
-      <TabBar />
+      <TabBar activeTab={"dashboard"} />
       {/* <div className="w-full flex flex-col items-start justify-start gap-8 ">
         <div className="flex mt-10 justify-between  w-full">
           <h3
