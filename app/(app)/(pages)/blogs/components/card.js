@@ -17,6 +17,7 @@ export default function MultiActionAreaCard({ data, className = "w-1/2" }) {
         <CardMedia
           component="img"
           height="140"
+          className="aspect-[700/400] overflow-hidden"
           image={data?.featured_image?.url}
           alt="green iguana"
         />
