@@ -175,7 +175,7 @@ export default function CompareInstitutions() {
           const badgeMapping = {};
           categoryRatings.forEach((rating) => {
             badgeMapping[rating?.category_name?.category_name] =
-              rating?.category_rating?.badges_image.url;
+              rating?.category_rating?.ribbon_image.url;
           });
 
           // Create the coreCriteria array
@@ -188,7 +188,7 @@ export default function CompareInstitutions() {
           const subjectBadgeMapping = {};
           subjectRatings.forEach((rating) => {
             subjectBadgeMapping[rating?.subject_name?.subject_name] =
-              rating?.subject_rating?.badges_image.url;
+              rating?.subject_rating?.ribbon_image.url;
           });
 
           // Create the coreCriteria array

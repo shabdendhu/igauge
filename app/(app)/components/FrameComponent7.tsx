@@ -28,7 +28,7 @@ const FrameComponent7: FunctionComponent = ({
     fetchData(activeTab, {
       limit: 10,
       page: 0,
-      depth: 3,
+      depth: 5,
     }).then((e) => {
       console.log({ e });
       setData(e.docs);
@@ -71,7 +71,7 @@ const FrameComponent7: FunctionComponent = ({
                     src="/rectangle-205.svg"
                   />
                   <div className="absolute top-[12.3px] left-[47.1px] text-mid uppercase font-inter text-black text-left inline-block w-[82px] h-[21px] min-w-[82px] z-[2]">
-                    {university.ratings.overall_rating.badges_name}
+                    {university?.ratings?.overall_rating?.badges_name}
                   </div>
                 </div>
               </button>
