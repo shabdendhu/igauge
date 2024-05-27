@@ -29,7 +29,6 @@ const Blogs: CollectionConfig = {
         {
           name: "slug",
           type: "text",
-          required: true,
           label: "Slug",
           unique: true,
           admin: {
@@ -41,9 +40,16 @@ const Blogs: CollectionConfig = {
           type: "relationship",
           relationTo: "blogs-category",
           hasMany: false,
-          required: true,
           admin: {
-            width: "50%",
+            width: "33%",
+          },
+        },
+        {
+          name: "published_date",
+          type: "date",
+          label: "Published Date",
+          admin: {
+            width: "33%",
           },
         },
         {
@@ -56,7 +62,7 @@ const Blogs: CollectionConfig = {
             mimeType: { contains: "image" },
           },
           admin: {
-            width: "50%",
+            width: "33%",
           },
         },
         {
