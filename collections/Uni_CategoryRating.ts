@@ -34,8 +34,10 @@ const Uni_CategoryRatings: CollectionConfig = {
         { label: "Indian University Rating", value: "university" },
         { label: 'Indian College Rating', value: 'college' },
         { label: 'Indian School Rating', value: 'school' },
+        { label: 'Indian University & College Rating', value: 'university-college' },
       ],
       required: true,
+      defaultValue: 'university',
     }
   ],
 };
