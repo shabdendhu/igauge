@@ -1,8 +1,10 @@
+import { useCalculateFontSize } from "@/app/(app)/hooks/use-calculate-font-size";
 import React, { useEffect, useState } from "react";
 // import "./TypingEffect.css";
 
 const TypingEffect = ({ words, className = "" }) => {
   //   const words = ["Hello", "World", "Typing", "Effect"];
+  const fontSize = useCalculateFontSize();
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -29,7 +31,12 @@ const TypingEffect = ({ words, className = "" }) => {
   }, [charIndex, isDeleting, wordIndex, words]);
 
   return (
-    <span className="typing-container">
+    <span
+      style={{
+        width: fontSize(350, 200, 1920, 400),
+      }}
+      className="typing-container"
+    >
       <span
         id="typing-text"
         style={{

@@ -80,7 +80,7 @@ const FAQSection = ({ pageData }: any) => {
           />
         </div>
       </div>
-      <div className=" flex flex-row justify-between w-full flex-wrap gap-y-10 pt-[100px] mq900:pt-[50px]">
+      <div className=" flex flex-row justify-between w-full flex-wrap gap-y-10 pt-10 mq900:pt-[50px]">
         {/* <FAQ /> */}
         {pageData.content[9].questions_answers.map((e: any, i: number) => (
           <Accordion data={e} open={i == 0 || i == 1} />

@@ -32,6 +32,7 @@ export default function MenuBar({ items }) {
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
+          className="hover:rounded-sm hover:p-1"
         >
           <span className="text-black font-red-hat-display">{items.name}</span>
           <ArrowDropDownIcon

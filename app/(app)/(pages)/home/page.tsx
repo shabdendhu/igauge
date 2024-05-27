@@ -107,7 +107,7 @@ const HomeV2Approved: FunctionComponent = () => {
         <div className="w-1/3 bodrder border-red-500 mq450:w-full">
           <img
             src="image-9@2x.png"
-            className="relative top-[10%] h-full mq450:top-[-30%]"
+            className="relative top-[10%] h-full mq450:top-[-30%] left-[-50px]"
           />
         </div>
         <div
@@ -124,9 +124,9 @@ const HomeV2Approved: FunctionComponent = () => {
         <div className="w-1/3 borfder yellow-red-500 justify-center flex flex-col items-start px-5 mq450:w-full relative  mq450:top-[-10%]">
           <p
             style={{
-              fontFamily: "Libre Baskerville",
+              fontFamily: "Red Hat Text",
               fontSize: fontSize(20, 8, 1920, 400),
-              fontWeight: 700,
+              // fontWeight: 700,
               textAlign: "left",
               color: "white",
               lineHeight: `${fontSize(28, 13, 1920, 400)}px`,

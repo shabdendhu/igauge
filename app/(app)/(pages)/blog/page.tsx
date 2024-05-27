@@ -161,17 +161,22 @@ const SingleBlogPostV2Approved: FunctionComponent = () => {
             </div>
           </div>
           <div className="flex-[1]   mt-10 hidden md:block">
-            <div className="flex flex-col   border rounded-sm py-5 px-5">
+            <div className="flex flex-col   border rounded-sm py-5 px-5 md:min-w-[350px]">
               <div className="flex items-start justify-start     ">
-                <div className="flex   w-[100px] h-[42px] md:w-[225px]  ">
+                <div className="flex   w-[100px]  md:w-[225px]  ">
                   <img
-                    className="object-contain h-full  "
+                    className="object-contain h-full "
                     alt=""
                     src="/igaugeinvertedrgb.svg"
                   />
                 </div>
               </div>
-              <p className="font-red-hat-text my-5 text-sm">
+              <p
+                style={{
+                  fontSize: fontSize(24, 5, 1920, 400),
+                }}
+                className="font-red-hat-text my-5 text-sm"
+              >
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
                 laboriosam fugit alias quibusdam necessitatibus delectus eaque
                 provident voluptatibus reprehenderit et, cumque iure, quae

@@ -64,7 +64,12 @@ const FrameComponent5 = ({ pageData }: any) => {
             // </div>
             <div
               key={i}
-              className="collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block transition-transform duration-300 transform-origin-left relative"
+              className={
+                "collection-university-card self-stretch w-[390px] shrink-0 flex flex-row items-end justify-start p-[31px] box-border relative max-w-full cursor-pointer scrollItem inline-block "
+                // dragging
+                //   ? ""
+                //   : "transition-transform duration-300 transform-origin-left"
+              }
               onMouseDown={handleDragStart}
               onMouseMove={handleDragMove}
               onMouseUp={handleDragEnd}
@@ -89,13 +94,13 @@ const FrameComponent5 = ({ pageData }: any) => {
         </div>
         <div className="flex z-[99] w-[300px] self-center mt-[50px] mdm:w-[182px] md:hidden">
           <IconButton
-            className="h-full w-[45%]"
+            className="h-full w-[45%] hover:rounded-sm p-1 hover:bg-transparent"
             onClick={() => handleScroll("left")}
           >
             <img className="h-full w-full" alt="" src="/arrow-left.webp" />
           </IconButton>
           <IconButton
-            className="h-full w-[45%]"
+            className="h-full w-[45%] hover:bg-transparent"
             onClick={() => handleScroll("right")}
           >
             <img className="h-full w-full" alt="" src="/arrow-right.webp" />
@@ -111,13 +116,13 @@ const FrameComponent5 = ({ pageData }: any) => {
             <div className="h-[388px] w-[388px] relative shrink-0 [debug_commit:1de1738] max-w-[117%]">
               <div className=" top-[0px] left-[0px] rounded-[50%] bg-orange-200 w-full h-full z-[1]" />
               <IconButton
-                className="absolute top-[195px] left-[72px]   h-[14.7px] z-[5] cursor-pointer"
+                className="absolute top-[195px] left-[72px]   h-[14.7px] z-[5] cursor-pointer hover:bg-transparent p-1"
                 onClick={() => handleScroll("left")}
               >
                 <img alt="" src="/arrow-left.webp" />
               </IconButton>
               <IconButton
-                className="absolute top-[195px] left-[140px]   h-[14.7px] z-[5] cursor-pointer"
+                className="absolute top-[195px] left-[140px]   h-[14.7px] z-[5] cursor-pointer hover:bg-transparent"
                 onClick={() => handleScroll("right")}
               >
                 <img alt="" src="/arrow-right.webp" />
@@ -129,7 +134,7 @@ const FrameComponent5 = ({ pageData }: any) => {
               <div className="w-[538px] flex flex-row items-start justify-end pt-[58px] px-[85px] pb-[53px] box-border bg-cover bg-no-repeat bg-[top] max-w-full z-[1]"></div>
             </div>
             <h1 className="m-0 w-full flex flex-wrap items-center gap-[10px] justify-start relative text-inherit font-bold font-inherit whitespace-pre-wrap inline-block max-w-full z-[2] mt-[-97px] mq450:text-[25px] mq900:text-[30px] mq1440:text-[45px] ">
-              Collections
+              Discover
               <InstitutionSelection bgImage={"/untitled-design-3-1@2x.png"} />
             </h1>
           </div>

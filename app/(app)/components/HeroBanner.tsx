@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import dummyData from "@/datatypes/home.json";
 import { AnyARecord } from "dns";
 import { fetchData } from "../services/institution";
+import { useCalculateFontSize } from "../hooks/use-calculate-font-size";
 const SelectUnivercity = ({ onChange }: any) => {
   const [selectedValue, setSelectedValue] = useState<any>("");
   const [options, setOptions] = useState([
@@ -82,7 +83,10 @@ const SelectRatings = ({ onChange, institutionType }: any) => {
     //   .catch((err) => console.log(err));
   }, []);
   useEffect(() => {
-    fetchData(ratingCollections[institutionType], { depth: 3 })
+    fetchData(
+      ratingCollections[institutionType] || "university-overall-rating",
+      { depth: 3 }
+    )
       .then((data: any) => setOptions(data?.docs))
       .catch((err) => console.log(err));
     console.log(ratingCollections[institutionType]);
@@ -100,10 +104,123 @@ const SelectRatings = ({ onChange, institutionType }: any) => {
   );
 };
 
-const SearchUniversity: any = ({ router, institutionType, ratings }: any) => {
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [options, setOptions] = useState<any>([]);
+// const SearchUniversity: any = ({ router, institutionType, ratings }: any) => {
+//   const [searchTerm, setSearchTerm] = useState<string>("");
+//   const [options, setOptions] = useState<any>([]);
+//   const [isOpen, setIsOpen] = useState(false);
+//   const handleFocus = () => {
+//     setIsOpen(true);
+//   };
+
+//   const handleBlur = () => {
+//     setIsOpen(false);
+//   };
+//   const debounce = <T extends any[]>(
+//     func: (...args: T) => void,
+//     delay: number
+//   ) => {
+//     let timer: ReturnType<typeof setTimeout>;
+//     return (...args: T) => {
+//       clearTimeout(timer);
+//       timer = setTimeout(() => {
+//         func(...args);
+//       }, delay);
+//     };
+//   };
+
+//   const debouncedSearch = debounce((value: string) => {
+//     // Implement your search logic here
+//     console.log("Searching for:", value);
+//     // Call the search function with the debounced search term
+//     fetchData(institutionType, {
+//       filter: {
+//         institution_name: { contains: value },
+//       },
+//       limit: 10,
+//     }).then((e) =>
+//       setOptions(
+//         e.docs.map((e: any) => ({ label: e.institution_name, value: e.id }))
+//       )
+//     );
+
+//     // searchInstitutions({
+//     //   // Example filters
+//     //   filters: {
+//     //     // Filter by institution name containing 'University'
+//     //     institution_name: { $regex: value, $options: "i" },
+//     //     // Filter by type 'public'
+//     //     type: "public",
+//     //     // Add more filters as needed
+//     //   },
+//     //   // Example sorting (optional)
+//     //   sort: { established_on: -1 }, // Sort by established_on in descending order
+//     //   // Example pagination (optional)
+//     //   limit: 10, // Limit the results to 10 institutions
+//     // }).then((e) =>
+//     //   setOptions(
+//     //     e.docs.map((e) => ({ label: e.institution_name, value: e.id }))
+//     //   )
+//     // );
+//   }, 500);
+
+//   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const { value } = e.target;
+//     setSearchTerm(value);
+//     debouncedSearch(value);
+//   };
+//   const handleClickInstitute = () => {
+//     router.push("/university-search");
+//   };
+//   return (
+//     <div className="flex grid grid-cols-12 w-2/4 h-[70px] mq900:w-full mq900:h-[50px] mq900:p-[10px]">
+//       <div className="h-[70px] col-span-8 flex-1 bg-white box-border flex flex-row items-center justify-start pt-[23px] px-[23px] pb-6 gap-[15px] w-full z-[3] border-[2px] border-solid border-orange-200 mq1440:p-[12px]  mq1920:p-[18px] mq900:h-[50px] relative">
+//         <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
+//           <img
+//             className="w-5 h-5 relative z-[1 mq1440:h-[14px]"
+//             alt=""
+//             src="/search.svg"
+//           />
+//         </div>
+
+//         <input
+//           className="w-52 [border:none] [outline:none] font-red-hat-display text-xl bg-[transparent] h-[26px] relative text-darkslategray-100 text-left inline-block p-0 z-[1] mq450:text-base mq1440:text-[14px] mq1600:text-[20px] "
+//           placeholder="Search for Institutions..."
+//           type="text"
+//           value={searchTerm}
+//           onFocus={handleFocus}
+//           onBlur={handleBlur}
+//           onChange={handleSearch}
+//         />
+//       </div>
+
+//       <button className="h-[70px] items-center col-span-4 cursor-pointer [border:none] pt-[23px] px-5 pb-6 bg-orange-200  w-full flex flex-row items-start justify-center box-border z-[3] mq1440:p-[16px] mq900:h-[50px]">
+//         <div className="h-[79px] w-full relative bg-orange-200 hidden" />
+//         <div className="relative text-5xl font-red-hat-display text-black text-center inline-block z-[1] mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]">
+//           Search
+//         </div>
+//       </button>
+//       <div className="col-span-8   z-[99]">
+//         {isOpen ? (
+//           options.map((e: any, i: any) => (
+//             <div
+//               className="h-[70px] w-full border cursor-pointer bg-white hover:bg-orange-500  px-[20px] flex items-center font-red-hat-display  text-5xl text-black mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]"
+//               onClick={handleClickInstitute}
+//             >
+//               {e.label}
+//             </div>
+//           ))
+//         ) : (
+//           <></>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+const SearchUniversity = ({ router, institutionType, ratings }: any) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [options, setOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleFocus = () => {
     setIsOpen(true);
   };
@@ -111,12 +228,10 @@ const SearchUniversity: any = ({ router, institutionType, ratings }: any) => {
   const handleBlur = () => {
     setIsOpen(false);
   };
-  const debounce = <T extends any[]>(
-    func: (...args: T) => void,
-    delay: number
-  ) => {
-    let timer: ReturnType<typeof setTimeout>;
-    return (...args: T) => {
+
+  const debounce = (func: any, delay: any) => {
+    let timer: any;
+    return (...args: any) => {
       clearTimeout(timer);
       timer = setTimeout(() => {
         func(...args);
@@ -124,62 +239,59 @@ const SearchUniversity: any = ({ router, institutionType, ratings }: any) => {
     };
   };
 
-  const debouncedSearch = debounce((value: string) => {
-    // Implement your search logic here
-    console.log("Searching for:", value);
-    // Call the search function with the debounced search term
-    fetchData(institutionType, {
-      filter: {
-        institution_name: { contains: value },
-      },
-      limit: 10,
-    }).then((e) =>
+  const debouncedSearch = debounce(async (value: any) => {
+    if (!institutionType) {
+      const collections = ["colleges", "schools", "universities"];
+      const searchResults = await Promise.all(
+        collections.map((collection) =>
+          fetchData(collection, {
+            filter: { institution_name: { contains: value } },
+            limit: 10,
+          })
+        )
+      );
+      const allResults = searchResults.reduce(
+        (acc, current) => acc.concat(current.docs),
+        []
+      );
       setOptions(
-        e.docs.map((e: any) => ({ label: e.institution_name, value: e.id }))
-      )
-    );
-
-    // searchInstitutions({
-    //   // Example filters
-    //   filters: {
-    //     // Filter by institution name containing 'University'
-    //     institution_name: { $regex: value, $options: "i" },
-    //     // Filter by type 'public'
-    //     type: "public",
-    //     // Add more filters as needed
-    //   },
-    //   // Example sorting (optional)
-    //   sort: { established_on: -1 }, // Sort by established_on in descending order
-    //   // Example pagination (optional)
-    //   limit: 10, // Limit the results to 10 institutions
-    // }).then((e) =>
-    //   setOptions(
-    //     e.docs.map((e) => ({ label: e.institution_name, value: e.id }))
-    //   )
-    // );
+        allResults.map((e: any) => ({ label: e.institution_name, value: e.id }))
+      );
+    } else {
+      fetchData(institutionType, {
+        filter: { institution_name: { contains: value } },
+        limit: 10,
+      }).then((e) =>
+        setOptions(
+          e.docs.map((e: any) => ({ label: e.institution_name, value: e.id }))
+        )
+      );
+    }
   }, 500);
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: any) => {
     const { value } = e.target;
     setSearchTerm(value);
     debouncedSearch(value);
   };
+
   const handleClickInstitute = () => {
     router.push("/university-search");
   };
+
   return (
     <div className="flex grid grid-cols-12 w-2/4 h-[70px] mq900:w-full mq900:h-[50px] mq900:p-[10px]">
-      <div className="h-[70px] col-span-8 flex-1 bg-white box-border flex flex-row items-center justify-start pt-[23px] px-[23px] pb-6 gap-[15px] w-full z-[3] border-[2px] border-solid border-orange-200 mq1440:p-[12px]  mq1920:p-[18px] mq900:h-[50px] relative">
+      <div className="h-[70px] col-span-8 flex-1 bg-white box-border flex flex-row items-center justify-start pt-[23px] px-[23px] pb-6 gap-[15px] w-full z-[3] border-[2px] border-solid border-orange-200 mq1440:p-[12px] mq1920:p-[18px] mq900:h-[50px] relative">
         <div className="flex flex-col items-start justify-start pt-[3px] px-0 pb-0">
           <img
-            className="w-5 h-5 relative z-[1 mq1440:h-[14px]"
+            className="w-5 h-5 relative z-[1] mq1440:h-[14px]"
             alt=""
             src="/search.svg"
           />
         </div>
 
         <input
-          className="w-52 [border:none] [outline:none] font-red-hat-display text-xl bg-[transparent] h-[26px] relative text-darkslategray-100 text-left inline-block p-0 z-[1] mq450:text-base mq1440:text-[14px] mq1600:text-[20px] "
+          className="w-52 [border:none] [outline:none] font-red-hat-display text-xl bg-[transparent] h-[26px] relative text-darkslategray-100 text-left inline-block p-0 z-[1] mq450:text-base mq1440:text-[14px] mq1600:text-[20px]"
           placeholder="Search for Institutions..."
           type="text"
           value={searchTerm}
@@ -189,51 +301,34 @@ const SearchUniversity: any = ({ router, institutionType, ratings }: any) => {
         />
       </div>
 
-      <button className="h-[70px] items-center col-span-4 cursor-pointer [border:none] pt-[23px] px-5 pb-6 bg-orange-200  w-full flex flex-row items-start justify-center box-border z-[3] mq1440:p-[16px] mq900:h-[50px]">
+      <button className="h-[70px] items-center col-span-4 cursor-pointer [border:none] pt-[23px] px-5 pb-6 bg-orange-200 w-full flex flex-row items-start justify-center box-border z-[3] mq1440:p-[16px] mq900:h-[50px]">
         <div className="h-[79px] w-full relative bg-orange-200 hidden" />
         <div className="relative text-5xl font-red-hat-display text-black text-center inline-block z-[1] mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]">
           Search
         </div>
       </button>
-      <div className="col-span-8   z-[99]">
-        {isOpen ? (
-          options.map((e: any, i: any) => (
-            <div
-              className="h-[70px] w-full border cursor-pointer bg-white hover:bg-orange-500  px-[20px] flex items-center font-red-hat-display  text-5xl text-black mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]"
-              onClick={handleClickInstitute}
-            >
-              {e.label}
-            </div>
-          ))
-        ) : (
-          <></>
-        )}
+      <div className="col-span-8 z-[99]">
+        {isOpen
+          ? options.map((e: any, i) => (
+              <div
+                key={i}
+                className="h-[70px] w-full border cursor-pointer bg-white hover:bg-orange-500 px-[20px] flex items-center font-red-hat-display text-5xl text-black mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]"
+                onClick={handleClickInstitute}
+              >
+                {e?.label || ""}
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );
 };
 
 const Features = ({ pageData }: any) => {
-  const [counts, setCounts] = useState({
-    school: 0,
-    collage: 0,
-    institution: 0,
-    rating: 0,
-    university: 0,
-  });
-  useEffect(() => {
-    // getInstitutionCountsByType()
-    //   .then((data: any) => setCounts({ ...counts, ...data }))
-    //   .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
-    // console.log(counts);
-  }, [counts]);
-
   return (
     <div className=" w-2/3 grid grid-cols-4 mq900:grid-cols-2 gap-4 w-full">
-      {pageData.content[4].counters.map((e: any) => (
-        <div className=" flex justify-center mq900:w-full">
+      {pageData.content[4].counters.map((e: any, i: number) => (
+        <div key={i} className=" flex justify-center mq900:w-full">
           <div className="w-[227px] flex flex-col items-start justify-start gap-[19px]">
             <b className="relative mq450:text-14xl mq900:text-25xl">
               {e.number}+
@@ -248,16 +343,17 @@ const Features = ({ pageData }: any) => {
   );
 };
 const TextBlock = ({ header, description }: any) => {
-  // console.log({ header });
+  const fontSize = useCalculateFontSize();
   return (
     <div className="h-full  flex flex-1 flex-col justify-around ">
       <h1
-        className="text-inherit font-bold font-inherit inline-block max-w-full z-[2]  
-                mq450:text-19xl mq900:text-32xl  mq1600:text-[45px] 
-                "
+        style={{
+          fontSize: fontSize(50, 34, 1920, 400),
+        }}
+        className="text-inherit font-bold font-inherit inline-block max-w-full z-[2] mq450:text-19xl mq900:text-32xl mq1600:text-[45px]"
       >
         {header.prefix}
-        <TypingEffect words={header.texts.map((e: any) => e.text)} />{" "}
+        <TypingEffect words={header.texts.map((e: any) => e.text)} />
         {header.suffix}
       </h1>
       <div className="w-full relative text-xl font-red-hat-text text-[20px] z-[2] mq450:text-base ">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. `}</div>
@@ -300,10 +396,10 @@ const FrameComponent10: any = ({ pageData = dummyData }: any) => {
         </div>
         <div className="w-screen min-h-screen px-10 pt-[80px]  mq900:pt-[10px] mq900:px-5 relative">
           <div className="flex h-1/2 mdm:justify-between mdm:px-10 mq900:px-0">
-            <div className="w-1/4 mdm:w-2/4">
+            <div className="w-[21%] mdm:w-2/4">
               <img src={pageData?.content[1]?.image.url} />
             </div>
-            <div className=" w-2/4 mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
+            <div className=" w-[58%] mdm:absolute mdm:top-[300px] mdm:z-3 mdm:left-0 mdm:w-screen mdm:px-20 mq900:px-5 mq900:top-[200px]">
               <div className=" h-full mdm:hidden">
                 <TextBlock
                   className=""
@@ -316,7 +412,7 @@ const FrameComponent10: any = ({ pageData = dummyData }: any) => {
                 />
               </div>
             </div>
-            <div className=" w-1/4 mdm:w-2/4">
+            <div className=" w-[21%] mdm:w-2/4">
               <img src={pageData.content[2].image.url} />
             </div>
           </div>

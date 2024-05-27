@@ -103,48 +103,36 @@ const SingleListingV2Approved = () => {
             {university.short_description}
           </div>
           <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-10 md:w-[70%]">
-            <img
-              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-              loading="lazy"
-              alt=""
-              src="/image-25@2x.png"
-            />
-            <img
-              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-              loading="lazy"
-              alt=""
-              src="/image-25@2x.png"
-            />
-            <img
-              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-              loading="lazy"
-              alt=""
-              src="/image-25@2x.png"
-            />
-            <img
-              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-              loading="lazy"
-              alt=""
-              src="/image-25@2x.png"
-            />
-            <img
-              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-              loading="lazy"
-              alt=""
-              src="/image-25@2x.png"
-            />
-            <img
-              className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-              loading="lazy"
-              alt=""
-              src="/image-25@2x.png"
-            />
+            <div>
+              <img
+                className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+                loading="lazy"
+                alt=""
+                src={university?.ratings?.overall_rating?.badges_image?.url}
+              />
+              <p className="mt-4 capitalize">
+                {university?.ratings?.overall_rating?.badges_name}
+              </p>
+            </div>
+            {university?.ratings?.subject_ratings?.map((e: any) => (
+              <div>
+                <img
+                  className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
+                  loading="lazy"
+                  alt=""
+                  src={e?.subject_rating.badges_image?.url}
+                />
+                <p className="mt-4 capitalize">
+                  {e?.subject_name.subject_name}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/** Card section */}
 
-        <div className="mt-[-50px] col-span-6 rounded-8xs bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border w-[756px] flex flex-col items-start justify-start pt-[47px] pb-[35px] pr-[45px] pl-12 gap-[40px] max-w-full z-[1] border-[1px] border-solid border-whitesmoke mq450:gap-5 mq900:py-[20px] mq900:col-span-12 mq900:m-auto mq900:mt-[40px] mq1275:px-5">
+        <div className="h-fit mt-[-50px] col-span-6 rounded-8xs bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border flex flex-col items-start justify-start pt-[47px] pb-[35px] pr-[45px] pl-12 gap-[40px] max-w-full z-[1] border-[1px] border-solid border-whitesmoke mq450:gap-5 mq900:py-[20px] mq900:col-span-12 mq900:m-auto mq900:mt-[40px] mq1275:px-5">
           <div className="rounded-8xs bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke" />
           <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-[21px] pr-[54px] pl-[50px] box-border max-w-full mq900:px-3 mq450:py-0">
             <img
@@ -201,9 +189,12 @@ const SingleListingV2Approved = () => {
               <div className="h-[73px] w-[327px] relative rounded-8xs-4 bg-white hidden max-w-full z-[0]" />
 
               <div className="flex flex-col items-start justify-end pt-0 px-0 pb-[1.7999999999992724px]">
-                <div className="flex flex-row items-start justify-start gap-[10.500000000003638px]">
+                <div
+                  onClick={bookmark}
+                  className=" cursor-pointer flex flex-row items-center justify-start gap-[10.500000000003638px]"
+                >
                   <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
-                    <IconButton onClick={bookmark}>
+                    <IconButton>
                       {bookmarked ? (
                         <FavoriteIcon
                           style={{
@@ -233,9 +224,12 @@ const SingleListingV2Approved = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row items-center justify-start gap-[10px]">
+              <div
+                onClick={handleClickCompare}
+                className="cursor-pointer flex flex-row items-center justify-start gap-[10px]"
+              >
                 <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
-                  <IconButton onClick={handleClickCompare}>
+                  <IconButton>
                     <SyncAltIcon
                       style={{
                         color: "blue",

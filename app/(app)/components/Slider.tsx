@@ -67,8 +67,8 @@ const Slider = ({
             className="self-stretch relative mq450:text-lgi"
             style={sedUtPerspiciatisContainerStyle}
           >
-            <p className="m-0">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. `}</p>
-            <p className="m-0">&nbsp;</p>
+            {/* <p className="m-0">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. `}</p>
+            <p className="m-0">&nbsp;</p> */}
             <p className="m-0">{pageData.content[8].description}</p>
           </div>
           <div className="flex flex-row items-start justify-start py-0 px-0.5">

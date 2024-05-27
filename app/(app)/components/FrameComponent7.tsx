@@ -50,30 +50,30 @@ const FrameComponent7: FunctionComponent = ({
               );
             }}
             key={university.id}
-            className="w-[390px] relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left"
+            className="w-[390px] overflow-hidden relative shrink-0 flex flex-col items-start justify-start pt-0 px-0   box-border gap-[17.300000000000182px] smm:pb-[10px] smm:w-full  mq900:box-border cursor-pointer scrollItem inline-block  transition-transform duration-300 transform-origin-left"
           >
-            <div className="self-stretch h-[308.7px] rounded-3xs flex flex-row items-start justify-end pt-[27.300000000000185px] px-0 pb-[27px] box-border bg-cover bg-no-repeat bg-[top] shrink-0 [debug_commit:1de1738] smm:w-full max-w-full">
+            <div className="overflow-hidden self-stretch h-[308.7px] rounded-3xs flex flex-row items-start justify-end pt-[27.300000000000185px] px-0 pb-[27px] box-border bg-cover bg-no-repeat bg-[top] shrink-0 [debug_commit:1de1738] smm:w-full max-w-full">
               <img
                 className="h-[308.7px] w-[390.5px] absolute rounded-3xs object-cover  max-w-full smm:w-full"
                 alt=""
                 src={university?.media?.featured_image.url}
               />
-              <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[47.1px] w-[167.4px] absolute overflow-hidden shrink-0 z-[1] top-[52px] ">
+              <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[47.1px] w-[167.4px] absolute overflow-hidden shrink-0 z-[1] top-[52px] right-[-10px]">
                 <img
                   className="absolute top-[0px] left-[0px] rounded-[2.48px] w-[218.2px] h-[47.1px]"
                   alt=""
-                  src="/rectangle-204.svg"
+                  src={university?.ratings?.overall_rating?.ribbon?.url}
                 />
-                <div className="absolute top-[2.5px] left-[3.8px] w-[210.7px] h-[42.1px]">
+                {/* <div className="absolute top-[2.5px] left-[3.8px] w-[210.7px] h-[42.1px]">
                   <img
                     className="absolute top-[0px] left-[-21px] rounded-[2.48px] w-full h-full z-[1]"
                     alt=""
-                    src="/rectangle-205.svg"
-                  />
-                  <div className="absolute top-[12.3px] left-[47.1px] text-mid uppercase font-inter text-black text-left inline-block w-[82px] h-[21px] min-w-[82px] z-[2]">
+                    src={university?.ratings?.overall_rating?.ribbon?.url}
+                  /> */}
+                {/* <div className="absolute top-[12.3px] left-[47.1px] text-mid uppercase font-inter text-black text-left inline-block w-[82px] h-[21px] min-w-[82px] z-[2]">
                     {university?.ratings?.overall_rating?.badges_name}
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div> */}
               </button>
             </div>
             <div className="w-full">

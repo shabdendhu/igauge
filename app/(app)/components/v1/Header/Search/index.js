@@ -84,9 +84,10 @@ const Search = () => {
           id="input-with-icon-adornment"
           freeSolo
           options={institutions}
-          getOptionLabel={(r) => r.institution_name}
+          getOptionLabel={(r) => r.institution_name || ""}
           value={searchQuery}
           onChange={handleChange}
+          className="outline-none"
           renderInput={(params) => (
             <TextField
               {...params}
@@ -94,7 +95,20 @@ const Search = () => {
               InputProps={{
                 ...params.InputProps,
                 startAdornment: <SearchIcon sx={{ mr: 1 }} />,
-                className: "w-full h-full px-5 py-3",
+                className: "w-full h-full px-5 py-3 ",
+                sx: {
+                  "&.MuiOutlinedInput-root": {
+                    "& fieldset": {
+                      border: "none",
+                    },
+                    "&:hover fieldset": {
+                      border: "none",
+                    },
+                    "&.Mui-focused fieldset": {
+                      border: "none",
+                    },
+                  },
+                },
               }}
             />
           )}

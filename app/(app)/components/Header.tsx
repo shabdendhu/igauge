@@ -126,8 +126,8 @@ const Header: FunctionComponent = () => {
           </div>
           <div className=" h-full w-full items-center ">
             <div className="flex justify-between items-center h-full gap-x-5">
-              {menu.mainItems.map((e: any) => (
-                <Menu items={e} />
+              {menu.mainItems.map((e: any, i: number) => (
+                <Menu key={i} items={e} />
               ))}
 
               <Search />

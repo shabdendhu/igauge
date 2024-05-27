@@ -43,7 +43,7 @@ const Badge = ({
 
   return (
     <div className="w-[165px] flex flex-col items-start justify-start gap-[9.199999999999818px] text-left text-sm text-black font-red-hat-text">
-      <div className="self-stretch h-[35.8px] relative">
+      <div className="self-stretch h-[120px] relative">
         {/* <img
           className="absolute top-[0px] left-[0px] rounded-[1.89px] w-full h-full"
           alt=""
@@ -63,7 +63,7 @@ const Badge = ({
             {diamond}
           </div>
         </button> */}
-        <img src={value?.category_rating?.ribbon_image?.url} />
+        <img src={value?.category_rating?.badges_image?.url} />
       </div>
       <div className="relative font-medium" style={teachingLearningStyle}>
         {value?.category_name?.category_name}

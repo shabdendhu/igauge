@@ -92,9 +92,9 @@ const RatingSystemComponent = ({ pageData }: any) => {
           <Slider divider="/19-2.svg" />
         </div>
       </section> */}
-      <section className="  w-screen relative pb-[100px]">
+      <section className="m-h-[1040px] overflow-hidden w-screen relative pb-[100px]">
         <div className="flex mdm:flex-col">
-          <div className="h-[440px] w-1/2 md:h-[1074px] mdm:w-full relative">
+          <div className=" w-1/2 md:h-[1074px] mdm:w-full relative">
             <img
               className="h-full w-full flex-1 max-w-full overflow-hidden object-cover "
               src={pageData.content[8].image.url}

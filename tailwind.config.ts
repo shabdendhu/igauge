@@ -15,6 +15,9 @@ module.exports = withMT({
       animation: {
         blink: "blink 0.7s infinite",
       },
+      outline: {
+        none: ["0px", "transparent"],
+      },
       keyframes: {
         blink: {
           "0%, 100%": { opacity: 1 },

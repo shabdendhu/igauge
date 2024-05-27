@@ -10,7 +10,9 @@ import {
   FormControlLabel,
   FormLabel,
   IconButton,
+  Input,
   InputAdornment,
+  OutlinedInput,
   TextField,
 } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
@@ -22,8 +24,11 @@ import { getAllInstitutions } from "@/utils/getInstitution";
 import { useCalculateFontSize } from "../../hooks/use-calculate-font-size";
 import { fetchData } from "@/app/(app)/services/institution";
 import { debounce, set } from "lodash";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useSearchParams } from "next/navigation";
 import { addBookmarkInstitutionByUserId } from "../../services/bookmark";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { orange } from "@mui/material/colors";
 
 const CollectionPageV2Approved: FunctionComponent = () => {
   const fontSize = useCalculateFontSize();
@@ -55,6 +60,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
       overall_rating: "university-overall-rating",
       category_rating: "university-category-rating",
     },
+    elead: "yes",
   });
   const fetchDataWithFilter = useCallback((filter: any) => {
     fetchData(filter.type.institution_type, {
@@ -80,6 +86,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
         institution_name: {
           like: filter.institution_name || undefined, // Adjust the search term as needed
         },
+        "e-lead": { equals: filter.elead },
       },
     })
       .then((data) => setUniversities(data.docs))
@@ -233,7 +240,10 @@ const CollectionPageV2Approved: FunctionComponent = () => {
     }, 500),
     []
   );
-
+  const handleChangeCheckBox = (key: string, e: any) => {
+    handleFilterChange(key, e.target.checked ? "yes" : "no");
+    console.log(key, e.target.checked);
+  };
   useEffect(() => {
     console.log({
       univercityes: universities,
@@ -243,7 +253,9 @@ const CollectionPageV2Approved: FunctionComponent = () => {
       subjects,
     });
   }, [universities, states, cities, overallRating, subjects]);
+  const handleClickSortByAlphabetically = () => {};
 
+  const handleClickSortByRating = () => {};
   return (
     <div className="university-search flex flex-col">
       <div className="bg-papayawhip box-border md:h-32 border-[1px] border-solid border-orange-200 flex items-center justify-between w-full md:px-[150px] mdm:px-5 mdm:py-5">
@@ -270,7 +282,34 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               getOptionLabel={(e: any) => e.state_name}
               onChange={(e, i) => handleFilterChange("state", i)}
               renderInput={(params) => (
-                <TextField {...params} label="Select State" />
+                <OutlinedInput
+                  {...params}
+                  placeholder="Select State"
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <LocationOnIcon
+                        style={{
+                          color: "#DC6A6A",
+                        }}
+                      />
+                    </InputAdornment>
+                  }
+                  style={{
+                    paddingRight: 10,
+                  }}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        // onClick={handleClickShowPassword}
+                        // onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        <KeyboardArrowDownIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
               )}
             />
             <Autocomplete
@@ -281,7 +320,34 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               getOptionLabel={(e: any) => e.city_name}
               onChange={(e, i) => handleFilterChange("city", i)}
               renderInput={(params) => (
-                <TextField {...params} label="Select City" />
+                <OutlinedInput
+                  {...params}
+                  placeholder="Select City"
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <LocationOnIcon
+                        style={{
+                          color: "#DC6A6A",
+                        }}
+                      />
+                    </InputAdornment>
+                  }
+                  style={{
+                    paddingRight: 10,
+                  }}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        // onClick={handleClickShowPassword}
+                        // onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        <KeyboardArrowDownIcon />
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
               )}
             />
 
@@ -343,11 +409,33 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               </Select>
             </FormControl>
             <FormControlLabel
-              control={<Checkbox defaultChecked />}
+              control={
+                <Checkbox
+                  onChange={(e: any) => handleChangeCheckBox("elead", e)}
+                  defaultChecked
+                  sx={{
+                    color: orange[800],
+                    "&.Mui-checked": {
+                      color: orange[600],
+                    },
+                  }}
+                />
+              }
               label="E-LEAD & Adv E-LEAD Certified"
             />
             <FormControlLabel
-              control={<Checkbox defaultChecked />}
+              control={
+                <Checkbox
+                  // onChange={(e: any) => handleChangeCheckBox("subject", e)}
+                  defaultChecked
+                  sx={{
+                    color: orange[800],
+                    "&.Mui-checked": {
+                      color: orange[600],
+                    },
+                  }}
+                />
+              }
               label="Subject & Category"
             />
             <div className="bg-white box-border  border-[1px] border- border-whitesmoke-100 my-[20px]" />
@@ -357,13 +445,13 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <div className="bordder border-red-500 flex justify-between mdm:flex-col mdm:gap-2">
               <div className="flex gap-10 mdm:flex-col mdm:gap-2">
                 <span>
-                  <IconButton>
+                  <IconButton onClick={handleClickSortByAlphabetically}>
                     <SortIcon />
                   </IconButton>
                   Sort A to Z
                 </span>
                 <span>
-                  <IconButton>
+                  <IconButton onClick={handleClickSortByRating}>
                     <SortIcon />
                   </IconButton>
                   Sort from Highest Rating to Lowest
