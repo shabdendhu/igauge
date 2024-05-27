@@ -123,7 +123,7 @@ const SingleListingV2Approved = () => {
                   src={e?.subject_rating.badges_image?.url}
                 />
                 <p className="mt-4 capitalize">
-                  {e?.subject_name.subject_name}
+                  {e?.subject_name?.subject_name}
                 </p>
               </div>
             ))}

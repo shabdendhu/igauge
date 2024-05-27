@@ -216,7 +216,11 @@ const SelectRatings = ({ onChange, institutionType }: any) => {
 //     </div>
 //   );
 // };
-const SearchUniversity = ({ router, institutionType, ratings }: any) => {
+const SearchUniversity = ({
+  router,
+  institutionType = "universities",
+  ratings,
+}: any) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [options, setOptions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
@@ -226,7 +230,7 @@ const SearchUniversity = ({ router, institutionType, ratings }: any) => {
   };
 
   const handleBlur = () => {
-    setIsOpen(false);
+    // setIsOpen(false);
   };
 
   const debounce = (func: any, delay: any) => {
@@ -240,7 +244,7 @@ const SearchUniversity = ({ router, institutionType, ratings }: any) => {
   };
 
   const debouncedSearch = debounce(async (value: any) => {
-    if (!institutionType) {
+    if (false) {
       const collections = ["colleges", "schools", "universities"];
       const searchResults = await Promise.all(
         collections.map((collection) =>
@@ -258,7 +262,7 @@ const SearchUniversity = ({ router, institutionType, ratings }: any) => {
         allResults.map((e: any) => ({ label: e.institution_name, value: e.id }))
       );
     } else {
-      fetchData(institutionType, {
+      fetchData(institutionType || "universities", {
         filter: { institution_name: { contains: value } },
         limit: 10,
       }).then((e) =>
@@ -275,8 +279,12 @@ const SearchUniversity = ({ router, institutionType, ratings }: any) => {
     debouncedSearch(value);
   };
 
-  const handleClickInstitute = () => {
-    router.push("/university-search");
+  const handleClickInstitute = (id: any) => {
+    router.push(
+      `/university-detail?id=${id}&institution_type=${
+        institutionType || "universities"
+      }`
+    );
   };
 
   return (
@@ -313,7 +321,7 @@ const SearchUniversity = ({ router, institutionType, ratings }: any) => {
               <div
                 key={i}
                 className="h-[70px] w-full border cursor-pointer bg-white hover:bg-orange-500 px-[20px] flex items-center font-red-hat-display text-5xl text-black mq450:text-lgi mq1440:text-[14px] mq1600:text-[20px]"
-                onClick={handleClickInstitute}
+                onClick={() => handleClickInstitute(e.value)}
               >
                 {e?.label || ""}
               </div>
