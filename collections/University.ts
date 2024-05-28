@@ -86,7 +86,7 @@ const University: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 {
@@ -106,7 +106,7 @@ const University: CollectionConfig = {
                   defaultValue: "no",
                   admin: {
                     layout: "horizontal",
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 // {

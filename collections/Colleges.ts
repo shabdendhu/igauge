@@ -86,7 +86,7 @@ const Colleges: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 {
@@ -106,7 +106,7 @@ const Colleges: CollectionConfig = {
                   defaultValue: "no",
                   admin: {
                     layout: "horizontal",
-                    width: "33%",
+                    width: "50%",
                   },
                 },
                 // {
@@ -119,26 +119,7 @@ const Colleges: CollectionConfig = {
                 //     width: "37.5%",
                 //   },
                 // },
-                {
-                  name: "e-lead",
-                  type: "radio",
-                  label: "Does this institution have E-Lead certfication?",
-                  options: [
-                    {
-                      label: "No",
-                      value: "no",
-                    },
-                    {
-                      label: "Yes",
-                      value: "yes",
-                    },
-                  ],
-                  defaultValue: "no",
-                  admin: {
-                    layout: "horizontal",
-                    width: "33%",
-                  },
-                },
+                
 
                 {
                   name: "website",
@@ -486,6 +467,27 @@ const Colleges: CollectionConfig = {
                   ],
                 },
               ],
+            },
+
+            {
+              name: "e-lead",
+              type: "radio",
+              label: "Does this institution have E-Lead certfication?",
+              options: [
+                {
+                  label: "No",
+                  value: "no",
+                },
+                {
+                  label: "Yes",
+                  value: "yes",
+                },
+              ],
+              defaultValue: "no",
+              admin: {
+                layout: "horizontal",
+                width: "33%",
+              },
             },
           ],
         },
