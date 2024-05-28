@@ -231,6 +231,29 @@ const University: CollectionConfig = {
                             width: "50%",
                           },
                         },
+                        {
+                          name: "child_array_keypoints",
+                          type: "array",
+                          label: "Links",
+                          fields: [
+                            {
+                              name: "name",
+                              type: "text",
+                              label: "Name",
+                              admin: {
+                                width: "50%",
+                              },
+                            },
+                            {
+                              name: "link",
+                              type: "text",
+                              label: "Link",
+                              admin: {
+                                width: "50%",
+                              },
+                            },
+                          ],
+                        },
                       ],
                     },
                   ],
