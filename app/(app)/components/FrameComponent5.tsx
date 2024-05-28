@@ -3,8 +3,10 @@ import { getInstitutionsByType } from "@/utils/getInstitution";
 import { FunctionComponent, useEffect, useRef, useState } from "react";
 import InstitutionSelection from "@/app/(app)/components/v1/Home/InstitutionSelection";
 import { IconButton } from "@mui/material";
+import { useRouter } from "next/navigation";
 const FrameComponent5 = ({ pageData }: any) => {
   const scrollContainerRef = useRef<any>(null);
+  const router = useRouter();
   const [dragging, setDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [currentTranslate, setCurrentTranslate] = useState(0);
@@ -33,6 +35,9 @@ const FrameComponent5 = ({ pageData }: any) => {
 
   const handleDragEnd = () => {
     setDragging(false);
+  };
+  const handleClickCard = () => {
+    router.push("/university-search");
   };
 
   return (
@@ -74,6 +79,7 @@ const FrameComponent5 = ({ pageData }: any) => {
               onMouseMove={handleDragMove}
               onMouseUp={handleDragEnd}
               onMouseLeave={handleDragEnd}
+              onClick={handleClickCard}
               style={{
                 transform: `translateX(${currentTranslate}px)`,
                 userSelect: "none",

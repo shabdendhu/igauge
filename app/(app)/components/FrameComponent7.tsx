@@ -58,12 +58,12 @@ const FrameComponent7: FunctionComponent = ({
                 alt=""
                 src={university?.media?.featured_image.url}
               />
+              <img
+                className="absolute top-[52px]  right-[-10px] rounded-[2.48px] w-[218.2px] h-[47.1px]"
+                alt=""
+                src={university?.ratings?.overall_rating?.ribbon?.url}
+              />
               <button className="cursor-pointer [border:none] p-0 bg-[transparent] h-[47.1px] w-[167.4px] absolute overflow-hidden shrink-0 z-[1] top-[52px] right-[-10px]">
-                <img
-                  className="absolute top-[0px] left-[0px] rounded-[2.48px] w-[218.2px] h-[47.1px]"
-                  alt=""
-                  src={university?.ratings?.overall_rating?.ribbon?.url}
-                />
                 {/* <div className="absolute top-[2.5px] left-[3.8px] w-[210.7px] h-[42.1px]">
                   <img
                     className="absolute top-[0px] left-[-21px] rounded-[2.48px] w-full h-full z-[1]"

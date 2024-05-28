@@ -51,11 +51,10 @@ const HomeV2Approved: FunctionComponent = () => {
     <div className="w-full  bg-white overflow-hidden flex flex-col items-start justify-start leading-[normal] tracking-[normal]">
       <div className="w-full h-[39px]  hidden max-w-full" />
       <FrameComponent10 pageData={data} />
-
       <TopRated pageData={data} />
       <FrameComponent6 prop="/double_arrow.svg" />
       <FrameComponent5 pageData={data} />
-      <section className="self-stretch flex flex-row items-start justify-center pt-0 pb-[199.70000000000005px] pr-5 pl-[22px] box-border max-w-full mq900:pb-[84px]  mq900:px-5 mq900:box-border mq1275:pb-[130px] mq1275:box-border mq1440:px-[100px] mq1920:px-[136px]">
+      <section className="self-stretch flex flex-row items-start justify-center pt-0 pb-[100px] pr-5 pl-[22px] box-border max-w-full mq900:pb-[84px]  mq900:px-5 mq900:box-border mq1275:pb-[130px] mq1275:box-border mq1440:px-[100px] mq1920:px-[136px]">
         <div className="w-[1650px] flex flex-col items-start justify-start gap-[30px] max-w-full">
           <TopRatedUniversitySection />
           <FrameComponent3 pageData={data} />
@@ -107,7 +106,7 @@ const HomeV2Approved: FunctionComponent = () => {
         <div className="w-1/3 bodrder border-red-500 mq450:w-full">
           <img
             src="image-9@2x.png"
-            className="relative top-[10%] h-full mq450:top-[-30%] left-[-50px]"
+            className="relative top-[10%] h-full mq450:top-[-30%] left-[-50px] mq450:left-[0]"
           />
         </div>
         <div
@@ -117,7 +116,7 @@ const HomeV2Approved: FunctionComponent = () => {
             fontWeight: 700,
             textAlign: "left",
           }}
-          className="w-1/3 bordfer blue-red-500 text-white flex items-center mq450:w-full relative  mq450:top-[-20%]"
+          className="w-1/3 bordfer blue-red-500 text-white flex items-center mq450:w-full relative  mq450:top-[-20%] mq450:px-[20px]"
         >
           Unlock a world of educational opportunities
         </div>
@@ -125,11 +124,11 @@ const HomeV2Approved: FunctionComponent = () => {
           <p
             style={{
               fontFamily: "Red Hat Text",
-              fontSize: fontSize(20, 8, 1920, 400),
+              fontSize: fontSize(20, 14, 1920, 400),
               // fontWeight: 700,
               textAlign: "left",
               color: "white",
-              lineHeight: `${fontSize(28, 13, 1920, 400)}px`,
+              lineHeight: `${fontSize(28, 17, 1920, 400)}px`,
               marginBottom: "15px",
             }}
           >
@@ -140,7 +139,7 @@ const HomeV2Approved: FunctionComponent = () => {
             style={{
               fontSize: fontSize(27, 11, 1920, 400),
             }}
-            className="bg-orange-500 text-white rounded-none px-10 py-5 hover:bg-orange-500"
+            className="bg-orange-500 text-black rounded-none px-10 py-5 hover:bg-orange-500 mq450:px-5 mq450:py-2"
           >
             Sign Up Now
           </Button>
