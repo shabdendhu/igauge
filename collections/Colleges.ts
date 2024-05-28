@@ -226,7 +226,7 @@ const Colleges: CollectionConfig = {
                         {
                           name: "keypoint_title",
                           type: "relationship",
-                          relationTo: "university-keypoints",
+                          relationTo: "college-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",
