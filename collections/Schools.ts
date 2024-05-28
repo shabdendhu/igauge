@@ -90,13 +90,14 @@ const Schools: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "25%",
+                    width: "20%",
                   },
                 },
-                {
+                { 
                   name: "school_category",
                   type: "select",
-                  label: "School Category",
+                  label: "School Board",
+                  hasMany: true,
                   options: [
                     {
                       label: "Central Board of Secondary Education",
@@ -134,7 +135,7 @@ const Schools: CollectionConfig = {
                     },
                   ],
                   admin: {
-                    width: "37.5%",
+                    width: "26.6%",
                   },
                 },
                 {
@@ -156,7 +157,15 @@ const Schools: CollectionConfig = {
                     },
                   ],
                   admin: {
-                    width: "37.5%",
+                    width: "26.6%",
+                  },
+                },
+                {
+                  name: "expiring_date",
+                  type: "date",
+                  label: "Expiring Date",
+                  admin: {
+                    width: "26.6%",
                   },
                 },
                 {
@@ -246,7 +255,7 @@ const Schools: CollectionConfig = {
                         {
                           name: "keypoint_title",
                           type: "relationship",
-                          relationTo: "school-keypoints",
+                          relationTo: "university-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",
@@ -259,6 +268,33 @@ const Schools: CollectionConfig = {
                           admin: {
                             width: "50%",
                           },
+                        },
+                        {
+                          name: "child_array_keypoints",
+                          type: "array",
+                          label: "Link",
+                          labels: {
+                            singular: "Item",
+                            plural: "Items",
+                          },
+                          fields: [
+                            {
+                              name: "name",
+                              type: "text",
+                              label: "Name",
+                              admin: {
+                                width: "50%",
+                              },
+                            },
+                            {
+                              name: "link",
+                              type: "text",
+                              label: "Link",
+                              admin: {
+                                width: "50%",
+                              },
+                            },
+                          ],
                         },
                       ],
                     },

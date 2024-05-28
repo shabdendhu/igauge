@@ -86,9 +86,10 @@ const Colleges: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "50%",
+                    width: "33%",
                   },
                 },
+                
                 {
                   name: "autonomous",
                   type: "radio",
@@ -106,7 +107,15 @@ const Colleges: CollectionConfig = {
                   defaultValue: "no",
                   admin: {
                     layout: "horizontal",
-                    width: "50%",
+                    width: "33%",
+                  },
+                },
+                {
+                  name: "expiring_date",
+                  type: "date",
+                  label: "Expiring Date",
+                  admin: {
+                    width: "33%",
                   },
                 },
                 // {
@@ -217,7 +226,7 @@ const Colleges: CollectionConfig = {
                         {
                           name: "keypoint_title",
                           type: "relationship",
-                          relationTo: "college-keypoints",
+                          relationTo: "university-keypoints",
                           label: "Keypoint Title",
                           admin: {
                             width: "50%",
@@ -230,6 +239,33 @@ const Colleges: CollectionConfig = {
                           admin: {
                             width: "50%",
                           },
+                        },
+                        {
+                          name: "child_array_keypoints",
+                          type: "array",
+                          label: "Link",
+                          labels: {
+                            singular: "Item",
+                            plural: "Items",
+                          },
+                          fields: [
+                            {
+                              name: "name",
+                              type: "text",
+                              label: "Name",
+                              admin: {
+                                width: "50%",
+                              },
+                            },
+                            {
+                              name: "link",
+                              type: "text",
+                              label: "Link",
+                              admin: {
+                                width: "50%",
+                              },
+                            },
+                          ],
                         },
                       ],
                     },

@@ -86,7 +86,7 @@ const University: CollectionConfig = {
                   defaultValue: "public",
                   admin: {
                     layout: "horizontal",
-                    width: "50%",
+                    width: "33%",
                   },
                 },
                 {
@@ -106,9 +106,18 @@ const University: CollectionConfig = {
                   defaultValue: "no",
                   admin: {
                     layout: "horizontal",
-                    width: "50%",
+                    width: "33%",
                   },
                 },
+                {
+                  name: "expiring_date",
+                  type: "date",
+                  label: "Expiring Date",
+                  admin: {
+                    width: "33%",
+                  },
+                },
+
                 // {
                 //   name: "subjects",
                 //   type: "relationship",
@@ -234,7 +243,11 @@ const University: CollectionConfig = {
                         {
                           name: "child_array_keypoints",
                           type: "array",
-                          label: "Links",
+                          label: "Link",
+                          labels: {
+                            singular: "Item",
+                            plural: "Items",
+                          },
                           fields: [
                             {
                               name: "name",

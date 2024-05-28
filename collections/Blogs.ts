@@ -41,7 +41,7 @@ const Blogs: CollectionConfig = {
           relationTo: "blogs-category",
           hasMany: false,
           admin: {
-            width: "33%",
+            width: "50%",
           },
         },
         {
@@ -49,7 +49,7 @@ const Blogs: CollectionConfig = {
           type: "date",
           label: "Published Date",
           admin: {
-            width: "33%",
+            width: "50%",
           },
         },
         {
@@ -62,7 +62,7 @@ const Blogs: CollectionConfig = {
             mimeType: { contains: "image" },
           },
           admin: {
-            width: "33%",
+            width: "50%",
           },
         },
         {
@@ -71,7 +71,7 @@ const Blogs: CollectionConfig = {
           required: true,
           label: "Excerpt",
           admin: {
-            width: "100%",
+            width: "50%",
           },
         },
         {
