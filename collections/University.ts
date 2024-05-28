@@ -119,26 +119,7 @@ const University: CollectionConfig = {
                 //     width: "37.5%",
                 //   },
                 // },
-                {
-                  name: "e-lead",
-                  type: "radio",
-                  label: "Does this institution have E-Lead certfication?",
-                  options: [
-                    {
-                      label: "No",
-                      value: "no",
-                    },
-                    {
-                      label: "Yes",
-                      value: "yes",
-                    },
-                  ],
-                  defaultValue: "no",
-                  admin: {
-                    layout: "horizontal",
-                    width: "33%",
-                  },
-                },
+                
 
                 {
                   name: "website",
@@ -487,6 +468,27 @@ const University: CollectionConfig = {
                   ],
                 },
               ],
+            },
+
+            {
+              name: "e-lead",
+              type: "radio",
+              label: "Does this institution have E-Lead certfication?",
+              options: [
+                {
+                  label: "No",
+                  value: "no",
+                },
+                {
+                  label: "Yes",
+                  value: "yes",
+                },
+              ],
+              defaultValue: "no",
+              admin: {
+                layout: "horizontal",
+                width: "33%",
+              },
             },
           ],
         },
