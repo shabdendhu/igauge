@@ -44,7 +44,7 @@ const HomeV2Approved: FunctionComponent = () => {
     }
   };
   useEffect(() => {
-    // getPages();
+    getPages();
     console.log(data);
   }, []);
   return (

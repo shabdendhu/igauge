@@ -21,19 +21,24 @@ const Coll_CategoryRatings: CollectionConfig = {
       label: "Badges Name",
     },
     {
-      name: "badges_image",
-      type: "upload",
-      relationTo: "media",
-      required: true,
-      label: "Badges Image",
-    },
-    {
       name: "ribbon_image",
       type: "upload",
       relationTo: "media",
       required: true,
       label: "Ribbon Image",
     },
+    {
+      name: "rated_by",
+      type: "select",
+      options: [
+        { label: "Indian University Rating", value: "university" },
+        { label: 'Indian College Rating', value: 'college' },
+        { label: 'Indian School Rating', value: 'school' },
+        { label: 'Indian University & College Rating', value: 'university-college' },
+      ],
+      required: true,
+      defaultValue: 'college',
+    }
   ],
 };
 export default Coll_CategoryRatings;
