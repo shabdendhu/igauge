@@ -75,10 +75,10 @@ const FrameComponent5 = ({ pageData }: any) => {
                 //   ? ""
                 //   : "transition-transform duration-300 transform-origin-left"
               }
-              onMouseDown={handleDragStart}
-              onMouseMove={handleDragMove}
-              onMouseUp={handleDragEnd}
-              onMouseLeave={handleDragEnd}
+              // onMouseDown={handleDragStart}
+              // onMouseMove={handleDragMove}
+              // onMouseUp={handleDragEnd}
+              // onMouseLeave={handleDragEnd}
               onClick={handleClickCard}
               style={{
                 transform: `translateX(${currentTranslate}px)`,

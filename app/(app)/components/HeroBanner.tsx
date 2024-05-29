@@ -53,7 +53,7 @@ const SelectUnivercity = ({ onChange }: any) => {
     <div className="h-full w-full flex relative">
       <Select
         getLabel={(e: any) => e.label}
-        defaultValue={""}
+        defaultValue={"University"}
         options={options}
         onChange={handleChange}
       />

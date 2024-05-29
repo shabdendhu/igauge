@@ -86,7 +86,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
         institution_name: {
           like: filter.institution_name || undefined, // Adjust the search term as needed
         },
-        "e-lead": { equals: filter.elead },
+        "ratings.e-lead": { equals: filter.elead },
       },
     })
       .then((data) => setUniversities(data.docs))

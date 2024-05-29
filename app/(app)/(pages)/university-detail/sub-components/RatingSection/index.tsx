@@ -65,8 +65,8 @@ const RatingSection = ({
           <div className="flex flex-row items-start justify-center py-0 px-5 box-border max-w-full  xl:pl-20">
             <div className="flex flex-col items-start justify-start gap-[32px]">
               <div className="relative z-[3] mq450:text-base">
-                <span>{keyPoint.keypoint_title.KeyPoint_title} :</span>
-                <span className="font-medium"> {keyPoint.keypoint_value}</span>
+                <span>{keyPoint?.keypoint_title?.KeyPoint_title} :</span>
+                <span className="font-medium"> {keyPoint?.keypoint_value}</span>
               </div>
             </div>
           </div>

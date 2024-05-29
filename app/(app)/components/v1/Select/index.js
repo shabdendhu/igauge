@@ -22,7 +22,7 @@ const Select = ({ options, onChange, defaultValue, getLabel }) => {
   };
 
   useEffect(() => {
-    setSelectedValue(defaultValue || "Select University");
+    setSelectedValue(defaultValue || "");
   }, [defaultValue]);
 
   return (
