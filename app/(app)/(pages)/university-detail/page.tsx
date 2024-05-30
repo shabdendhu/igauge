@@ -100,11 +100,11 @@ const SingleListingV2Approved = () => {
           <h1 className=" text-[45px] font-bold font-libre-baskerville mq450:text-19xl mq900:text-[51px] xl:text-[64px]">
             {university?.institution_name}
           </h1>
-          <div className=" text-[16px] font-inter text-darkslategray inline-block w-[663px] mq900:w-full mq450:text-lg w-[70%] xl:text-[25px]">
+          {/* <div className=" text-[16px] font-inter text-darkslategray inline-block w-[663px] mq900:w-full mq450:text-lg w-[70%] xl:text-[25px]">
             {university.short_description}
-          </div>
-          <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-10 md:w-[70%]">
-            <div>
+          </div> */}
+          <div className="grid grid-cols-1 mq900:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-10 md:w-[80%]">
+            {/* <div>
               <img
                 className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
                 loading="lazy"
@@ -114,7 +114,7 @@ const SingleListingV2Approved = () => {
               <p className="mt-4 capitalize">
                 {university?.ratings?.overall_rating?.badges_name}
               </p>
-            </div>
+            </div> */}
             {university?.ratings?.subject_ratings?.map((e: any, i: any) => (
               <RatingBadge
                 key={i}

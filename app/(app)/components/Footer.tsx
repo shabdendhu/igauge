@@ -102,14 +102,16 @@ const Footer: FunctionComponent = () => {
       >
         <div className="flex flex-row  justify-between items-center gap-5 ">
           {footer?.policy_footer_menu?.map((e: any, i: number) => (
-            <a key={i} href={e.link} className="text-nowrap">
+            <a key={i} href={e.link} className="text-nowrap font-red-hat-text">
               {e.name}
             </a>
           ))}
           {/* <div className=" text-nowrap">Privacy Policy</div>
           <div className="text-nowrap">Terms & Condition</div> */}
         </div>
-        <div className="  text-center my-4 md:my-0">{footer.copy_right}</div>
+        <div className="  text-center my-4 md:my-0 font-red-hat-text">
+          {footer.copy_right}
+        </div>
       </div>
     </div>
   );

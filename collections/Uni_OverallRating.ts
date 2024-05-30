@@ -34,6 +34,20 @@ const Uni_OverallRating: CollectionConfig = {
       required: true,
       label: "Ribbon",
     },
+    {
+      name: "rated_by",
+      type: "select",
+      options: [
+        { label: "Indian University Rating", value: "university" },
+        { label: "Indian College Rating", value: "college" },
+        { label: "Indian School Rating", value: "school" },
+        {
+          label: "Indian University & College Rating",
+          value: "university-college",
+        },
+      ],
+      defaultValue: "university",
+    },
   ],
 };
 export default Uni_OverallRating;
