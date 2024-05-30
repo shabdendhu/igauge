@@ -90,7 +90,7 @@ const Header: FunctionComponent = () => {
             {menu.top_bar_menu.map((e: any) => (
               <Link
                 href={e.link}
-                className="relative inline-block min-w-[51px]"
+                className="relative inline-block min-w-[51px] font-red-hat-display"
               >
                 {e.name}
               </Link>

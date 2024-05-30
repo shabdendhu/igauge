@@ -19,6 +19,7 @@ import {
   addBookmarkInstitutionByUserId,
   removeBookmarkInstitutionByUserId,
 } from "@/app/(app)/services/bookmark";
+import RatingBadge from "../../components/v1/RatingBadge";
 const VideoPlayer = ({ university }: any) => {
   console.log(university.video);
   return (
@@ -114,18 +115,13 @@ const SingleListingV2Approved = () => {
                 {university?.ratings?.overall_rating?.badges_name}
               </p>
             </div>
-            {university?.ratings?.subject_ratings?.map((e: any) => (
-              <div>
-                <img
-                  className="w-full object-cover aspect-[169/120] mq900:w-[160px]"
-                  loading="lazy"
-                  alt=""
-                  src={e?.subject_rating.badges_image?.url}
-                />
-                <p className="mt-4 capitalize">
-                  {e?.subject_name?.subject_name}
-                </p>
-              </div>
+            {university?.ratings?.subject_ratings?.map((e: any, i: any) => (
+              <RatingBadge
+                key={i}
+                badgeName={e.subject_rating.badges_name}
+                ratedBy={e?.subject_rating?.rated_by}
+                ratingName={e.subject_name.subject_name}
+              />
             ))}
           </div>
         </div>
@@ -356,7 +352,6 @@ const SingleListingV2Approved = () => {
             </div>
             <RequestMethodology />
           </div>
-
           <div className="col-span-9 lgm:col-span-8 mq900:col-span-2">
             <div className="flex-1 flex flex-col items-start justify-start gap-[99px] max-w-full text-40xl font-libre-baskerville mq1275:min-w-full mq450:gap-[25px_99px] mq900:gap-[49px_99px]">
               <div className="self-stretch flex flex-col items-start justify-start gap-[36px] max-w-full mq900:gap-[18px_36px]">
@@ -364,14 +359,13 @@ const SingleListingV2Approved = () => {
                   Overview
                 </h1>
                 <div className="self-stretch min-h-[197px] text-[22.1px] font-red-hat-text text-darkslategray inline-block shrink-0 mq450:text-lg mq900:text-sm">
-                  <p className="m-0">{`Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. `}</p>
                   <p className="m-0">&nbsp;</p>
-                  <p className="m-0">
-                    Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-                    amet, consectetur, adipisci velit, sed quia non numquam eius
-                    modi tempora incidunt ut labore et dolore magnam aliquam
-                    quaerat voluptatem. Ut enim ad minima veniam
-                  </p>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: university?.overviewt_html || <></>,
+                    }}
+                    className="m-0 font-red-hat-text text-[#343434]"
+                  ></div>
                 </div>
               </div>
               <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
@@ -380,15 +374,19 @@ const SingleListingV2Approved = () => {
               <div className="border border-orange-200 w-full bg-papayawhip px-10 flex flex-col gap-10 py-5 rounded-8xs">
                 {university.salient_features.map((e: any, i: number) => (
                   <div key={i} className="flex items-center gap-5">
-                    <ArrowCircleRightIcon
+                    {/* <ArrowCircleRightIcon
                       style={{
                         color: "#F7A600",
                         backgroundColor: "#000000",
                         borderRadius: "50%",
                         // fontSize: fontSize(21, 19, 1920, 400),
                       }}
+                    /> */}
+                    <img
+                      src={"/arrow.svg"}
+                      className="bg-black rounded-[100%]"
                     />
-                    <div className="text-[22.1px] font-red-hat-text text-darkslategray mq450:text-lg mq900:text-sm">
+                    <div className="text-[22.1px] font-red-hat-text text-[#343434] mq450:text-lg mq900:text-sm">
                       {e.salient_feature_title}
                     </div>
                   </div>
@@ -436,7 +434,10 @@ const SingleListingV2Approved = () => {
                       </div>
                     </div>
                     <div className="flex flex-col items-start justify-start px-0 pb-0 box-border mq1275:flex-1">
-                      <button className="cursor-pointer [border:none] pt-[16px] pb-[16px] pr-9 pl-[16px] bg-orange-200 flex flex-row items-start justify-start gap-[18px] z-[1]">
+                      <a
+                        href={university?.fee_structure_url}
+                        className="cursor-pointer [border:none] pt-[16px] pb-[16px] pr-9 pl-[16px] bg-orange-200 flex flex-row items-start justify-start gap-[18px] z-[1]"
+                      >
                         <div className="h-[77px] w-[313px] relative bg-orange-200 hidden" />
                         <img
                           className="w-5 h-5 relative z-[2]"
@@ -446,7 +447,7 @@ const SingleListingV2Approved = () => {
                         <div className="relative text-[16px] font-red-hat-display text-black text-left z-[1] mq450:text-lgi">
                           View Fee Structure
                         </div>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>

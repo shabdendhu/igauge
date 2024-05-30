@@ -328,9 +328,9 @@ const BlogsV2Approved: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <FrameComponent11 />
-      </div>
+      </div> */}
     </div>
   );
 };

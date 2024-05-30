@@ -55,6 +55,8 @@ const Footer: FunctionComponent = () => {
         <div
           style={{
             fontSize: fontSize(24, 12, 1920, 400),
+            color: "#343434",
+            fontFamily: "Red Hat Text",
           }}
           dangerouslySetInnerHTML={{ __html: footer.footer_description_html }}
         ></div>
@@ -69,7 +71,7 @@ const Footer: FunctionComponent = () => {
         {footer?.primary_footer_menu?.map((e: any, i: number) => (
           <a
             href={e.link}
-            className=" cursor-pointer hover:underline"
+            className=" cursor-pointer hover:underline font-red-hat-display"
             key={e.id}
           >
             {e.name}

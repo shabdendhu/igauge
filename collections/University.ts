@@ -1,5 +1,9 @@
 import { CollectionConfig } from "payload/types";
-import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML,
+} from "@payloadcms/richtext-lexical";
 
 const University: CollectionConfig = {
   slug: "universities",
@@ -128,7 +132,6 @@ const University: CollectionConfig = {
                 //     width: "37.5%",
                 //   },
                 // },
-                
 
                 {
                   name: "website",
@@ -274,17 +277,21 @@ const University: CollectionConfig = {
                     width: "100%",
                   },
                 },
-
                 {
                   name: "overview",
                   type: "richText",
-
                   label: "Overview",
+                  editor: lexicalEditor({
+                    features: ({ defaultFeatures }) => [
+                      ...defaultFeatures,
+                      HTMLConverterFeature({}),
+                    ],
+                  }),
                   admin: {
                     width: "100%",
                   },
-                  editor: lexicalEditor({}),
                 },
+                lexicalHTML("overview", { name: "overviewt_html" }),
                 {
                   name: "salient_features",
                   type: "array",
@@ -445,9 +452,6 @@ const University: CollectionConfig = {
                 {
                   type: "row",
                   fields: [
-                    
-                   
-
                     {
                       name: "subject_name",
                       type: "relationship",

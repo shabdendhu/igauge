@@ -46,7 +46,7 @@ const Accordion = ({ open = false, data }: any) => {
       </div>
       {/* Render answer if open */}
       {isOpen && (
-        <div className="min-h-[100px] text-xl py-5 px-10 transition-all duration-300 mq900:min-h-[50px] mq900:text-sm">
+        <div className="min-h-[100px] text-xl py-5 px-10 transition-all duration-300 mq900:min-h-[50px] mq900:text-sm text-[#343434] font-red-hat-text">
           {data.answer}
         </div>
       )}

@@ -1,3 +1,4 @@
+import RatingBadge from "@/app/(app)/components/v1/RatingBadge";
 import type { NextPage } from "next";
 import { useMemo, type CSSProperties } from "react";
 
@@ -63,11 +64,18 @@ const Badge = ({
             {diamond}
           </div>
         </button> */}
-        <img src={value?.category_rating?.badges_image?.url} />
+        {/* <img src={value?.category_rating?.badges_image?.url} /> */}
+        {/* <div className="h-full bg-[#272761] aspect-[170/120]">d</div> */}
+        <RatingBadge
+          // key={i}
+          badgeName={value?.category_rating?.badges_name}
+          ratedBy={value?.category_rating?.rated_by}
+          ratingName={value?.category_name?.category_name}
+        />
       </div>
-      <div className="relative font-medium" style={teachingLearningStyle}>
+      {/* <div className="relative font-medium" style={teachingLearningStyle}>
         {value?.category_name?.category_name}
-      </div>
+      </div> */}
     </div>
   );
 };
