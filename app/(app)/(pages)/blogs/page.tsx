@@ -17,7 +17,7 @@ const BlogsV2Approved: NextPage = () => {
   const [latestBlogs, setLatestBlogs] = useState([]);
   const fontSize = useCalculateFontSize();
   useEffect(() => {
-    fetchData("blogs", { page: 0, limit: 100, depth: 1, filter: {} }).then(
+    fetchData("blogs", { page: 0, limit: 10, depth: 1, filter: {} }).then(
       (data) => setBlogs(data.docs)
     );
     fetchData("blogs", {
@@ -154,7 +154,7 @@ const BlogsV2Approved: NextPage = () => {
                 <></>
               )} */}
               <div className="flex flex-col h-full w-1/2   gap-y-4  ">
-                {latestBlogs.slice(1, 2).map((e, i) => (
+                {latestBlogs.slice(1, 3).map((e, i) => (
                   // <div key={i} className="h-1/2 flex gap-x-3 border">
                   //   <div className="w-3/5 h-full">
                   //     <img
