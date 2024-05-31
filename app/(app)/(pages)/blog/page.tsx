@@ -44,7 +44,7 @@ const SingleBlogPostV2Approved: FunctionComponent = () => {
             </button>
           </div>
 
-          <div className="flex flex-col gap-y-1">
+          <div className="flex flex-col gap-y-5">
             <div>
               <h1
                 style={{
@@ -67,11 +67,13 @@ const SingleBlogPostV2Approved: FunctionComponent = () => {
                   fontSize: fontSize(16, 5, 1920, 400),
                 }}
               >
-                {new Date(blog?.updatedAt).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
+                {new Date(blog?.published_date)
+                  .toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })
+                  .replace(" ", ", ")}
               </p>
             </div>
           </div>
@@ -114,11 +116,13 @@ const SingleBlogPostV2Approved: FunctionComponent = () => {
                       fontSize: fontSize(16, 5, 1920, 400),
                     }}
                   >
-                    {new Date(blog?.updatedAt).toLocaleDateString("en-GB", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
+                    {new Date(blog?.published_date)
+                      .toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "long",
+                        year: "numeric",
+                      })
+                      .replace(" ", ", ")}
                   </p>
                 </div>
               </div>

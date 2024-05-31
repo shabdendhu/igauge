@@ -47,7 +47,7 @@ const RatingSection = ({
         </div>
       </div>
 
-      <div className="md:absolute w-5/12 right-0 pr-[35px] top-[0px] h-full col-span-4 bg-papayawhip flex flex-col items-start justify-start pt-[43px] px-0 pb-20 box-border gap-[32px] max-w-full z-[2] text-xl mq900:col-span-12 mq900:w-full mq900:bg-darkslateblue mq900:text-white sm:aspect-[674/500] w-2/5">
+      <div className="md:absolute right-0 pr-[35px] top-[0px] h-full col-span-4 bg-papayawhip flex flex-col items-start justify-start pt-[43px] px-0 pb-20 box-border gap-[52px] max-w-full z-[2] text-xl mq900:col-span-12 mq900:w-full mq900:bg-darkslateblue mq900:text-white sm:aspect-[674/500] w-2/5">
         <img
           className="self-stretch h-[500px] relative max-w-full overflow-hidden shrink-0 hidden"
           alt=""

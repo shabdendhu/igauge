@@ -11,14 +11,14 @@ export default function LinierCard({ data, onClick }) {
   const fontSize = useCalculateFontSize();
 
   return (
-    <Card className="w-full shadow-md flex">
+    <Card onClick={onClick} className="w-full shadow-none flex cursor-pointer">
       <CardMedia
         className="w-1/3 h-full flex aspect-square"
         component="img"
         image={data?.featured_image?.url}
         alt="green iguana"
       />
-      <CardActionArea onClick={onClick} className="flex flex-col">
+      <div className="flex flex-col">
         <CardContent className="pl-10 pt-3">
           <Typography
             style={{
@@ -64,12 +64,12 @@ export default function LinierCard({ data, onClick }) {
             onClick={onClick}
             size="small"
             color="primary"
-            className="bg-orange-500 rounded-none text-black font-red-hat-text font-normal px-10 py-5 capitalize text-[20px] aspect-[100/27] overflow-hidden hover:bg-orange-500"
+            className="bg-[#F7A600] rounded-none text-black font-red-hat-text font-normal px-10 py-5 capitalize text-[20px] aspect-[100/27] overflow-hidden hover:bg-orange-500"
           >
             Read More <KeyboardDoubleArrowRightIcon className="font-normal" />
           </Button>
         </CardActions>
-      </CardActionArea>
+      </div>
     </Card>
   );
 }

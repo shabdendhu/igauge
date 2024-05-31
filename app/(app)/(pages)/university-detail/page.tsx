@@ -22,12 +22,22 @@ import {
 import RatingBadge from "../../components/v1/RatingBadge";
 const VideoPlayer = ({ university }: any) => {
   console.log(university.video);
+  const [video, setVideo] = useState(false);
   return (
-    <div className="w-full mx-auto aspect-[1230/650]">
-      <video controls className="w-full" poster="/rectangle-271@2x.png">
-        <source src={university.video} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div className="w-full mx-auto aspect-[1230/650] overflow-hidden">
+      {!video ? (
+        <div className="relative flex items-center justify-center h-full">
+          <img src="/rectangle-271@2x.png" />
+          <button onClick={() => setVideo(true)} className="absolute z-[5]">
+            <img src="/playicon.svg" />
+          </button>
+        </div>
+      ) : (
+        <video autoPlay controls className="h-full" poster="">
+          <source src={university.video} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
     </div>
   );
 };
@@ -96,7 +106,7 @@ const SingleListingV2Approved = () => {
 
       <ImageSwiper images={university?.media?.gallery || []} />
       <section className="crm-university-section grid grid-cols-12 w-full px-[100px] mq1275:px-[30px] ">
-        <div className="col-span-6 mt-[80px] flex flex-col gap-[14px] mq900:col-span-12">
+        <div className="col-span-7 mt-[80px] flex flex-col gap-[14px] mq900:col-span-12">
           <h1 className=" text-[45px] font-bold font-libre-baskerville mq450:text-19xl mq900:text-[51px] xl:text-[64px]">
             {university?.institution_name}
           </h1>
@@ -115,10 +125,16 @@ const SingleListingV2Approved = () => {
                 {university?.ratings?.overall_rating?.badges_name}
               </p>
             </div> */}
+            <RatingBadge
+              // key={i}
+              badgeName={university?.ratings?.overall_rating?.badges_name}
+              ratedBy={university?.ratings?.overall_rating?.rated_by}
+              ratingName={""}
+            />
             {university?.ratings?.subject_ratings?.map((e: any, i: any) => (
               <RatingBadge
                 key={i}
-                badgeName={e.subject_rating.badges_name}
+                badgeName={e?.subject_rating?.badges_name}
                 ratedBy={e?.subject_rating?.rated_by}
                 ratingName={e.subject_name.subject_name}
               />
@@ -128,18 +144,23 @@ const SingleListingV2Approved = () => {
 
         {/** Card section */}
 
-        <div className="h-fit mt-[-50px] col-span-6 rounded-8xs bg-white shadow-[0px_4px_4px_rgba(0,_0,_0,_0.25)] box-border flex flex-col items-start justify-start pt-[47px] pb-[35px] pr-[45px] pl-12 gap-[40px] max-w-full z-[1] border-[1px] border-solid border-whitesmoke mq450:gap-5 mq900:py-[20px] mq900:col-span-12 mq900:m-auto mq900:mt-[40px] mq1275:px-5">
+        <div
+          style={{
+            boxShadow: "0px 0px 30px 0px #0000001A",
+          }}
+          className="h-fit mt-[-50px] col-span-5 rounded-8xs bg-white box-border flex flex-col items-start justify-start pt-[47px] pb-[35px] pr-[45px] pl-12 gap-[40px] max-w-full z-[1] border-[1px] border-solid border-whitesmoke mq450:gap-5 mq900:py-[20px] mq900:col-span-12 mq900:m-auto mq900:mt-[40px] mq1275:px-5"
+        >
           <div className="rounded-8xs bg-white box-border hidden max-w-full border-[1px] border-solid border-whitesmoke" />
-          <div className="self-stretch flex flex-row items-start justify-start pt-0 pb-[21px] pr-[54px] pl-[50px] box-border max-w-full mq900:px-3 mq450:py-0">
+          <div className="aspect-[550/93] overflow-hidden self-stretch flex flex-row items-start justify-start pt-0 pb-[21px] pr-[54px] pl-[50px] box-border max-w-full mq900:px-3 mq450:py-0">
             <img
-              className="w-full h-[100%] flex-1 relative max-w-full overflow-hidden object-cover z-[1]"
+              className="h-full flex-1 relative overflow-hidden object-cover z-[1] "
               alt=""
               src={university?.media?.logo?.url}
             />
           </div>
           <div className="w-[116px] h-[55.9px] relative hidden" />
           <div className="self-stretch flex flex-row items-center justify-between max-w-full gap-[20px] ">
-            <div className="w-1/2 flex flex-col items-start justify-start pt-1 px-0 pb-0">
+            <div className="w-full flex flex-col items-start justify-start pt-1 px-0 pb-0">
               <div className="flex flex-col items-start justify-start gap-[26px] mq450:gap-[10px]">
                 <div className="flex flex-row items-start justify-start py-0 px-px">
                   <div className="flex flex-row items-center justify-center gap-[10px] ">
@@ -154,7 +175,7 @@ const SingleListingV2Approved = () => {
                       style={{
                         fontSize: fontSize(25, 11, 1920, 400),
                       }}
-                      className="relative inline-block min-w-[50px] z-[1] mq450:text-sm"
+                      className="relative inline-block min-w-[50px] z-[1] mq450:text-sm font-red-hat-text"
                     >
                       {university?.city?.city_name}
                       {", "}
@@ -174,75 +195,53 @@ const SingleListingV2Approved = () => {
                     style={{
                       fontSize: fontSize(25, 11, 1920, 400),
                     }}
-                    className="relative z-[1] mq450:text-sm"
+                    className="relative z-[1] mq450:text-sm capitalize font-red-hat-text"
                   >
                     {university?.type}
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="w-1/2 flex flex-row items-center justify-between">
-              <div className="h-[73px] w-[327px] relative rounded-8xs-4 bg-white hidden max-w-full z-[0]" />
-
-              <div className="flex flex-col items-start justify-end pt-0 px-0 pb-[1.7999999999992724px]">
-                <div
-                  onClick={bookmark}
-                  className=" cursor-pointer flex flex-row items-center justify-start gap-[10.500000000003638px]"
-                >
+                <div className="flex flex-row items-center justify-start gap-[10px]">
                   <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
-                    <IconButton>
-                      {bookmarked ? (
-                        <FavoriteIcon
-                          style={{
-                            color: "#DC6A6A",
-                            fontSize: fontSize(21, 19, 1920, 400),
-                          }}
-                        />
-                      ) : (
-                        <FavoriteBorderIcon
-                          style={{
-                            color: "#DC6A6A",
-                            fontSize: fontSize(21, 19, 1920, 400),
-                          }}
-                        />
-                      )}
-                    </IconButton>
-                  </div>
-                  <div className="flex flex-col items-start justify-start pt-[2.699999999999818px] px-0 pb-0">
-                    <div
-                      style={{
-                        fontSize: fontSize(25, 11, 1920, 400),
-                      }}
-                      className="relative inline-block min-w-[39px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm"
-                    >
-                      Save
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                onClick={handleClickCompare}
-                className="cursor-pointer flex flex-row items-center justify-start gap-[10px]"
-              >
-                <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
-                  <IconButton>
-                    <SyncAltIcon
-                      style={{
-                        color: "blue",
-                        fontSize: fontSize(21, 19, 1920, 400),
-                      }}
+                    <img
+                      className="w-4 h-5 relative z-[1] mq450:w-[10px]"
+                      alt=""
+                      src="/empty-flag.svg"
                     />
-                  </IconButton>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: fontSize(25, 11, 1920, 400),
+                    }}
+                    className="relative z-[1] mq450:text-sm capitalize font-red-hat-text"
+                  >
+                    Established on {university?.established_on}
+                  </div>
                 </div>
-                <div
-                  style={{
-                    fontSize: fontSize(25, 11, 1920, 400),
-                  }}
-                  className="relative inline-block min-w-[73px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm"
-                >
-                  Compare
+                <div className="flex flex-row items-center justify-start gap-[10px]">
+                  <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
+                    <img
+                      className="w-4 h-5 relative z-[1] mq450:w-[10px]"
+                      alt=""
+                      src="/tuition.svg "
+                    />
+                  </div>
+                  <div
+                    style={{
+                      fontSize: fontSize(25, 11, 1920, 400),
+                    }}
+                    className="relative z-[1] mq450:text-sm capitalize font-red-hat-text"
+                  >
+                    Central Board of Secondary Education (CBSE)
+                  </div>
                 </div>
               </div>
+              {/* width: 698px;
+height: 675.02px;
+padding: 0px;
+gap: 0px;
+border-radius: 0px 0px 4.26px 4.26px;
+opacity: 0px;
+ */}
             </div>
           </div>
           <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-0.5 box-border max-w-full">
@@ -316,6 +315,70 @@ const SingleListingV2Approved = () => {
                   </div>
                 </button>
               </Link>
+              <div className="flex flex-row items-center w-full justify-center gap-10 h-[70px]">
+                <div className="flex flex-col items-start justify-end pt-0 px-0 pb-[1.7999999999992724px]">
+                  <div
+                    onClick={bookmark}
+                    className=" cursor-pointer flex flex-row items-center justify-start gap-[10.500000000003638px]"
+                  >
+                    <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
+                      <IconButton style={{ padding: 0 }}>
+                        {bookmarked ? (
+                          <FavoriteIcon
+                            style={{
+                              color: "#DC6A6A",
+                              padding: 0,
+                              fontSize: fontSize(30, 19, 1920, 400),
+                            }}
+                          />
+                        ) : (
+                          <FavoriteBorderIcon
+                            style={{
+                              color: "#DC6A6A",
+                              padding: 0,
+                              fontSize: fontSize(30, 19, 1920, 400),
+                            }}
+                          />
+                        )}
+                      </IconButton>
+                    </div>
+                    <div className="flex flex-col items-start justify-startpx-0 pb-0">
+                      <div
+                        style={{
+                          fontSize: fontSize(17, 11, 1920, 400),
+                        }}
+                        className="relative inline-block min-w-[39px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm font-red-hat-text"
+                      >
+                        Save
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  onClick={handleClickCompare}
+                  className="cursor-pointer flex flex-row items-center justify-start gap-[10px]"
+                >
+                  <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
+                    <IconButton style={{ padding: 0 }}>
+                      <SyncAltIcon
+                        style={{
+                          color: "blue",
+                          padding: 0,
+                          fontSize: fontSize(30, 19, 1920, 400),
+                        }}
+                      />
+                    </IconButton>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: fontSize(17, 11, 1920, 400),
+                    }}
+                    className="relative inline-block min-w-[73px] shrink-0 [debug_commit:1de1738] z-[1] mq450:text-sm font-red-hat-text"
+                  >
+                    Compare
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -353,7 +416,7 @@ const SingleListingV2Approved = () => {
             <RequestMethodology />
           </div>
           <div className="col-span-9 lgm:col-span-8 mq900:col-span-2">
-            <div className="flex-1 flex flex-col items-start justify-start gap-[99px] max-w-full text-40xl font-libre-baskerville mq1275:min-w-full mq450:gap-[25px_99px] mq900:gap-[49px_99px]">
+            <div className="flex-1 flex flex-col items-start justify-start gap-[40px] max-w-full text-40xl font-libre-baskerville mq1275:min-w-full mq450:gap-[25px_99px] mq900:gap-[49px_99px]">
               <div className="self-stretch flex flex-col items-start justify-start gap-[36px] max-w-full mq900:gap-[18px_36px]">
                 <h1 className="text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl ">
                   Overview
@@ -416,27 +479,36 @@ const SingleListingV2Approved = () => {
               </div> */}
               <VideoPlayer university={university} />
               <div className="flex flex-row items-start justify-end py-0 box-border max-w-full text-17xl text-white w-full">
-                <div className="flex-1 rounded-8xs bg-darkslateblue flex flex-row items-start justify-start relative max-w-full">
-                  <div className="self-stretch w-[1210px] relative rounded-8xs bg-darkslateblue hidden max-w-full z-[0]" />
-                  <div className="flex-1 flex flex-row items-center justify-center pt-[20px] pb-[20px] pr-[20px] pl-[20px] box-border relative gap-[36px] max-w-full mq1275:flex-wrap mq1275:pl-[140px] mq1275:pr-[35px] mq1275:box-border mq450:pl-5 mq450:box-border mq900:gap-[18px] mq900:pl-[70px] mq900:box-border">
+                <div className="flex-1 rounded-8xs bg-darkslateblue flex flex-row items-start justify-start relative max-w-full aspect-[1210/300] overflow-hidden">
+                  <div className="flex-1 flex flex-row items-center justify-center pt-[20px] pb-[20px] pr-[20px] pl-[20px] box-border relative gap-[36px] max-w-full mq1275:flex-wrap mq1275:pl-[140px] mq1275:pr-[35px] mq1275:box-border mq450:pl-5 mq450:box-border mq900:gap-[18px] mq900:pl-[70px] mq900:box-border aspect-[1210/300]">
                     <img
-                      className="w-[210px] !m-[0] object-contain z-[3]"
+                      className="h-full !m-[0] object-contain z-[3]"
                       alt=""
                       src="/image-22@2x.png"
                     />
                     <div className="flex-1 flex flex-col items-start justify-start gap-[6px] min-w-[332px] max-w-full">
-                      <h3 className="m-0 w-[403px] relative text-[25px] font-bold font-inherit inline-block max-w-full z-[1] mq450:text-3xl mq900:text-10xl">
+                      <h3
+                        style={{
+                          fontSize: fontSize(36, 31, 1920, 400),
+                        }}
+                        className="m-0 w-[403px] relative text-[25px] font-bold font-inherit inline-block max-w-full z-[1] mq450:text-3xl mq900:text-10xl"
+                      >
                         Find More About Fee Structure
                       </h3>
-                      <div className="self-stretch relative text-[14px] leading-[27px] font-red-hat-text z-[1] mq450:text-base mq450:leading-[22px]">
+                      <div
+                        style={{
+                          fontSize: fontSize(20, 18, 1920, 400),
+                        }}
+                        className="self-stretch relative text-[14px] leading-[27px] font-red-hat-text z-[1] mq450:text-base mq450:leading-[22px]"
+                      >
                         Sed ut perspiciatis unde omnis iste natus error sit
                         voluptatem accusantium doloremque laudantium...
                       </div>
                     </div>
-                    <div className="flex flex-col items-start justify-start px-0 pb-0 box-border mq1275:flex-1">
+                    <div className=" w-1/4 items-center flex flex-col items-start justify-start px-0 pb-0 box-border mq1275:flex-1">
                       <a
                         href={university?.fee_structure_url}
-                        className="cursor-pointer [border:none] pt-[16px] pb-[16px] pr-9 pl-[16px] bg-orange-200 flex flex-row items-start justify-start gap-[18px] z-[1]"
+                        className="cursor-pointer [border:none] pt-[16px] pb-[16px] pr-9 pl-[16px] bg-orange-200 flex flex-row items-start justify-start gap-[18px] z-[1] aspect-[313/76] "
                       >
                         <div className="h-[77px] w-[313px] relative bg-orange-200 hidden" />
                         <img
@@ -445,7 +517,7 @@ const SingleListingV2Approved = () => {
                           src="/group.svg"
                         />
                         <div className="relative text-[16px] font-red-hat-display text-black text-left z-[1] mq450:text-lgi">
-                          View Fee Structure
+                          Admission Form
                         </div>
                       </a>
                     </div>
@@ -463,6 +535,13 @@ const SingleListingV2Approved = () => {
                   src="/rectangle-157@2x.png"
                 /> */}
                 <MapComponent />
+              </div>
+              <div className="font-red-hat-text text-[22px] flex">
+                <b>Source:</b>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium
+                </p>
               </div>
             </div>
           </div>

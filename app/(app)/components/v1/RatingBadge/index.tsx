@@ -17,7 +17,7 @@ const ratingSystems: any = {
 const RatingBadge = ({ badgeName, ratingName, ratedBy }: any) => {
   return (
     <div>
-      <div className="flex flex-col justify-between bg-[#002B59] aspect-[170/120] p-3 text-white min-w-[200px]">
+      <div className="flex flex-col justify-between bg-[#002B59] aspect-[170/120] p-3 text-white min-w-[160px]">
         <div
           style={{
             color: colors[badgeName?.toLowerCase()] || "#86A4C8",
@@ -28,7 +28,7 @@ const RatingBadge = ({ badgeName, ratingName, ratedBy }: any) => {
         </div>
         <div className="text-[10px]">{ratingName}</div>
         <img src="/I-gauge-inverted-RGB.svg" className="w-[70%]" />
-        <div className="text-[7px] ">
+        <div className="text-[10px] ">
           {ratingSystems[ratedBy] || "Indian University Rating"}
         </div>
       </div>

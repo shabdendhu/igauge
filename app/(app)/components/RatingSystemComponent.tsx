@@ -93,7 +93,7 @@ const RatingSystemComponent = ({ pageData }: any) => {
         </div>
       </section> */}
       <section className="m-h-[1040px] overflow-hidden w-screen relative pb-[100px]">
-        <div className="flex mdm:flex-col">
+        <div className="flex mdm:flex-col md:h-[100vh] md:overflow-hidden">
           <div className=" w-1/2 md:h-[1074px] mdm:w-full relative">
             <img
               className="h-full w-full flex-1 max-w-full overflow-hidden object-cover "

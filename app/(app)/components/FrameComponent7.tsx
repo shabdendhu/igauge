@@ -59,7 +59,7 @@ const FrameComponent7: FunctionComponent = ({
                 src={university?.media?.featured_image.url}
               />
               <img
-                className="absolute top-[52px]  right-[-10px] rounded-[2.48px] w-[218.2px] h-[47.1px]"
+                className="absolute top-[52px]  right-[-20px] rounded-[2.48px] w-[218.2px] h-[47.1px]"
                 alt=""
                 src={university?.ratings?.overall_rating?.ribbon?.url}
               />
