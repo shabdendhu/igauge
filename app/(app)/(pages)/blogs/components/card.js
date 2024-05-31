@@ -28,7 +28,7 @@ export default function MultiActionAreaCard({ data, className = "w-1/2" }) {
         alt="green iguana"
       />
       <button className="absolute top-10 left-10 z-[5] bg-[#272761] px-5 py-3 text-white font-libre-baskerville text-white rounded-md">
-        {data.category.blog_category_name}
+        {data?.category?.blog_category_name}
       </button>
       <CardContent className="pl-5 pt-5">
         <Typography
