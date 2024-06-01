@@ -97,45 +97,6 @@ const Card = ({ university, filters }: any) => {
                   </div>
                 </div>
               </div>
-              <div className="tborder border-blue-500 w-1/4">
-                <div>
-                  <div
-                    style={{
-                      fontSize: fontSize(20, 8, 1920, 400),
-                    }}
-                    className="font-semibold text-xl mdm:text-[7.76px]"
-                  >
-                    {university.keypoints[0]?.keypoint_title?.KeyPoint_title ||
-                      ""}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: fontSize(15, 6, 1920, 400),
-                    }}
-                    className="text-mini font-red-hat-text mdm:text-[5.82px]"
-                  >
-                    {university?.keypoints[0]?.keypoint_value || ""}
-                  </div>
-                </div>
-                <div>
-                  <div
-                    style={{
-                      fontSize: fontSize(20, 8, 1920, 400),
-                    }}
-                    className="font-semibold text-xl mdm:text-[7.76px]"
-                  >
-                    {university?.keypoints[1]?.keypoint_title?.KeyPoint_title}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: fontSize(15, 6, 1920, 400),
-                    }}
-                    className="text-mini font-red-hat-text mdm:text-[5.82px]"
-                  >
-                    {university?.keypoints[1]?.keypoint_value}
-                  </div>
-                </div>
-              </div>
             </div>
             <div
               style={{

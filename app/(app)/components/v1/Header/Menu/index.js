@@ -34,7 +34,9 @@ export default function MenuBar({ items }) {
           aria-expanded={open ? "true" : undefined}
           className="hover:rounded-none hover:bg-white  p-1"
         >
-          <span className="text-black font-red-hat-display">{items.name}</span>
+          <span className="text-black font-red-hat-display text-[15px]">
+            {items.name}
+          </span>
           <ArrowDropDownIcon
             style={{
               color: "black",
@@ -81,7 +83,7 @@ export default function MenuBar({ items }) {
       >
         {items.subItems.map((e) => (
           <>
-            <MenuItem onClick={handleClose}>
+            <MenuItem className="text-[15px]" onClick={handleClose}>
               {/* <Avatar /> */}
               {e.name}
             </MenuItem>

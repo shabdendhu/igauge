@@ -125,20 +125,30 @@ const SingleListingV2Approved = () => {
                 {university?.ratings?.overall_rating?.badges_name}
               </p>
             </div> */}
-            <RatingBadge
-              // key={i}
-              badgeName={university?.ratings?.overall_rating?.badges_name}
-              ratedBy={university?.ratings?.overall_rating?.rated_by}
-              ratingName={""}
-            />
-            {university?.ratings?.subject_ratings?.map((e: any, i: any) => (
+            {university?.ratings?.overall_rating?.badges_name ? (
               <RatingBadge
-                key={i}
-                badgeName={e?.subject_rating?.badges_name}
-                ratedBy={e?.subject_rating?.rated_by}
-                ratingName={e.subject_name.subject_name}
+                // key={i}
+                badgeName={university?.ratings?.overall_rating?.badges_name}
+                ratedBy={university?.ratings?.overall_rating?.rated_by}
+                ratingName={""}
               />
-            ))}
+            ) : (
+              <div>Ratings Under Assessment</div>
+            )}
+            {university?.ratings?.subject_ratings?.length ? (
+              <>
+                {university?.ratings?.subject_ratings?.map((e: any, i: any) => (
+                  <RatingBadge
+                    key={i}
+                    badgeName={e?.subject_rating?.badges_name}
+                    ratedBy={e?.subject_rating?.rated_by}
+                    ratingName={e.subject_name.subject_name}
+                  />
+                ))}
+              </>
+            ) : (
+              <div>Ratings Under Assessment</div>
+            )}
           </div>
         </div>
 
@@ -273,7 +283,7 @@ opacity: 0px;
                       style={{
                         width: fontSize(70, 32, 1920, 400),
                       }}
-                      className="aspect-square relative overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
+                      className="aspect-square relative shrink-0 z-[1] mq450:w-[40px]"
                       alt=""
                       src="/twitter-1-1.svg"
                     />
@@ -281,27 +291,28 @@ opacity: 0px;
                   <Link href={university?.linkedin_url || ""}>
                     <img
                       style={{
-                        width: fontSize(70, 32, 1920, 400),
+                        width: fontSize(55, 32, 1920, 400),
                       }}
-                      className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
+                      className="aspect-square relative  shrink-0 z-[1] mq450:w-[40px]"
                       alt=""
-                      src="/linkedin-1.svg"
+                      src="/linkedin-new.svg"
                     />
                   </Link>
                   <Link href={university?.youtube_url || ""}>
                     <img
                       style={{
-                        width: fontSize(70, 32, 1920, 400),
+                        width: fontSize(55, 32, 1920, 400),
+                        marginTop: 5,
                       }}
-                      className="aspect-square relative rounded-[183.37px] overflow-hidden shrink-0 z-[1] mq450:w-[40px]"
+                      className="aspect-square relative shrink-0 z-[1] mq450:w-[40px]"
                       alt=""
-                      src="/youtube-1.svg"
+                      src="/youtube.svg"
                     />
                   </Link>
                 </div>
               </div>
               <Link className="w-full" href={university?.website || ""}>
-                <button className="cursor-pointer [border:none] py-[23px] flex items-center px-5 bg-orange-200 self-stretch rounded-8xs flex flex-row items-start justify-center box-border gap-[18px] w-full z-[1] mq900:py-[10px]">
+                <button className="cursor-pointer [border:none] py-[23px] px-5 bg-orange-200 self-stretch rounded-8xs flex flex-row items-start justify-center box-border gap-[18px] w-full z-[1] mq900:py-[10px] aspect-[700/90]">
                   <div className="h-[86px] w-[659px] relative rounded-8xs bg-orange-200 hidden max-w-full" />
                   <div className="flex flex-col items-start justify-start  px-0 pb-0">
                     <img
@@ -417,27 +428,33 @@ opacity: 0px;
           </div>
           <div className="col-span-9 lgm:col-span-8 mq900:col-span-2">
             <div className="flex-1 flex flex-col items-start justify-start gap-[40px] max-w-full text-40xl font-libre-baskerville mq1275:min-w-full mq450:gap-[25px_99px] mq900:gap-[49px_99px]">
-              <div className="self-stretch flex flex-col items-start justify-start gap-[36px] max-w-full mq900:gap-[18px_36px]">
-                <h1 className="text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl ">
-                  Overview
-                </h1>
-                <div className="self-stretch min-h-[197px] text-[22.1px] font-red-hat-text text-darkslategray inline-block shrink-0 mq450:text-lg mq900:text-sm">
-                  <p className="m-0">&nbsp;</p>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: university?.overviewt_html || <></>,
-                    }}
-                    className="m-0 font-red-hat-text text-[#343434]"
-                  ></div>
+              {university?.overviewt_html?.length ? (
+                <div className="self-stretch flex flex-col items-start justify-start gap-[36px] max-w-full mq900:gap-[18px_36px]">
+                  <h1 className="text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl ">
+                    Overview
+                  </h1>
+                  <div className="self-stretch min-h-[197px] text-[22.1px] font-red-hat-text text-darkslategray inline-block shrink-0 mq450:text-lg mq900:text-sm">
+                    <p className="m-0">&nbsp;</p>
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: university?.overviewt_html || <></>,
+                      }}
+                      className="m-0 font-red-hat-text text-[#343434]"
+                    ></div>
+                  </div>
                 </div>
-              </div>
-              <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
-                Salient Features
-              </h1>
-              <div className="border border-orange-200 w-full bg-papayawhip px-10 flex flex-col gap-10 py-5 rounded-8xs">
-                {university.salient_features.map((e: any, i: number) => (
-                  <div key={i} className="flex items-center gap-5">
-                    {/* <ArrowCircleRightIcon
+              ) : (
+                <></>
+              )}
+              {university?.salient_features?.length ? (
+                <>
+                  <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
+                    Salient Features
+                  </h1>
+                  <div className="border border-orange-200 w-full bg-papayawhip px-10 flex flex-col gap-10 py-5 rounded-8xs">
+                    {university.salient_features.map((e: any, i: number) => (
+                      <div key={i} className="flex items-center gap-5">
+                        {/* <ArrowCircleRightIcon
                       style={{
                         color: "#F7A600",
                         backgroundColor: "#000000",
@@ -445,20 +462,26 @@ opacity: 0px;
                         // fontSize: fontSize(21, 19, 1920, 400),
                       }}
                     /> */}
-                    <img
-                      src={"/arrow.svg"}
-                      className="bg-black rounded-[100%]"
-                    />
-                    <div className="text-[22.1px] font-red-hat-text text-[#343434] mq450:text-lg mq900:text-sm">
-                      {e.salient_feature_title}
-                    </div>
+                        <img
+                          src={"/arrow.svg"}
+                          className="bg-black rounded-[100%]"
+                        />
+                        <div className="text-[22.1px] font-red-hat-text text-[#343434] mq450:text-lg mq900:text-sm">
+                          {e.salient_feature_title}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-              <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
-                Walkthrough Video
-              </h1>
-              {/* <div className="flex-1 w-full flex flex-col items-start justify-start pt-[33px] px-0 pb-0 box-border  max-w-full mq1275:min-w-full">
+                </>
+              ) : (
+                <></>
+              )}
+              {university?.video ? (
+                <>
+                  <h1 className="m-0  relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-16xl mq900:text-xl">
+                    Walkthrough Video
+                  </h1>
+                  {/* <div className="flex-1 w-full flex flex-col items-start justify-start pt-[33px] px-0 pb-0 box-border  max-w-full mq1275:min-w-full">
                 <div className="self-stretch w-full flex flex-row items-start justify-center pt-[275px] px-5 pb-[274px] relative mq900:pt-[179px] mq900:pb-[178px] mq900:box-border">
                   <img
                     className="w-full absolute !m-[0] top-[0px] right-[0px] bottom-[0px] left-[0px] rounded-8xs max-w-full overflow-hidden max-h-full object-cover"
@@ -477,7 +500,11 @@ opacity: 0px;
                   </button>
                 </div>
               </div> */}
-              <VideoPlayer university={university} />
+                  <VideoPlayer university={university} />
+                </>
+              ) : (
+                <></>
+              )}
               <div className="flex flex-row items-start justify-end py-0 box-border max-w-full text-17xl text-white w-full">
                 <div className="flex-1 rounded-8xs bg-darkslateblue flex flex-row items-start justify-start relative max-w-full aspect-[1210/300] overflow-hidden">
                   <div className="flex-1 flex flex-row items-center justify-center pt-[20px] pb-[20px] pr-[20px] pl-[20px] box-border relative gap-[36px] max-w-full mq1275:flex-wrap mq1275:pl-[140px] mq1275:pr-[35px] mq1275:box-border mq450:pl-5 mq450:box-border mq900:gap-[18px] mq900:pl-[70px] mq900:box-border aspect-[1210/300]">
@@ -537,11 +564,8 @@ opacity: 0px;
                 <MapComponent />
               </div>
               <div className="font-red-hat-text text-[22px] flex">
-                <b>Source:</b>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                  accusantium doloremque laudantium
-                </p>
+                <b>Source: </b>
+                <p>{university?.source}</p>
               </div>
             </div>
           </div>

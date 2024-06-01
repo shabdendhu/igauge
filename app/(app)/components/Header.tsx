@@ -75,7 +75,7 @@ const Header: FunctionComponent = () => {
     );
   };
   return (
-    <header className=" flex  justify-between items-center px-6  font-red-hat-display w-full h-auto font-normal  gap-x-10 my-2  z-50 bg-white  mb-0  sticky top-0 border-b">
+    <header className=" flex  justify-between items-center px-14  font-red-hat-display w-full h-auto font-normal  gap-x-10   z-50 bg-white  mb-0  sticky top-0 border-b">
       <div className="flex justify-center items-center w-[150px] h-[72px] md:w-[225px]">
         <img
           className="object-fill h-full w-full md:pl-10"
@@ -86,11 +86,11 @@ const Header: FunctionComponent = () => {
 
       <div className="hidden md:block text-sm md:text-base">
         <div className="flex flex-col items-center justify-center h-28   ">
-          <div className=" flex w-full  justify-end gap-x-7 h-full items-center border-b">
+          <div className="h-1/3 flex w-full  justify-end gap-x-7 h-full items-center border-b py-5">
             {menu.top_bar_menu.map((e: any) => (
               <Link
                 href={e.link}
-                className="relative inline-block min-w-[51px] font-red-hat-display"
+                className="relative inline-block min-w-[51px] font-red-hat-display text-[14px]"
               >
                 {e.name}
               </Link>
@@ -113,14 +113,14 @@ const Header: FunctionComponent = () => {
                 src="/twitter-1.svg"
               />
               <img
-                className="h-[19px] w-[19px]   cursor-pointer"
+                className="h-[15px] w-[15px]   cursor-pointer"
                 alt=""
-                src="/linkedin.png"
+                src="/linkedin-new.svg"
               />
               <img
-                className="h-[19px] w-[19px]   cursor-pointer"
+                className="h-[15px] w-[15px] mt-[2px]  cursor-pointer"
                 alt=""
-                src="/youtube.png"
+                src="/youtube.svg"
               />
             </div>
           </div>
@@ -131,8 +131,8 @@ const Header: FunctionComponent = () => {
               ))}
 
               <Search />
-              <div className="hover:text-white">
-                <button className="cursor-pointer [border:none] py-4 px-7 rounded-none  bg-orange-100 flex flex-row items-center justify-center gap-[9px] whitespace-nowrap z-[1] hover:bg-chocolate duration-300 ">
+              <div className="hover:text-white h-full">
+                <button className="cursor-pointer [border:none] py-4 px-7 rounded-none  bg-orange-100 flex flex-row items-center justify-center gap-[9px] whitespace-nowrap z-[1] hover:bg-chocolate duration-300 h-full">
                   <img
                     className="h-5 w-6 relative min-h-[21px]"
                     alt=""

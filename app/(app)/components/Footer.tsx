@@ -23,31 +23,46 @@ const Footer: FunctionComponent = () => {
             src="/igaugeinvertedrgb.svg"
           />
         </div>
-        <div className="flex flex-row items-start justify-start gap-[13px]">
+        <div className="flex flex-row items-start justify-start gap-10">
           <img
-            className="h-5 sm:h-7 w-5 sm:w-7  cursor-pointer"
+            style={{
+              height: fontSize(50, 30, 1920, 400),
+            }}
+            className="cursor-pointer"
             alt=""
             src="/frame-2.svg"
           />
           <img
-            className="h-5 sm:h-7 w-5 sm:w-7  cursor-pointer"
+            style={{
+              height: fontSize(50, 30, 1920, 400),
+            }}
+            className="cursor-pointer"
             alt=""
             src="/frame-3.svg"
           />
           <img
-            className="h-5 sm:h-7 w-5 sm:w-7 cursor-pointer "
+            style={{
+              height: fontSize(50, 30, 1920, 400),
+            }}
+            className="cursor-pointer "
             alt=""
             src="/twitter-1.svg"
           />
           <img
-            className="h-5 sm:h-7 w-5 sm:w-7  cursor-pointer "
+            style={{
+              height: fontSize(40, 30, 1920, 400),
+            }}
+            className="cursor-pointer "
             alt=""
-            src="/linkedin.png"
+            src="/linkedin-new.svg"
           />
           <img
-            className="h-5 sm:h-7 w-5 sm:w-7  cursor-pointer "
+            style={{
+              height: fontSize(33, 30, 1920, 400),
+            }}
+            className="cursor-pointer mt-3"
             alt=""
-            src="/youtube.png"
+            src="/youtube.svg"
           />
         </div>
       </div>
@@ -66,7 +81,7 @@ const Footer: FunctionComponent = () => {
         style={{
           fontSize: fontSize(24, 14, 1920, 400),
         }}
-        className="flex flex-col sm:flex-row items-start justify-start gap-y-4 sm:gap-x-12 w-full z-[1]  flex-wrap"
+        className="flex flex-col sm:flex-row items-start justify-start gap-y-4 sm:gap-x-12 w-full z-[1]  flex-wrap py-[40px]"
       >
         {footer?.primary_footer_menu?.map((e: any, i: number) => (
           <a
@@ -98,9 +113,9 @@ const Footer: FunctionComponent = () => {
         style={{
           fontSize: fontSize(20, 12, 1920, 400),
         }}
-        className="flex flex-col  sm:flex-row-reverse justify-between gap-3"
+        className="flex flex-col  sm:flex-row-reverse justify-between gap-3 py-5"
       >
-        <div className="flex flex-row  justify-between items-center gap-5 ">
+        <div className="flex flex-row  justify-between items-center gap-5">
           {footer?.policy_footer_menu?.map((e: any, i: number) => (
             <a key={i} href={e.link} className="text-nowrap font-red-hat-text">
               {e.name}

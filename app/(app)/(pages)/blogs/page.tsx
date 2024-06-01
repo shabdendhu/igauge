@@ -10,16 +10,36 @@ import { useRouter } from "next/navigation";
 import MultiActionAreaCard from "./components/card";
 import LinierCard from "./components/LinerCard";
 import PageHeader from "@/app/(app)/components/v1/PageHeader";
+import { Pagination } from "@mui/material";
+import { useDebounce } from "../../hooks/useDebounse";
+// import { useDebounce } from "../../hooks/use-debounce"; // Import the debounce hook
 
 const BlogsV2Approved: NextPage = () => {
   const router = useRouter();
   const [blogs, setBlogs] = useState([]);
   const [latestBlogs, setLatestBlogs] = useState([]);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [blogcategory, setBlogcategory] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const debouncedSearchText = useDebounce(searchText, 500); // Use the debounce hook
   const fontSize = useCalculateFontSize();
+
   useEffect(() => {
-    fetchData("blogs", { page: 0, limit: 10, depth: 1, filter: {} }).then(
-      (data) => setBlogs(data.docs)
-    );
+    fetchData("blogs", {
+      page: page - 1,
+      limit: 10,
+      depth: 1,
+      filter: {
+        blog_title: { like: debouncedSearchText }, // Use debounced value here
+      },
+    }).then((data) => {
+      setBlogs(data.docs);
+      setTotalPages(data.totalPages);
+    });
+  }, [page, debouncedSearchText]); // Listen for changes to debouncedSearchText
+
+  useEffect(() => {
     fetchData("blogs", {
       page: 0,
       limit: 3,
@@ -27,9 +47,17 @@ const BlogsV2Approved: NextPage = () => {
       sort: {
         createdAt: -1, // Sort by createdAt in descending order
       },
-      filter: {},
     }).then((data) => setLatestBlogs(data.docs));
+    fetchData("blogs-category", {}).then((e) => setBlogcategory(e?.docs));
   }, []);
+
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+  };
 
   return (
     <div>
@@ -54,12 +82,12 @@ const BlogsV2Approved: NextPage = () => {
                     src="/search.svg"
                   />
                 </div>
-
                 <input
                   className="ml-3 h-full   text-sm    "
                   type="text"
                   id="search"
                   placeholder="Search something.."
+                  onChange={handleSearch} // Attach search handler
                 />
               </div>
             </div>
@@ -86,126 +114,8 @@ const BlogsV2Approved: NextPage = () => {
           <div className="  mt-6">
             <div className="flex w-full  gap-5">
               <MultiActionAreaCard data={latestBlogs[0]} />
-              {/* {latestBlogs.length ? (
-                <div
-                  className=" w-1/2 flex flex-col mr-5 border overflow-hidden md:mr-[30px]"
-                  style={{ aspectRatio: 1 }}
-                >
-                  <div className="h-3/5 relative">
-                    <img
-                      className="h-full w-full w-full relative object-cover aspect-square  max-w-full"
-                      alt=""
-                      // src="/rectangle-245@2x.png"
-                      src={latestBlogs[0]?.featured_image?.url}
-                    />
-                    <button className="bg-darkslateblue absolute inline-flex  top-0 m-4 rounded-[4.26px] text-white p-2">
-                      {latestBlogs[0]?.category.blog_category_name}
-                    </button>
-                  </div>
-                  <div className="m-3 h-full flex flex-col gap-y-3 md:m-[30px]">
-                    <div className="flex-1 flex flex-col gap-[20px]">
-                      <div className=" flex gap-x-1">
-                        <img
-                          className="w-[11.9px] h-[11.9px] relative overflow-hidden shrink-0 [debug_commit:1de1738] z-[1]"
-                          alt=""
-                          src="/calendar-1.svg"
-                        />
-                        <p className="text-xs"> 12 March, 2024</p>
-                      </div>
-                      <div className="flex flex-col gap-y-2 md:gap-[15px]">
-                        <p
-                          style={{
-                            fontSize: fontSize(30, 14, 1920, 400),
-                          }}
-                          className="text-lg font-libre-baskerville font-semibold md:text-11xl"
-                        >
-                          {latestBlogs[0].blog_title}
-                        </p>
-                        <p
-                          style={{
-                            fontSize: fontSize(17, 8, 1920, 400),
-                          }}
-                          className="text-[11px] md:text-mid line-clamp-3"
-                        >
-                          {latestBlogs[0].excerpt}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="min-h-[50px]">
-                      <button
-                        onClick={() =>
-                          router.push("/blog?id=" + latestBlogs[0].id)
-                        }
-                        className="bg-orange-200 h-full flex justify-center items-center gap-x-1 px-7"
-                      >
-                        <div> Read More</div>
-                        <div className="h-full bg-orange-200 flex items-center">
-                          <img
-                            className=" h-[6px] w-[6px] relative "
-                            alt=""
-                            src="/double_arrow.svg"
-                          />
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <></>
-              )} */}
               <div className="flex flex-col h-full w-1/2   gap-y-4  ">
                 {latestBlogs.slice(1, 3).map((e, i) => (
-                  // <div key={i} className="h-1/2 flex gap-x-3 border">
-                  //   <div className="w-3/5 h-full">
-                  //     <img
-                  //       className="w-full h-full relative object-cover aspect-square  max-w-full"
-                  //       alt=""
-                  //       src={e?.featured_image?.url}
-                  //     />
-                  //   </div>
-                  //   <div className=" w-full flex flex-col justify-around pl-5 ">
-                  //     <div className=" flex gap-x-1">
-                  //       <img
-                  //         className="w-[11.9px] h-[11.9px] relative overflow-hidden "
-                  //         alt=""
-                  //         src="/calendar-1.svg"
-                  //       />
-                  //       <p className="text-xs"> 12 March, 2024</p>
-                  //     </div>
-                  //     <div className="flex flex-col gap-y-2">
-                  //       <p
-                  //         style={{
-                  //           fontSize: fontSize(30, 14, 1920, 400),
-                  //         }}
-                  //         className="text-lg font-libre-baskerville font-semibold line-clamp-1"
-                  //       >
-                  //         {e?.blog_title}
-                  //       </p>
-                  //       <p
-                  //         style={{
-                  //           fontSize: fontSize(17, 8, 1920, 400),
-                  //         }}
-                  //         className="text-[11px] line-clamp-3"
-                  //       >
-                  //         {e?.excerpt}
-                  //       </p>
-                  //     </div>
-                  //     <div className="w-full ">
-                  //       <button className="bg-orange-200 h-[49px] flex justify-center items-center gap-x-1 px-7">
-                  //         <div onClick={() => router.push("/blog?id=" + e.id)}>
-                  //           Read More
-                  //         </div>
-                  //         <div className="h-full bg-orange-200 flex items-center">
-                  //           <img
-                  //             className=" h-[6px] w-[6px] relative "
-                  //             alt=""
-                  //             src="/double_arrow.svg"
-                  //           />
-                  //         </div>
-                  //       </button>
-                  //     </div>
-                  //   </div>
-                  // </div>
                   <LinierCard
                     onClick={() => router.push("/blog?id=" + e.id)}
                     data={e}
@@ -217,22 +127,22 @@ const BlogsV2Approved: NextPage = () => {
         </div>
 
         {/* Grid system starts from here */}
-        <div className="grid grid-cols-7  gap-8">
-          <div className="col-start-1 col-span-7 md:col-span-5 ">
+        <div className="grid grid-cols-9  gap-8">
+          <div className="col-start-1 col-span-9 md:col-span-7 ">
             <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-3 md:gap-[50px]">
               {blogs.map((blog, i) => (
-                // <BlogCardSmall key={i} blog={blog} />
-                <MultiActionAreaCard className="w-full" data={blog} />
+                <MultiActionAreaCard key={i} className="w-full" data={blog} />
               ))}
-              {/* <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall />
-              <BlogCardSmall /> */}
             </div>
+            <Pagination
+              count={totalPages}
+              page={page}
+              onChange={handlePageChange}
+              color="primary"
+              className="mt-8"
+            />
           </div>
-          <div className="col-start-6 col-span-2    mt-10 hidden md:block">
+          <div className="col-start-8 col-span-2    mt-10 hidden md:block">
             <div className="flex flex-col px-2 border rounded-sm py-10">
               <div className="flex items-center border  rounded-sm mx-3 px-2   gap-x-4">
                 <img
@@ -243,71 +153,24 @@ const BlogsV2Approved: NextPage = () => {
                 <input
                   className=" w-full outline-none text-sm   max-w-[300px] h-14 "
                   type="text"
+                  onChange={handleSearch} // Attach search handler
                   id="search"
                   placeholder="Search for Articles"
                 />
               </div>
-
               {/* Check boxes list */}
-              <div className="flex flex-col  mt-2 gap-7">
-                <div className="flex items-center justify-start  px-3  gap-2">
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    className="w-4 h-4  accent-orange-200 rounded-full "
-                  />
-                  <label htmlFor="">Catagory 1</label>
+              {blogcategory.map((e, i) => (
+                <div key={i} className="flex flex-col  mt-2 gap-7">
+                  <div className="flex items-center justify-start  px-3  gap-2">
+                    <input
+                      type="checkbox"
+                      className="w-4 h-4  accent-orange-200 rounded-full "
+                    />
+                    <label htmlFor="">{e?.blog_category_name}</label>
+                  </div>
                 </div>
-
-                <div className="flex items-center justify-start  px-3  gap-2">
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    className="w-4 h-4  accent-orange-200 rounded-full "
-                  />
-                  <label htmlFor="">Catagory 2</label>
-                </div>
-                <div className="flex items-center justify-start  px-3  gap-2">
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    className="w-4 h-4  accent-orange-200 rounded-full "
-                  />
-                  <label htmlFor="">Catagory 3</label>
-                </div>
-                <div className="flex items-center justify-start  px-3  gap-2">
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    className="w-4 h-4  accent-orange-200 rounded-full "
-                  />
-                  <label htmlFor="">Catagory 4</label>
-                </div>
-                <div className="flex items-center justify-start  px-3  gap-2">
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    className="w-4 h-4  accent-orange-200 rounded-full "
-                  />
-                  <label htmlFor="">Catagory 5</label>
-                </div>
-                <div className="flex items-center justify-start  px-3  gap-2">
-                  <input
-                    type="checkbox"
-                    name=""
-                    id=""
-                    className="w-4 h-4  accent-orange-200 rounded-full "
-                  />
-                  <label htmlFor="">Catagory 6</label>
-                </div>
-              </div>
+              ))}
             </div>
-
             <div className="mt-28  rounded-[5.52px] bg-darkslateblue flex flex-col items-start justify-end pt-[210.7px] pb-[39.7px] pr-[38.6px] pl-[39px] box-border relative gap-[20.7px] max-w-full text-[30px] text-white font-libre-baskerville mq450:pt-[137px] mq450:pb-[26px] mq450:box-border">
               <div className="w-[395px] h-[442.4px] relative rounded-[5.52px] bg-darkslateblue hidden max-w-full " />
               <b className="self-stretch relative z-[1] mq450:text-[25px] mq900:text-[34px]">

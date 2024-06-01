@@ -27,22 +27,28 @@ const RatingSection = ({
         {/* <div className="absolute top-[144px] left-[500px] box-border w-px h-[299px] z-[1] border-r-[1px] border-solid border-whitesmoke" /> */}
         <div className="w-full  flex flex-row flex-wrap items-start justify-start gap-4 mq900:gap-8 flex-1 flex items-center mt-10">
           <div className="grid grid-cols-3 gap-x-4 w-full mq900:gap-x-8 gap-y-10 mdm:grid-cols-2 mq900:gap-y-8">
-            {categoryRatings.map((value: any, index: number) => {
-              return (
-                <>
-                  <div className={`col-span-1 max-w-full`}>
-                    <Badge
-                      value={value}
-                      key={index}
-                      rectangle204="/diamond-badge.svg"
-                      rectangle205="/diamond-badge-1.svg"
-                      diamond="Diamond"
-                      teachingLearning="Teaching & Learning"
-                    />
-                  </div>
-                </>
-              );
-            })}
+            {categoryRatings.length ? (
+              <>
+                {categoryRatings.map((value: any, index: number) => {
+                  return (
+                    <>
+                      <div className={`col-span-1 max-w-full`}>
+                        <Badge
+                          value={value}
+                          key={index}
+                          rectangle204="/diamond-badge.svg"
+                          rectangle205="/diamond-badge-1.svg"
+                          diamond="Diamond"
+                          teachingLearning="Teaching & Learning"
+                        />
+                      </div>
+                    </>
+                  );
+                })}
+              </>
+            ) : (
+              <div>Ratings Under Assessment</div>
+            )}
           </div>
         </div>
       </div>
