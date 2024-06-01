@@ -86,7 +86,7 @@ const Header: FunctionComponent = () => {
 
       <div className="hidden md:block text-sm md:text-base">
         <div className="flex flex-col items-center justify-center h-28   ">
-          <div className="h-1/3 flex w-full  justify-end gap-x-7 h-full items-center border-b py-5">
+          <div className="h-1/3 flex w-full  justify-end gap-x-7  items-center border-b py-5">
             {menu.top_bar_menu.map((e: any) => (
               <Link
                 href={e.link}

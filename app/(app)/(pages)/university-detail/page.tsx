@@ -227,7 +227,7 @@ const SingleListingV2Approved = () => {
                     Established on {university?.established_on}
                   </div>
                 </div>
-                <div className="flex flex-row items-center justify-start gap-[10px]">
+                {/* <div className="flex flex-row items-center justify-start gap-[10px]">
                   <div className="flex flex-col items-center justify-center px-0 pb-0 w-5">
                     <img
                       className="w-4 h-5 relative z-[1] mq450:w-[10px]"
@@ -243,7 +243,7 @@ const SingleListingV2Approved = () => {
                   >
                     Central Board of Secondary Education (CBSE)
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* width: 698px;
 height: 675.02px;
