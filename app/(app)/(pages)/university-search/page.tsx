@@ -38,6 +38,7 @@ import { orange } from "@mui/material/colors";
 
 const CollectionPageV2Approved: FunctionComponent = () => {
   const fontSize = useCalculateFontSize();
+  const today = new Date().toISOString();
   const params = useSearchParams();
   const [universities, setUniversities] = useState<any>([]);
   const [states, setStates] = useState<any>([]);
@@ -94,6 +95,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
           like: filter.institution_name || undefined, // Adjust the search term as needed
         },
         "ratings.e-lead": { equals: filter.elead },
+        expiring_date: { greater_than: today },
       },
     })
       .then((data) => setUniversities(data.docs))
@@ -197,7 +199,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
   const handleClickSortByRating = () => {};
   return (
     <div className="university-search flex flex-col">
-      <div className="bg-papayawhip box-border md:h-32 border-[1px] border-solid border-orange-200 flex items-center justify-between w-full md:px-[150px] mdm:px-5 mdm:py-5">
+      <div className="bg-papayawhip box-border md:h-32 border-[1px] border-solid border-orange-200 flex items-center justify-between w-full md:px-[100px] mdm:px-5 mdm:py-5">
         <b className="text-[36px] font-libre-baskerville  md:h-11 mdm:text-base">
           Top Rated Scools
         </b>
@@ -207,9 +209,9 @@ const CollectionPageV2Approved: FunctionComponent = () => {
           <span>{` Rated Institution `}</span>
         </div>
       </div>
-      <section className="md:mt-[71px] md:mx-[150px] mdm:px-5 mb-5">
+      <section className="md:mt-[71px] md:mx-[50px] lg:mx-[110px] mdm:px-5 mb-5">
         <div className="grid grid-cols-12 gap-[50px] mdm:grid-cols-3 mdm:gap-10">
-          <div className="col-span-2 border-[1px] border-whitesmoke-100 flex flex-col p-[16px] gap-[15px] mdm:hidden">
+          <div className="col-span-3 border-[1px] border-whitesmoke-100 flex flex-col p-[16px] gap-[15px] mdm:hidden">
             <div className="text-[29px] font-semibold"> Filter</div>
             <div className="text-[16.13px]">Filter by location</div>
 
@@ -353,6 +355,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
               </Select>
             </FormControl>
             <FormControlLabel
+              className="font-red-hat-text"
               control={
                 <Checkbox
                   onChange={(e: any) => handleChangeCheckBox("elead", e)}
@@ -385,7 +388,7 @@ const CollectionPageV2Approved: FunctionComponent = () => {
             <div className="bg-white box-border  border-[1px] border- border-whitesmoke-100 my-[20px]" />
           </div>
 
-          <div className="col-span-3 md:col-span-10 flex flex-col w-full gap-10">
+          <div className="col-span-3 md:col-span-9 flex flex-col w-full gap-10">
             <div className="bordder border-red-500 flex justify-between mdm:flex-col mdm:gap-2">
               <div className="flex gap-10 mdm:flex-col mdm:gap-2">
                 <span

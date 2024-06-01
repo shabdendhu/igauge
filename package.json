@@ -29,8 +29,10 @@
     "bcryptjs": "^2.4.3",
     "classnames": "^2.5.1",
     "graphql": "^16.8.1",
+    "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "next": "^14.3.0-canary.7",
+    "next-cookies": "^2.0.3",
     "payload": "^3.0.0-beta.28",
     "react": "^18",
     "react-countup": "^6.5.3",
@@ -41,6 +43,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/js-cookie": "^3.0.6",
     "@types/lodash": "^4.17.1",
     "@types/node": "^20",
     "@types/react": "^18",

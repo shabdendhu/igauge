@@ -104,9 +104,9 @@ const Card = ({ university, filters }: any) => {
               }}
               className="tborder border-red-500 h-1/4 flex justify-between items-end text-xl font-red-hat-text mdm:text-[7px]"
             >
-              <div>Scholarships</div>
-              <div>1:16 Student/Faculty Ratio</div>
-              <div>M Size</div>
+              {university.keypoints.slice(0, 3).map((e: any, i: number) => (
+                <div key={i}>{e?.keypoint_title?.KeyPoint_title}</div>
+              ))}
             </div>
           </div>
           <div

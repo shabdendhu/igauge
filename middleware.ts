@@ -34,5 +34,5 @@ export default async function middleware(req: NextRequest) {
 
 // Routes Middleware should not run on
 export const config = {
-  matcher: ["/home"],
+  matcher: ["/compare", "/api/bookmarked-institutions"],
 };

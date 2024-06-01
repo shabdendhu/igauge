@@ -15,11 +15,15 @@ import Link from "next/link";
 import React, { FunctionComponent, useEffect, useState } from "react";
 import { fetchData } from "../services/institution";
 import Search from "@/app/(app)/components/v1/Header/Search";
+import { useRouter } from "next/navigation";
 const Header: FunctionComponent = () => {
   const [menu, setMenu] = useState({ mainItems: [], top_bar_menu: [] });
   const [state, setState] = React.useState(false);
+  const [general, setGeneral] = useState<any>({});
+  const router = useRouter();
   useEffect(() => {
     fetchData("/globals/header-menu", {}).then((e) => setMenu(e));
+    fetchData("/globals/general", {}).then((e) => setGeneral(e));
   }, []);
 
   const toggleDrawer = () => setState((e) => !e);
@@ -78,7 +82,8 @@ const Header: FunctionComponent = () => {
     <header className=" flex  justify-between items-center px-14  font-red-hat-display w-full h-auto font-normal  gap-x-10   z-50 bg-white  mb-0  sticky top-0 border-b">
       <div className="flex justify-center items-center w-[150px] h-[72px] md:w-[225px]">
         <img
-          className="object-fill h-full w-full md:pl-10"
+          onClick={() => router.push("/")}
+          className="object-fill h-full w-full md:pl-10 cursor-pointer"
           alt=""
           src="/igaugeinvertedrgb.svg"
         />
@@ -97,31 +102,41 @@ const Header: FunctionComponent = () => {
             ))}
 
             <div className="flex flex-row items-start justify-start gap-[13px]">
-              <img
-                className="h-[19px] w-[19px]  cursor-pointer"
-                alt=""
-                src="/frame-2.svg"
-              />
-              <img
-                className="h-[19px] w-[19px]  cursor-pointer"
-                alt=""
-                src="/frame-3.svg"
-              />
-              <img
-                className="h-[19px] w-[19px]  cursor-pointer"
-                alt=""
-                src="/twitter-1.svg"
-              />
-              <img
-                className="h-[15px] w-[15px]   cursor-pointer"
-                alt=""
-                src="/linkedin-new.svg"
-              />
-              <img
-                className="h-[15px] w-[15px] mt-[2px]  cursor-pointer"
-                alt=""
-                src="/youtube.svg"
-              />
+              <Link href={general?.facebook_url || ""}>
+                <img
+                  className="h-[19px] w-[19px]  cursor-pointer"
+                  alt=""
+                  src="/frame-2.svg"
+                />
+              </Link>
+              <Link href={general?.instagram_url || ""}>
+                <img
+                  className="h-[19px] w-[19px]  cursor-pointer"
+                  alt=""
+                  src="/frame-3.svg"
+                />
+              </Link>
+              <Link href={general?.twitter_url || ""}>
+                <img
+                  className="h-[19px] w-[19px]  cursor-pointer"
+                  alt=""
+                  src="/twitter-1.svg"
+                />
+              </Link>
+              <Link href={general?.linkedin_url || ""}>
+                <img
+                  className="h-[15px] w-[15px]   cursor-pointer"
+                  alt=""
+                  src="/linkedin-new.svg"
+                />
+              </Link>
+              <Link href={general?.youtube_url || ""}>
+                <img
+                  className="h-[15px] w-[15px] mt-[2px]  cursor-pointer"
+                  alt=""
+                  src="/youtube.svg"
+                />
+              </Link>
             </div>
           </div>
           <div className=" h-full w-full items-center ">

@@ -167,72 +167,73 @@ export default function CompareInstitutions() {
     // Iterate over selected universities
     selectedUniversities.ids.map((e, i) => {
       // Fetch data for each university
-      fetchData(selectedUniversities.type + "/" + e, { depth: 3 }).then(
-        (ele) => {
-          // Extract category ratings
-          const categoryRatings = ele.ratings["category-ratings"];
-          // Create a mapping of badge names to URLs
-          const badgeMapping = {};
-          categoryRatings.forEach((rating) => {
-            badgeMapping[rating?.category_name?.category_name] =
-              rating?.category_rating?.ribbon_image.url;
-          });
+      fetchData(selectedUniversities.type + "/" + e, {
+        depth: 3,
+        filter: {},
+      }).then((ele) => {
+        // Extract category ratings
+        const categoryRatings = ele.ratings["category-ratings"];
+        // Create a mapping of badge names to URLs
+        const badgeMapping = {};
+        categoryRatings.forEach((rating) => {
+          badgeMapping[rating?.category_name?.category_name] =
+            rating?.category_rating?.ribbon_image.url;
+        });
 
-          // Create the coreCriteria array
-          const coreCriteria = criteria.coreCriteria.map(
-            (category) => badgeMapping[category.name] || "NA"
-          );
+        // Create the coreCriteria array
+        const coreCriteria = criteria.coreCriteria.map(
+          (category) => badgeMapping[category.name] || "NA"
+        );
 
-          const subjectRatings = ele.ratings.subject_ratings;
-          // Create a mapping of badge names to URLs
-          const subjectBadgeMapping = {};
-          subjectRatings.forEach((rating) => {
-            subjectBadgeMapping[rating?.subject_name?.subject_name] =
-              rating?.subject_rating?.ribbon_image.url;
-          });
+        const subjectRatings = ele.ratings.subject_ratings;
+        // Create a mapping of badge names to URLs
+        const subjectBadgeMapping = {};
+        subjectRatings.forEach((rating) => {
+          subjectBadgeMapping[rating?.subject_name?.subject_name] =
+            rating?.subject_rating?.ribbon_image.url;
+        });
 
-          // Create the coreCriteria array
-          const advancedCriteria = criteria.advancedCriteria.map(
-            (category) => subjectBadgeMapping[category.name] || "NA"
-          );
+        // Create the coreCriteria array
+        const advancedCriteria = criteria.advancedCriteria.map(
+          (category) => subjectBadgeMapping[category.name] || "NA"
+        );
 
-          const others = ele.ratings.other_factors;
+        const others = ele.ratings.other_factors;
 
-          // Create a mapping of badge names to URLs
-          const othersMaping = {};
-          others.forEach((rating) => {
-            othersMaping[rating?.other_factor?.other_factors] =
-              rating?.factor_value;
-          });
+        // Create a mapping of badge names to URLs
+        const othersMaping = {};
+        others.forEach((rating) => {
+          othersMaping[rating?.other_factor?.other_factors] =
+            rating?.factor_value;
+        });
 
-          // Create the coreCriteria array
-          const otherFactors = criteria.otherFactors.map(
-            (category) => othersMaping[category.name] || "NA"
-          );
-          console.log(otherFactors);
-          // check if ele.institution_name available in universities
-          // if not available then push ele.institution_name in universities
-          // else skip
+        // Create the coreCriteria array
+        const otherFactors = criteria.otherFactors.map(
+          (category) => othersMaping[category.name] || "NA"
+        );
+        console.log(otherFactors);
+        // check if ele.institution_name available in universities
+        // if not available then push ele.institution_name in universities
+        // else skip
 
-          setUniversities((prevUniversities) => {
-            if (!prevUniversities.some((uni) => uni.id === ele.id)) {
-              // If not, add the university with its coreCriteria
-              return [
-                ...prevUniversities,
-                {
-                  id: ele.id,
-                  name: ele.institution_name,
-                  coreCriteria,
-                  advancedCriteria,
-                  otherFactors,
-                },
-              ];
-            }
-            // If already present, return the previous state
-            return prevUniversities;
-          });
-        }
-      );
+        setUniversities((prevUniversities) => {
+          if (!prevUniversities.some((uni) => uni.id === ele.id)) {
+            // If not, add the university with its coreCriteria
+            return [
+              ...prevUniversities,
+              {
+                id: ele.id,
+                name: ele.institution_name,
+                coreCriteria,
+                advancedCriteria,
+                otherFactors,
+              },
+            ];
+          }
+          // If already present, return the previous state
+          return prevUniversities;
+        });
+      });
     });
   };
 

@@ -70,7 +70,7 @@ const BlogsV2Approved: NextPage = () => {
           </>
         }
       />
-      <div className="max-w-[1920px] m-auto px-6 md:px-[150px] pt-20">
+      <div className="max-w-[1920px] m-auto px-6 md:px-[100px] pt-20">
         <div className="w-full block md:hidden ">
           <div className="flex justify-center items-center px-5  w-full    h-10  ">
             <div className="flex w-full h-full justify-start items-center  rounded-sm ">
@@ -164,9 +164,11 @@ const BlogsV2Approved: NextPage = () => {
                   <div className="flex items-center justify-start  px-3  gap-2">
                     <input
                       type="checkbox"
-                      className="w-4 h-4  accent-orange-200 rounded-full "
+                      className="w-4 h-4  accent-orange-200"
                     />
-                    <label htmlFor="">{e?.blog_category_name}</label>
+                    <label className="font-red-hat-text font-normal">
+                      {e?.blog_category_name}
+                    </label>
                   </div>
                 </div>
               ))}
